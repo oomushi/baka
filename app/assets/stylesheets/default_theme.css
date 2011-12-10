@@ -1,0 +1,128 @@
+body{
+  background: #c0deed url('../images/escer.png') no-repeat fixed left bottom;
+}
+section.main{
+  background: #fffff0 url('../images/baka.png') repeat-y scroll top left;
+}
+header.main{
+  background: black;
+  color: white;
+}
+header a.button{
+  text-decoration:none;
+  color: white;
+}
+footer.main{
+  color: rgba(0,0,0,0.85);
+}
+footer.main a{
+  color: inherit;
+}
+aside.login{
+  background:#b3daf7;
+}
+a.button{
+  color: black;
+}
+a.new{
+  background: #000 url('../images/new.png') left center no-repeat;
+}
+a.new:hover{
+  background: #000 url('../images/newh.png') left center no-repeat;
+}
+a.exp{
+  background: #000 url('../images/exp.png') left center no-repeat;
+}
+a.exp:hover{
+  background: #000 url('../images/exph.png') left center no-repeat;
+}
+section.main article{
+  background: #ff0;
+  border: 1px solid #000;
+}
+article header{
+  background: #000;
+  color: #fff;
+}
+/* ribbon style */
+.ribbon-wrapper {
+  position: relative;
+  display: block;
+}
+article nav{
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  background-color: #e2062c;
+  height: 1.5em;
+  position: relative;
+  left:3px;
+  top:3px;
+  z-index: 2;
+}
+article nav,
+.ribbon-back-left,
+.ribbon-back-right {
+}
+.ribbon-edge-topleft,
+.ribbon-edge-topright,
+.ribbon-edge-bottomleft,
+.ribbon-edge-bottomright {
+  position: absolute;
+  z-index: 1;
+  border-style:solid;
+  height:0px;
+  width:0px;
+}
+.ribbon-edge-bottomleft,
+.ribbon-edge-bottomright {
+  top: 20px;
+}
+.ribbon-edge-topleft,
+.ribbon-edge-bottomleft {
+  left: 0px;
+  border-color: transparent #99c transparent transparent;
+}
+.ribbon-edge-topleft {
+  top: 0px;
+  border-width: 0px 0px 0 0;
+}
+.ribbon-edge-bottomleft {
+  border-width: 0 0px 0px 0;
+}
+.ribbon-edge-topright,
+.ribbon-edge-bottomright {
+  top:-2px;
+  border-color: transparent transparent transparent #d2061c;
+}
+.ribbon-edge-topright {
+  border-width: 2px 0 0 2px;
+  right:1px;  
+}
+.ribbon-edge-bottomright {
+  border-width: 0 0 0px 10px;
+}
+.ribbon-back-left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 20px;
+  z-index: 0;
+}
+.ribbon-back-right {
+  position: absolute;
+  top: 0px;
+  right: -2em;
+  z-index: 0;
+  border-bottom-color: #e2001c;
+  border-bottom-style: solid;
+  border-bottom-width: 0.75em;
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-right-width: 0.75em;
+  border-top-color: #e2001c;
+  border-top-style: solid;
+  border-top-width: 0.5em;
+  height: 0px;
+  width: 20px;
+}
+
