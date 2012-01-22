@@ -13,12 +13,14 @@
 # gem 'pg'
 #
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
   database: baka_development
   pool: 5
-  username: baka
+  username: root
   password:
+  host: localhost
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
