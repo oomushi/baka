@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  text: MyString
+  section: 
+  lft: 
+  rgt: 
+  title: MyString
+  message_id: 
+  user_id: 
+
+two:
+  text: MyString
+  section: 
+  lft: 
+  rgt: 
+  title: MyString
+  message_id: 
+  user_id: 
