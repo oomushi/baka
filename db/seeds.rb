@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+admin = User.create({
+  :username=>'Admin',
+  :email=>'admin@baka.com',
+  :birthday=>Date.new(1982,12,29),
+})
+root = Message.create {
+  :text => "Questo non lo leggerà nessuno",
+  :title => "ROOT title",
+  :section=>true,
+  :message_id=>1,   
+  :user_id=>admin.id
+}
