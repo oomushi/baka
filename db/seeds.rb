@@ -10,10 +10,13 @@ admin = User.create({
   :email=>'admin@baka.com',
   :birthday=>Date.new(1982,12,29),
 })
-root = Message.create {
-  :text => "Questo non lo leggerà nessuno",
+root = Message.create({
+  :text => "Questo non lo leggera' nessuno",
   :title => "ROOT title",
-  :section=>true,
+  :section=>1,
+  :pinned=>1,
   :message_id=>1,   
-  :user_id=>admin.id
-}
+  :user_id=>admin.id,
+  :lft=>1,
+  :rgt=>2
+})
