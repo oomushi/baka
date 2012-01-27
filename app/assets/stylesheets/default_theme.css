@@ -1,8 +1,8 @@
 body{
-  background: #c0deed url('../images/escer.png') no-repeat fixed left bottom;
+  background: #c0deed url('/assets/escer.png') no-repeat fixed left bottom;
 }
 section.main{
-  background: #fffff0 url('../images/baka.png') repeat-y scroll top left;
+  background: #fffff0 url('/assets/baka.png') repeat-y scroll top left;
 }
 header.main{
   background: black;
@@ -25,16 +25,16 @@ a.button{
   color: black;
 }
 a.new{
-  background: #000 url('../images/new.png') left center no-repeat;
+  background: #000 url('/assets/new.png') left center no-repeat;
 }
 a.new:hover{
-  background: #000 url('../images/newh.png') left center no-repeat;
+  background: #000 url('/assets/newh.png') left center no-repeat;
 }
 a.exp{
-  background: #000 url('../images/exp.png') left center no-repeat;
+  background: #000 url('/assets/exp.png') left center no-repeat;
 }
 a.exp:hover{
-  background: #000 url('../images/exph.png') left center no-repeat;
+  background: #000 url('/assets/exph.png') left center no-repeat;
 }
 section.main article{
   background: #ff0;
