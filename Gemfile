@@ -35,5 +35,4 @@ gem 'jquery-rails'
 # gem 'ruby-debug'
 gem 'devise'
 gem 'cancan'
-gem 'hairtrigger'
 
