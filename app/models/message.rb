@@ -7,10 +7,10 @@ class Message < ActiveRecord::Base
   before_destroy :reset_lft_and_rgt
 
   def ancestors
-    Message.where("lft<=? and rgt>=?",self.lft,self.rgt).order("created_at")
+    Message.where("lft<=? and rgt>=? and section=0",self.lft,self.rgt).order("created_at")
   end
   def offsprings
-    Message.where("lft>? and rgt<?",self.lft,self.rgt).order("created_at")
+    Message.where("lft>? and rgt<? and section=0",self.lft,self.rgt).order("created_at")
   end
 
   protected
