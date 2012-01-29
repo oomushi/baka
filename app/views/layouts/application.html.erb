@@ -5,21 +5,46 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/icon.png" type="image/png"/>
+
 </head>
 <body>
-  <div id="user_nav">
-  <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
-  <% else %>
-    <%= link_to "Sign up", sign_up_path %> or
-    <%= link_to "log in", log_in_path %>
-  <% end %>
-  </div>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
+  <header class="main">
+  <a href="/"><img src="/assets/logo.png" alt="バカ"/></a>
+  <nav>
+  <%
+=begin
+  <% if current_user 
+    <%= link_to current_user.username, logout_path,:class=>"button",:title=>"logout" 
+  <% else 
+      <%= link_to "Sign up", signup_path,:class=>"button"  or
+      <%= link_to_function "login", "$('#login').show('smooth');",:class=>"button" 
+  <% end 
+=end
+%>
+  </nav>
+    </header>
+    <aside class="login" id="login" hidden>
+    <%= link_to_function 'x',"$('#login').hide('smooth');",:class=>"button" %>
+    <%= form_tag sessions_path do %>
+      <p><%= label_tag :email %><br />
+      <%= text_field_tag :email, params[:email] %></p>
+      <p><%= label_tag :password %><br />
+      <%= password_field_tag :password %></p>
+      <p class="button"><%= submit_tag "Log in" %></p>
+    <% end %>
+    </aside>
+    <% flash.each do |name, msg| %>
+        <%= content_tag :aside, msg, :id => "flash_#{name}",:class=>"messages" %>
+    <% end %>
+<div id="center">
+<section class="main">
 <%= yield %>
-
+</section>
+</div>
+<footer class="main">
+<span  class="brand baka">Baka</span> &egrave; un prodotto <a href="http://www.google.com" class="brand macrobug">Macrobug</a>
+</footer>
 </body>
 </html>
