@@ -2,18 +2,20 @@
 
 one:
   text: MyString
-  section: 
-  lft: 
-  rgt: 
+  section: false
+  pinned: false
+  lft: 1
+  rgt: 1
   title: MyString
-  message_id: 
-  user_id: 
+  message_id: 1
+  user_id: 1
 
 two:
   text: MyString
-  section: 
-  lft: 
-  rgt: 
+  section: false
+  pinned: false
+  lft: 1
+  rgt: 1
   title: MyString
-  message_id: 
-  user_id: 
+  message_id: 1
+  user_id: 1

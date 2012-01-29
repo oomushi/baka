@@ -25,23 +25,23 @@ class MessagesControllerTest < ActionController::TestCase
   end
 
   test "should show message" do
-    get :show, id: @message.to_param
+    get :show, id: @message
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @message.to_param
+    get :edit, id: @message
     assert_response :success
   end
 
   test "should update message" do
-    put :update, id: @message.to_param, message: @message.attributes
+    put :update, id: @message, message: @message.attributes
     assert_redirected_to message_path(assigns(:message))
   end
 
   test "should destroy message" do
     assert_difference('Message.count', -1) do
-      delete :destroy, id: @message.to_param
+      delete :destroy, id: @message
     end
 
     assert_redirected_to messages_path

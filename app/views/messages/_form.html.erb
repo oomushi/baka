@@ -17,15 +17,19 @@
   </div>
   <div class="field">
     <%= f.label :section %><br />
-    <%= f.text_field :section %>
+    <%= f.check_box :section %>
+  </div>
+  <div class="field">
+    <%= f.label :pinned %><br />
+    <%= f.check_box :pinned %>
   </div>
   <div class="field">
     <%= f.label :lft %><br />
-    <%= f.text_field :lft %>
+    <%= f.number_field :lft %>
   </div>
   <div class="field">
     <%= f.label :rgt %><br />
-    <%= f.text_field :rgt %>
+    <%= f.number_field :rgt %>
   </div>
   <div class="field">
     <%= f.label :title %><br />
@@ -33,11 +37,11 @@
   </div>
   <div class="field">
     <%= f.label :message_id %><br />
-    <%= f.text_field :message_id %>
+    <%= f.number_field :message_id %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+    <%= f.number_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -12,16 +12,24 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.label :password_hash %><br />
+    <%= f.text_field :password_hash %>
   </div>
   <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
+    <%= f.label :password_salt %><br />
+    <%= f.text_field :password_salt %>
+  </div>
+  <div class="field">
+    <%= f.label :confirm_code %><br />
+    <%= f.text_field :confirm_code %>
   </div>
   <div class="field">
     <%= f.label :sign %><br />
@@ -30,6 +38,10 @@
   <div class="field">
     <%= f.label :avatar %><br />
     <%= f.text_field :avatar %>
+  </div>
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,18 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+<p>
   <b>Email:</b>
   <%= @user.email %>
 </p>
 
 <p>
-  <b>Password:</b>
-  <%= @user.password %>
+  <b>Password hash:</b>
+  <%= @user.password_hash %>
 </p>
 
 <p>
-  <b>Birthday:</b>
-  <%= @user.birthday %>
+  <b>Password salt:</b>
+  <%= @user.password_salt %>
+</p>
+
+<p>
+  <b>Confirm code:</b>
+  <%= @user.confirm_code %>
 </p>
 
 <p>
@@ -23,6 +33,11 @@
 <p>
   <b>Avatar:</b>
   <%= @user.avatar %>
+</p>
+
+<p>
+  <b>Birthday:</b>
+  <%= @user.birthday %>
 </p>
 
 
