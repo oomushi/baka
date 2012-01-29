@@ -11,10 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124174912) do
+ActiveRecord::Schema.define(:version => 20120124175057) do
 
-  create_table "users", :id => false, :force => true do |t|
-    t.integer "id"
+  create_table "messages", :force => true do |t|
+    t.string   "text",                          :null => false
+    t.boolean  "section",    :default => false
+    t.boolean  "pinned",     :default => false
+    t.integer  "lft",                           :null => false
+    t.integer  "rgt",                           :null => false
+    t.string   "title",                         :null => false
+    t.integer  "message_id",                    :null => false
+    t.integer  "user_id",                       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "username",                                             :null => false
+    t.string   "email",                                                :null => false
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.string   "confirm_code"
+    t.string   "sign"
+    t.string   "avatar",        :default => "/assets/users/guest.png"
+    t.date     "birthday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end
