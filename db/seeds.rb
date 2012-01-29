@@ -5,11 +5,14 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
-admin = User.create({
-  :username=>'Admin',
-  :email=>'admin@baka.com',
-  :birthday=>Date.new(1982,12,29),
-})
+admin = User.new
+admin.username='Admin' 
+admin.email='admin@baka.com'
+admin.birthday=Date.new(1982,12,29)
+admin.avatar='/assets/users/admin.png'
+admin.password='sunset'
+admin.password_confirmation='sunset'
+admin.save
 root = Message.create({
   :text => "Questo non lo leggera' nessuno",
   :title => "ROOT title",
