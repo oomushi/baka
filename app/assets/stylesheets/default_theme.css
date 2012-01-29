@@ -125,4 +125,23 @@ article nav,
   height: 0px;
   width: 20px;
 }
+@font-face {
+    font-family: 'Twit';
+    src: url('/assets/twit.eot');
+    src: url('/assets/twit.woff') format('woff'),
+         url('/assets/twit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Cretino';
+    src: url('/assets/cretino.eot');
+    src: url('/assets/cretino.woff') format('woff'),
+         url('/assets/cretino.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
