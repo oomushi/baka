@@ -64,8 +64,13 @@ aside.login{
   right:1%;
   top: 3em;
 }
-a.button{
+a{
   text-decoration:none;
+}
+header nav{
+  display: inline;
+}
+a.button{
   padding:0px 2px 1px 16px;
 }
 section.main article{
