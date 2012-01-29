@@ -51,7 +51,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: baka_production
-  pool: 5
-  username: baka
-  password:
+  database: zvvhitwoqf
+  port: 5432
+  username: zvvhitwoqf
+  password: BZaCmVYLJTrC7lU-FF6c
+  host: ec2-107-22-181-228.compute-1.amazonaws.com
