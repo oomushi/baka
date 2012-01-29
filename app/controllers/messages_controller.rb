@@ -2,22 +2,18 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @messages }
-    end
+    redirect_to :action=>'show',:id=>1
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
-    @message = Message.find(params[:id])
-
+    flash.now.alert = "Invalid username or password"
+    message = Message.find(params[:id])
+    @messages = message.messages.where('id<>?',params[:id]).order("section desc, pinned desc")# REM questo serve in root per non includere sé stessi
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @message }
+      format.html {render( message.section ? :index : :show)}  # index.html.erb | show.html.erb
+      format.json { render json: @messages }
     end
   end
 
