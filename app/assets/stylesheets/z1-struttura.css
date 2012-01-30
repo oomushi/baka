@@ -40,7 +40,7 @@ section.main{
   box-shadow:10px 10px 20px #000;
 }
 header a.button{
-  position: absolute:
+  position: absolute;
   padding:0px;
   padding-left: 16px;
   margin:1px 2px 0px 2px;
@@ -101,7 +101,7 @@ article nav{
 }
 article nav a{
   text-decoration:none;
-  position: relative:
+  position: relative;
   padding:0px;
   padding-left: 16px;
   margin:1px 2px 0px 2px;
