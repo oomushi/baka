@@ -1,7 +1,7 @@
 class CreateMessages < ActiveRecord::Migration
   def change
     create_table :messages do |t|
-      t.string :text,:null=>false
+      t.text :text,:null=>false
       t.boolean :section,:default=>false
       t.boolean :pinned,:default=>false
       t.integer :lft,:null=>false

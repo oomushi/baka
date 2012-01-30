@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120124175057) do
 
   create_table "messages", :force => true do |t|
-    t.string   "text",                          :null => false
+    t.text     "text",                          :null => false
     t.boolean  "section",    :default => false
     t.boolean  "pinned",     :default => false
     t.integer  "lft",                           :null => false
