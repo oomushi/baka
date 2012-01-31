@@ -10,7 +10,13 @@ class MessagesController < ApplicationController
   def show
     flash.now.alert = "Invalid username or password"
     message = Message.find(params[:id])
-    @messages = message.messages.where('id<>?',params[:id]).order("section desc, pinned desc")# REM questo serve in root per non includere sé stessi
+    if message.section
+      @messages = message.messages.where('id<>?',params[:id]).order("section desc, pinned desc, created_at desc")# REM questo serve in root per non includere sé stessi
+      @message=message
+    else
+      @messages = message.ancestors
+      @message = @messages.first.message
+    end
     respond_to do |format|
       format.html {render( message.section ? :index : :show)}  # index.html.erb | show.html.erb
       format.json { render json: @messages }
