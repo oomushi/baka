@@ -1,31 +1,26 @@
-<h1>Listing messages</h1>
-
 <table>
   <tr>
-    <th>Text</th>
     <th>Section</th>
-    <th>Pinned</th>
-    <th>Lft</th>
-    <th>Rgt</th>
     <th>Title</th>
-    <th>Message</th>
-    <th>User</th>
-    <th></th>
+    <th>Last message</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @messages.each do |message| %>
-  <tr>
-    <td><%= message.text %></td>
-    <td><%= message.section %></td>
-    <td><%= message.pinned %></td>
-    <td><%= message.lft %></td>
-    <td><%= message.rgt %></td>
-    <td><%= message.title %></td>
-    <td><%= message.message_id %></td>
-    <td><%= message.user_id %></td>
-    <td><%= link_to 'Show', message %></td>
+    <tr class="<%= message.pinned ? 'pinned' : '' %>" onclick="location.href='<%= message_path(message) %>'">
+    <td><%= message.section ? '木' : '本' %></td>
+    <td><h2><%= message.title %></h2><%= message.text %></td>
+    <td>
+        <% if message.offsprings.count.zero? %>
+        Nessun messaggio
+        <% else 
+          last=message.offsprings.last %>
+          <%= link_to last.title, last %>
+          <%= last.user.username %>
+          <%= last.created_at %>
+        <% end %>
+    </td>
     <td><%= link_to 'Edit', edit_message_path(message) %></td>
     <td><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
