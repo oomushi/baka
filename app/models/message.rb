@@ -4,6 +4,7 @@ class Message < ActiveRecord::Base
   has_many :messages
   before_create :set_lft_and_rgt
   after_create :update_lft_and_rgt
+  before_destroy :destroyable?
   before_destroy :reset_lft_and_rgt
 
   def ancestors
@@ -12,8 +13,18 @@ class Message < ActiveRecord::Base
   def offsprings
     Message.where("lft>? and rgt<? and section=false",self.lft,self.rgt).order("created_at")
   end
+  
+  def deletable?
+    messages.count.zero?
+  end
 
   protected
+  def destroyable?
+    unless deletable?
+      errors.add :base,"cannot delete message with replayes"
+      false
+    end
+  end
   def set_lft_and_rgt
     if self.lft.nil? or self.rgt.nil?
       parent=Message.find self.message_id
