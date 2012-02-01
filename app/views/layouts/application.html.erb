@@ -38,11 +38,9 @@
     <% flash.each do |name, msg| %>
         <%= content_tag :aside, msg, :id => "flash_#{name}",:class=>"messages" %>
     <% end %>
-<div id="center">
 <section class="main">
 <%= yield %>
 </section>
-</div>
 <footer class="main">
 <span  class="brand baka">Baka</span> &egrave; un prodotto <a href="http://www.google.com" class="brand macrobug">Macrobug</a>
 </footer>
