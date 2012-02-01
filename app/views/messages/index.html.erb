@@ -11,8 +11,9 @@
 <% @messages.each do |message| %>
     <tr class="<%= message.pinned ? 'pinned' : '' %>" onclick="location.href='<%= message_path(message) %>'">
     <td><%= message.section ? '木' : '本' %></td>
-    <td><h2><%= message.title %></h2><%= message.text %></td>
+    <td><h2><%= message.title %></h2><%= message.section ? message.text : '' %></td>
     <td>
+	<% if message.section %>
         <% if message.offsprings.count.zero? %>
         Nessun messaggio
         <% else 
@@ -20,10 +21,10 @@
           <%= link_to last.title, last %>
           <%= last.user.username %>
           <%= last.created_at %>
-        <% end %>
+        <% end %><% end %>
     </td>
-    <td><%= link_to 'Edit', edit_message_path(message) %></td>
-    <td><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) if message.section %></td>
+    <td><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if message.section %></td>
   </tr>
 <% end %>
 </table>
