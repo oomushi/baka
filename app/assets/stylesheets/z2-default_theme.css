@@ -1,8 +1,18 @@
 body{
   background: #c0deed url('/assets/escer.png') no-repeat fixed left bottom;
 }
-section.main{
-  background: #fffff0 url('/assets/baka.png') repeat-y scroll top left;
+a:hover{
+  color: #ff7f50;
+}
+tr.pinned{
+  background: #3f2112 url('/assets/recse.png') no-repeat fixed left bottom;
+  color: #ccc;
+}
+tr.pinned a{
+  color: #ccc;
+}
+tr.pinned a:hover{
+  color: #0080af;
 }
 header.main{
   background: black;
