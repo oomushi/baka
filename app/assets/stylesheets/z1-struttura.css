@@ -11,10 +11,6 @@ body{
   border:0px;
   margin-bottom: 2em;
 }
-div#center{
-  min-height: 95%;
-  display:block;
-}
 header.main{
   text-align:left;
   position: fixed;
@@ -29,11 +25,12 @@ header.main{
 }
 section.main{
   text-align:center;
-  padding:20px 5px 40px 5px;
+  padding:20px 5px 0px 5px;
   margin-top:2.4em;
-  margin-bottom: 10px;
   top:1.1em;
   align: center;
+  min-height: 94%;
+  display:block;
 }
 header a.button{
   position: absolute;
@@ -70,12 +67,12 @@ a.button{
   padding:0px 2px 1px 16px;
 }
 section.main article{
-  max-width: 90%;
+  max-width: 98%;
   display: inline-block;
   align:center;
   text-align:left;
-  border-radius: 20px;
-  margin: 0px 5% 25px 5%;
+  border-top-left-radius: 20px;
+  margin-bottom: 25px;
   box-shadow:10px 10px 20px #000;
 }
 article section{
@@ -107,4 +104,8 @@ article nav a{
 }
 article nav a:hover{
   opacity: 1.0;
+}
+section.main table{
+  border-collapse: collapse;
+  border-spacing:0px;
 }

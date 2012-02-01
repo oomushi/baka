@@ -1,17 +1,20 @@
 body{
   background: #c0deed url('/assets/escer.png') no-repeat fixed left bottom;
 }
-a:hover{
+section.main article{
+  background: #fffff0 url('/assets/baka.png') repeat-y scroll left bottom;
+  border: 1px solid #000;
+}
+td.clickable:hover, a:hover{
   color: #ff7f50;
 }
 tr.pinned{
   background: #3f2112 url('/assets/recse.png') no-repeat fixed left bottom;
+}
+tr.pinned a, tr.pinned{
   color: #ccc;
 }
-tr.pinned a{
-  color: #ccc;
-}
-tr.pinned a:hover{
+tr.pinned > td.clickable:hover, tr.pinned a:hover{
   color: #0080af;
 }
 header.main{
@@ -45,10 +48,6 @@ a.exp{
 }
 a.exp:hover{
   background: #000 url('/assets/exph.png') left center no-repeat;
-}
-section.main article{
-  background: #ff0;
-  border: 1px solid #000;
 }
 article header{
   background: #000;
