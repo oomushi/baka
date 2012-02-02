@@ -22,8 +22,8 @@
           <%= link_to last.user.username,last.user %>
         <% end %><% end %>
     </td>
-    <td><%= link_to 'Edit', edit_message_path(message) if message.section %></td>
-    <td><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if message.section %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) if message.section and message.deletable? %></td>
+    <td><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if message.section and message.deletable? %></td>
   </tr>
 <% end %>
 </table>

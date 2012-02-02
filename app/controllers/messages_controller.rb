@@ -37,6 +37,13 @@ class MessagesController < ApplicationController
   # GET /messages/1/edit
   def edit
     @message = Message.find(params[:id])
+    unless @message.deletable?
+      @message.errors.add :base, "message cannot be edited"
+      respond_to do |format|
+        format.html { render action: "new" }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /messages
