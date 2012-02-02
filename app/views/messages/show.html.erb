@@ -1,4 +1,8 @@
-<%=@message.title%>
+<%
+  last=@path.last	
+  @path.each do |message| %>
+  <%= link_to message.title,message %><%= ' > ' if message!=last%>
+<% end %>
 <div style="clear:both;"></div>
 <% @messages.each do |message| %>
 <article>

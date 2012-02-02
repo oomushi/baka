@@ -1,4 +1,8 @@
-<%= @message.title %>
+<%
+  last=@path.last	
+  @path.each do |message| %>
+  <%= link_to message.title,message %><%= ' > ' if message!=last%>
+<% end %>
 <table>
   <tr>
     <th>Section</th>

@@ -13,6 +13,9 @@ class Message < ActiveRecord::Base
   def offsprings
     Message.where("lft>? and rgt<? and section=false",self.lft,self.rgt).order("created_at")
   end
+  def paths
+    Message.where("lft<=? and rgt>=? and section=true",self.lft,self.rgt).order("created_at")
+  end
   
   def deletable?
     messages.count.zero?
