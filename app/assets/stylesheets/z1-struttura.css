@@ -33,12 +33,9 @@ section.main{
   display:block;
 }
 header a.button{
-  position: absolute;
   padding:0px;
   padding-left: 16px;
   margin:1px 2px 0px 2px;
-  right:0px;
-  float:right;
 }
 footer.main{
   text-align:left;
@@ -62,12 +59,14 @@ a{
 }
 header nav{
   display: inline;
+  float: right;
 }
 a.button{
   padding:0px 2px 1px 16px;
 }
 section.main article{
   max-width: 98%;
+  width: 98%;
   display: inline-block;
   align:center;
   text-align:left;
@@ -108,4 +107,7 @@ article nav a:hover{
 section.main table{
   border-collapse: collapse;
   border-spacing:0px;
+  width: 98%;
+  max-width: 98%;
+  margin-left:1%;
 }

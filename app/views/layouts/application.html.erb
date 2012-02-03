@@ -16,7 +16,7 @@
   <% if defined? current_user %>
     <%= link_to current_user.username, logout_path,:class=>"button",:title=>"logout" %>
   <% else %>
-      <%= link_to "Sign up", signup_path,:class=>"button" %> or
+      <%= link_to "Sign up", signup_path,:class=>"button" %>
       <%= link_to_function "login", "$('#login').show('smooth');",:class=>"button" %>
   <% end %>
   </nav>
