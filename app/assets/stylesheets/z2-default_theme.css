@@ -37,17 +37,23 @@ aside.login{
 a.button{
   color: black;
 }
-a.new{
-  background: #000 url('/assets/new.png') left center no-repeat;
+a.signup{
+  background: #000 url('/assets/sign.png') left center no-repeat;
 }
-a.new:hover{
-  background: #000 url('/assets/newh.png') left center no-repeat;
+td.leaf{
+  background: url('/assets/leaf.png') left center no-repeat;
 }
-a.exp{
-  background: #000 url('/assets/exp.png') left center no-repeat;
+td.tree{
+  background: url('/assets/tree.png') left center no-repeat;
 }
-a.exp:hover{
-  background: #000 url('/assets/exph.png') left center no-repeat;
+a.signup:hover{
+  background: #000 url('/assets/signh.png') left center no-repeat;
+}
+a.login{
+  background: #000 url('/assets/login.png') left center no-repeat;
+}
+a.login:hover{
+  background: #000 url('/assets/loginh.png') left center no-repeat;
 }
 article header{
   background: #000;

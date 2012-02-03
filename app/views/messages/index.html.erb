@@ -5,7 +5,6 @@
 <% end %>
 <table>
   <tr>
-    <th>Section</th>
     <th>Title</th>
     <th>Last message</th>
     <th></th>
@@ -14,8 +13,7 @@
 
 <% @messages.each do |message| %>
     <tr class="<%= message.pinned ? 'pinned' : '' %>" onclick="location.href='<%= message_path(message) %>'">
-    <td class="clickable"><%= message.section ? '木' : '本' %></td>
-    <td class="clickable"><h2><%= message.title %></h2><%= message.section ? message.text : '' %></td>
+    <td class="button clickable <%= message.section ? 'tree' : 'leaf' %>"><h2><%= message.title %></h2><%= message.section ? message.text : '' %></td>
     <td>
 	<% if message.section %>
         <% if message.offsprings.count.zero? %>
