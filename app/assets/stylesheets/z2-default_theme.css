@@ -55,6 +55,12 @@ a.login{
 a.login:hover{
   background: #000 url('/assets/loginh.png') left center no-repeat;
 }
+a.logout{
+  background: #000 url('/assets/logout.png') left center no-repeat;
+}
+a.logout:hover{
+  background: #000 url('/assets/logouth.png') left center no-repeat;
+}
 article header{
   background: #000;
   color: #fff;
