@@ -22,14 +22,16 @@
   </nav>
     </header>
     <aside class="login" id="login" hidden>
-    <%= link_to_function 'x',"$('#login').hide('smooth');",:class=>"button" %>
+    <header><nav>
+    <%= link_to_function 'x',"$('#login').hide('smooth');",:class=>"button" %></nav></header>
+    <article>
     <%= form_tag sessions_path do %>
       <p><%= label_tag :username %><br />
       <%= text_field_tag :username, params[:username] %></p>
       <p><%= label_tag :password %><br />
       <%= password_field_tag :password %></p>
       <p class="button"><%= submit_tag "Log in" %></p>
-    <% end %>
+  <% end %></article>
     </aside>
     <% flash.each do |name, msg| %>
         <%= content_tag :aside, msg, :id => "flash_#{name}",:class=>"messages" %>
@@ -38,7 +40,7 @@
 <%= yield %>
 </section>
 <footer class="main">
-<span  class="brand baka">Baka</span> &egrave; un prodotto <a href="http://www.google.com" class="brand macrobug">Macrobug</a>
+<a href="http://www.github.com/sadjehwty/baka" class="brand baka">Baka</a> &egrave; un prodotto <a href="http://www.google.com" class="brand macrobug">Macrobug</a>
 </footer>
 </body>
 </html>
