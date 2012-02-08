@@ -67,7 +67,7 @@ article header{
 }
 article nav{
   box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-  background-color: #e2062c;
+  background-image: -o-linear-gradient( top right, #e2062c,#000);
   height: 1.5em;
   position: relative;
   left:3px;
