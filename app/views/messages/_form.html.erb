@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_field :text %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :section %><br />
@@ -24,25 +24,11 @@
     <%= f.check_box :pinned %>
   </div>
   <div class="field">
-    <%= f.label :lft %><br />
-    <%= f.number_field :lft %>
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
   </div>
-  <div class="field">
-    <%= f.label :rgt %><br />
-    <%= f.number_field :rgt %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :message_id %><br />
-    <%= f.number_field :message_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
+  <%= f.hidden_field :message_id,:value=>@message.id %>
+  <%= f.hidden_field :user_id,:value=>@current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
