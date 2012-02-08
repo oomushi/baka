@@ -76,18 +76,17 @@ section.main article{
   border-top-left-radius: 20px;
   margin-bottom: 25px;
   box-shadow:10px 10px 20px #000;
+  clear:both;
 }
 article section{
   padding: 0px 1em 0px 1em;
   display: inline-block;
-  width: 100%;
 }
 article header{
   font-weight: bold;
   border-radius: 20px 0px 0px 0px;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 0px 0px 20px;
   clear: both;
-  float: left;
 }
 article nav{
   float:right;
@@ -113,4 +112,8 @@ section.main table{
   width: 98%;
   max-width: 98%;
   margin-left:1%;
+}
+aside.user span{
+  clear:both;
+  display:block;
 }

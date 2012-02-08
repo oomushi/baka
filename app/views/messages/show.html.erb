@@ -8,22 +8,26 @@
 <article>
   <header>
     <%= link_to message.title, message %><%= message.created_at %>
-    <nav><%= link_to 'Edit', edit_message_path(message) if defined? @current_user and message.deletable? and message.owner? @current_user %><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if defined? @current_user and message.deletable? and message.owner? @current_user %><%= link_to 'Replay', new_message_path if defined? @current_user %></nav>
+    <% if (defined? @current_user and message.deletable? and message.owner? @current_user) or defined? @current_user %>
+    <nav>
+      <%= link_to 'Edit', edit_message_path(message) if defined? @current_user and message.deletable? and message.owner? @current_user %>
+      <%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if defined? @current_user and message.deletable? and message.owner? @current_user %>
+      <%= link_to 'Replay', new_message_path if defined? @current_user %>
+    </nav>
+    <% end %>
   </header>
-  <section><%= message.text %></section>
-  <aside>
-  <ul>
-	  <li><%= message.user.username %></li>
-	  <li><img src="<%= message.user.avatar %>" alt="<%= message.user.username  %>"/></li>
-	  <li><%= message.user.created_at.to_s %></li>
-	  <li><%= message.user.birthday %></li>
-	  <li><%= message.user.messages.count %></li>
-  </ul>
+  <section><%= simple_format message.text %></section>
+  <aside class="user">
+    <h5><%= message.user.username %></h5>
+    <img src="<%= message.user.avatar %>" alt="<%= message.user.username  %>"/>
+    <span>Created at: <%= message.user.created_at.to_s %></span>
+    <span>Birthday: <%= message.user.birthday %></span>
+    <span>Message n.: <%= message.user.messages.count %></span>
+    </dl>
   </aside>
   <footer><nav>
   <% message.messages.each_with_index do |son,i| %><%= link_to i+1, son, :title=> son.user.username+" "+son.created_at.to_s unless @messages.include? son %>
   <% end %></nav>
   </footer>
 </article>
-<div style="clear:both;"></div>
 <% end %>
