@@ -7,13 +7,19 @@
 <% @messages.each do |message| %>
 <article>
   <header>
-    <%= message.title %><%= link_to 'Show', message %><%= message.created_at %>
-    <nav><%= link_to 'Edit', edit_message_path(message) %><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete %><%= link_to 'New Message', new_message_path %></nav>
+    <%= link_to message.title, message %><%= message.created_at %>
+    <nav><%= link_to 'Edit', edit_message_path(message) if defined? @current_user and message.deletable? and message.owner? @current_user %><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if defined? @current_user and message.deletable? and message.owner? @current_user %><%= link_to 'Replay', new_message_path if defined? @current_user %></nav>
   </header>
   <section><%= message.text %></section>
-  <aside><%= message.user_id %></aside>
+  <aside>
+  <img src="<%= message.user.avatar %>" alt="<%= message.user.username  %>"/>
+  <ul>
+	  <li><%= message.user.birthday %></li>
+	  <li><%= message.user.messages.count %></li>
+  </ul>
+  </aside>
   <footer><nav>
-  <% message.messages.each do |son| %><%= link_to 'Show', son %>
+  <% message.messages.each_with_index do |son,i| %><%= link_to i+1, son, :title=> son.user.username+" "+son.created_at.to_s unless @messages.include? son %>
   <% end %></nav>
   </footer>
 </article>
