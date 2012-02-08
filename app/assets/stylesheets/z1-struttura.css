@@ -80,7 +80,10 @@ section.main article{
 }
 article section{
   padding: 0px 1em 0px 1em;
-  display: inline-block;
+  display: block;
+  clear:right;
+  float:right;
+  width: 80%;
 }
 article header{
   font-weight: bold;
@@ -112,6 +115,11 @@ section.main table{
   width: 98%;
   max-width: 98%;
   margin-left:1%;
+}
+aside.user{
+  margin-left: 1em;
+  width: 16%;
+  display:inline-block;
 }
 aside.user span{
   clear:both;
