@@ -7,6 +7,9 @@ class Message < ActiveRecord::Base
   before_destroy :destroyable?
   before_destroy :reset_lft_and_rgt
 
+  def owner? user
+    user.id=self.user_id
+  end
   def ancestors
     Message.where("lft<=? and rgt>=? and section=false",self.lft,self.rgt).order("created_at")
   end
