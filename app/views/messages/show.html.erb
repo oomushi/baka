@@ -12,8 +12,10 @@
   </header>
   <section><%= message.text %></section>
   <aside>
-  <img src="<%= message.user.avatar %>" alt="<%= message.user.username  %>"/>
   <ul>
+	  <li><%= message.user.username %></li>
+	  <li><img src="<%= message.user.avatar %>" alt="<%= message.user.username  %>"/></li>
+	  <li><%= message.user.created_at.to_s %></li>
 	  <li><%= message.user.birthday %></li>
 	  <li><%= message.user.messages.count %></li>
   </ul>
