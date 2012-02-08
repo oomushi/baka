@@ -95,19 +95,21 @@ article nav{
   float:right;
   display:block;
   padding-right: 16px;
+  clear:both;
 }
 article nav a{
-  text-decoration:none;
   position: relative;
   padding:0px;
   padding-left: 16px;
   margin:1px 2px 0px 2px;
   right:0px;
   float:right;
-  opacity: 0.0;
+  color: #fff;
+  opacity: 0.5;
 }
 article nav a:hover{
   opacity: 1.0;
+  color: #fff;
 }
 section.main table{
   border-collapse: collapse;
