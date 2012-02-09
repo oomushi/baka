@@ -127,3 +127,10 @@ aside.user span{
   clear:both;
   display:block;
 }
+aside.messages{
+  margin-top: 3em;
+  margin-bottom: -2.5em;
+  padding: 1em;
+  border-radius:10px;
+  display:inline-block;
+}
