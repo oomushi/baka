@@ -8,11 +8,10 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
-    flash.now.alert = "Invalid username or password"
     message = Message.find(params[:id])
     @path=message.paths
     if message.section
-      @messages = message.messages.where('id<>?',params[:id]).order("section desc, pinned desc, created_at desc")# REM questo serve in root per non includere sé stessi
+      @messages = message.messages.where('id<>?',params[:id]).order("pinned desc, section desc, created_at desc")# REM questo serve in root per non includere sé stessi
     else
       @messages = message.ancestors
     end
