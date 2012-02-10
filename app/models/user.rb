@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :messages
-  attr_accessible :username, :password, :password_confirmation
+  attr_protected :password_hash, :password_salt, :confirm_code
   attr_accessor :password
   before_save :encrypt_password
   validates_confirmation_of :password
