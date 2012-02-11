@@ -4,6 +4,7 @@ Baka::Application.routes.draw do
   get "signup"=> "users#new",:as       =>"signup"
   resources :messages
 
+  match 'users/complete' => 'users#complete'
   resources :users
   resources :sessions
   # The priority is based upon order of creation:

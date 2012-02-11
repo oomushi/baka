@@ -80,4 +80,14 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def complete
+    string=request.GET[:term]
+    if request.GET[:exac].nil?
+      users=User.where("username like ?","%#{string}%")
+    else
+      users=User.where("username = ?",string)
+    end
+    users.each { |u| u["value"] = u.username }
+    render :json => users
+  end
 end
