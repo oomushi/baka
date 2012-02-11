@@ -10,7 +10,7 @@ $(document).ready ->
 
       $.get "/users/complete", params, (data) ->
         if data.length > 0
-          alert "username già preso"
+          alert "Someone already has that username. Try another?"
         else
           alert "ok"
 
