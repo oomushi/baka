@@ -18,6 +18,9 @@ class Message < ActiveRecord::Base
   def like_it? user
     likes.any?{ |l| l.user==user }
   end
+  def like_by user
+    likes.detect{ |l| l.user_id=user.id } if like_it? user
+  end
   
   def owner? user
     user.id=self.user_id
