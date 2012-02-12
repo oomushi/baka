@@ -61,6 +61,21 @@ a.logout{
 a.logout:hover{
   background: #000 url('/assets/logouth.png') left center no-repeat;
 }
+a.up{
+  background: url('/assets/up.png') left center no-repeat;
+}
+a.up.checked, a.up:hover{
+  background: url('/assets/uph.png') left center no-repeat;
+}
+a.down{
+  background: url('/assets/down.png') left center no-repeat;
+}
+a.down.checked, a.down:hover{
+  background: url('/assets/downh.png') left center no-repeat;
+}
+a.checked{
+  opacity:1.0;
+}
 article header{
   background: #000;
   color: #fff;

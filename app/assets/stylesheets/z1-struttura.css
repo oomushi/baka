@@ -67,6 +67,9 @@ header nav{
 a.button{
   padding:0px 2px 1px 16px;
 }
+a.button2{
+  padding:0px 2px 1px 32px;
+}
 section.main article{
   max-width: 98%;
   width: 98%;
@@ -133,4 +136,7 @@ aside.messages{
   padding: 1em;
   border-radius:10px;
   display:inline-block;
+}
+nav > form{
+  display:inline;
 }
