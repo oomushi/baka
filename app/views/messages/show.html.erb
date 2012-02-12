@@ -16,14 +16,9 @@
     </nav>
     <% end %>
   </header>
-  <section><%= simple_format message.text %><p class="sign"><%= bb message.user.sign%></p></section>
+  <section><%= simple_format message.text %><p class="sign"><%= bb message.user.sign unless message.user.sign.nil? %></p></section>
   <aside class="user">
-    <h5><%= message.user.username %></h5>
-    <img src="<%= message.user.avatar %>" alt="<%= message.user.username  %>"/>
-    <span>Created at: <%= message.user.created_at.to_s %></span>
-    <span>Birthday: <%= message.user.birthday %></span>
-    <span>Message n.: <%= message.user.messages.count %></span>
-    </dl>
+  <%= render :partial=>'users/badge', :locals=>{:message=>message} %>
   </aside>
   <footer><nav>
   <% message.messages.each_with_index do |son,i| %><%= link_to i+1, son, :title=> son.user.username+" "+son.created_at.to_s unless @messages.include? son %>

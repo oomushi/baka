@@ -1,0 +1,7 @@
+<h5><%= message.user.username %></h5>
+<img src="<%= message.user.avatar %>" alt="<%= message.user.username  %>"/>
+<span>Created at: <%= message.user.created_at.to_s %></span>
+<span>Birthday: <%= message.user.birthday %></span>
+<span>Message n.: <%= message.user.messages.count %></span>
+<span>Karma: <%= message.user.total_likes %></span>
+
