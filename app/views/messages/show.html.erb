@@ -8,13 +8,18 @@
 <article>
   <header>
     <%= link_to message.title, message %><%= message.created_at %>
-    <% if (defined? @current_user and message.deletable? and message.owner? @current_user) or defined? @current_user %>
     <nav>
-      <%= link_to 'Edit', edit_message_path(message) if defined? @current_user and message.deletable? and message.owner? @current_user %>
-      <%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if defined? @current_user and message.deletable? and message.owner? @current_user %>
+    <% if defined? @current_user %>
+      <% if message.deletable? and message.owner? @current_user %>
+        <%= link_to 'Edit', edit_message_path(message) if defined? @current_user and message.deletable? and message.owner? @current_user %>
+        <%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if defined? @current_user and message.deletable? and message.owner? @current_user %>
+      <% end %>
       <%= link_to 'Replay', new_message_path if defined? @current_user %>
-    </nav>
+      <%= render :partial=>'likes/form', :locals=>{:message=>message,:current_user=>@current_user} %>
+    <% else %>
+      <%= message.total_likes %>
     <% end %>
+    </nav>
   </header>
   <section><%= simple_format message.text %><p class="sign"><%= bb message.user.sign unless message.user.sign.nil? %></p></section>
   <aside class="user">
