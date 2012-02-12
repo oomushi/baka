@@ -16,7 +16,7 @@
     </nav>
     <% end %>
   </header>
-  <section><%= simple_format message.text %></section>
+  <section><%= simple_format message.text %><p class="sign"><%= bb message.user.sign%></p></section>
   <aside class="user">
     <h5><%= message.user.username %></h5>
     <img src="<%= message.user.avatar %>" alt="<%= message.user.username  %>"/>
