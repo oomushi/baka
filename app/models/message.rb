@@ -2,11 +2,23 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :message
   has_many :messages
+  has_many :likes
   before_create :set_lft_and_rgt
   after_create :update_lft_and_rgt
   before_destroy :destroyable?
   before_destroy :reset_lft_and_rgt
 
+  def total_likes
+    value=0
+    likes.each do |l|
+      value+=l.value
+    end
+    value
+  end
+  def like_it? user
+    likes.any?{ |l| l.user==user }
+  end
+  
   def owner? user
     user.id=self.user_id
   end
