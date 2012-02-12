@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   
   def total_likes
+    value=0
     self.likes.each do |l|
       value+=l.value
     end
