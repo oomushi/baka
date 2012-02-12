@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id_user: 1
+  id_message: 1
+  value: 1
+
+two:
+  id_user: 1
+  id_message: 1
+  value: 1
