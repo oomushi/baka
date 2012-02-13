@@ -1,4 +1,6 @@
 Baka::Application.routes.draw do
+  resources :avatars
+
   resources :likes
 
   get "login" => "sessions#new",:as    => "login"

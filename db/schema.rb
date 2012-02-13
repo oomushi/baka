@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212093602) do
+ActiveRecord::Schema.define(:version => 20120213172938) do
+
+  create_table "avatars", :force => true do |t|
+    t.integer  "user_id",                                     :null => false
+    t.string   "url",        :default => "/assets/guest.png"
+    t.binary   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
