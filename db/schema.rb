@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213172938) do
+ActiveRecord::Schema.define(:version => 20120213201247) do
 
   create_table "avatars", :force => true do |t|
     t.integer  "user_id",                                     :null => false
@@ -45,13 +45,12 @@ ActiveRecord::Schema.define(:version => 20120213172938) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username",                                             :null => false
-    t.string   "email",                                                :null => false
+    t.string   "username",      :null => false
+    t.string   "email",         :null => false
     t.string   "password_hash"
     t.string   "password_salt"
     t.string   "confirm_code"
     t.string   "sign"
-    t.string   "avatar",        :default => "/assets/users/guest.png"
     t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
