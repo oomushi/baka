@@ -25,9 +25,11 @@
   <aside class="user">
   <%= render :partial=>'users/badge', :locals=>{:message=>message} %>
   </aside>
+  <% if message.messages.count > 0 %>
   <footer><nav>
   <% message.messages.each_with_index do |son,i| %><%= link_to i+1, son, :title=> son.user.username+" "+son.created_at.to_s unless @messages.include? son %>
   <% end %></nav>
   </footer>
+  <% end %>
 </article>
 <% end %>
