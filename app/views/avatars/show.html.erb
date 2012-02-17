@@ -1,20 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @avatar.user_id %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @avatar.url %>
-</p>
-
-<p>
-  <b>File:</b>
-  <%= @avatar.file %>
-</p>
-
+<img src="<%= @avatar%>" alt="<%= @avatar.id %>"/>
 
 <%= link_to 'Edit', edit_avatar_path(@avatar) %> |
 <%= link_to 'Back', avatars_path %>
