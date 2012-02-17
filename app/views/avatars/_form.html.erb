@@ -1,4 +1,4 @@
-<%= form_for(@avatar) do |f| %>
+<%= form_for(@avatar,:html=>{:multipart=>true}) do |f| %>
   <% if @avatar.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@avatar.errors.count, "error") %> prohibited this avatar from being saved:</h2>
@@ -11,17 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
+  <%= f.hidden_field :user_id,:value=>3 %>
   <div class="field">
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :file %><br />
-    <%= f.text_field :file %>
+    <%= f.label :uploaded_data %><br />
+    <%= f.file_field :uploaded_data %>
   </div>
   <div class="actions">
     <%= f.submit %>
