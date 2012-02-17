@@ -10,7 +10,7 @@ class Avatar < ActiveRecord::Base
    
   def uploaded_data= image
     self.file = image.read
-#   self.content_type = image.content_type.chomp TODO da aggiungere il campo con una migration
+    self.content_type = image.content_type.chomp 
   end
     
   protected
