@@ -4,6 +4,13 @@ class Avatar < ActiveRecord::Base
   belongs_to :user
   validate :right_size?
   
+  def destroy
+    self.file=nil
+    self.url='/assets/guest.png'
+    self.content_type=''
+    self.save
+  end
+
   def to_s
     self.url=='' ? "/avatars/#{self.id}"  : self.url
   end
@@ -15,10 +22,15 @@ class Avatar < ActiveRecord::Base
     
   protected
   def right_size?
-#   unless self.file.nil?
-    image = MiniMagick::Image.read self.file
-    errors.add(:uploaded_data, "width to high") if image['width'] > 128 # parametro da prendere da qualche altra parte
-    errors.add(:uploaded_data, "hight to high") if image['height'] > 128 # parametro da prendere da qualche altra parte
-#   end
+    unless self.file.nil?
+      begin 
+        image = MiniMagick::Image.read self.file
+        errors.add(:uploaded_data, "width to high") if image['width'] > 128 # parametro da prendere da qualche altra parte
+        errors.add(:uploaded_data, "hight to high") if image['height'] > 128 # parametro da prendere da qualche altra parte
+        errors.add(:uploaded_data, "invalid image type") if ['image/png','image/gif','image/jpeg'].include? image.mime_type # parametro da prendere da qualche altra parte
+      rescue
+        errors.add(:uploaded_data, "invalid image type")
+      end
+   end
   end
 end
