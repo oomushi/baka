@@ -15,14 +15,13 @@
 
 <p>
   <b>Avatar:</b>
-  <%= @user.avatar %>
+  <img src="<%= @user.avatar %>"/>
 </p>
 
 <p>
   <b>Birthday:</b>
   <%= @user.birthday %>
 </p>
-
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
