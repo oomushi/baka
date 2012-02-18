@@ -1,6 +1,6 @@
 <h1>Editing user</h1>
 
 <%= render 'form' %>
-
+<%= render :partial=>'avatars/form',:locals=>{:user=>@user} %>
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
