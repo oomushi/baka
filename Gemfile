@@ -35,4 +35,4 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # gem 'ruby-debug'
 gem 'cancan'
 gem "mini_magick"
-
+gem 'kaminari'

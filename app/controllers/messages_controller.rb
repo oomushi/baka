@@ -11,9 +11,9 @@ class MessagesController < ApplicationController
     message = Message.find(params[:id])
     @path=message.paths
     if message.section
-      @messages = message.messages.where('id<>?',params[:id]).order("pinned desc, section desc, created_at desc")# REM questo serve in root per non includere sé stessi
+      @messages = message.messages.where('id<>?',params[:id]).order("pinned desc, section desc, created_at desc").page params[:page] # REM questo serve in root per non includere sé stessi
     else
-      @messages = message.ancestors
+      @messages = message.ancestors.page params[:page]
     end
     respond_to do |format|
       format.html {render( message.section ? :index : :show)}  # index.html.erb | show.html.erb
