@@ -2,20 +2,10 @@ class AvatarsController < ApplicationController
   # GET /avatars/1
   # GET /avatars/1.json
   def show
-
     @avatar = Avatar.find(params[:id])
-    
-    respond_to do |format|
-      format.jpg  { send_data(@avatar.file, 
-                              :type  => 'image/jpeg', 
-                              :disposition => 'inline') }
-      format.gif  { send_data(@avatar.file, 
-                              :type  => 'image/gif', 
-                              :disposition => 'inline') }
-      format.png  { send_data(@avatar.file, 
-                              :type  => 'image/png', 
-                              :disposition => 'inline') }
-    end
+    send_data(@avatar.file,
+              :type  => @avatar.content_type,
+              :disposition => 'inline')
   end
 
   # GET /avatars/1/edit
