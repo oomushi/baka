@@ -3,6 +3,7 @@
   @path.each do |message| %>
   <%= link_to message.title,message %><%= ' > ' if message!=last%>
 <% end %>
+<%= link_to 'New Message', new_message_path %>
 <table>
   <tr>
     <th>Title</th>
@@ -19,9 +20,10 @@
         <% if message.offsprings.count.zero? %>
         Nessun messaggio
        <% else  
-          last=message.offsprings.last %>
-          <%= link_to last.title + ' ' + last.created_at.to_s, last %>
-          <%= link_to last.user.username,last.user %>
+       last=message.offsprings.last %>
+       <%= link_to last.title, last %><br/>
+       <%= link_to last.created_at.to_s, last %><br/>
+       <%= link_to last.user.username,last.user %><br/>
         <% end %><% end %>
     </td>
     <td><%= link_to 'Edit', edit_message_path(message) if message.section and message.deletable? %></td>
@@ -30,6 +32,4 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Message', new_message_path %>
+<%= paginate @messages %>
