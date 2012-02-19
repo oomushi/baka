@@ -27,7 +27,7 @@ class Avatar < ActiveRecord::Base
         image = MiniMagick::Image.read self.file
         errors.add(:uploaded_data, "width to high") if image['width'] > 128 # parametro da prendere da qualche altra parte
         errors.add(:uploaded_data, "hight to high") if image['height'] > 128 # parametro da prendere da qualche altra parte
-        errors.add(:uploaded_data, "invalid image type") if ['image/png','image/gif','image/jpeg'].include? image.mime_type # parametro da prendere da qualche altra parte
+        errors.add(:uploaded_data, "invalid image type") unless ['image/png','image/gif','image/jpeg'].include? image.mime_type # parametro da prendere da qualche altra parte
       rescue
         errors.add(:uploaded_data, "invalid image type")
       end
