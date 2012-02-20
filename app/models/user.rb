@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_presence_of :username,:email
   validates_uniqueness_of :username
+  validates_format_of :website, :with => URI::regexp(%w(http https))
   
   def total_likes
     value=0
