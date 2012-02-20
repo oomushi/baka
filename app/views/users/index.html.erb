@@ -4,28 +4,22 @@
   <tr>
     <th>Username</th>
     <th>Email</th>
-    <th>Password hash</th>
-    <th>Password salt</th>
-    <th>Confirm code</th>
-    <th>Sign</th>
-    <th>Avatar</th>
-    <th>Birthday</th>
-    <th></th>
+    <th>Location</th>
+    <th>Created at</th>
+    <th>Messages</th>
+    <th>Website</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.username %></td>
-    <td><%= user.email %></td>
-    <td><%= user.password_hash %></td>
-    <td><%= user.password_salt %></td>
-    <td><%= user.confirm_code %></td>
-    <td><%= user.sign %></td>
-    <td><%= user.avatar %></td>
-    <td><%= user.birthday %></td>
-    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to user.username,user %></td>
+    <td><%= mail_to user.email %></td>
+    <td><%= user.location %></td>
+    <td><%= user.created_at.to_s %></td>
+    <td><%= user.messages.count %></td>
+    <td><% unless user.website.nil? %><a href="<%= user.website %>">website</a><% end %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
