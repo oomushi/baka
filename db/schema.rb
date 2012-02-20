@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217195835) do
+ActiveRecord::Schema.define(:version => 20120220172946) do
 
   create_table "avatars", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20120217195835) do
     t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "location"
+    t.string   "website"
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
