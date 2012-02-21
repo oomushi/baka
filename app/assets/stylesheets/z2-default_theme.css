@@ -5,6 +5,9 @@ section.main article{
   background: #fffff0 url('/assets/baka.png') repeat-y scroll left bottom;
   border: 1px solid #000;
 }
+section.main2{
+  background: #fffff0 url('/assets/baka.png') repeat-y scroll left bottom;
+}
 td.clickable:hover, a:hover{
   color: #ff7f50;
 }
