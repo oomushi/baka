@@ -23,7 +23,7 @@
   </header>
   <section><%= simple_format message.text %><p class="sign"><%= bb message.user.sign unless message.user.sign.nil? %></p></section>
   <aside class="user">
-  <%= render :partial=>'users/badge', :locals=>{:message=>message} %>
+  <%= render :partial=>'users/badge', :locals=>{:user=>message.user} %>
   </aside>
   <% if message.messages.any?{|m| !@messages.include? m} %>
   <footer><nav>
