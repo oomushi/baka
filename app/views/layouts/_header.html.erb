@@ -1,0 +1,27 @@
+<header class="main">
+  <a href="/"><img src="/assets/logo.png" alt="バカ"/></a>
+  <nav>
+  <% if defined? @current_user %>
+    <%= link_to @current_user.username, logout_path,:class=>"button logout",:title=>"logout" %>
+  <% else %>
+      <%= link_to "signup", signup_path,:class=>"button signup" %>
+      <%= link_to_function "login", "$('#login').show('smooth');",:class=>"button login" %>
+  <% end %>
+  </nav>
+</header>
+<aside class="login" id="login" hidden>
+  <header>
+    <nav>
+    <%= link_to_function 'x',"$('#login').hide('smooth');",:class=>"button" %>
+    </nav>
+  </header>
+  <article>
+    <%= form_tag sessions_path do %>
+    <p><%= label_tag :username %><br />
+    <%= text_field_tag :username, params[:username] %></p>
+    <p><%= label_tag :password %><br />
+    <%= password_field_tag :password %></p>
+    <p class="button"><%= submit_tag "Log in" %></p>
+    <% end %>
+  </article>
+</aside>
