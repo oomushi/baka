@@ -33,9 +33,9 @@
   </aside>
   <footer>
     <nav>
-      <a href="#top" title="top" class="button top">top</a>
+      <a href="#top" title="top" class="top">&thinsp;</a>
       <% message.messages.each_with_index do |son,i| %>
-        <%= link_to i+1, son, :title=> son.user.username+" "+son.created_at.to_s unless @messages.include? son %>
+        <%= link_to "&thinsp;".html_safe, son, :title=> son.user.username+" "+son.created_at.to_s,:class=>"page" unless @messages.include? son %>
       <% end %>
     </nav>
   </footer>
