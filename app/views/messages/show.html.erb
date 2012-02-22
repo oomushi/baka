@@ -22,14 +22,22 @@
     <% end %>
     </nav>
   </header>
-  <section><%= simple_format message.text %><p class="sign"><%= bb message.user.sign unless message.user.sign.nil? %></p></section>
+  <section>
+    <%= simple_format message.text %>
+    <p class="sign">
+      <%= bb message.user.sign unless message.user.sign.nil? %>
+    </p>
+  </section>
   <aside class="user">
-  <%= render :partial=>'users/badge', :locals=>{:user=>message.user} %>
+    <%= render :partial=>'users/badge', :locals=>{:user=>message.user} %>
   </aside>
-  <footer><nav>
-  <a href="#top" title="top" class="button top">top</top>
-  <% message.messages.each_with_index do |son,i| %><%= link_to i+1, son, :title=> son.user.username+" "+son.created_at.to_s unless @messages.include? son %>
-  <% end %></nav>
+  <footer>
+    <nav>
+      <a href="#top" title="top" class="button top">top</a>
+      <% message.messages.each_with_index do |son,i| %>
+        <%= link_to i+1, son, :title=> son.user.username+" "+son.created_at.to_s unless @messages.include? son %>
+      <% end %>
+    </nav>
   </footer>
 </article>
 <% end %>
