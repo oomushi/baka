@@ -1,3 +1,4 @@
+<a src="top"></a>
 <%
   last=@path.last	
   @path.each do |message| %>
@@ -25,12 +26,11 @@
   <aside class="user">
   <%= render :partial=>'users/badge', :locals=>{:user=>message.user} %>
   </aside>
-  <% if message.messages.any?{|m| !@messages.include? m} %>
   <footer><nav>
+  <a href="#top" title="top" class="button top">top</top>
   <% message.messages.each_with_index do |son,i| %><%= link_to i+1, son, :title=> son.user.username+" "+son.created_at.to_s unless @messages.include? son %>
   <% end %></nav>
   </footer>
-  <% end %>
 </article>
 <% end %>
 <%= paginate @messages %>
