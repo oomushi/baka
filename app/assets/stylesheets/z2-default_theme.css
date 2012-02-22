@@ -37,6 +37,9 @@ aside.login{
 a.button{
   color: black;
 }
+a.web{
+  background: #fffff0 url('/assets/webh.png') left center no-repeat;
+}
 a.signup{
   background: #000 url('/assets/sign.png') left center no-repeat;
 }
@@ -60,6 +63,12 @@ a.logout{
 }
 a.logout:hover{
   background: #000 url('/assets/logouth.png') left center no-repeat;
+}
+a.top{
+  background: url('/assets/top.png') left center no-repeat;
+}
+a.top:hover{
+  background: url('/assets/toph.png') left center no-repeat;
 }
 a.up{
   background: url('/assets/up.png') left center no-repeat;
