@@ -7,6 +7,6 @@
 <span>Karma: <%= user.total_likes %></span>
 <!-- <nav> -->
   <ul>
-    <li><a href="<%= user.website %>">website</a></li>
+	  <% if user.website %> <li><a href="<%= user.website %>" class="button web">website</a></li> <% end %>
   </ul>
   <!-- </nav> -->
