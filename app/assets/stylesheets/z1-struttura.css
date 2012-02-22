@@ -71,12 +71,6 @@ a.button{
 a.button2{
   padding:0px 2px 1px 32px;
 }
-section.main2{
-  box-shadow:10px 10px 20px #000;
-  width: 58%;
-  margin: 2.4em 0 2em 20%;
-  padding: 1em;
-}
 section.main article{
   max-width: 98%;
   width: 98%;
