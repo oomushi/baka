@@ -24,13 +24,13 @@ class Message < ActiveRecord::Base
     user.id=self.user_id
   end
   def ancestors
-    Message.where("nv/dv<=? and snv/sdv>=? and section=false",self.nv/self.dv).order("created_at")
+    Message.where("nv/dv<=? and snv/sdv>=? and section=false",1.0*self.nv/self.dv,1.0*self.nv/self.dv).order("created_at")
   end
   def offsprings
-    Message.where("nv/dv between ? and ? and section=false",self.nv/self.dv,self.snv/self.sdv).order("created_at")
+    Message.where("nv/dv between ? and ? and section=false",1.0*self.nv/self.dv,1.0*self.snv/self.sdv).order("created_at")
   end
   def paths
-    Message.where("nv/dv<=? and snv/sdv>=? and section=true",self.nv/self.dv).order("created_at")
+    Message.where("nv/dv<=? and snv/sdv>=? and section=true",1.0*self.nv/self.dv,1.0*self.nv/self.dv).order("created_at")
   end
   
   def deletable?
