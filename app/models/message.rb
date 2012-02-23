@@ -3,10 +3,8 @@ class Message < ActiveRecord::Base
   belongs_to :message
   has_many :messages
   has_many :likes
-  before_create :set_lft_and_rgt
-  after_create :update_lft_and_rgt
+  before_create :set_nv_and_dv
   before_destroy :destroyable?
-  before_destroy :reset_lft_and_rgt
 
   def total_likes
     value=0
@@ -26,13 +24,13 @@ class Message < ActiveRecord::Base
     user.id=self.user_id
   end
   def ancestors
-    Message.where("lft<=? and rgt>=? and section=false",self.lft,self.rgt).order("created_at")
+    Message.where("nv/dv<=? and snv/sdv>=? and section=false",self.nv/self.dv).order("created_at")
   end
   def offsprings
-    Message.where("lft>? and rgt<? and section=false",self.lft,self.rgt).order("created_at")
+    Message.where("nv/dv between ? and ? and section=false",self.nv/self.dv,self.snv/self.sdv).order("created_at")
   end
   def paths
-    Message.where("lft<=? and rgt>=? and section=true",self.lft,self.rgt).order("created_at")
+    Message.where("nv/dv<=? and snv/sdv>=? and section=true",self.nv/self.dv).order("created_at")
   end
   
   def deletable?
@@ -46,47 +44,14 @@ class Message < ActiveRecord::Base
       false
     end
   end
-  def set_lft_and_rgt
-    if self.lft.nil? or self.rgt.nil?
+  def set_nv_and_dv
+    if self.nv.nil? or self.dv.nil? or self.snv.nil? or self.sdv.nil?
       parent=Message.find self.message_id
-      self.lft=parent.rgt
-      self.rgt=parent.rgt+1
-    end
-  end
-  def update_lft_and_rgt
-    m1=Message.where("lft>? and id<>?",self.lft,self.id)
-    m2=Message.where("rgt>=? and id<>?",self.lft,self.id)
-    m1.each do |m|
-      m.lft+=2
-      m.save
-    end
-    m2.each do |m|
-      m.rgt+=2
-      m.save
-    end
-  end
-  def reset_lft_and_rgt 
-    m1=Message.where("message_id=?",self.id)
-    m2=Message.where("lft>? and rgt>?",self.lft,self.rgt)
-    m3=Message.where("lft>? and rgt<?",self.lft,self.rgt)
-    m4=Message.where("lft<? and rgt>?",self.lft,self.rgt)
-    m1.each do |m|
-      m.message_id=self.message_id
-      m.save
-    end
-   m2.each do |m|
-      m.rgt-=2
-      m.lft-=2
-      m.save
-    end
-    m3.each do |m|
-      m.rgt-=1
-      m.lft-=1
-      m.save
-    end
-    m4.each do |m|
-      m.rgt-=2
-      m.save
+      c=parent.messages.count
+      self.nv=parent.nv+c*parent.snv
+      self.dv=parent.dv+c*parent.sdv
+      self.snv=parent.nv+(c+1)*parent.snv
+      self.sdv=parent.dv+(c+1)*parent.sdv
     end
   end
 end
