@@ -12,9 +12,9 @@ class ChangeNestedSetFieldsToMessages < ActiveRecord::Migration
     begin
       Message.joins(:message).where('messages_messages.dv>0 and messages.dv=0').readonly(false).each do |m| # forse si riesce a fare meglio non usando le joins
         c=m.message.messages.where('dv>0').count+1
-	c-=1 if m.message.id==1
-	m.nv,m.dv,m.snv,m.sdv=m.message.nv+c*m.message.snv,m.message.dv+c*m.message.sdv,m.message.nv+(c+1)*m.message.snv,m.message.dv+(c+1)*m.message.sdv
-	m.save
+        c-=1 if m.message.id==1
+        m.nv,m.dv,m.snv,m.sdv=m.message.nv+c*m.message.snv,m.message.dv+c*m.message.sdv,m.message.nv+(c+1)*m.message.snv,m.message.dv+(c+1)*m.message.sdv
+        m.save
       end
       tot=Message.joins(:message).where('messages_messages.dv>? and messages.dv=?',0,0).count
     end while tot>0
@@ -27,26 +27,29 @@ class ChangeNestedSetFieldsToMessages < ActiveRecord::Migration
     remove_column :messages, :dv
     remove_column :messages, :snv
     remove_column :messages, :sdv
-=begin
     stack=[Message.find(1)]
     i=1
-    stack.each do |n|
+    while stack.length > 0
+      n=stack.shift
       n.lft=i
       i+=1
-      if n.messages.count>0
-        stack.concat n.messages
+      c= n.id==1 ? 1 : 0
+      if n.messages.count>c
+        stack.unshift(*n.messages)
+        stack.delete n
       else
-      	n.rgt=i
-      	i+=1
+        n.rgt=i
+        i+=1
       end
       n.save
     end
+    join='left join messages msg on msg.message_id=messages.id and msg.rgt=0 and msg.id<>messages.id'
+    where='messages.rgt=0 and msg.id is null'
     begin
-      Message.joins(:messages).where('messages.rgt=0 and messages_messages.rgt<>0').each do |m|
+      Message.joins(join).where(where).readonly(false).each do |m|
+        m.rgt=m.messages.select('max(rgt)').first.max.to_i+1
+        m.save
       end
-      Message.joins(:messages).where('messages.dv>30').select('max(messages_messages.nv),messages.id')
-      tot=Message.joins(:messages).where('messages.rgt=0 and messages_messages.rgt<>0').count
-    end while tot>0
-=end
+    end while Message.joins(join).where(where).count>0
   end
 end
