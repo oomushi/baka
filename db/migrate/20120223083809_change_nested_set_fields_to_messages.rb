@@ -9,15 +9,15 @@ class ChangeNestedSetFieldsToMessages < ActiveRecord::Migration
     root=Message.find 1
     root.nv,root.dv,root.snv,root.sdv=0,1,1,1
     root.save
-=begin
+    begin
       Message.joins(:message).where('messages_messages.dv>0 and messages.dv=0').readonly(false).each do |m| # forse si riesce a fare meglio non usando le joins
         c=m.message.messages.where('dv>0').count+1
+	c-=1 if m.message.id==1
 	m.nv,m.dv,m.snv,m.sdv=m.message.nv+c*m.message.snv,m.message.dv+c*m.message.sdv,m.message.nv+(c+1)*m.message.snv,m.message.dv+(c+1)*m.message.sdv
 	m.save
       end
       tot=Message.joins(:message).where('messages_messages.dv>? and messages.dv=?',0,0).count
     end while tot>0
-=end
   end
 
   def down
