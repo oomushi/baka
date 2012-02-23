@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220172946) do
+ActiveRecord::Schema.define(:version => 20120223083809) do
 
   create_table "avatars", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -33,16 +33,18 @@ ActiveRecord::Schema.define(:version => 20120220172946) do
   add_index "likes", ["user_id", "message_id"], :name => "index_likes_on_user_id_and_message_id", :unique => true
 
   create_table "messages", :force => true do |t|
-    t.text     "text",                          :null => false
-    t.boolean  "section",    :default => false
-    t.boolean  "pinned",     :default => false
-    t.integer  "lft",                           :null => false
-    t.integer  "rgt",                           :null => false
-    t.string   "title",                         :null => false
-    t.integer  "message_id",                    :null => false
-    t.integer  "user_id",                       :null => false
+    t.text     "text",                                       :null => false
+    t.boolean  "section",                 :default => false
+    t.boolean  "pinned",                  :default => false
+    t.string   "title",                                      :null => false
+    t.integer  "message_id",                                 :null => false
+    t.integer  "user_id",                                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "nv",         :limit => 8, :default => 0
+    t.integer  "dv",         :limit => 8, :default => 0
+    t.integer  "snv",        :limit => 8, :default => 0
+    t.integer  "sdv",        :limit => 8, :default => 0
   end
 
   create_table "users", :force => true do |t|
