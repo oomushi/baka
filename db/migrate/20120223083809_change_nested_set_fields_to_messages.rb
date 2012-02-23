@@ -27,7 +27,8 @@ class ChangeNestedSetFieldsToMessages < ActiveRecord::Migration
     remove_column :messages, :dv
     remove_column :messages, :snv
     remove_column :messages, :sdv
-    stack=[Message.find 1]
+=begin
+    stack=[Message.find(1)]
     i=1
     stack.each do |n|
       n.lft=i
@@ -35,16 +36,17 @@ class ChangeNestedSetFieldsToMessages < ActiveRecord::Migration
       if n.messages.count>0
         stack.concat n.messages
       else
-	n.rgt=i
-	i+=1
+      	n.rgt=i
+      	i+=1
       end
       n.save
     end
-=begin
+    begin
       Message.joins(:messages).where('messages.rgt=0 and messages_messages.rgt<>0').each do |m|
       end
       Message.joins(:messages).where('messages.dv>30').select('max(messages_messages.nv),messages.id')
       tot=Message.joins(:messages).where('messages.rgt=0 and messages_messages.rgt<>0').count
     end while tot>0
 =end
+  end
 end
