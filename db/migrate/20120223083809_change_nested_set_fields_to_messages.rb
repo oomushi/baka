@@ -28,28 +28,30 @@ class ChangeNestedSetFieldsToMessages < ActiveRecord::Migration
     remove_column :messages, :snv
     remove_column :messages, :sdv
     stack=[Message.find(1)]
+    right=[]
     i=1
     while stack.length > 0
       n=stack.shift
-      n.lft=i
-      i+=1
-      c= n.id==1 ? 1 : 0
-      if n.messages.count>c
-        stack.unshift(*n.messages)
-        stack.delete n
-      else
-        n.rgt=i
+      unless n.nil?
+        n.lft=i
         i+=1
-      end
-      n.save
-    end
-    join='left join messages msg on msg.message_id=messages.id and msg.rgt=0 and msg.id<>messages.id'
-    where='messages.rgt=0 and msg.id is null'
-    begin
-      Message.joins(join).where(where).readonly(false).each do |m|
-        m.rgt=m.messages.select('max(rgt)').first.max.to_i+1
+        c= n.id==n.message_id ? 1 : 0
+        if n.messages.count>c 
+          stack.unshift nil
+          right.unshift n
+          stack.unshift(*n.messages)
+          stack.delete n
+        else
+          n.rgt=i
+          i+=1
+        end
+        n.save
+      else
+        m=right.shift
+        m.rgt=i
+        i+=1
         m.save
       end
-    end while Message.joins(join).where(where).count>0
+    end
   end
 end
