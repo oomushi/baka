@@ -1,4 +1,3 @@
-<a src="top"></a>
 <%
   last=@path.last	
   @path.each do |message| %>
@@ -8,7 +7,7 @@
 <% @messages.each do |message| %>
 <article>
   <header>
-    <%= link_to message.title, message %><%= message.created_at %>
+    <a id="<%= message.id%>"/><%= link_to message.title, message %><%= message.created_at %>
     <nav>
     <% if defined? @current_user %>
       <% if message.deletable? and message.owner? @current_user %>
