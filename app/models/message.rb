@@ -45,7 +45,7 @@ class Message < ActiveRecord::Base
     end
   end
   def set_nv_and_dv
-    if self.nv.nil? or self.dv.nil? or self.snv.nil? or self.sdv.nil?
+    if self.dv.nil? or self.dv==0
       parent=Message.find self.message_id
       c=parent.messages.count
       self.nv=parent.nv+c*parent.snv
