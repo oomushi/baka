@@ -20,8 +20,8 @@
     <td><%= user.created_at.to_s %></td>
     <td><%= user.messages.count %></td>
     <td><% unless user.website.nil? %><a href="<%= user.website %>">website</a><% end %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) unless @current_user.nil? %></td>
+    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete unless @current_user.nil? %></td>
   </tr>
 <% end %>
 </table>
