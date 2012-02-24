@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :require_login
+  skip_before_filter :require_login, :only => [:show,:index,:complete]
+  
   # GET /users
   # GET /users.json
   def index
@@ -81,6 +84,7 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   def complete
     string=request.GET[:term]
     if request.GET[:exac].nil?

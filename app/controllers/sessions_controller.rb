@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_filter :require_login, :only => :destroy
   def new
   end
   def create

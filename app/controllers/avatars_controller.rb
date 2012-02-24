@@ -1,4 +1,7 @@
 class AvatarsController < ApplicationController
+  before_filter :require_login
+  skip_before_filter :require_login, :only => :show
+  
   # GET /avatars/1
   # GET /avatars/1.json
   def show

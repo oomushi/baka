@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-
+  before_filter :require_login
+  
   # POST /likes
   # POST /likes.json
   def create
