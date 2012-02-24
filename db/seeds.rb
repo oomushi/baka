@@ -5,7 +5,8 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
-admin = User.create(:username=>'Admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :avatar=>'/assets/users/admin.png', :password=>'sunset')
+admin = User.create(:username=>'Admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
+admin.avatar=Avatar.create({:url=>'/assets/users/admin.png'})
 root = Message.create({
   :text => "Questo non lo leggera' nessuno",
   :title => "ROOT title",
@@ -13,6 +14,8 @@ root = Message.create({
   :pinned=>1,
   :message_id=>1,   
   :user_id=>admin.id,
-  :lft=>1,
-  :rgt=>2
+  :nv=>0,
+  :dv=>1,
+  :snv=>1,
+  :sdv=>1
 })
