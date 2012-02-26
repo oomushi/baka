@@ -141,3 +141,6 @@ aside.messages{
 nav > form{
   display:inline;
 }
+.link{
+  cursor:pointer;
+}

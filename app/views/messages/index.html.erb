@@ -13,7 +13,7 @@
   </tr>
 
 <% @messages.each do |message| %>
-    <tr class="<%= message.pinned ? 'pinned' : '' %>" onclick="location.href='<%= message_path(message) %>'">
+    <tr class="link <%= message.pinned ? 'pinned' : '' %>" onclick="location.href='<%= message_path(message) %>'">
     <td class="button clickable <%= message.section ? 'tree' : 'leaf' %>"><h2><%= message.title %></h2><%= message.section ? message.text : '' %></td>
     <td>
 	<% if message.section %>
