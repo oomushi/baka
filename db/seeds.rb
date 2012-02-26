@@ -8,8 +8,8 @@
 admin = User.create(:username=>'Admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
 admin.avatar=Avatar.create({:url=>'/assets/users/admin.png'})
 root = Message.create({
-  :text => "Questo non lo leggera' nessuno",
-  :title => "ROOT title",
+  :text => "Hidden text",
+  :title => "Baka",
   :section=>1,
   :pinned=>1,
   :message_id=>1,   
