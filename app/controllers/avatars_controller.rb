@@ -14,12 +14,14 @@ class AvatarsController < ApplicationController
   # GET /avatars/1/edit
   def edit
     @avatar = Avatar.find(params[:id])
+    same_user? @avatar.user
   end
 
   # PUT /avatars/1
   # PUT /avatars/1.json
   def update
     @avatar = Avatar.find(params[:id])
+    same_user? @avatar.user
 
     respond_to do |format|
       if @avatar.update_attributes(params[:avatar])
@@ -36,6 +38,7 @@ class AvatarsController < ApplicationController
   # DELETE /avatars/1.json
   def destroy
     @avatar = Avatar.find(params[:id])
+    same_user? @avatar.user
     @avatar.destroy
 
     respond_to do |format|

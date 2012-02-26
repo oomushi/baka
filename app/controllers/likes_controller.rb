@@ -16,6 +16,7 @@ class LikesController < ApplicationController
   # PUT /likes/1.json
   def update
     @like = Like.find(params[:id])
+    same_user? @like.user
     if @like.update_attributes(params[:like])
       redirect_to @like.message, notice: 'Like was successfully updated.'
     else
@@ -27,6 +28,7 @@ class LikesController < ApplicationController
   # DELETE /likes/1.json
   def destroy
     @like = Like.find(params[:id])
+    same_user? @like.user
     message=@like.message
     @like.destroy
     redirect_to @like.message

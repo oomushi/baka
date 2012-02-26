@@ -38,6 +38,7 @@ class MessagesController < ApplicationController
   # GET /messages/1/edit
   def edit
     @message = Message.find(params[:id])
+    same_user? @message.user
     unless @message.deletable?
       @message.errors.add :base, "message cannot be edited"
       respond_to do |format|
@@ -67,6 +68,7 @@ class MessagesController < ApplicationController
   # PUT /messages/1.json
   def update
     @message = Message.find(params[:id])
+    same_user? @message.user
 
     respond_to do |format|
       if @message.update_attributes(params[:message])
@@ -83,6 +85,7 @@ class MessagesController < ApplicationController
   # DELETE /messages/1.json
   def destroy
     @message = Message.find(params[:id])
+    same_user? @message.user
     @message.destroy
 
     respond_to do |format|
