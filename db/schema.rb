@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120223083809) do
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "message_id"
-    t.integer  "value"
+    t.integer  "value",		:default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
