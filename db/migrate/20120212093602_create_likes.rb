@@ -3,7 +3,7 @@ class CreateLikes < ActiveRecord::Migration
     create_table :likes do |t|
       t.integer :user_id
       t.integer :message_id
-      t.integer :value
+      t.integer :value,:default=>0
 
       t.timestamps
     end
