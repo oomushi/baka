@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223083809) do
+ActiveRecord::Schema.define(:version => 20120227172426) do
 
   create_table "avatars", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120223083809) do
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "message_id"
-    t.integer  "value",		:default => 0
+    t.integer  "value",      :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(:version => 20120223083809) do
     t.integer  "dv",         :limit => 8, :default => 0
     t.integer  "snv",        :limit => 8, :default => 0
     t.integer  "sdv",        :limit => 8, :default => 0
+  end
+
+  create_table "poll_options", :force => true do |t|
+    t.string   "text",       :null => false
+    t.integer  "poll_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "polls", :force => true do |t|
+    t.string   "title",      :null => false
+    t.integer  "message_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

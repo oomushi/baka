@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :likes
   has_one :avatar
+  has_and_belongs_to_many :poll_options
   attr_protected :password_hash, :password_salt, :confirm_code
   attr_accessor :password
   before_save :encrypt_password
