@@ -3,6 +3,7 @@ class Message < ActiveRecord::Base
   belongs_to :message
   has_many :messages
   has_many :likes
+  has_one :poll
   before_create :set_nv_and_dv
   before_destroy :destroyable?
 
