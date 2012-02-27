@@ -1,0 +1,25 @@
+<%= form_for(@poll_option) do |f| %>
+  <% if @poll_option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@poll_option.errors.count, "error") %> prohibited this poll_option from being saved:</h2>
+
+      <ul>
+      <% @poll_option.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+  </div>
+  <div class="field">
+    <%= f.label :poll_id %><br />
+    <%= f.number_field :poll_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

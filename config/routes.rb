@@ -1,4 +1,6 @@
 Baka::Application.routes.draw do
+  resources :poll_options
+
   resources :polls
 
   resources :avatars
