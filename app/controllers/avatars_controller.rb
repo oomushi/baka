@@ -10,13 +10,13 @@ class AvatarsController < ApplicationController
               :type  => @avatar.content_type,
               :disposition => 'inline')
   end
-
+=begin
   # GET /avatars/1/edit
   def edit
     @avatar = Avatar.find(params[:id])
     same_user? @avatar.user
   end
-
+=end
   # PUT /avatars/1
   # PUT /avatars/1.json
   def update
