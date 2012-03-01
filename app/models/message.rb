@@ -47,7 +47,8 @@ class Message < ActiveRecord::Base
     end
     Message.new({
       :title=>title,
-      :text=>text
+      :text=>text,
+      :message_id=>self.id
     })
   end
 
