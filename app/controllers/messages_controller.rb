@@ -27,7 +27,8 @@ class MessagesController < ApplicationController
   # GET /messages/new
   # GET /messages/new.json
   def new
-    @message = Message.new
+    @root=Message.find params[:id]
+    @message = @root.replay
 
     respond_to do |format|
       format.html # new.html.erb
