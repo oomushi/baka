@@ -13,6 +13,7 @@ Baka::Application.routes.draw do
   resources :messages
 
   match 'users/complete' => 'users#complete'
+  match 'messages/new/:id' => 'messages#new'
   resources :users
   resources :sessions
   # The priority is based upon order of creation:
