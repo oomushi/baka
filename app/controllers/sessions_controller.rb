@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
   before_filter :require_login, :only => :destroy
-  def new
-  end
   def create
     user = User.authenticate(params[:username], params[:password])
     if user
@@ -9,7 +7,7 @@ class SessionsController < ApplicationController
       redirect_to :back, :notice => "Logged in!"
     else
       flash.now.alert = "Invalid username or password"
-      render "new"
+      redirect_to :back
     end
   end
   def destroy
