@@ -37,6 +37,19 @@ class Message < ActiveRecord::Base
   def deletable?
     messages.count.zero?
   end
+  
+  def replay
+    title,text='',''
+    unless self.section
+      title+=self.title
+      title='[Re] '+title unless title=~/^\[Re\] /
+      text="[quote=\"#{self.user.username}\"]#{self.text}[/quote]"
+    end
+    Message.new({
+      :title=>title,
+      :text=>text
+    })
+  end
 
   protected
   def destroyable?
