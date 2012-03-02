@@ -10,7 +10,8 @@ module ApplicationHelper
   private
   class CCParser < RbbCode::HtmlMaker # Singleton
     include Singleton
-    def self._load
+    private
+    def initialize
 =begin
       bb=BBCode.all
 =end
