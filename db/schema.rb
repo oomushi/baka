@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227172738) do
+ActiveRecord::Schema.define(:version => 20120303085830) do
 
   create_table "avatars", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120227172738) do
     t.integer  "dv",         :limit => 8, :default => 0
     t.integer  "snv",        :limit => 8, :default => 0
     t.integer  "sdv",        :limit => 8, :default => 0
+    t.boolean  "follow",                  :default => true
   end
 
   create_table "poll_options", :force => true do |t|
