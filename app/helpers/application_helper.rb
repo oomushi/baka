@@ -1,25 +1,34 @@
 module ApplicationHelper
   def bb text
     if ! text.nil? and text!=''
-      cc=CCParser.instance
-      logger.debug cc.inspect
-      bb = RbbCode::Parser.new(:html_maker=>cc)
-      bb.parse(text).html_safe+cc.methods.sort.inspect
+      hm=CCParser.instance
+      hm.load_bb
+      sc=hm.schema
+      bb = RbbCode::Parser.new(:html_maker=>hm,:schema=>sc)
+      bb.parse(text).html_safe
     end
   end
   private
   class CCParser < RbbCode::HtmlMaker # Singleton
     include Singleton
-    private
-    def initialize
+    def schema
+      @schema
+    end
+    def load_bb
 =begin
       bb=BBCode.all
 =end
-      name="html_from_query_tag"
+      @schema=RbbCode::Schema.new
+      name="html_from_spoiler_tag"
       name=name.to_sym
-      send :define_method, name do |node|
-        "<span class=\"cit\">#{node.inspect}</span>"
+      self.class.send :define_method,name do |node|
+        text=node.children.inject('') do |o,c|
+          o+make_html(c)
+        end
+        content_tag('span',text,{'class'=>'spoiler'})
       end
+      @schema.allow_tag 'spoiler'
+      @schema.tag('spoiler').may_contain_text.may_be_nested
     end
   end
 end
