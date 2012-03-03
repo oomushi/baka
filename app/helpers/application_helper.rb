@@ -2,7 +2,6 @@ module ApplicationHelper
   def bb text
     if ! text.nil? and text!=''
       hm=CCParser.instance
-      hm.load_bb
       sc=hm.schema
       bb = RbbCode::Parser.new(:html_maker=>hm,:schema=>sc)
       bb.parse(text).html_safe
@@ -14,7 +13,7 @@ module ApplicationHelper
     def schema
       @schema
     end
-    def load_bb
+    def initialize
 =begin
       bb=BBCode.all
 =end
