@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.html { render :layout=>'application2'} # show.html.erb
+      format.html # show.html.erb
       format.json { render json: @user }
     end
   end
@@ -39,7 +39,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     same_user? @user
-    render :layout=>'application2'
   end
 
   # POST /users
