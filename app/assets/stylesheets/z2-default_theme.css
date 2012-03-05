@@ -129,3 +129,11 @@ footer.main .brand{
 aside.messages{
   background: #FF8C00;
 }
+span.spoiler{
+  border-color: #000;
+}
+blockquote{
+  background:url("http://baka.macrobug.uchi/assets/baka.png") 0% 100% repeat-y #C0DEED;
+  border-color: #b0ceff;
+  
+}

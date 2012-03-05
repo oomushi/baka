@@ -144,3 +144,12 @@ nav > form{
 .link{
   cursor:pointer;
 }
+span.spoiler{
+  border: 1px dashed;
+  color: rgba(0,0,255,0);
+}
+blockquote{
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid;
+}
