@@ -43,7 +43,7 @@ class Message < ActiveRecord::Base
     unless self.section
       title+=self.title
       title='[Re] '+title unless title=~/^\[Re\] /
-      text="[quote=\"#{self.user.username}\"]#{self.text}[/quote]"
+      text="[quote=#{self.user.username}]#{self.text}[/quote]"
     end
     Message.new({
       :title=>title,
