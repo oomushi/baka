@@ -14,7 +14,7 @@
         <%= link_to 'Edit', edit_message_path(message) if defined? @current_user and message.deletable? and message.owner? @current_user %>
         <%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if defined? @current_user and message.deletable? and message.owner? @current_user %>
       <% end %>
-      <%= link_to 'Replay', new_message_path if defined? @current_user %>
+      <%= link_to 'Replay', new_message_path({:id=>message.id}) if defined? @current_user %>
       <%= render :partial=>'likes/form', :locals=>{:message=>message,:current_user=>@current_user} %>
     <% else %>
       <%= message.total_likes %>
