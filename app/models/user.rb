@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   attr_protected :password_hash, :password_salt, :confirm_code
   attr_accessor :password
   before_save :encrypt_password
-  after_create :confirm_email
+  after_create :confirm_email,:create_avatar
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :username,:email
@@ -40,5 +40,8 @@ class User < ActiveRecord::Base
   def confirm_email
     # creazione codice
     UserMailer.email_confirmation(self).deliver
+  end
+  def create_avatar
+    Avatar.create({:user_id=>self.id})
   end
 end
