@@ -6,6 +6,7 @@ class Message < ActiveRecord::Base
   has_one :poll
   before_create :set_nv_and_dv
   before_destroy :destroyable?
+  after_create :alert_followers
 
   def total_likes
     value=0
@@ -69,6 +70,9 @@ class Message < ActiveRecord::Base
       self.snv=parent.nv+(c+1)*parent.snv
       self.sdv=parent.dv+(c+1)*parent.sdv
     end
+  end
+  def alert_followers
+    MessageMailer.new_message_alert(self).deliver
   end
 end
 
