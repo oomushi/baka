@@ -47,6 +47,11 @@ Baka::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.libero.it",
+  :port                 => 25,
+  :domain               => "baka.heroku.com"
+}
 
   # Enable threaded mode
   # config.threadsafe!
