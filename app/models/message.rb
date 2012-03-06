@@ -2,8 +2,8 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :message
   has_many :messages
-  has_many :likes
-  has_one :poll
+  has_many :likes,:dependent=>:destroy
+  has_one :poll,:dependent=>:destroy
   before_create :set_nv_and_dv
   before_destroy :destroyable?
   after_create :alert_followers
