@@ -47,7 +47,6 @@ module Baka
     config.assets.initialize_on_precompile = false
 
     # Action Mailer configs
-    config.action_mailer.delivery_method = :smtp
     config.action_mailer.raise_delivery_errors = true
   end
 end
