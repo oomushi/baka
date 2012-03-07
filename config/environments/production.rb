@@ -49,9 +49,13 @@ Baka::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  :address              => "smtp.libero.it",
-  :port                 => 25,
-  :domain               => "baka.heroku.com"
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => "baka.heroku.com",
+  :user_name            => "baka.notice",
+  :password             => Digest::SHA512.hexdigest("BakaSuperSecret:#{ENV['salt']}"),
+  :authentication       => "plain",
+  :enable_starttls_auto => true
 }
 
   # Enable threaded mode
