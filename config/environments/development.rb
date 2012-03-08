@@ -34,7 +34,7 @@ Baka::Application.configure do
   :port                 => 587,
   :domain               => "baka.heroku.com",
   :user_name            => "baka.notice",
-  :password             => Digest::SHA512.hexdigest("BakaSuperSecret:#{ENV['salt']}"),
+  :password             => Digest::SHA512.base64digest("BakaSuperSecret:#{ENV['salt']}"),
   :authentication       => "plain",
   :enable_starttls_auto => true
 }
