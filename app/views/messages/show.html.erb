@@ -22,7 +22,7 @@
     </nav>
   </header>
   <section>
-    <%= simple_format message.text %>
+    <%= simple_format bb message.text %>
     <p class="sign">
       <%= bb message.user.sign unless message.user.sign.nil? %>
     </p>
