@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_login
-  skip_before_filter :require_login, :only => [:show,:index,:complete]
+  skip_before_filter :require_login, :only => [:show,:index,:complete,:new,:create]
   
   # GET /users
   # GET /users.json
