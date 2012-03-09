@@ -33,7 +33,7 @@ Baka::Application.configure do
   config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => "baka.heroku.com",
+  :domain               => "baka.macrobug.uchi",
   :user_name            => "baka.notice",
   :password             => Digest::SHA512.base64digest("BakaSuperSecret:#{ENV['salt']}"),
   :authentication       => "plain",
