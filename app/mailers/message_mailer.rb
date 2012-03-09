@@ -4,8 +4,9 @@ class MessageMailer < ActionMailer::Base
   def new_message_alert message
     @message=message
     users=[]
-    message.ancestors.where('follow = ?',true).each do |m|
-      users<<m.user.email
+    user=message.user
+    message.ancestors.where('follow = ? and id <> ?',true,message.id).each do |m|
+      users<<m.user.email unless user.eql? m.user
     end
     users.uniq.each do |email|
       mail :to=>email, :subject=>'New replay'
