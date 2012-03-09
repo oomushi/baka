@@ -16,16 +16,18 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :section %><br />
-    <%= f.check_box :section %>
-  </div>
-  <div class="field">
-    <%= f.label :pinned %><br />
-    <%= f.check_box :pinned %>
-  </div>
-  <div class="field">
-    <%= f.label :follow %><br />
-    <%= f.check_box :follow %>
+    <table>
+      <tr>
+        <th><%= f.label :section %></th>
+        <th><%= f.label :pinned %></th>
+        <th><%= f.label :follow %></th>
+      </tr>
+      <tr>
+        <td><%= f.check_box :section %></td>
+        <td><%= f.check_box :pinned %></td>
+        <td><%= f.check_box :follow %></td>
+      </tr>
+    </table>
   </div>
   <div class="field">
     <%= f.label :text %><br />

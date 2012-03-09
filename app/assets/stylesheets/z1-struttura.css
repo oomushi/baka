@@ -153,3 +153,8 @@ blockquote{
   margin: 1em;
   border: 1px solid;
 }
+.field > table{
+  display: inline-block;
+  width: auto;
+  border-spacing: 2px;
+}
