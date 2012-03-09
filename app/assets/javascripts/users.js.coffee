@@ -10,9 +10,10 @@ $(document).ready ->
 
       $.get "/users/complete", params, (data) ->
         if data.length > 0
+          $("#user_name").css('color','#fdd')
           alert "Someone already has that username. Try another?"
         else
-          alert "ok"
+          $("#user_name").css('color','#fff')
 
     delay: 1000
 
