@@ -95,7 +95,6 @@ class UsersController < ApplicationController
     else
       users=User.where("username = ?",string)
     end
-    users.each { |u| u["value"] = u.username }
-    render :json => users
+    render :json => users.to_json(:methods=>:value)
   end
 end

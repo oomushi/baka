@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_format_of :website, :with => URI::regexp(%w(http https)), :allow_black=>true, :allow_nil=>true
   
+  def value
+    username
+  end 
   def total_likes
     value=0
     self.likes.each do |l|
