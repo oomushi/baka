@@ -1,3 +1,3 @@
 To confirm your email account click following link
-<%= url_for(:only_path => false,:controller=>'users', :action=>'confirm', :id=> Digest::SHA1.hexdigest(rand().to_s)) %>
+<%= confirm_user_url(@user,:code=>'abc') %>
 Thank you
