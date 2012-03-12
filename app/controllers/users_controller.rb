@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include Rack::Recaptcha::Helpers
   before_filter :require_login
   skip_before_filter :require_login, :only => [:show,:index,:complete,:new,:create]
   
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if @user.save
+      if @user.save and recaptcha_valid?
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
