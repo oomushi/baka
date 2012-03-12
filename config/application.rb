@@ -48,8 +48,5 @@ module Baka
 
     # Action Mailer configs
     config.action_mailer.raise_delivery_errors = true
-    # reCaptcha
-    config.middleware.use Rack::Recaptcha, :public_key => '6LcE0c4SAAAAAEDHQdBcsGpDcSR8H-0iJIfzsMCX', :private_key => '6LcE0c4SAAAAABFVVq9zw0-3fo5Dm0h7lSUMouWv'
-
   end
 end

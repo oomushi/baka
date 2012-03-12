@@ -57,7 +57,10 @@ Baka::Application.configure do
   :password             => Digest::SHA512.base64digest("BakaSuperSecret:#{ENV['salt']}"),
   :authentication       => "plain",
   :enable_starttls_auto => true
-}
+  }
+  
+  # reCaptcha
+  config.middleware.use Rack::Recaptcha, :public_key => '6LcD0c4SAAAAAFMCEIaDFA0U7fDR-ePNOAnglUZA', :private_key => '6LcD0c4SAAAAAH7TX2N-V5uvs7IeHicUOfVoSJcT'
 
   # Enable threaded mode
   # config.threadsafe!
