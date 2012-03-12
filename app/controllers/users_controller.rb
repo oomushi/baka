@@ -49,7 +49,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if @user.save and recaptcha_valid?
+      if !recaptcha_valid?
+        format.html { render action: "new", :alert=> "captcha doesn't match" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      elsif @user.save 
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
