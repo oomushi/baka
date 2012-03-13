@@ -41,7 +41,9 @@ class User < ActiveRecord::Base
   end
   protected
   def confirm_email
-    # creazione codice
+    salt=BCrypt::Engine.generate_salt
+    self.confirm_code=BCrypt::Engine.hash_secret("#{self.id} #{self.username} #{self.email} #{self.password_salt} #{self.password_hash} #{self.created_at.to_s} #{rand(29**29)}", salt)
+    self.save
     UserMailer.email_confirmation(self).deliver
   end
   def create_avatar
