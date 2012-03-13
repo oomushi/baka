@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   include Rack::Recaptcha::Helpers
   before_filter :require_login
-  skip_before_filter :require_login, :only => [:show,:index,:complete,:new,:create]
+  skip_before_filter :require_login, :only => [:show,:index,:complete,:new,:create,:confirm]
   
   # GET /users
   # GET /users.json
   def index
-    @users = User.order("username asc").page params[:page]
+    @users = User.where('confirm_code is null').order("username asc").page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -100,5 +100,14 @@ class UsersController < ApplicationController
       users=User.where("username = ?",string)
     end
     render :json => users.to_json(:methods=>:value)
+  end
+  def confirm
+    code=request.GET[:code]
+    @user=User.find(params[:id])
+    if @user.confirm code
+      redirect_to @user,:notice=>'email confirmed'
+    else
+      redirect_to root_url, :alert => "code not valid"
+    end
   end
 end

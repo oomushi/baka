@@ -33,6 +33,15 @@ class User < ActiveRecord::Base
     end
   end
   
+  def confirm code
+    if code.eql? self.confirm_code
+      self.confirm_code=nil
+      self.save
+      true
+    else
+      false
+    end
+  end
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
