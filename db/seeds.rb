@@ -6,7 +6,11 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 admin = User.create(:username=>'Admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
-admin.avatar=Avatar.create({:url=>'/assets/users/admin.png'})
+admin.confirm_code=nil
+admin.save
+avatar=admin.avatar
+avatar.url='/assets/users/admin.png'
+avatar.save
 root = Message.create({
   :text => "Hidden text",
   :title => "Baka",
