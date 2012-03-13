@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(username, password)
-    user = find_by_username(username)
+    user = User.where("username = ? and confirm_code is null",username).first
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
     else
