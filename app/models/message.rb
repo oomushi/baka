@@ -4,6 +4,7 @@ class Message < ActiveRecord::Base
   has_many :messages
   has_many :likes,:dependent=>:destroy
   has_one :poll,:dependent=>:destroy
+  accepts_nested_attributes_for :poll, :allow_destroy => true
   before_create :set_nv_and_dv
   before_destroy :destroyable?
   after_create :alert_followers
