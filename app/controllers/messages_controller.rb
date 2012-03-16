@@ -29,7 +29,6 @@ class MessagesController < ApplicationController
   def new
     @root=Message.find params[:id]
     @message = @root.replay
-    @message.build_poll
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @message }
@@ -40,7 +39,6 @@ class MessagesController < ApplicationController
   def edit
     @message = Message.find(params[:id])
     same_user? @message.user
-    @message.build_poll if @message.poll.nil?
     unless @message.deletable?
       @message.errors.add :base, "message cannot be edited"
       respond_to do |format|
