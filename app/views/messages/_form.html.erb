@@ -34,7 +34,7 @@
     <%= f.text_area :text %>
   </div>
   <% if @message.poll.nil? %>
-    <p><%= link_to_add_fields 'Add poll',f,:poll %></p>
+    <p><%= link_to_add_fields 'add poll',f,:poll %></p>
   <% else %>
   <%= f.fields_for :poll do |builder| %>
     <%= render :partial => 'polls/form',:locals => { :f => builder } %>

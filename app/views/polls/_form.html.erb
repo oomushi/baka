@@ -1,11 +1,14 @@
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
-    <%= f.check_box :_destroy %>
-    <%= f.label :_destroy, 'Remove poll' %>
-  <p><%= link_to_remove_fields 'remove',f %></p>
+    <% if f.object.id.nil? %>
+     <%= link_to_remove_fields 'remove',f %>
+    <% else %>
+      <%= f.check_box :_destroy %>
+      <%= f.label :_destroy, 'remove' %>
+    <% end %>
+    <p><%= link_to_add_fields 'add answer',f,:poll_options %></p>
+    <%= f.fields_for :poll_options do |builder| %>
+      <%= render :partial => 'poll_options/form', :locals => { :f => builder } %>
+    <% end %>
   </div>
-  <p><%= link_to_add_fields 'add answer',f,:poll_options %></p>
-  <%= f.fields_for :poll_options do |builder| %>
-    <%= render :partial => 'poll_options/form', :locals => { :f => builder } %>
-  <% end %>

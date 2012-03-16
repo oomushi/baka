@@ -1,7 +1,10 @@
-  <p><%= link_to_remove_fields 'remove',f %></p>
   <div class="field">
     <%= f.label :text %><br />
     <%= f.text_field :text %>
-    <%= f.check_box :_destroy %>
-    <%= f.label :_destroy, 'remove' %>
+    <% if f.object.id.nil? %>
+      <%= link_to_remove_fields 'remove',f %>
+    <% else %>
+      <%= f.check_box :_destroy %>
+      <%= f.label :_destroy, 'remove' %>
+    <% end %>
   </div>
