@@ -3,8 +3,8 @@
     <%= f.text_field :title %>
     <%= f.check_box :_destroy %>
     <%= f.label :_destroy, 'Remove poll' %>
-  </div>
   <p><%= link_to_remove_fields 'remove',f %></p>
+  </div>
   <p><%= link_to_add_fields 'add answer',f,:poll_options %></p>
   <%= f.fields_for :poll_options do |builder| %>
     <%= render :partial => 'poll_options/form', :locals => { :f => builder } %>
