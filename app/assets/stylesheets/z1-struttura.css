@@ -28,7 +28,6 @@ section.main{
   padding:20px 5px 0px 5px;
   margin-top:2.4em;
   top:1.1em;
-  align: center;
   min-height: 94%;
   display:block;
 }
@@ -75,7 +74,6 @@ section.main article{
   max-width: 98%;
   width: 98%;
   display: inline-block;
-  align:center;
   text-align:left;
   border-top-left-radius: 20px;
   margin-bottom: 25px;
