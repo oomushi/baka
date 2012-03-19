@@ -2,7 +2,7 @@
 <table class="pol">
   <caption><%= poll.title %></caption>
   <tbody>
-  <% poll.poll_options.each do |ans| %>
+  <% poll.answers.each do |ans| %>
     <tr>
       <td><%= ans.text %></td>
       <td><%= (100.0*ans.users.count/total).round.to_s+'%' if show_answers %></td>
