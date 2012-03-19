@@ -1,0 +1,19 @@
+<% total,show_answers=poll.options_count,(!current_user.nil? and poll.voted current_user) %>
+<table class="pol">
+  <caption><%= poll.title %></caption>
+  <tbody>
+  <% poll.poll_options.each do |ans| %>
+    <tr>
+      <td><%= ans.text %></td>
+      <td><%= (100.0*ans.users.count/total).round.to_s+'%' if show_answers %></td>
+      <td><%= ans.users.count if show_answers %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">Total:</td>
+      <td><%= total %></td>
+    </tr>
+  </tfoot>
+</table>

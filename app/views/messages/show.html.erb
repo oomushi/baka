@@ -21,6 +21,9 @@
     <% end %>
     </nav>
   </header>
+  <% unless message.poll.nil? %>
+    <%= render :partial=>'polls/show', :locals=>{:poll => message.poll, :current_user=>@current_user} %>
+  <% end %>
   <section>
     <%= simple_format bb message.text %>
     <p class="sign">
