@@ -1,5 +1,5 @@
 Baka::Application.routes.draw do
-  resources :poll_options
+  resources :answers
 
   resources :polls
 

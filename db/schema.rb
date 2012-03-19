@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120303085830) do
+ActiveRecord::Schema.define(:version => 20120319182258) do
+
+  create_table "answers", :force => true do |t|
+    t.string   "text",       :null => false
+    t.integer  "poll_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "answers_users", :id => false, :force => true do |t|
+    t.integer "user_id",   :null => false
+    t.integer "answer_id", :null => false
+  end
+
+  add_index "answers_users", ["user_id", "answer_id"], :name => "index_poll_options_users_on_user_id_and_poll_option_id", :unique => true
 
   create_table "avatars", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -47,20 +61,6 @@ ActiveRecord::Schema.define(:version => 20120303085830) do
     t.integer  "sdv",        :limit => 8, :default => 0
     t.boolean  "follow",                  :default => true
   end
-
-  create_table "poll_options", :force => true do |t|
-    t.string   "text",       :null => false
-    t.integer  "poll_id",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "poll_options_users", :id => false, :force => true do |t|
-    t.integer "user_id",        :null => false
-    t.integer "poll_option_id", :null => false
-  end
-
-  add_index "poll_options_users", ["user_id", "poll_option_id"], :name => "index_poll_options_users_on_user_id_and_poll_option_id", :unique => true
 
   create_table "polls", :force => true do |t|
     t.string   "title",      :null => false

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :messages,:dependent=>:destroy
   has_many :likes,:dependent=>:destroy
   has_one :avatar,:dependent=>:delete
-  has_and_belongs_to_many :poll_options
+  has_and_belongs_to_many :answers
   attr_protected :password_hash, :password_salt, :confirm_code
   attr_accessor :password
   before_save :encrypt_password
