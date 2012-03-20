@@ -1,5 +1,9 @@
 Baka::Application.routes.draw do
-  resources :answers
+  resources :answers do
+    member do
+      put 'vote'
+    end
+  end
 
   resources :polls
 
