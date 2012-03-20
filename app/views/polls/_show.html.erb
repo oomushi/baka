@@ -1,12 +1,22 @@
-<% total,show_answers=poll.options_count,(!current_user.nil? and poll.voted current_user) %>
+<% total=poll.options_count %>
 <table class="pol">
   <caption><%= poll.title %></caption>
   <tbody>
   <% poll.answers.each do |ans| %>
     <tr>
+    <% if current_user.nil? %>
+      <td></td>
       <td><%= ans.text %></td>
-      <td><%= (100.0*ans.users.count/total).round.to_s+'%' if show_answers %></td>
-      <td><%= ans.users.count if show_answers %></td>
+      <td></td>
+    <% elsif poll.voted current_user %>
+      <td><%= ans.text %></td>
+      <td><%= (100.0*ans.users.count/total).round.to_s+'%' %></td>
+      <td><%= ans.users.count %></td>
+    <% else %>
+      <td></td>
+      <td><%= link_to ans.text, vote_answer_path(ans),:method=>:put %></td>
+      <td></td>
+    <% end %>
     </tr>
   <% end %>
   </tbody>
