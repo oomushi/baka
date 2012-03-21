@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   include Rack::Recaptcha::Helpers
   before_filter :require_login
-  skip_before_filter :require_login, :only => [:show,:index,:complete,:new,:create,:confirm]
-  
+  skip_before_filter :require_login, :except => [:edit, :update, :destroy] 
+
   # GET /users
   # GET /users.json
   def index
