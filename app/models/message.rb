@@ -24,7 +24,7 @@ class Message < ActiveRecord::Base
   end
   
   def owner? user
-    user.id=self.user_id
+    user.id==self.user_id
   end
   def ancestors
     Message.where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=false",self.nv,self.dv,self.nv,self.dv).order("created_at")
