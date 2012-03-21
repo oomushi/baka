@@ -37,3 +37,5 @@ gem 'cancan'
 gem "mini_magick"
 gem 'kaminari'
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
+gem 'deferred_associations'
+
