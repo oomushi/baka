@@ -33,6 +33,8 @@
     <%= f.label :text %><br />
     <%= f.text_area :text %>
   </div>
+  <fieldset>
+    <legend>Poll</legend>
   <% if @message.poll.nil? %>
     <p><%= link_to_add_fields 'add poll',f,:poll %></p>
   <% else %>
@@ -40,6 +42,7 @@
     <%= render :partial => 'polls/form',:locals => { :f => builder } %>
   <% end %>
   <% end %>
+  </fieldset>
   <%= f.hidden_field :message_id %>
   <%= f.hidden_field :user_id,:value=>@current_user.id %>
   <div class="actions">

@@ -7,4 +7,4 @@
 @add_fields = (link, association, content) ->
   new_id = new Date().getTime()
   regexp = new RegExp("new_" + association, "g")
-  $(link).parent().after content.replace(regexp, new_id)
+  $(link).parent().parent().append content.replace(regexp, new_id)
