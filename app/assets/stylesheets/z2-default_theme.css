@@ -9,13 +9,8 @@ td.clickable:hover, a:hover{
   color: #ff7f50;
 }
 tr.pinned{
-  background: #3f2112 url('/assets/recse.png') no-repeat fixed left bottom;
-}
-tr.pinned a, tr.pinned{
-  color: #ccc;
-}
-tr.pinned > td.clickable:hover, tr.pinned a:hover{
-  color: #0080af;
+  font-weight: bolder;
+  text-shadow:  0px 0px 15px #FFF,0px 0px 5px #FF0;
 }
 header.main{
   background: black;
@@ -36,6 +31,13 @@ aside.login{
 }
 a.button{
   color: black;
+  opacity:0.7;
+}
+a.button:hover{
+  opacity:1.0;
+}
+a.checked{
+  opacity:1.0;
 }
 a.web{
   background: #fffff0 url('/assets/web.png') left center no-repeat;
@@ -49,20 +51,11 @@ td.leaf{
 td.tree{
   background: url('/assets/tree.png') left center no-repeat;
 }
-a.signup:hover{
-  background: #000 url('/assets/signh.png') left center no-repeat;
-}
 a.login{
   background: #000 url('/assets/login.png') left center no-repeat;
 }
-a.login:hover{
-  background: #000 url('/assets/loginh.png') left center no-repeat;
-}
 a.logout{
   background: #000 url('/assets/logout.png') left center no-repeat;
-}
-a.logout:hover{
-  background: #000 url('/assets/logouth.png') left center no-repeat;
 }
 a.page{
   background: url('/assets/page.png') left center no-repeat;
@@ -73,17 +66,8 @@ a.top{
 a.up{
   background: url('/assets/up.png') left center no-repeat;
 }
-a.up.checked, a.up:hover{
-  background: url('/assets/uph.png') left center no-repeat;
-}
 a.down{
   background: url('/assets/down.png') left center no-repeat;
-}
-a.down.checked, a.down:hover{
-  background: url('/assets/downh.png') left center no-repeat;
-}
-a.checked{
-  opacity:1.0;
 }
 article header{
   background: #000;
