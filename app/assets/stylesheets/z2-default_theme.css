@@ -121,3 +121,7 @@ blockquote{
   border-color: #b0ceff;
   
 }
+aside.like{
+  background-color: #e2062c;
+  box-shadow: 10px 10px 20px #000000;
+}
