@@ -8,3 +8,12 @@
   new_id = new Date().getTime()
   regexp = new RegExp("new_" + association, "g")
   $(link).parent().parent().append content.replace(regexp, new_id)
+@func=null
+@unique_add = (link) ->
+  @func = link.onclick
+  link.onclick = ->
+  $(link).toggleClass "link_disabled"
+@unique_remove = (link) ->
+  l =  $(link).parent().parent().find("a.link_disabled")[0]
+  l.onclick = @func
+  $(l).toggleClass "link_disabled"
