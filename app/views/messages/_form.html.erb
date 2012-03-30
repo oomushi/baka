@@ -35,9 +35,8 @@
   </div>
   <fieldset>
     <legend>Poll</legend>
-  <% if @message.poll.nil? %>
-    <p><%= link_to_add_fields 'add poll',f,:poll %></p>
-  <% else %>
+    <p><%= link_to_add_unique_fields 'add poll',f,:poll,@message.poll.nil? ? '': 'link_disabled' %></p>
+  <% unless @message.poll.nil? %>
   <%= f.fields_for :poll do |builder| %>
     <%= render :partial => 'polls/form',:locals => { :f => builder } %>
   <% end %>

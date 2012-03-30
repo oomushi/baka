@@ -2,7 +2,7 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
     <% if f.object.id.nil? %>
-     <%= link_to_remove_fields 'remove',f %>
+     <%= link_to_remove_unique_fields 'remove',f %>
     <% else %>
       <%= f.check_box :_destroy %>
       <%= f.label :_destroy, 'remove' %>
