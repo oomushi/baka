@@ -15,7 +15,7 @@ class Answer < ActiveRecord::Base
         errors.add :users, "this user already gives his option"
         return false
       end
-    end
+    end unless poll.nil?
     true
   end
 end
