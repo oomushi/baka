@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
   belongs_to :group
   has_many :groups
-  has_and_belongs_to_many :user
+  has_and_belongs_to_many :users
   before_create :set_nv_and_dv
   
   def ancestors
