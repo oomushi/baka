@@ -1,4 +1,6 @@
 Baka::Application.routes.draw do
+  resources :groups
+
   resources :answers do
     member do
       put 'vote'
