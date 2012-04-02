@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319182258) do
+ActiveRecord::Schema.define(:version => 20120402162553) do
 
   create_table "answers", :force => true do |t|
     t.string   "text",       :null => false
@@ -35,6 +35,24 @@ ActiveRecord::Schema.define(:version => 20120319182258) do
     t.datetime "updated_at"
     t.string   "content_type"
   end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "group_id"
+    t.integer  "nv",         :limit => 8, :default => 0
+    t.integer  "dv",         :limit => 8, :default => 0
+    t.integer  "snv",        :limit => 8, :default => 0
+    t.integer  "sdv",        :limit => 8, :default => 0
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer "group_id", :null => false
+    t.integer "user_id",  :null => false
+  end
+
+  add_index "groups_users", ["group_id", "user_id"], :name => "index_groups_users_on_group_id_and_user_id", :unique => true
 
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
@@ -60,6 +78,8 @@ ActiveRecord::Schema.define(:version => 20120319182258) do
     t.integer  "snv",        :limit => 8, :default => 0
     t.integer  "sdv",        :limit => 8, :default => 0
     t.boolean  "follow",                  :default => true
+    t.integer  "writer_id"
+    t.integer  "reader_id"
   end
 
   create_table "polls", :force => true do |t|
