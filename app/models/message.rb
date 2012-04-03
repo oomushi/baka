@@ -52,7 +52,9 @@ class Message < ActiveRecord::Base
     Message.new({
       :title=>title,
       :text=>text,
-      :message_id=>self.id
+      :message_id=>self.id,
+      :reader_id=>self.reader_id,
+      :writer_id=>self.writer_id
     })
   end
 
