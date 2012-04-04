@@ -1,13 +1,23 @@
 class Group < ActiveRecord::Base
   belongs_to :group
   has_many :groups
-  has_and_belongs_to_many :users
+  has_and_belongs_to_many :users,:conditions => "confirm_code is null"
   before_create :set_nv_and_dv
+  before_destroy :destroyable?
   
   def ancestors
     Group.where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/?",self.nv,self.dv,self.nv,self.dv).order("created_at")
   end
+  def deletable?
+    users.count.zero?
+  end
   protected
+  def destroyable?
+    unless deletable?
+      errors.add :base,"cannot delete group with users"
+      false
+    end
+  end
   def set_nv_and_dv
     if self.dv.nil? or self.dv==0
       parent=Group.find self.group_id
