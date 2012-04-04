@@ -4,22 +4,22 @@
   <tr>
     <th>Name</th>
     <th>Group</th>
-    <th>Rgt</th>
-    <th>Lft</th>
-    <th></th>
-    <th></th>
+    <th>Users number</th>
     <th></th>
   </tr>
 
 <% @groups.each do |group| %>
   <tr>
-    <td><%= group.name %></td>
-    <td><%= group.group_id %></td>
-    <td><%= group.rgt %></td>
-    <td><%= group.lft %></td>
-    <td><%= link_to 'Show', group %></td>
+    <td><%= link_to group.name, group %></td>
+    <td><%= link_to group.group.name, group.group unless group.group.nil? %></td>
+    <td>
+      <% if group.deletable? %>
+        <%= link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete %>
+      <% else %>
+        <%= group.users.count %>
+      <% end %>
+    </td>
     <td><%= link_to 'Edit', edit_group_path(group) %></td>
-    <td><%= link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

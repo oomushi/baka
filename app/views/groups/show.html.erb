@@ -7,19 +7,15 @@
 
 <p>
   <b>Group:</b>
-  <%= @group.group_id %>
+  <%= @group.group unless @group.group.nil? %>
 </p>
 
 <p>
-  <b>Rgt:</b>
-  <%= @group.rgt %>
+  <b>Users:</b>
+  <% @group.users.take(5).each do |u| %>
+    <%= u.username %><br/>
+  <% end %>
+  <%= '...' if @group.users.count>5 %>
 </p>
-
-<p>
-  <b>Lft:</b>
-  <%= @group.lft %>
-</p>
-
-
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
