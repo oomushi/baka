@@ -45,6 +45,12 @@ a.web{
 a.signup{
   background: #000 url('/assets/sign.png') left center no-repeat;
 }
+a.user{
+  background: #000 url('/assets/user.png') left center no-repeat;
+}
+a.users{
+  background: #000 url('/assets/users.png') left center no-repeat;
+}
 td.leaf{
   background: url('/assets/leaf.png') left center no-repeat;
 }
@@ -128,4 +134,8 @@ aside.like{
 a.link_disabled{
   opacity:0.5;
   font-style:italic;
+}
+nav ul.slide{
+  background: #000;
+  border-radius: 0px 0px 20px 20px;
 }

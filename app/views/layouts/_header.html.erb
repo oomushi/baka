@@ -2,10 +2,14 @@
   <a href="/"><img src="/assets/logo.png" alt="バカ"/></a>
   <nav>
   <% if defined? @current_user %>
-    <%= link_to @current_user.username, logout_path,:class=>"button logout",:title=>"logout" %>
+    <%= link_to @current_user.username,@current_user,:class=>"button user",:title=>"user" %>
+    <ul class="slide">
+      <li><%= link_to 'logout', logout_path,:class=>"button logout",:title=>"logout" %></li>
+      <li><%= link_to 'users', users_path,:class=>"button users",:title=>"list" %></li>
+    </ul>
   <% else %>
       <%= link_to "signup", signup_path,:class=>"button signup" %>
-      <%= link_to_function "login", "$('#login').show('smooth');$('#username').focus();",:class=>"button login" %>
+      <%= link_to_function "login", "login()",:class=>"button login" %>
   <% end %>
   </nav>
 </header>
