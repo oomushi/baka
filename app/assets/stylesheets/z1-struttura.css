@@ -182,3 +182,6 @@ nav ul.slide{
   list-style-type: none;
   text-align:center;
 }
+select.asmSelect{
+  display:none;
+}
