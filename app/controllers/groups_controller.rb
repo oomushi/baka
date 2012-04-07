@@ -58,6 +58,7 @@ class GroupsController < ApplicationController
   # PUT /groups/1
   # PUT /groups/1.json
   def update
+    params[:group][:user_ids] ||= []
     @group = Group.find(params[:id])
 
     respond_to do |format|
