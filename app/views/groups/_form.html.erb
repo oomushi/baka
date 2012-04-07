@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :group_id %><br />
-    <%= f.select(:group_id, Group.all.map{|g| [g.name,g.id]}, {:include_blank =>'None', :prompt => 'Select super group'}) %>
+    <%= f.select(:group_id, Group.all.map{|g| [g.name,g.id]}, {:include_blank =>'None'}) %>
   </div>
   <div class="field">
     <%= f.label :users %>
