@@ -17,15 +17,12 @@
   </div>
   <div class="field">
     <%= f.label :group_id %><br />
-    <%= f.number_field :group_id %>
+    <%= f.select(:group_id, Group.all.map{|g| [g.name,g.id]}, {:include_blank =>'None', :prompt => 'Select super group'}) %>
   </div>
   <div class="field">
-    <%= f.label :rgt %><br />
-    <%= f.number_field :rgt %>
-  </div>
-  <div class="field">
-    <%= f.label :lft %><br />
-    <%= f.number_field :lft %>
+    <%= f.label :users %>
+    <%= f.search_field :users,:value=>'' %>
+    <%= f.collection_select :user_ids, @group.users, :id, :username, { :selected => @group.user_ids }, { :multiple => true } %>
   </div>
   <div class="actions">
     <%= f.submit %>
