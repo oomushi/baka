@@ -174,14 +174,33 @@ nav.nav{
   top: -5px;
   clear:none;
 }
-nav ul.slide{
- /* display:none;*/
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-top:0px;
-  list-style-type: none;
-  text-align:center;
+.drop-menu {  
+  display: block;  
+  text-align: center;  
+  cursor: pointer;
 }
-select.asmSelect{
-  display:none;
+.sub-menu {  
+  display: none; 
+  z-index:0;
+  padding: 8px 10px;  
+  margin-left: -11px;  
+  margin-top: -4px;
+}  
+.sub-menu li {  
+  list-style-type: none;  
+  display: block;  
+}  
+.plus {  
+  display: inline-block;  
+  -webkit-transition: .3s ease-in-out;  
+  -moz-transition: .3s ease-in-out;  
+  -o-transition: .3s ease-in-out;  
+}  
+.drop-menu:hover .plus {  
+  -webkit-transform: rotate(45deg);  
+  -moz-transform: rotate(45deg);  
+  -o-transform: rotate(45deg);  
 }
+.drop-menu:hover .sub-menu {  
+  display: block;  
+}   
