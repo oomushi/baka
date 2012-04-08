@@ -12,7 +12,7 @@ a=Group.create({
   :snv=>1,
   :sdv=>1
 })
-Group.create({
+b=Group.create({
   :name=>"Moderetors",
   :nv=>1,
   :dv=>2,
@@ -22,10 +22,11 @@ Group.create({
 })
 b=Group.create({
   :name=>"Users",
-  :nv=>1,
-  :dv=>1,
-  :snv=>2,
-  :sdv=>1
+  :nv=>3,
+  :dv=>5,
+  :snv=>5,
+  :sdv=>8,
+  :group_id=>b.id
 })
 admin = User.create(:username=>'Admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
 admin.confirm_code=nil
