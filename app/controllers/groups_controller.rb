@@ -60,7 +60,7 @@ class GroupsController < ApplicationController
   def update
     params[:group][:user_ids] ||= []
     @group = Group.find(params[:id])
-
+    logger.debug params
     respond_to do |format|
       if @group.update_attributes(params[:group])
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }

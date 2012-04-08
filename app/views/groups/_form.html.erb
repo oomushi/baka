@@ -22,7 +22,12 @@
   <div class="field">
     <%= f.label :users %>
     <%= f.search_field :users,:value=>'' %>
-    <%= f.collection_select :user_ids, @group.users, :id, :username, { :selected => @group.user_ids }, { :multiple => true } %>
+    <fieldset id="habtm">
+    <% @group.users.each do |user| %>
+      <%= check_box_tag "group[user_ids][]", user.id, true %>
+      <%= user.username %><br/>
+    <% end %>
+    </fieldset>
   </div>
   <div class="actions">
     <%= f.submit %>
