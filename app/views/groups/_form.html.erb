@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :users %>
-    <%= f.search_field :users,:value=>'' %>
+    <%= search_field_tag 'users' %>
     <fieldset id="habtm">
     <% @group.users.each do |user| %>
       <%= check_box_tag "group[user_ids][]", user.id, true %>
