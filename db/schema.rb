@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(:version => 20120402162553) do
     t.integer  "user_id",                                       :null => false
     t.string   "url",          :default => "/assets/guest.png"
     t.binary   "file"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.string   "content_type"
   end
 
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(:version => 20120402162553) do
     t.integer  "user_id"
     t.integer  "message_id"
     t.integer  "value",      :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "likes", ["user_id", "message_id"], :name => "index_likes_on_user_id_and_message_id", :unique => true
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20120402162553) do
     t.string   "title",                                      :null => false
     t.integer  "message_id",                                 :null => false
     t.integer  "user_id",                                    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.integer  "nv",         :limit => 8, :default => 0
     t.integer  "dv",         :limit => 8, :default => 0
     t.integer  "snv",        :limit => 8, :default => 0
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(:version => 20120402162553) do
     t.string   "confirm_code"
     t.string   "sign"
     t.date     "birthday"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "location"
     t.string   "website"
   end
