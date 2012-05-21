@@ -13,11 +13,11 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
     else
-      @current_user ||= User.find(2)
+      @current_user ||= User.find_guest
     end
   end
   def require_login
-    if @current_user.nil?
+    if @current_user.guest
       flash[:error] = "You must be logged in to access this section"
       redirect_to '/'
     end

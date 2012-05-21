@@ -24,7 +24,11 @@ class User < ActiveRecord::Base
     end
     value
   end
-
+  
+  def find_guest
+    User.where("guest = ?",true).first
+  end
+  
   def self.authenticate(username, password)
     user = User.where("username = ? and confirm_code is null",username).first
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
