@@ -28,6 +28,14 @@ b=Group.create({
   :sdv=>8,
   :group_id=>b.id
 })
+c=Group.create({
+  :name=>"guest",
+  :nv=>8,
+  :dv=>13,
+  :snv=>13,
+  :sdv=>21,
+  :group_id=>b.id
+})
 admin = User.create(:username=>'Admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
 admin.confirm_code=nil
 admin.groups<<a
@@ -35,6 +43,8 @@ admin.save
 avatar=admin.avatar
 avatar.url='/assets/users/admin.png'
 avatar.save
+guest=User.create(:username=>"guest",:email=>"guest@baka.com",:password=>"sunset")
+guest.groups<<c
 root = Message.create({
   :text => "Hidden text",
   :title => "Baka",
