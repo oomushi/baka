@@ -1,7 +1,7 @@
 <header class="main">
   <a href="/"><img src="/assets/logo.png" alt="バカ"/></a>
   <nav>
-  <% if defined? @current_user %>
+  <% unless @current_user.guest %>
     <div class="drop-menu">
       <span class="plus">+</span>
       <%= link_to @current_user.username,@current_user,:class=>"button user",:title=>"user" %>

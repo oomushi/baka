@@ -3,7 +3,7 @@
   @path.each do |message| %>
   <%= link_to message.title,message %><%= ' > ' if message!=last%>
 <% end %>
-<%= link_to 'New Message', new_message_path({:id=>last.id}) unless @current_user.nil? %>
+<%= link_to 'New Message', new_message_path({:id=>last.id}) unless @current_user.guest %>
 <table>
   <tr>
     <th>Title</th>

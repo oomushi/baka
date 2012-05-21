@@ -10,13 +10,13 @@
     <a id="<%= message.id%>"/><%= link_to message.title, message %><%= message.created_at %>
   </header>
   <aside class="like" title="<%= message.total_likes %>"><%= num_reduce message.total_likes %></aside>
-  <% if defined? @current_user %>
+  <% unless @current_user.guest %>
   <nav class='nav'>
     <% if message.deletable? and message.owner? @current_user %>
-      <%= link_to 'Edit', edit_message_path(message) if defined? @current_user and message.deletable? and message.owner? @current_user %>
-      <%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if defined? @current_user and message.deletable? and message.owner? @current_user %>
+      <%= link_to 'Edit', edit_message_path(message) if !@current_user.guest and message.deletable? and message.owner? @current_user %>
+      <%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if !@current_user.guest and message.deletable? and message.owner? @current_user %>
     <% end %>
-    <%= link_to 'Replay', new_message_path({:id=>message.id}) if defined? @current_user %>
+    <%= link_to 'Replay', new_message_path({:id=>message.id}) unless @current_user.guest %>
     <%= render :partial=>'likes/form', :locals=>{:message=>message,:current_user=>@current_user} %>
   </nav>
   <% end %>
