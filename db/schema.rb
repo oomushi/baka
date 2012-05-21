@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402162553) do
+ActiveRecord::Schema.define(:version => 20120521165213) do
 
   create_table "answers", :force => true do |t|
     t.string   "text",       :null => false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20120402162553) do
     t.datetime "updated_at",    :null => false
     t.string   "location"
     t.string   "website"
+    t.boolean  "guest"
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
