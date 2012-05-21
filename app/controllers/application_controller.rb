@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   end
   private
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if session[:user_id]
+      @current_user ||= User.find(session[:user_id])
+    else
+      @current_user ||= User.find(2)
+    end
   end
   def require_login
     if @current_user.nil?
