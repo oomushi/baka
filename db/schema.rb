@@ -90,18 +90,18 @@ ActiveRecord::Schema.define(:version => 20120521165213) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username",      :null => false
-    t.string   "email",         :null => false
+    t.string   "username",                         :null => false
+    t.string   "email",                            :null => false
     t.string   "password_hash"
     t.string   "password_salt"
     t.string   "confirm_code"
     t.string   "sign"
     t.date     "birthday"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "location"
     t.string   "website"
-    t.boolean  "guest"
+    t.boolean  "guest",         :default => false
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
