@@ -43,7 +43,7 @@ admin.save
 avatar=admin.avatar
 avatar.url='/assets/users/admin.png'
 avatar.save
-guest=User.create(:username=>"guest",:email=>"guest@baka.com",:password=>"sunset")
+guest=User.create(:username=>"guest",:email=>"guest@baka.com",:password=>"sunset",:guest=>true)
 guest.groups<<c
 root = Message.create({
   :text => "Hidden text",
