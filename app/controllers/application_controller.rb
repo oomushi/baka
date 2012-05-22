@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
     else
-      @current_user ||= User.find_guest
+      @current_user ||= User.find_guest.first
     end
   end
   def require_login

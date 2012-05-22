@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
     value
   end
   
-  def find_guest
-    User.where("guest = ?",true).first
+  def self.find_guest
+    User.where("guest = ?",true)
   end
   
   def self.authenticate(username, password)
