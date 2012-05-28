@@ -34,6 +34,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # To use debugger
 # gem 'ruby-debug'
 gem 'cancan'
+gem 'canable'
 gem "mini_magick"
 gem 'kaminari'
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
