@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  include Canable::Enforcers
   before_filter :require_login
   skip_before_filter :require_login, :only => [:show,:index]
 

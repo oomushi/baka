@@ -1,4 +1,5 @@
 class Message < ActiveRecord::Base
+  include Canable::Ables
   belongs_to :user
   belongs_to :message
   has_many :messages
@@ -11,6 +12,19 @@ class Message < ActiveRecord::Base
   before_destroy :destroyable?
   after_create :alert_followers
 
+  def viewable_by? user
+    reader.level<=user.max_group.level
+  end
+  def creatable_by? user
+    writer.level<=user.max_group.level
+  end
+  def updatable_by? user
+    creatable_by? user
+  end
+  def destroyable_by? user
+    creatable_by? user
+  end
+  
   def total_likes
     value=0
     likes.each do |l|
