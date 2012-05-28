@@ -7,34 +7,19 @@
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 a=Group.create({
   :name=>"Admins",
-  :nv=>0,
-  :dv=>1,
-  :snv=>1,
-  :sdv=>1
+  :level=>1
 })
 b=Group.create({
   :name=>"Moderetors",
-  :nv=>1,
-  :dv=>2,
-  :snv=>2,
-  :sdv=>3,
-  :group_id=>a.id
+  :level=>2
 })
 b=Group.create({
   :name=>"Users",
-  :nv=>3,
-  :dv=>5,
-  :snv=>5,
-  :sdv=>8,
-  :group_id=>b.id
+  :level=>4
 })
 c=Group.create({
   :name=>"guest",
-  :nv=>8,
-  :dv=>13,
-  :snv=>13,
-  :sdv=>21,
-  :group_id=>b.id
+  :level=>64
 })
 admin = User.create(:username=>'Admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
 admin.confirm_code=nil
