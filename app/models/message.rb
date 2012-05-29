@@ -13,10 +13,10 @@ class Message < ActiveRecord::Base
   after_create :alert_followers
 
   def viewable_by? user
-    reader.level<=user.max_group.level
+    reader.level>=user.max_group.level
   end
   def creatable_by? user
-    writer.level<=user.max_group.level
+    writer.level>=user.max_group.level
   end
   def updatable_by? user
     creatable_by? user
@@ -42,14 +42,17 @@ class Message < ActiveRecord::Base
   def owner? user
     user.id==self.user_id
   end
-  def ancestors
-    Message.where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=false",self.nv,self.dv,self.nv,self.dv).order("created_at")
+  def childs user
+    messages.joins(:reader).where('messages.id<>? and groups.level>=?',self.id,user.max_group.level).order("created_at")
   end
-  def offsprings
-    Message.where("1.0*nv/dv between 1.0*?/? and 1.0*?/? and section=false",self.nv,self.dv,self.snv,self.sdv).order("created_at")
+  def ancestors user
+    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=false and groups.level>=?",self.nv,self.dv,self.nv,self.dv,user.max_group.level).order("created_at")
   end
-  def paths
-    Message.where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=true",self.nv,self.dv,self.nv,self.dv).order("created_at")
+  def offsprings user
+    Message.joins(:reader).where("1.0*nv/dv between 1.0*?/? and 1.0*?/? and section=false and groups.level>=?",self.nv,self.dv,self.snv,self.sdv,user.max_group.level).order("created_at")
+  end
+  def paths user
+    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=true and groups.level>=?",self.nv,self.dv,self.nv,self.dv,user.max_group.level).order("created_at")
   end
   
   def deletable?
