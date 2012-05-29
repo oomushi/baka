@@ -13,11 +13,12 @@ class MessagesController < ApplicationController
   # GET /messages/1.json
   def show
     message = Message.find(params[:id])
+    enforce_view_permission(message)
     @path=message.paths
     if message.section
       @messages = message.messages.where('id<>?',params[:id]).order("pinned desc, section desc, created_at desc").page params[:page] # REM questo serve in root per non includere sé stessi
     else
-      @messages = message.ancestors.page params[:page]
+      @messages = message.ancestors(@current_user).page params[:page]
     end
     respond_to do |format|
       format.html {render( message.section ? :index : :show)}  # index.html.erb | show.html.erb
@@ -29,6 +30,7 @@ class MessagesController < ApplicationController
   # GET /messages/new.json
   def new
     @root=Message.find params[:id]
+    enforce_create_permission(@root)
     @message = @root.replay
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +41,7 @@ class MessagesController < ApplicationController
   # GET /messages/1/edit
   def edit
     @message = Message.find(params[:id])
+    enforce_update_permission(@message)
     same_user? @message.user
     unless @message.deletable?
       @message.errors.add :base, "message cannot be edited"
@@ -86,6 +89,7 @@ class MessagesController < ApplicationController
   # DELETE /messages/1.json
   def destroy
     @message = Message.find(params[:id])
+    enforce_delete_permission(@message)
     same_user? @message.user
     id=@message.message_id
     @message.destroy
