@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     enforce_view_permission(message)
     @path=message.paths
     if message.section
-      @messages = message.messages.where('id<>?',params[:id]).order("pinned desc, section desc, created_at desc").page params[:page] # REM questo serve in root per non includere sé stessi
+      @messages = message.childs(@current_user).order("pinned desc, section desc, created_at desc").page params[:page]
     else
       @messages = message.ancestors(@current_user).page params[:page]
     end
