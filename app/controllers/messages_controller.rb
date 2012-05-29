@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
   def show
     message = Message.find(params[:id])
     enforce_view_permission(message)
-    @path=message.paths
+    @path=message.paths(@current_user)
     if message.section
       @messages = message.childs(@current_user).order("pinned desc, section desc, created_at desc").page params[:page]
     else
