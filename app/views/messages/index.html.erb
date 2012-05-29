@@ -17,10 +17,10 @@
     <td class="button clickable <%= message.section ? 'tree' : 'leaf' %>"><h2><%= message.title %></h2><%= message.section ? message.text : '' %></td>
     <td>
 	<% if message.section %>
-        <% if message.offsprings.count.zero? %>
+        <% if message.offsprings(@current_user).count.zero? %>
         Nessun messaggio
        <% else  
-       last=message.offsprings.last %>
+       last=message.offsprings(@current_user).last %>
        <%= link_to last.title, last %><br/>
        <%= link_to last.created_at.to_s, last %><br/>
        <%= link_to last.user.username,last.user %><br/>
