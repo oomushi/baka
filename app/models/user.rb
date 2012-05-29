@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Canable::Cans
   has_many :messages,:dependent=>:destroy
   has_many :likes,:dependent=>:destroy
   has_one :avatar,:dependent=>:delete
