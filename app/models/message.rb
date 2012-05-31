@@ -13,10 +13,10 @@ class Message < ActiveRecord::Base
   after_create :alert_followers
 
   def viewable_by? user
-    reader.level>=user.max_group.level
+    reader.level>user.max_group.level or reader.eql? user.max_group
   end
   def creatable_by? user
-    writer.level>=user.max_group.level
+    self.user.eql? user or ancestor(user).any?{ |m| m.writer.eql? user.max_group}
   end
   def updatable_by? user
     creatable_by? user
