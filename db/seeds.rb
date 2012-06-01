@@ -26,7 +26,7 @@ admin.confirm_code=nil
 admin.groups<<a
 admin.save
 avatar=admin.avatar
-avatar.url='/assets/users/admin.png'
+avatar.url='/assets/admin.png'
 avatar.save
 guest=User.create(:username=>"guest",:email=>"guest@baka.com",:password=>"sunset",:guest=>true)
 guest.groups<<c
