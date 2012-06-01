@@ -1,7 +1,7 @@
 <%
   last=@path.last	
   @path.each do |message| %>
-  <%= link_to message.title,message %><%= ' > ' if message!=last%>
+  <%= link_to message.title,message if @current_user.can_view? message %><%= ' > ' if message!=last%>
 <% end %>
 <div style="clear:both;"></div>
 <% @messages.each do |message| %>
@@ -13,10 +13,10 @@
   <% unless @current_user.guest %>
   <nav class='nav'>
     <% if message.deletable? and message.owner? @current_user %>
-      <%= link_to 'Edit', edit_message_path(message) if !@current_user.guest and message.deletable? and message.owner? @current_user %>
-      <%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if !@current_user.guest and message.deletable? and message.owner? @current_user %>
+      <%= link_to 'Edit', edit_message_path(message) if @current_user.can_update? message and message.deletable? %>
+      <%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete if @current_user.can_destroy? message and message.deletable? %>
     <% end %>
-    <%= link_to 'Replay', new_message_path({:id=>message.id}) unless @current_user.guest %>
+    <%= link_to 'Replay', new_message_path({:id=>message.id}) if @current_user.can_create? message %>
     <%= render :partial=>'likes/form', :locals=>{:message=>message,:current_user=>@current_user} %>
   </nav>
   <% end %>
@@ -34,8 +34,8 @@
   </aside>
   <nav class="leaf">
     <a href="#top" title="top" class="top">&thinsp;</a>
-    <% message.messages.each_with_index do |son,i| %>
-      <%= link_to "&thinsp;".html_safe, son, :title=> son.user.username+" "+son.created_at.to_s,:class=>"page" unless @messages.include? son %>
+    <% message.childs(@current_user).each_with_index do |son,i| %>
+      <%= link_to "&thinsp;".html_safe, son, :title=> son.user.username+" "+son.created_at.to_s,:class=>"page" if !@messages.include? son and @current_user.can_view? son %>
     <% end %>
   </nav>
 </article>
