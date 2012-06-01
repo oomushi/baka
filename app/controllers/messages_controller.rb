@@ -12,16 +12,16 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
-    message = Message.find(params[:id])
-    enforce_view_permission(message)
-    @path=message.paths(@current_user)
-    if message.section
-      @messages = message.childs(@current_user).order("pinned desc, section desc, created_at desc").page params[:page]
+    @root = Message.find(params[:id])
+    enforce_view_permission(@root)
+    @path=@root.paths(@current_user)
+    if @root.section
+      @messages = @root.childs(@current_user).order("pinned desc, section desc, created_at desc").page params[:page]
     else
-      @messages = message.ancestors(@current_user).page params[:page]
+      @messages = @root.ancestors(@current_user).page params[:page]
     end
     respond_to do |format|
-      format.html {render( message.section ? :index : :show)}  # index.html.erb | show.html.erb
+      format.html {render( @root.section ? :index : :show)}  # index.html.erb | show.html.erb
       format.json { render json: @messages }
     end
   end
