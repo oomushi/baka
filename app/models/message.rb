@@ -16,7 +16,7 @@ class Message < ActiveRecord::Base
     reader.level>user.max_group.level or reader.eql? user.max_group
   end
   def creatable_by? user
-    self.user.eql? user or ancestor(user).any?{ |m| m.writer.eql? user.max_group}
+    self.user.eql? user or ancestors(user).any?{ |m| m.writer.eql? user.max_group}
   end
   def updatable_by? user
     creatable_by? user
