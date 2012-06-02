@@ -39,6 +39,7 @@ td.button{
 header a.button{
   padding:1px 0px 1px 16px;
   margin:1px 2px 0px 2px;
+  vertical-align: top;
 }
 footer.main{
   text-align:left;
@@ -175,9 +176,7 @@ nav.nav{
   clear:none;
 }
 .drop-menu {  
-  display: block;  
-  text-align: center;  
-  cursor: pointer;
+  display: inline-block;
 }
 .sub-menu {  
   display: none; 
