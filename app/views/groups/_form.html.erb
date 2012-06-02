@@ -16,8 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :group_id %><br />
-    <%= f.select(:group_id, Group.all.map{|g| [g.name,g.id]}, {:include_blank =>'None'}) %>
+    <%= f.label :level %><br />
+    <%= f.number_field :level %>
   </div>
   <div class="field">
     <%= f.label :users %>

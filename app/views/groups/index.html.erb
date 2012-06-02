@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Group</th>
+    <th>Level</th>
     <th>Users number</th>
     <th></th>
   </tr>
@@ -11,7 +11,7 @@
 <% @groups.each do |group| %>
   <tr>
     <td><%= link_to group.name, group %></td>
-    <td><%= link_to group.group.name, group.group unless group.group.nil? %></td>
+    <td><%= link_to group.level, group %></td>
     <td>
       <% if group.deletable? %>
         <%= link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete %>
