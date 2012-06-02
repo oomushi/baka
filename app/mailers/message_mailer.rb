@@ -5,7 +5,6 @@ class MessageMailer < ActionMailer::Base
     @message=message
     users=[]
     user=message.user
-    # TODO ancestors DEVE avere un parametro
     message.ancestors(message.user).where('follow = ? and messages.id <> ?',true,message.id).each do |m|
       users<<m.user.email unless user.eql? m.user
     end
