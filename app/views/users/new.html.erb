@@ -1,4 +1,3 @@
-<article>
   <h1>Sign Up</h1>
   <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
@@ -30,4 +29,3 @@
     <%= raw recaptcha_tag(:challenge) %>
     <p class="button"><%= f.submit %></p>
   <% end %>
-</article>
