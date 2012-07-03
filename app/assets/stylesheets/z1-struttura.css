@@ -160,6 +160,11 @@ div.field > table{
   width: auto;
   border-spacing: 2px;
 }
+form > fieldset{
+  display: inline-block;
+  min-width: 20%;
+  margin-bottom: 1em;
+}
 aside.like{
   width: 3em;
   border-radius: 2em;
