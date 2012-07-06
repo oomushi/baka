@@ -17,7 +17,7 @@
     <td><%= link_to user.username,user %></td>
     <td><%= mail_to user.email %></td>
     <td><%= user.location %></td>
-    <td><%= user.created_at.to_s %></td>
+    <td><%= l user.created_at,:format=>:long %></td>
     <td><%= user.messages.count %></td>
     <td><% unless user.website.nil? %><a href="<%= user.website %>">website</a><% end %></td>
     <td><%= link_to 'Edit', edit_user_path(user) if !@current_user.guest and @current_user.eql? user%></td>

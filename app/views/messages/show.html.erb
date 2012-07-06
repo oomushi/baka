@@ -7,7 +7,7 @@
 <% @messages.each do |message| %>
 <article>
   <header>
-    <a id="<%= message.id%>"/><%= link_to message.title, message %><%= message.created_at %>
+    <a id="<%= message.id%>"/><%= link_to message.title, message %><%= l message.created_at, :format=>:long %>
   </header>
   <aside class="like" title="<%= message.total_likes %>"><%= num_reduce message.total_likes %></aside>
   <% unless @current_user.guest %>
@@ -35,7 +35,7 @@
   <nav class="leaf">
     <a href="#top" title="top" class="top">&thinsp;</a>
     <% message.childs(@current_user).each_with_index do |son,i| %>
-      <%= link_to "&thinsp;".html_safe, son, :title=> son.user.username+" "+son.created_at.to_s,:class=>"page" if !@messages.include? son and @current_user.can_view? son %>
+      <%= link_to "&thinsp;".html_safe, son, :title=> son.user.username+" "+son.created_at.to_formatted_s(:long),:class=>"page" if !@messages.include? son and @current_user.can_view? son %>
     <% end %>
   </nav>
 </article>

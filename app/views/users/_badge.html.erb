@@ -1,7 +1,7 @@
-<h5><%= user.username %></h5>
+<h5><%= link_to user.username, user %></h5>
 <img src="<%= user.avatar %>" alt="<%= user.username  %>"/>
 <span>Location: <%= user.location %></span>
-<span>Created at: <%= user.created_at.to_s %></span>
+<span>Created at: <%= l user.created_at, :format=>:long %></span>
 <span>Birthday: <%= user.birthday %></span>
 <span>Message n.: <%= user.messages.count %></span>
 <span>Karma: <%= user.total_likes %></span>
