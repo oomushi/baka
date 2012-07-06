@@ -83,6 +83,8 @@ section.main article{
   margin-bottom: 25px;
   box-shadow:10px 10px 20px #000;
   clear:both;
+  padding-left: 1em;
+  padding-bottom: 1em;
 }
 article section{
   padding: 0px 1em 0px 1em;
@@ -96,6 +98,10 @@ article header{
   border-radius: 20px 0px 0px 0px;
   padding: 0px 0px 0px 20px;
   clear: both;
+  margin-left:-1em;
+}
+article > header > a{
+  margin-right: 0.5em;
 }
 article nav{
   float:right;
@@ -125,7 +131,6 @@ section.main table{
   margin-left:1%;
 }
 aside.user{
-  margin-left: 1em;
   width: 16%;
   display:inline-block;
 }
