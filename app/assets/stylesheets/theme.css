@@ -1,12 +1,12 @@
 body{
-  background: #c0deed url('/assets/escer.png') no-repeat fixed left bottom;
+  background: #c0deed url('/assets/theme/escer.png') no-repeat fixed left bottom;
 }
 section.main{
   background: rgba(255, 255, 248, 0.6);
   box-shadow: 0px 0px 15px #000;
 }
 section.main article{
-  background: #fffff0 url('/assets/baka.png') repeat-y scroll left bottom;
+  background: #fffff0 url('/assets/theme/baka.png') repeat-y scroll left bottom;
   border: 1px solid #000;
 }
 td.clickable:hover, a:hover{
@@ -44,43 +44,43 @@ a.checked{
   opacity:1.0;
 }
 a.web{
-  background: #fffff0 url('/assets/web.png') left center no-repeat;
+  background: #fffff0 url('/assets/theme/web.png') left center no-repeat;
 }
 a.signup{
-  background: #000 url('/assets/sign.png') left center no-repeat;
+  background: #000 url('/assets/theme/sign.png') left center no-repeat;
 }
 a.user{
-  background: #000 url('/assets/user.png') left center no-repeat;
+  background: #000 url('/assets/theme/user.png') left center no-repeat;
 }
 a.group{
-  background: #000 url('/assets/group.png') left center no-repeat;
+  background: #000 url('/assets/theme/group.png') left center no-repeat;
 }
 a.users{
-  background: #000 url('/assets/users.png') left center no-repeat;
+  background: #000 url('/assets/theme/users.png') left center no-repeat;
 }
 td.leaf{
-  background: url('/assets/leaf.png') left center no-repeat;
+  background: url('/assets/theme/leaf.png') left center no-repeat;
 }
 td.tree{
-  background: url('/assets/tree.png') left center no-repeat;
+  background: url('/assets/theme/tree.png') left center no-repeat;
 }
 a.login{
-  background: #000 url('/assets/login.png') left center no-repeat;
+  background: #000 url('/assets/theme/login.png') left center no-repeat;
 }
 a.logout{
-  background: #000 url('/assets/logout.png') left center no-repeat;
+  background: #000 url('/assets/theme/logout.png') left center no-repeat;
 }
 a.page{
-  background: url('/assets/page.png') left center no-repeat;
+  background: url('/assets/theme/page.png') left center no-repeat;
 }
 a.top{
-  background: url('/assets/top.png') left center no-repeat;
+  background: url('/assets/theme/top.png') left center no-repeat;
 }
 a.up{
-  background: url('/assets/up.png') left center no-repeat;
+  background: url('/assets/theme/up.png') left center no-repeat;
 }
 a.down{
-  background: url('/assets/down.png') left center no-repeat;
+  background: url('/assets/theme/down.png') left center no-repeat;
 }
 article header{
   background: #000;
@@ -133,7 +133,7 @@ span.spoiler{
   border-color: #000;
 }
 blockquote{
-  background:url("http://baka.macrobug.uchi/assets/baka.png") 0% 100% repeat-y #C0DEED;
+  background:url("/assets/theme/baka.png") 0% 100% repeat-y #C0DEED;
   border-color: #b0ceff;
   
 }
