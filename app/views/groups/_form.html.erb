@@ -20,15 +20,16 @@
     <%= f.number_field :level %>
   </div>
   <div class="field">
-    <%= f.label :users %>
+    <%= f.label :users %><br />
     <%= search_field_tag 'users' %>
-  </div>
   <fieldset id="habtm">
   <% @group.users.each do |user| %>
     <%= check_box_tag "group[user_ids][]", user.id, true %>
     <%= user.username %><br/>
   <% end %>
   </fieldset>
+  </div>
+  <div class="clear"></div>
   <div class="actions">
     <%= f.submit %>
   </div>

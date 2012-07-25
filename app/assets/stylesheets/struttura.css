@@ -215,4 +215,14 @@ nav.nav{
 }
 .drop-menu:hover .sub-menu {  
   display: block;  
-}   
+}
+.field:nth-child(odd){
+  width: 45%;
+  margin-right: 5%;
+  float: right;
+}
+.field:nth-child(even){
+  width: 45%;
+  margin-left: 5%;
+  float: left;
+}
