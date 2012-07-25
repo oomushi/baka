@@ -228,5 +228,6 @@ nav.nav{
   margin-left: 5%;
   float: left;
 }
-
 .actions{clear: both;}
+
+#recaptcha_widget_div{display:inline-block;}
