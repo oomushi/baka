@@ -158,8 +158,15 @@ span.spoiler{
 }
 blockquote{
   padding: 1em;
-  margin: 1em;
+  display: inline-block;
   border: 1px solid;
+}
+cite{
+  display:inline;
+  float:left;
+  position:relative;
+  top:-1em;
+  text-style:italic;
 }
 div.field > table{
   display: inline-block;
