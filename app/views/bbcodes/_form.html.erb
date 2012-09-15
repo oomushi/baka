@@ -1,0 +1,41 @@
+<%= form_for(@bbcode) do |f| %>
+  <% if @bbcode.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bbcode.errors.count, "error") %> prohibited this bbcode from being saved:</h2>
+
+      <ul>
+      <% @bbcode.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tag %><br />
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
+    <%= f.label :label %><br />
+    <%= f.text_field :label %>
+  </div>
+  <div class="field">
+    <%= f.label :layout %><br />
+    <%= f.text_field :layout %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :inner %><br />
+    <%= f.text_field :inner %>
+  </div>
+  <div class="field">
+    <%= f.label :attributes %><br />
+    <%= f.number_field :attributes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

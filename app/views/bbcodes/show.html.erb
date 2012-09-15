@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tag:</b>
+  <%= @bbcode.tag %>
+</p>
+
+<p>
+  <b>Label:</b>
+  <%= @bbcode.label %>
+</p>
+
+<p>
+  <b>Layout:</b>
+  <%= @bbcode.layout %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @bbcode.value %>
+</p>
+
+<p>
+  <b>Inner:</b>
+  <%= @bbcode.inner %>
+</p>
+
+<p>
+  <b>Attributes:</b>
+  <%= @bbcode.attributes %>
+</p>
+
+
+<%= link_to 'Edit', edit_bbcode_path(@bbcode) %> |
+<%= link_to 'Back', bbcodes_path %>

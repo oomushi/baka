@@ -1,0 +1,33 @@
+<h1>Listing bbcodes</h1>
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th>Label</th>
+    <th>Layout</th>
+    <th>Value</th>
+    <th>Inner</th>
+    <th>Attributes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bbcodes.each do |bbcode| %>
+  <tr>
+    <td><%= bbcode.tag %></td>
+    <td><%= bbcode.label %></td>
+    <td><%= bbcode.layout %></td>
+    <td><%= bbcode.value %></td>
+    <td><%= bbcode.inner %></td>
+    <td><%= bbcode.attributes %></td>
+    <td><%= link_to 'Show', bbcode %></td>
+    <td><%= link_to 'Edit', edit_bbcode_path(bbcode) %></td>
+    <td><%= link_to 'Destroy', bbcode, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bbcode', new_bbcode_path %>
