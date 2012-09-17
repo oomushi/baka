@@ -1,4 +1,6 @@
 Baka::Application.routes.draw do
+  resources :bbcodes
+
   resources :groups
 
   resources :answers do
