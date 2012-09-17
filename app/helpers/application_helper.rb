@@ -14,54 +14,34 @@ module ApplicationHelper
       @schema
     end
     def initialize
+      @schema=RbbCode::Schema.new
+      Bbcode.all.each do |b|
+        name="html_from_#{b.tag}_tag"
+        name=name.to_sym
+        self.class.send :define_method,name do |node|
+          text=node.children.inject('') do |o,c|
+            o+make_html(c)
+          end
+          inner=''
+          inner=b.value.gsub '?',node.value.gsub(/^('|")(.+)\1$/,'\2') unless b.value.eql? '' || node.value.nil?
+          inner+=b.inner.gsub '?',text unless b.inner.eql? ''
+          b.layout.gsub '?',inner
+        end
+        @schema.allow_tag b.tag
+        @schema.tag(b.tag).may_contain_text unless (b.properties&1).zero?
+        @schema.tag(b.tag).may_not_be_empty unless (b.properties&2).zero?
+        @schema.tag(b.tag).may_not_be_nested unless (b.properties&4).zero?
+        @schema.tag(b.tag).may_not_contain_text unless (b.properties&8).zero?
+        @schema.tag(b.tag).must_be_empty unless (b.properties&16).zero?
+        @schema.tag(b.tag).may_be_nested unless (b.properties&32).zero?
+      end
 =begin
-      bb=BBCode.all     
-      # spoiler
-      name="html_from_spoiler_tag"
-      name=name.to_sym
-      self.class.send :define_method,name do |node|
-        text=node.children.inject('') do |o,c|
-          o+make_html(c)
-        end
-        content_tag('span',text,{'class'=>'spoiler'})
-      end
-      @schema.allow_tag 'spoiler'
-      @schema.tag('spoiler').may_contain_text.may_not_be_nested.may_be_nested.may_not_be_empty
-      # quote
-      name="html_from_quote_tag"
-      name=name.to_sym
-      self.class.send :define_method,name do |node|
-        text=node.children.inject('') do |o,c|
-          o+make_html(c)
-        end
-        inner=node.value.nil? ? '' : content_tag('legend',node.value.gsub(/^('|")(.+)\1$/,'\2'))
-        inner+=content_tag('blockquote',text)
-        content_tag('fieldset',inner)
-      end
-      @schema.allow_tag 'quote'
-      @schema.tag('quote').may_contain_text.may_not_be_nested.may_be_nested.may_not_be_empty
-      # :P
-      name="html_from_P_tag"
-      name=name.to_sym
-      self.class.send :define_method,name do |node|
-        text=node.children.inject('') do |o,c|
-          o+make_html(c)
-        end
-        content_tag('img','',{'src'=>'/assets/p.png'})
-      end
-      @schema.allow_tag 'P'
-      @schema.tag('P').may_not_be_nested.must_be_empty.may_be_nested
-      # ::
-      name="html_from_B_tag"
-      name=name.to_sym
-      self.class.send :define_method,name do |node|
-        text=node.children.inject('') do |o,c|
-          o+make_html(c)
-        end
-        content_tag('img','',{'src'=>'/assets/b.png'})
-      end
-      @schema.allow_tag 'B'
-      @schema.tag('B').may_not_be_nested.must_be_empty.may_be_nested
+    1 may_contain_text
+    2 may_not_be_empty
+    4 may_not_be_nested
+    8 may_not_contain_text
+    16 must_be_empty
+    32 may_be_nested
 =end
     end
   end
