@@ -20,6 +20,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'seed_dump'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -30,13 +34,10 @@ gem "bcrypt-ruby", :require => "bcrypt"
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
+ 
 gem 'cancan'
 gem 'canable'
 gem "mini_magick"
 gem 'kaminari'
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 gem 'deferred_associations'
-
