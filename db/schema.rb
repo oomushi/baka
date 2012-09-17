@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528163103) do
+ActiveRecord::Schema.define(:version => 20120915175045) do
 
   create_table "answers", :force => true do |t|
     t.string   "text",       :null => false
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(:version => 20120528163103) do
     t.datetime "updated_at",                                    :null => false
     t.string   "content_type"
   end
+
+  create_table "bbcodes", :force => true do |t|
+    t.string   "tag"
+    t.string   "label"
+    t.string   "layout"
+    t.string   "value"
+    t.string   "inner"
+    t.integer  "properties"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bbcodes", ["tag"], :name => "index_bbcodes_on_tag", :unique => true
 
   create_table "groups", :force => true do |t|
     t.string   "name"
