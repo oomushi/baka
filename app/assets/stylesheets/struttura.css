@@ -156,10 +156,12 @@ span.spoiler{
   border: 1px dashed;
   color: rgba(0,0,255,0);
 }
-blockquote{
-  padding: 1em;
+fieldset.quote{
+  margin-right:1em;
+}
+.quote > blockquote{
   display: inline-block;
-  border: 1px solid;
+  margin: 0px 1em;
 }
 cite{
   display:inline;

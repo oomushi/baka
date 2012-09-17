@@ -132,7 +132,7 @@ aside.messages{
 span.spoiler{
   border-color: #000;
 }
-blockquote{
+fieldset.quote{
   background:url("/assets/theme/baka.png") 0% 100% repeat-y #C0DEED;
   border-color: #b0ceff;
   
