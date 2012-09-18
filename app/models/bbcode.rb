@@ -1,4 +1,11 @@
 class Bbcode < ActiveRecord::Base
+  def text _value,_inner
+    tmp=''
+    tmp+=self.value.gsub '?',_value unless self.value.eql? '' || self.value.nil?
+    tmp+=self.inner.gsub '?',_inner unless self.inner.eql? '' || self.inner.nil?
+    self.layout.gsub '?',tmp
+  end
+  
   def may_contain_text
     @properties&1
   end

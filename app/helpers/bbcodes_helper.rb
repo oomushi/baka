@@ -22,10 +22,7 @@ module BbcodesHelper
           text=node.children.inject('') do |o,c|
             o+make_html(c)
           end
-          inner=''
-          inner=b.value.gsub '?',node.value.gsub(/^('|")(.+)\1$/,'\2') unless b.value.eql? '' || node.value.nil?
-          inner+=b.inner.gsub '?',text unless b.inner.eql? ''
-          b.layout.gsub '?',inner
+          b.text node.value.nil? ? '' : node.value.gsub(/^('|")(.+)\1$/,'\2'),text
         end
         @schema.allow_tag b.tag
         @schema.tag(b.tag).may_contain_text unless (b.properties&1).zero?
