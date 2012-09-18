@@ -10,17 +10,6 @@ class BbcodesController < ApplicationController
     end
   end
 
-  # GET /bbcodes/1
-  # GET /bbcodes/1.json
-  def show
-    @bbcode = Bbcode.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @bbcode }
-    end
-  end
-
   # GET /bbcodes/new
   # GET /bbcodes/new.json
   def new
@@ -60,7 +49,7 @@ class BbcodesController < ApplicationController
 
     respond_to do |format|
       if @bbcode.update_attributes(params[:bbcode])
-        format.html { redirect_to @bbcode, notice: 'Bbcode was successfully updated.' }
+        format.html { redirect_to bbcodes_url }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
