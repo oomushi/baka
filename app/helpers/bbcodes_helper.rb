@@ -35,14 +35,6 @@ module BbcodesHelper
         @schema.tag(b.tag).must_be_empty unless (b.properties&16).zero?
         @schema.tag(b.tag).may_be_nested unless (b.properties&32).zero?
       end
-=begin
-    1 may_contain_text
-    2 may_not_be_empty
-    4 may_not_be_nested
-    8 may_not_contain_text
-    16 must_be_empty
-    32 may_be_nested
-=end
     end
   end
 end
