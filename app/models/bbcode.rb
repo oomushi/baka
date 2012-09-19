@@ -5,7 +5,11 @@ class Bbcode < ActiveRecord::Base
     tmp+=self.inner.gsub '?',_inner unless self.inner.eql? '' || self.inner.nil?
     self.layout.gsub '?',tmp
   end
-  
+
+  def tag
+    $1 if @output =~ /^\[:?(\w+)(=.+?)?\]/
+  end  
+
   def may_contain_text
     @properties&1
   end
