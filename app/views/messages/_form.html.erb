@@ -46,6 +46,9 @@
     <%= f.hidden_field :reader_id %>
     <%= f.hidden_field :writer_id %>
   <% end %>
+  <% Bbcode.all.each do |b| %>
+  <%= link_to b.label.html_safe,'javascript:void(0)',data: {:tag=>b.output} %>
+  <% end %>
   <div class="field">
     <%= f.label :text %><br />
     <%= f.text_area :text %>
