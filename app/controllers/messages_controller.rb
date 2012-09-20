@@ -89,7 +89,7 @@ class MessagesController < ApplicationController
   # DELETE /messages/1.json
   def destroy
     @message = Message.find(params[:id])
-    enforce_delete_permission(@message)
+    enforce_destroy_permission(@message)
     same_user? @message.user
     id=@message.message_id
     @message.destroy
