@@ -24,7 +24,7 @@
     <%= render :partial=>'polls/show', :locals=>{:poll => message.poll, :current_user=>@current_user} %>
   <% end %>
   <section>
-    <%= simple_format bb message.text %>
+    <%= bb message.text %>
     <p class="sign">
       <%= bb message.user.sign unless message.user.sign.nil? %>
     </p>
