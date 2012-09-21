@@ -19,7 +19,7 @@
     <td><%= user.location %></td>
     <td><%= l user.created_at,:format=>:long %></td>
     <td><%= user.messages.count %></td>
-    <td><% unless user.website.nil? %><a href="<%= user.website %>">website</a><% end %></td>
+    <td><%= link_to 'website', user.website, {:target=>"_blank"} unless user.website.nil? %></td>
     <td><%= link_to 'Edit', edit_user_path(user) if !@current_user.guest and @current_user.eql? user%></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete if !@current_user.guest and @current_user.eql? user%></td>
   </tr>

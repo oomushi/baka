@@ -18,7 +18,7 @@
 </p>
 <p>
   <b>Website:</b>
-  <%= link_to @user.website,@user.website unless @user.website.nil? %>
+  <%= link_to @user.website,@user.website,{:target=>"_blank"} unless @user.website.nil? %>
 </p>
 
 <p>
