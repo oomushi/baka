@@ -16,6 +16,10 @@
     <td><button><%= bbcode.label.html_safe %></button></td>
     <td><%= bbcode.text('Lorem','ipsum dolor sit amet').html_safe %></td>
     <td><%= bbcode.properties %></td>
+<%
+=begin
+<td><%= test.bit</td>
+=end%>
     <td><%= link_to 'Edit', edit_bbcode_path(bbcode) %></td>
     <td><%= link_to 'Destroy', bbcode, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

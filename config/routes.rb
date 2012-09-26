@@ -18,7 +18,12 @@ Baka::Application.routes.draw do
   get "login" => "sessions#new",:as    => "login"
   get "logout"=> "sessions#destroy",:as=>"logout"
   get "signup"=> "users#new",:as       =>"signup"
-  resources :messages
+  
+  resources :messages do
+    collection do
+      post 'search'
+    end
+  end
 
   resources :users do
     collection do 

@@ -99,4 +99,12 @@ class MessagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # POST /message/search
+  def search
+    @search = Message.search(params[:q])
+    @messages = @search.result
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+  end
 end
