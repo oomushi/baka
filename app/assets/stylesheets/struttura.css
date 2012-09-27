@@ -240,3 +240,10 @@ nav.nav{
 .actions{clear: both;}
 
 #recaptcha_widget_div{display:inline-block;}
+
+header>form{
+  display:inline;
+  vertical-align: top;
+  margin-left:25%;
+  margin-right:25%;
+}
