@@ -105,9 +105,8 @@ class MessagesController < ApplicationController
   # POST /message/search.json
   def search
     @q = Message.search(params[:q])
-    @messages = @q.result
-#    @search.build_condition if @q.conditions.empty?
-#    @search.build_sort if @q.sorts.empty?
+    @messages = @q.result(:distinct => true)
+#    enforce_view_permission(@messages)
     respond_to do |format|
       format.html # search.html.erb
       format.json { render json: @messages }

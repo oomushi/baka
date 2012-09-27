@@ -3,6 +3,7 @@
   <%= search_form_for @q, url: search_messages_path, method: :post do |f| %>
     <%= f.label :title_or_text_cont, 'search' %>
     <%= f.text_field :title_or_text_cont %>
+    <%= f.hidden_field :section_false, {:value=>'t'} %>
     <%= f.submit %>
   <% end unless @q.nil? %>
   <nav>
