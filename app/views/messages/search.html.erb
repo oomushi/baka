@@ -1,28 +1,14 @@
-<%= search_form_for @search, url: search_products_path, method: :post do |f| %>
-  <%= f.condition_fields do |c| %>
-    <%= render "condition_fields", f: c %>
-  <% end %>
-  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
-  <div class="field">
-    Sort:
-    <%= f.sort_fields do |s| %>
-      <%= s.sort_select %>
-    <% end %>
-  </div>
-  <div class="actions"><%= f.submit "Search" %></div>
-<% end %>
-
-<table id="products">
+<table id="messages">
   <tr>
-    <th><%= sort_link @search, :name, "Product Name" %></th>
-    <th><%= sort_link @search, :released_on, "Release Date" %></th>
-    <th><%= sort_link @search, :price, "Price" %></th>
+    <th><%= sort_link @q, :title, "Title" %></th>
+    <th><%= sort_link @q, :text, "Text" %></th>
+    <th><%= sort_link @q, :created_at, "Date" %></th>
   </tr>
-<% @products.each do |product| %>
+<% @messages.each do |message| %>
   <tr>
-    <td><%= link_to(product.name, product) %></td>
-    <td><%= product.released_on.strftime("%B %e, %Y") %></td>
-    <td><%= number_to_currency(product.price) %></td>
+    <td><%= link_to(message.title, message) %></td>
+    <td><%= link_to(bb(message.text), message) %></td>
+    <td><%= message.created_at.strftime("%B %e, %Y") %></td>
   </tr>
 <% end %>
 </table>

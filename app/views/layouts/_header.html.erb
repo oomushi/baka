@@ -1,5 +1,10 @@
 <header class="main">
   <a href="/"><img src="/assets/logo.png" alt="バカ"/></a>
+  <%= search_form_for @q, url: search_messages_path, method: :post do |f| %>
+    <%= f.label :title_or_text_cont, 'search' %>
+    <%= f.text_field :title_or_text_cont %>
+    <%= f.submit %>
+  <% end unless @q.nil? %>
   <nav>
   <% unless @current_user.guest %>
     <%= link_to 'groups', groups_path,:class=>"button group",:title=>"groups" %> <!-- TODO if admin -->

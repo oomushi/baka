@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   include Canable::Enforcers
   before_filter :require_login
-  skip_before_filter :require_login, :only => [:show,:index]
+  skip_before_filter :require_login, :only => [:show,:index,:search]
 
   # GET /messages
   # GET /messages.json
@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @q = Message.search()
     @root = Message.find(params[:id])
     enforce_view_permission(@root)
     @path=@root.paths(@current_user)
@@ -101,10 +102,15 @@ class MessagesController < ApplicationController
   end
   
   # POST /message/search
+  # POST /message/search.json
   def search
-    @search = Message.search(params[:q])
-    @messages = @search.result
-    @search.build_condition if @search.conditions.empty?
-    @search.build_sort if @search.sorts.empty?
+    @q = Message.search(params[:q])
+    @messages = @q.result
+#    @search.build_condition if @q.conditions.empty?
+#    @search.build_sort if @q.sorts.empty?
+    respond_to do |format|
+      format.html # search.html.erb
+      format.json { render json: @messages }
+    end
   end
 end
