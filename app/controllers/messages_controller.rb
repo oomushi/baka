@@ -13,42 +13,63 @@ class MessagesController < ApplicationController
   # GET /messages/1.json
   def show
     @q = Message.search()
-    @root = Message.find(params[:id])
-    enforce_view_permission(@root)
-    @path=@root.paths(@current_user)
-    if @root.section
-      @messages = @root.childs(@current_user).order("pinned desc, section desc, created_at desc").page params[:page]
-    else
-      @messages = @root.ancestors(@current_user).page params[:page]
-    end
-    respond_to do |format|
-      format.html {render( @root.section ? :index : :show)}  # index.html.erb | show.html.erb
-      format.json { render json: @messages }
+    begin
+      @root = Message.find(params[:id])
+      enforce_view_permission(@root)
+      @path=@root.paths(@current_user)
+      if @root.section
+        @messages = @root.childs(@current_user).order("pinned desc, section desc, created_at desc").page params[:page]
+      else
+        @messages = @root.ancestors(@current_user).page params[:page]
+      end
+      respond_to do |format|
+        format.html {render( @root.section ? :index : :show)}  # index.html.erb | show.html.erb
+        format.json { render json: @messages }
+      end
+    rescue ActiveRecord::RecordNotFound, Canable::Transgression
+      respond_to do |format|
+        format.html { redirect_to '/', error: 'Message not found' }
+        format.json { render json: '', status: :unprocessable_entity }
+      end
     end
   end
 
   # GET /messages/new
   # GET /messages/new.json
   def new
-    @root=Message.find params[:id]
-    enforce_create_permission(@root)
-    @message = @root.replay
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @message }
+    begin
+      @root=Message.find params[:id]
+      enforce_create_permission(@root)
+      @message = @root.replay
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @message }
+      end
+    rescue ActiveRecord::RecordNotFound, Canable::Transgression
+      respond_to do |format|
+        format.html { redirect_to '/', error: 'Message not found' }
+        format.json { render json: '', status: :unprocessable_entity }
+      end
     end
   end
 
   # GET /messages/1/edit
   def edit
-    @message = Message.find(params[:id])
-    enforce_update_permission(@message)
-    same_user? @message.user
-    unless @message.deletable?
-      @message.errors.add :base, "message cannot be edited"
+    begin
+      @message = Message.find(params[:id])
+      enforce_update_permission(@message)
+      same_user? @message.user
+      unless @message.deletable?
+        @message.errors.add :base, "message cannot be edited"
+        respond_to do |format|
+          format.html { render action: "new" }
+          format.json { render json: @message.errors, status: :unprocessable_entity }
+        end
+      end
+    rescue ActiveRecord::RecordNotFound, Canable::Transgression
       respond_to do |format|
-        format.html { render action: "new" }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        format.html { redirect_to '/', error: 'Message not found' }
+        format.json { render json: '', status: :unprocessable_entity }
       end
     end
   end
@@ -89,15 +110,21 @@ class MessagesController < ApplicationController
   # DELETE /messages/1
   # DELETE /messages/1.json
   def destroy
-    @message = Message.find(params[:id])
-    enforce_destroy_permission(@message)
-    same_user? @message.user
-    id=@message.message_id
-    @message.destroy
-
-    respond_to do |format|
-      format.html { redirect_to :action=>'show',:id=>id }
-      format.json { head :no_content }
+    begin
+      @message = Message.find(params[:id])
+      enforce_destroy_permission(@message)
+      same_user? @message.user
+      id=@message.message_id
+      @message.destroy
+      respond_to do |format|
+        format.html { redirect_to :action=>'show',:id=>id }
+        format.json { head :no_content }
+      end
+    rescue ActiveRecord::RecordNotFound, Canable::Transgression
+      respond_to do |format|
+        format.html { redirect_to '/', error: 'Message not found' }
+        format.json { render json: '', status: :unprocessable_entity }
+      end
     end
   end
   
