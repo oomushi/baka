@@ -101,6 +101,7 @@ class UsersController < ApplicationController
     end
     render :json => users.to_json(:methods=>:value)
   end
+
   def confirm
     code=request.GET[:code]
     @user=User.find(params[:id])

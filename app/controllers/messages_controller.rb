@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound, Canable::Transgression
       respond_to do |format|
-        format.html { redirect_to '/', error: 'Message not found' }
+        format.html { redirect_to root_url, :error => 'Message not found' }
         format.json { render json: '', status: :unprocessable_entity }
       end
     end
@@ -47,7 +47,7 @@ class MessagesController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound, Canable::Transgression
       respond_to do |format|
-        format.html { redirect_to '/', error: 'Message not found' }
+        format.html { redirect_to root_url, :error => 'Message not found' }
         format.json { render json: '', status: :unprocessable_entity }
       end
     end
@@ -68,7 +68,7 @@ class MessagesController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound, Canable::Transgression
       respond_to do |format|
-        format.html { redirect_to '/', error: 'Message not found' }
+        format.html { redirect_to root_url, :error => 'Message not found' }
         format.json { render json: '', status: :unprocessable_entity }
       end
     end
@@ -122,7 +122,7 @@ class MessagesController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound, Canable::Transgression
       respond_to do |format|
-        format.html { redirect_to '/', error: 'Message not found' }
+        format.html { redirect_to root_url, :error => 'Message not found' }
         format.json { render json: '', status: :unprocessable_entity }
       end
     end

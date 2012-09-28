@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   def require_login
     if @current_user.guest
       flash[:error] = "You must be logged in to access this section"
-      redirect_to '/'
+      redirect_to root_url
     end
   end
 end
