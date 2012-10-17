@@ -35,10 +35,10 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # Deploy with Capistrano
 # gem 'capistrano'
  
-gem 'cancan'												# https://github.com/ryanb/cancan
-gem 'canable'												# https://github.com/jnunemaker/canable
-gem "mini_magick"										# https://github.com/probablycorey/mini_magick
-gem 'kaminari'											# https://github.com/amatsuda/kaminari
-gem 'rack-recaptcha', :require => 'rack/recaptcha'		# https://github.com/achiu/rack-recaptcha
-gem 'deferred_associations'								# https://github.com/achiu/rack-recaptcha
-gem 'ransack'												# https://github.com/ernie/ransack
+gem 'cancan'                                        # https://github.com/ryanb/cancan
+gem 'canable'                                       # https://github.com/jnunemaker/canable
+gem "mini_magick"                                   # https://github.com/probablycorey/mini_magick
+gem 'kaminari'                                      # https://github.com/amatsuda/kaminari
+gem 'rack-recaptcha', :require => 'rack/recaptcha'  # https://github.com/achiu/rack-recaptcha
+gem 'deferred_associations'                         # http://github.com/MartinKoerner/deferred_associations
+gem 'ransack'                                       # https://github.com/ernie/ransack
