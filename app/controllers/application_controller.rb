@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     else
       @current_user ||= User.find_guest.first
     end
+    User.current=@current_user
   end
   def require_login
     if @current_user.guest

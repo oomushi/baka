@@ -11,7 +11,12 @@ class Message < ActiveRecord::Base
   before_create :set_nv_and_dv
   before_destroy :destroyable?
   after_create :alert_followers
-
+  
+  def self.default_scope
+    group=User.current.max_group
+    joins(:reader).where("groups.level>? or groups.id=?",group.level ,group.id)
+  end
+  
   def viewable_by? user
     reader.level>user.max_group.level or reader.eql? user.max_group
   end

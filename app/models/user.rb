@@ -15,6 +15,13 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_format_of :website, :with => URI::regexp(%w(http https)), :allow_black=>true, :allow_nil=>true
   
+  def self.current
+    @@current
+  end
+  def self.current= user
+    @@current=user
+  end
+  
   def value
     username
   end 
