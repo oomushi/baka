@@ -12,7 +12,7 @@ class Message < ActiveRecord::Base
   before_destroy :destroyable?
   after_create :alert_followers
   
-  def self.default_scope
+  def default_scope
     group=User.current.max_group
     joins(:reader).where("groups.level>? or groups.id=?",group.level ,group.id)
   end
@@ -21,7 +21,9 @@ class Message < ActiveRecord::Base
     reader.level>user.max_group.level or reader.eql? user.max_group
   end
   def creatable_by? user
-    self.user.eql? user or ancestors(user).any?{ |m| m.writer.eql? user.max_group}
+    user.eql? user or
+      ancestors(user).any?{ |m| m.writer.eql? user.max_group} or
+      writer.eql? user.max_group
   end
   def updatable_by? user
     creatable_by? user
@@ -45,19 +47,19 @@ class Message < ActiveRecord::Base
   end
   
   def owner? user
-    user.id==self.user_id
+    user.id==user_id
   end
   def childs user
-    messages.joins(:reader).where('messages.id<>? and groups.level>=?',self.id,user.max_group.level).order("created_at")
+    messages.joins(:reader).where('messages.id<>? and groups.level>=?',id,user.max_group.level).order("created_at")
   end
   def ancestors user
-    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=false and groups.level>=?",self.nv,self.dv,self.nv,self.dv,user.max_group.level).order("created_at")
+    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=false and groups.level>=?",nv,dv,nv,dv,user.max_group.level).order("created_at")
   end
   def offsprings user
-    Message.joins(:reader).where("1.0*nv/dv between 1.0*?/? and 1.0*?/? and section=false and groups.level>=?",self.nv,self.dv,self.snv,self.sdv,user.max_group.level).order("created_at")
+    Message.joins(:reader).where("1.0*nv/dv between 1.0*?/? and 1.0*?/? and section=false and groups.level>=?",nv,dv,snv,sdv,user.max_group.level).order("created_at")
   end
   def paths user
-    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=true and groups.level>=?",self.nv,self.dv,self.nv,self.dv,user.max_group.level).order("created_at")
+    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=true and groups.level>=?",nv,dv,nv,dv,user.max_group.level).order("created_at")
   end
   
   def deletable?
@@ -66,17 +68,17 @@ class Message < ActiveRecord::Base
   
   def replay
     title,text='',''
-    unless self.section
-      title+=self.title
+    unless section
+      title+=title
       title='[Re] '+title unless title=~/^\[Re\] /
-      text="[quote=#{self.user.username}]#{self.text}[/quote]"
+      text="[quote=#{user.username}]#{text}[/quote]"
     end
     Message.new({
       :title=>title,
       :text=>text,
-      :message_id=>self.id,
-      :reader_id=>self.reader_id,
-      :writer_id=>self.writer_id
+      :message_id=>id,
+      :reader_id=>reader_id,
+      :writer_id=>writer_id
     })
   end
 
@@ -88,14 +90,14 @@ class Message < ActiveRecord::Base
     end
   end
   def set_nv_and_dv
-    if self.dv.nil? or self.dv==0
-      parent=Message.find self.message_id
+    if dv.nil? or dv==0
+      parent=Message.find message_id
       c=parent.messages.count+1
       c-=1 if parent.id==parent.message_id
-      self.nv=parent.nv+c*parent.snv
-      self.dv=parent.dv+c*parent.sdv
-      self.snv=parent.nv+(c+1)*parent.snv
-      self.sdv=parent.dv+(c+1)*parent.sdv
+      nv=parent.nv+c*parent.snv
+      dv=parent.dv+c*parent.sdv
+      snv=parent.nv+(c+1)*parent.snv
+      sdv=parent.dv+(c+1)*parent.sdv
     end
   end
   def alert_followers
