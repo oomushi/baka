@@ -94,10 +94,10 @@ class Message < ActiveRecord::Base
       parent=Message.find message_id
       c=parent.messages.count+1
       c-=1 if parent.id==parent.message_id
-      nv=parent.nv+c*parent.snv
-      dv=parent.dv+c*parent.sdv
-      snv=parent.nv+(c+1)*parent.snv
-      sdv=parent.dv+(c+1)*parent.sdv
+      self.nv=parent.nv+c*parent.snv
+      self.dv=parent.dv+c*parent.sdv
+      self.snv=parent.nv+(c+1)*parent.snv
+      self.sdv=parent.dv+(c+1)*parent.sdv
     end
   end
   def alert_followers
