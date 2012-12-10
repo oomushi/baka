@@ -15,4 +15,4 @@ $(document).ready ->
         $(this).stop(true, true).slideUp()
 @login = ->
   $('#login').show 'smooth'
-  $('#username').focus
+  $('#username').focus()
