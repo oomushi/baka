@@ -17,7 +17,7 @@
   $(l).toggleClass "link_disabled"
   remove_fields link
 $(document).ready ->
-  $("nav > .full_path_dropdown").mouseover ->
+  $("nav > .full_path_dropdown").click ->
     coor = $("nav > .full_path_dropdown").offset()
     h = $("nav > .full_path_dropdown").height() + coor.top - 10
     w = coor.left + (($("nav > .full_path_dropdown").width() - $("aside.full_path_dropdown").width()) / 2)

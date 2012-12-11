@@ -259,3 +259,8 @@ aside.full_path_dropdown{
   z-index: 3;
   text-align: center;
 }
+nav.menu{
+  float:right;
+  padding-right: 2%;
+}
+
