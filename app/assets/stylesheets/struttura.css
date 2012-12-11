@@ -246,3 +246,16 @@ header>form{
   vertical-align: top;
   margin-left:25%;
 }
+
+aside.full_path_dropdown{
+  display: none;
+  border-radius: 10px;
+  box-shadow: -2px 2px 2px #000000;
+  margin: 0px;
+  opacity: 0.8;
+  padding: 3px;
+  padding-right: 8px;
+  position: fixed;
+  z-index: 3;
+  text-align: center;
+}

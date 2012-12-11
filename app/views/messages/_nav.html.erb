@@ -16,8 +16,10 @@
 </nav>
 <% if !path.count.zero? %>
   <aside class="full_path_dropdown">
+    <ol start="2">
     <%path.each do |message| %>
-      <%= link_to message.title,message if current_user.can_view? message %>
+      <li><%= link_to message.title,message if current_user.can_view? message %></li>
     <% end %>
+    </ol>
   </aside>
 <% end %>

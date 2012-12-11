@@ -16,3 +16,19 @@
   l=$(link).parent().parent().find("a.link_disabled")[0]
   $(l).toggleClass "link_disabled"
   remove_fields link
+$(document).ready ->
+  $("nav > .full_path_dropdown").mouseover ->
+    coor = $("nav > .full_path_dropdown").offset()
+    h = $("nav > .full_path_dropdown").height() + coor.top - 10
+    w = coor.left + (($("nav > .full_path_dropdown").width() - $("aside.full_path_dropdown").width()) / 2)
+    $("aside.full_path_dropdown").animate
+      top: h
+      left: w
+    , 0
+    $("aside.full_path_dropdown").show('slow')
+    $("aside.full_path_dropdown").focus()
+    true
+  $("aside.full_path_dropdown").mouseleave ->
+    $("aside.full_path_dropdown").hide('slow')
+    true
+  true
