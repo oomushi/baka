@@ -1,0 +1,23 @@
+<nav>
+<%
+  root=@path.shift
+  last=path.pop
+%>
+  <%= link_to root.title,root if @current_user.can_view? root %>
+  <% if !path.size.zero? %>
+  &gt;
+    <%= link_to '...','#', :class=>'full_path_dropdown' %>
+  &gt;
+    <%= link_to last.title,last if current_user.can_view? last %>
+  <% elsif !last.nil? %>
+  &gt;
+    <%= link_to last.title,last if current_user.can_view? last %>
+  <% end %>
+</nav>
+<% if !path.count.zero? %>
+  <aside class="full_path_dropdown">
+    <%path.each do |message| %>
+      <%= link_to message.title,message if current_user.can_view? message %>
+    <% end %>
+  </aside>
+<% end %>

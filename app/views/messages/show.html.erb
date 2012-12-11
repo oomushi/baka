@@ -1,10 +1,4 @@
-<nav>
-<%
-  last=@path.last	
-  @path.each do |message| %>
-  <%= link_to message.title,message if @current_user.can_view? message %><%= ' > ' if message!=last%>
-<% end %>
-</nav>
+<%= render :partial=>'nav', :locals=>{:path=>@path,:current_user=>@current_user} %>
 <div style="clear:both;"></div>
 <% @messages.each do |message| %>
 <article>

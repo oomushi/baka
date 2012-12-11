@@ -1,13 +1,8 @@
+<% last=@path.last %>
+<%= render :partial=>'nav', :locals=>{:path=>@path,:current_user=>@current_user} %>
 <nav>
-<%
-  last=@path.last	
-  @path.each do |message| %>
-  <%= link_to message.title,message %><%= ' > ' if message!=last%>
-<% end %>
-</nav>
-<nav>
-<%= link_to 'Edit', edit_message_path(@root) if @current_user.can_update? @root %>
-<%= link_to 'New Message', new_message_path({:id=>last.id}) if @current_user.can_create? @root %>
+  <%= link_to 'Edit', edit_message_path(@root) if @current_user.can_update? @root %>
+  <%= link_to 'New Message', new_message_path({:id=>last.id}) if @current_user.can_create? @root %>
 </nav>
 <table>
   <tr>
