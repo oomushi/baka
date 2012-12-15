@@ -3,7 +3,8 @@ class BbcodesController < ApplicationController
   # GET /bbcodes.json
   def index
     @bbcodes = Bbcode.all
-
+    enforce_index_permission(Bbcode)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bbcodes }
@@ -14,7 +15,8 @@ class BbcodesController < ApplicationController
   # GET /bbcodes/new.json
   def new
     @bbcode = Bbcode.new
-
+    enforce_create_permission(@bbcode)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @bbcode }
@@ -24,13 +26,15 @@ class BbcodesController < ApplicationController
   # GET /bbcodes/1/edit
   def edit
     @bbcode = Bbcode.find(params[:id])
+    enforce_update_permission(@bbcode)
   end
 
   # POST /bbcodes
   # POST /bbcodes.json
   def create
     @bbcode = Bbcode.new(params[:bbcode])
-
+    enforce_create_permission(@bbcode)
+    
     respond_to do |format|
       if @bbcode.save
         format.html { redirect_to @bbcode, notice: 'Bbcode was successfully created.' }
@@ -46,7 +50,8 @@ class BbcodesController < ApplicationController
   # PUT /bbcodes/1.json
   def update
     @bbcode = Bbcode.find(params[:id])
-
+    enforce_update_permission(@bbcode)
+    
     respond_to do |format|
       if @bbcode.update_attributes(params[:bbcode])
         format.html { redirect_to bbcodes_url }
@@ -62,6 +67,7 @@ class BbcodesController < ApplicationController
   # DELETE /bbcodes/1.json
   def destroy
     @bbcode = Bbcode.find(params[:id])
+    enforce_destroy_permission(@bbcode)
     @bbcode.destroy
 
     respond_to do |format|

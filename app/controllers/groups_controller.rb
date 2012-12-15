@@ -5,7 +5,8 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.order('level asc')
-
+    enforce_index_permission(Group)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @groups }
@@ -16,7 +17,8 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
-
+    enforce_view_permission(@group)
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @group }
@@ -27,7 +29,8 @@ class GroupsController < ApplicationController
   # GET /groups/new.json
   def new
     @group = Group.new
-
+    enforce_create_permission(@group)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @group }
@@ -37,13 +40,15 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
     @group = Group.find(params[:id])
+    enforce_update_permission(@group)
   end
 
   # POST /groups
   # POST /groups.json
   def create
     @group = Group.new(params[:group])
-
+    enforce_create_permission(@group)
+    
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
@@ -60,6 +65,7 @@ class GroupsController < ApplicationController
   def update
     params[:group][:user_ids] ||= []
     @group = Group.find(params[:id])
+    enforce_update_permission(@group)
     
     respond_to do |format|
       if @group.update_attributes(params[:group])
@@ -76,6 +82,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1.json
   def destroy
     @group = Group.find(params[:id])
+    enforce_destroy_permission(@group)
     @group.destroy
 
     respond_to do |format|

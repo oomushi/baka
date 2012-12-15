@@ -1,6 +1,23 @@
 class Group < ActiveRecord::Base
+  include Canable::Ables
   has_and_belongs_to_many :users,:conditions => "confirm_code is null"
   before_destroy :destroyable?
+
+  def self.indexable_by? user
+    user.admin?
+  end
+  def viewable_by? user
+    Bbcode.indexable_by? user
+  end
+  def creatable_by? user
+    Bbcode.indexable_by? user
+  end
+  def updatable_by? user
+    Bbcode.indexable_by? user
+  end
+  def destroyable_by? user
+    Bbcode.indexable_by? user
+  end
 
   def ancestors
     Group.where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/?",self.nv,self.dv,self.nv,self.dv).order("created_at")
