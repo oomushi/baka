@@ -55,6 +55,9 @@ a.user{
 a.group{
   background: #000 url('/assets/theme/group.png') left center no-repeat;
 }
+a.bbcode{
+  background: #000 url('/assets/theme/smile.png') left center no-repeat;
+}
 a.users{
   background: #000 url('/assets/theme/users.png') left center no-repeat;
 }
