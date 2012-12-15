@@ -5,6 +5,7 @@ class LikesController < ApplicationController
   # POST /likes.json
   def create
     @like = Like.new(params[:like])
+    enforce_create_permission(@like)
     if @like.save
       redirect_to @like.message, notice: 'Like was successfully created.'
     else
