@@ -1,10 +1,10 @@
 <% total=poll.options_count %>
-<table class="pol">
+<table class="poll">
   <caption><%= poll.title %></caption>
   <tbody>
   <% poll.answers.each do |ans| %>
     <tr>
-    <% if current_user.nil? %>
+    <% if current_user.guest? %>
       <td></td>
       <td><%= ans.text %></td>
       <td></td>
@@ -14,7 +14,7 @@
       <td><%= ans.users.count %></td>
     <% else %>
       <td></td>
-      <td><%= link_to ans.text, vote_answer_path(ans),:method=>:put %></td>
+      <td><%= link_to ans.text, vote_answer_path(ans),:method=>:put if current_user.can_vote? ans%></td>
       <td></td>
     <% end %>
     </tr>
