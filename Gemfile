@@ -35,7 +35,6 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # Deploy with Capistrano
 # gem 'capistrano'
  
-gem 'cancan'                                        # https://github.com/ryanb/cancan
 gem 'canable'                                       # https://github.com/jnunemaker/canable
 gem "mini_magick"                                   # https://github.com/probablycorey/mini_magick
 gem 'kaminari'                                      # https://github.com/amatsuda/kaminari
