@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include Canable::Cans
+  include Canable::Ables
   has_many :messages,:dependent=>:destroy
   has_many :likes,:dependent=>:destroy
   has_one :avatar,:dependent=>:delete
@@ -14,6 +15,13 @@ class User < ActiveRecord::Base
   validates_presence_of :username,:email
   validates_uniqueness_of :username
   validates_format_of :website, :with => URI::regexp(%w(http https)), :allow_black=>true, :allow_nil=>true
+  
+  def updatable_by? user
+    user.id==id
+  end
+  def destroyable_by? user
+    user.id==id
+  end
   
   def self.current
     @@current
