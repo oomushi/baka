@@ -1,8 +1,16 @@
 class Avatar < ActiveRecord::Base
+  include Canable::Ables
   validates_presence_of :user_id
   validates_uniqueness_of :user_id
   belongs_to :user
   validate :right_size?
+  
+  def updatable_by? user
+    same_user? user
+  end
+  def destroyable_by? user
+    same_user? user
+  end
   
   def destroy
     self.file=nil
@@ -32,5 +40,9 @@ class Avatar < ActiveRecord::Base
         errors.add(:uploaded_data, "invalid image type")
       end
    end
+  end
+  private
+  def same_user? user
+    self.user.id==user.id
   end
 end

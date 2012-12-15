@@ -10,18 +10,12 @@ class AvatarsController < ApplicationController
               :type  => @avatar.content_type,
               :disposition => 'inline')
   end
-=begin
-  # GET /avatars/1/edit
-  def edit
-    @avatar = Avatar.find(params[:id])
-    same_user? @avatar.user
-  end
-=end
+
   # PUT /avatars/1
   # PUT /avatars/1.json
   def update
     @avatar = Avatar.find(params[:id])
-    same_user? @avatar.user
+    enforce_update_permission(@avatar)
 
     respond_to do |format|
       if @avatar.update_attributes(params[:avatar])
@@ -38,7 +32,7 @@ class AvatarsController < ApplicationController
   # DELETE /avatars/1.json
   def destroy
     @avatar = Avatar.find(params[:id])
-    same_user? @avatar.user
+    enforce_destroy_permission(@avatar)
     @avatar.destroy
 
     respond_to do |format|
