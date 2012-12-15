@@ -7,7 +7,7 @@
     <%= f.submit %>
   <% end unless @q.nil? %>
   <nav>
-  <% unless @current_user.guest %>
+  <% unless @current_user.guest? %>
     <%= link_to 'groups', groups_path,:class=>"button group",:title=>"groups" %> <!-- TODO if admin -->
     <div class="drop-menu">
       <span class="plus">+</span>

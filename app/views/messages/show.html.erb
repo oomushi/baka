@@ -6,7 +6,7 @@
     <a id="<%= message.id%>"/><%= link_to message.title, message %><%= l message.created_at, :format=>:long %>
   </header>
   <aside class="like" title="<%= message.total_likes %>"><%= num_reduce message.total_likes %></aside>
-  <% unless @current_user.guest %>
+  <% unless @current_user.guest? %>
   <nav class='nav'>
     <% if message.deletable? and message.owner? @current_user %>
       <%= link_to 'Edit', edit_message_path(message) if @current_user.can_update? message and message.deletable? %>

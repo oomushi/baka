@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
   def self.find_guest
     User.where("guest = ?",true)
   end
+  def guest?
+    guest==true
+  end
   
   def max_group
     g=groups.sort{|a,b| a.level<=>b.level}
