@@ -8,7 +8,7 @@
       <td></td>
       <td><%= ans.text %></td>
       <td></td>
-    <% elsif poll.voted current_user %>
+    <% elsif poll.voted? current_user %>
       <td><%= ans.text %></td>
       <td><%= (100.0*ans.users.count/total).round.to_s+'%' %></td>
       <td><%= ans.users.count %></td>

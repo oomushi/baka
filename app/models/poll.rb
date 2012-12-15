@@ -5,7 +5,7 @@ class Poll < ActiveRecord::Base
   def options_count
     answers.inject(0){ |memo, o| memo+=o.users.count }
   end
-  def voted user
+  def voted? user
     answers.each do |po|
       if po.users.include? user
         return true
