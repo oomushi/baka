@@ -8,7 +8,8 @@
   <% end unless @q.nil? %>
   <nav>
   <% unless @current_user.guest? %>
-    <%= link_to 'groups', groups_path,:class=>"button group",:title=>"groups" %> <!-- TODO if admin -->
+    <%= link_to 'groups', groups_path,:class=>"button group",:title=>"groups" if @current_user.can_index? Group %>
+    <%= link_to 'bbcodes', bbcodes_path,:class=>"button group",:title=>"bbcodes" if @current_user.can_index? Bbcode %>
     <div class="drop-menu">
       <span class="plus">+</span>
       <%= link_to @current_user.username,@current_user,:class=>"button user",:title=>"user" %>
