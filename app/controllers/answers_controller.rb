@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
   # PUT /answers/1.json
   def vote
     @answer = Answer.find(params[:id])
-
+    enforce_vote_permission(@answer)
     respond_to do |format|
       if @answer.vote(@current_user)
         format.html { redirect_to :back, notice: 'Answer was successfully updated.' }
@@ -21,6 +21,7 @@ class AnswersController < ApplicationController
   # DELETE /answers/1.json
   def destroy
     @answer = Answer.find(params[:id])
+    enforce_destroy_permission(@answer)
     @answer.destroy
 
     respond_to do |format|
