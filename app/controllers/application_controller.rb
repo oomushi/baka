@@ -5,12 +5,6 @@ class ApplicationController < ActionController::Base
   rescue_from Canable::Transgression, :with => :render_403
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
   protected
-  def same_user? user
-    if @current_user.id!=user.id
-      flash[:error] = "This object isn't yours"
-      redirect_to :back
-    end
-  end
   def render_403(e)
     respond_to do |format|
       format.html { 
