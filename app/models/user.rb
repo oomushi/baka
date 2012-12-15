@@ -39,6 +39,9 @@ class User < ActiveRecord::Base
   def guest?
     guest==true
   end
+  def admin?
+    groups.any?{ |g| g.admin? }
+  end
   
   def max_group
     g=groups.sort{|a,b| a.level<=>b.level}

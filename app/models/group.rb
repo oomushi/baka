@@ -8,6 +8,10 @@ class Group < ActiveRecord::Base
   def deletable?
     users.count.zero?
   end
+  def admin?
+    level==1
+  end
+  
   protected
   def destroyable?
     unless deletable?
