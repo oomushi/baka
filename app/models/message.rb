@@ -69,9 +69,9 @@ class Message < ActiveRecord::Base
   def replay
     title,text='',''
     unless section
-      title+=title
+      title+=self.title
       title='[Re] '+title unless title=~/^\[Re\] /
-      text="[quote=#{user.username}]#{text}[/quote]"
+      text="[quote=#{user.username}]#{self.text}[/quote]"
     end
     Message.new({
       :title=>title,
