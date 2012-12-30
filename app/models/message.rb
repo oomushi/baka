@@ -18,12 +18,12 @@ class Message < ActiveRecord::Base
   end
   
   def viewable_by? user
-    reader.level>user.max_group.level or reader.eql? user.max_group
+    reader<user.max_group or reader.eql? user.max_group
   end
   def creatable_by? user
     self.user.eql? user or
-      ancestors(user).any?{ |m| m.writer.eql? user.max_group} or
-      writer.eql? user.max_group
+      writer <= user.max_group or
+      ancestors(user).any?{ |m| m.writer <= user.max_group}
   end
   def updatable_by? user
     creatable_by? user
