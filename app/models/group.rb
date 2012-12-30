@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
   include Canable::Ables
+  include Comparable
   has_and_belongs_to_many :users,:conditions => "confirm_code is null"
   before_destroy :destroyable?
 
@@ -27,6 +28,10 @@ class Group < ActiveRecord::Base
   end
   def admin?
     level==1
+  end
+  
+  def <=> obj
+    -(self.level<=>obj.level)
   end
   
   protected
