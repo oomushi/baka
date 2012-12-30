@@ -44,11 +44,14 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     enforce_update_permission(@message)
     
-    unless @message.deletable?
-      @message.errors.add :base, "message cannot be edited"
+    unless @message.section or @message.deletable? 
       respond_to do |format|
-        format.html { render action: "new" }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        format.html {
+          flash[:error]= "message cannot be edited"
+          redirect_to @message, :flash=>flash.to_hash }
+        format.json {
+          @message.errors.add :base,"message cannot be edited" 
+          render json: @message.errors, status: :unprocessable_entity }
       end
     end
   end
