@@ -37,8 +37,8 @@
         <th><%= f.label :writer %></th>
       </tr>
       <tr>
-        <td><%= f.select(:reader_id, @current_user.groups.map{|g| [g.name,g.id]}) %></td>
-        <td><%= f.select(:writer_id, @current_user.groups.map{|g| [g.name,g.id]}) %></td>
+        <td><%= f.select(:reader_id, @current_user.groups.map{|g| g.offsprings }.flatten.uniq.map{|g| [g.name,g.id]}) %></td>
+        <td><%= f.select(:writer_id, @current_user.groups.map{|g| g.offsprings }.flatten.uniq.map{|g| [g.name,g.id]}) %></td>
       </tr>
     </table>
   </div>
