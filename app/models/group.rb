@@ -21,8 +21,12 @@ class Group < ActiveRecord::Base
   end
 
   def ancestors
-    Group.where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/?",self.nv,self.dv,self.nv,self.dv).order("created_at")
+    Group.where("level<? and level<64",level).order("created_at")
   end
+  def offsprings
+    Group.where("level>=? and level<64",level).order("created_at")
+  end
+  
   def deletable?
     users.count.zero?
   end
