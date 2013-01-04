@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919163317) do
+ActiveRecord::Schema.define(:version => 20130104091455) do
 
   create_table "answers", :force => true do |t|
     t.string   "text",       :null => false
@@ -72,21 +72,22 @@ ActiveRecord::Schema.define(:version => 20120919163317) do
   add_index "likes", ["user_id", "message_id"], :name => "index_likes_on_user_id_and_message_id", :unique => true
 
   create_table "messages", :force => true do |t|
-    t.text     "text",                                       :null => false
-    t.boolean  "section",                 :default => false
-    t.boolean  "pinned",                  :default => false
-    t.string   "title",                                      :null => false
-    t.integer  "message_id",                                 :null => false
-    t.integer  "user_id",                                    :null => false
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.integer  "nv",         :limit => 8, :default => 0
-    t.integer  "dv",         :limit => 8, :default => 0
-    t.integer  "snv",        :limit => 8, :default => 0
-    t.integer  "sdv",        :limit => 8, :default => 0
-    t.boolean  "follow",                  :default => true
-    t.integer  "writer_id"
-    t.integer  "reader_id"
+    t.text     "text",                                         :null => false
+    t.boolean  "section",                   :default => false
+    t.boolean  "pinned",                    :default => false
+    t.string   "title",                                        :null => false
+    t.integer  "message_id",                                   :null => false
+    t.integer  "user_id",                                      :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.integer  "nv",           :limit => 8, :default => 0
+    t.integer  "dv",           :limit => 8, :default => 0
+    t.integer  "snv",          :limit => 8, :default => 0
+    t.integer  "sdv",          :limit => 8, :default => 0
+    t.boolean  "follow",                    :default => true
+    t.integer  "writer_id",                 :default => 1,     :null => false
+    t.integer  "reader_id",                 :default => 1,     :null => false
+    t.integer  "moderator_id",              :default => 2,     :null => false
   end
 
   create_table "polls", :force => true do |t|
