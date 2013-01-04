@@ -10,7 +10,7 @@ a=Group.create({
   :level=>1
 })
 b=Group.create({
-  :name=>"Moderetors",
+  :name=>"Moderators",
   :level=>2
 })
 b=Group.create({
