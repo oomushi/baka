@@ -27,10 +27,12 @@ class Message < ActiveRecord::Base
       ancestors(user).any?{ |m| m.writer <= user.max_group}
   end
   def updatable_by? user
-    creatable_by? user
+    creatable_by? user or
+      user.groups.include? self.moderator
   end
   def destroyable_by? user
-    creatable_by? user
+    deletable? and
+      updatable_by? user
   end
   
   def total_likes
