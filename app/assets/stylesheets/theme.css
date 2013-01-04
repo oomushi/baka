@@ -76,6 +76,15 @@ a.logout{
 a.page{
   background: url('/assets/theme/page.png') left center no-repeat;
 }
+a.add{
+  background: url('/assets/theme/new.png') left center no-repeat;
+}
+a.del{
+  background: url('/assets/theme/del.png') left center no-repeat;
+}
+a.edit{
+  background: url('/assets/theme/edt.png') left center no-repeat;
+}
 a.top{
   background: url('/assets/theme/top.png') left center no-repeat;
 }
