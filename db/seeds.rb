@@ -44,6 +44,7 @@ root = Message.create({
 })
 root.reader=b
 root.writer=a
+root.moderator=a
 root.save
 # encoding: utf-8
 
