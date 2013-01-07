@@ -68,7 +68,7 @@ class Message < ActiveRecord::Base
   end
   
   def childs?
-    messages.count.zero?
+    !messages.count.zero?
   end
   
   def replay
