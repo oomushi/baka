@@ -27,12 +27,14 @@ class Message < ActiveRecord::Base
       ancestors(user).any?{ |m| m.writer <= user.max_group}
   end
   def updatable_by? user
-    creatable_by? user or
+    ( self.user.eql? user and
+      ! childs? ) or 
       user.groups.include? self.moderator
   end
   def destroyable_by? user
-    deletable? and
-      updatable_by? user
+    !childs? and
+    (self.user.eql? user or
+      user.groups.include? self.moderator)
   end
   
   def total_likes
@@ -65,7 +67,7 @@ class Message < ActiveRecord::Base
     Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=true and groups.level>=?",nv,dv,nv,dv,user.max_group.level).order("created_at")
   end
   
-  def deletable?
+  def childs?
     messages.count.zero?
   end
   
@@ -87,7 +89,7 @@ class Message < ActiveRecord::Base
 
   protected
   def destroyable?
-    unless deletable?
+    if childs?
       errors.add :base,"cannot delete message with replayes"
       false
     end

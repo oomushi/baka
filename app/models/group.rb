@@ -27,7 +27,7 @@ class Group < ActiveRecord::Base
     Group.where("level>=? and level<64",level).order("created_at")
   end
   
-  def deletable?
+  def childs?
     users.count.zero?
   end
   def admin?
@@ -40,7 +40,7 @@ class Group < ActiveRecord::Base
   
   protected
   def destroyable?
-    unless deletable?
+    if childs?
       errors.add :base,"cannot delete group with users"
       false
     end

@@ -44,7 +44,7 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     enforce_update_permission(@message)
     
-    unless @message.section or @message.deletable? 
+    unless @message.section or not @message.childs? 
       respond_to do |format|
         format.html {
           flash[:error]= "message cannot be edited"

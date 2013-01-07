@@ -13,7 +13,7 @@
     <td><%= link_to group.name, group %></td>
     <td><%= link_to group.level, group %></td>
     <td>
-      <% if group.deletable? %>
+      <% unless group.childs? %>
         <%= link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete %>
       <% else %>
         <%= group.users.count %>
