@@ -6,22 +6,22 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 a=Group.create({
-  :name=>"Admins",
+  :name=>"admins",
   :level=>1
 })
 b=Group.create({
-  :name=>"Moderators",
+  :name=>"moderators",
   :level=>2
 })
 b=Group.create({
-  :name=>"Users",
+  :name=>"users",
   :level=>4
 })
 c=Group.create({
-  :name=>"guest",
+  :name=>"public",
   :level=>64
 })
-admin = User.create(:username=>'Admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
+admin = User.create(:username=>'admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
 admin.confirm_code=nil
 admin.groups<<a
 admin.save
