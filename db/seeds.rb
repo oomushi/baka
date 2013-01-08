@@ -14,7 +14,7 @@ b=Group.create({
   :level=>2
 })
 b=Group.create({
-  :name=>"users",
+  :name=>"logged users",
   :level=>4
 })
 c=Group.create({
