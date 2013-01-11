@@ -8,7 +8,6 @@ gem 'rails', '3.2.11'
 gem 'pg'
 
 gem 'json'
-gem 'rbbcode'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -41,3 +40,4 @@ gem 'kaminari'                                      # https://github.com/amatsud
 gem 'rack-recaptcha', :require => 'rack/recaptcha'  # https://github.com/achiu/rack-recaptcha
 gem 'deferred_associations'                         # http://github.com/MartinKoerner/deferred_associations
 gem 'ransack'                                       # https://github.com/ernie/ransack
+gem 'rbbcode', "~> 0.1.11"                                      # https://github.com/jarrett/rbbcode
