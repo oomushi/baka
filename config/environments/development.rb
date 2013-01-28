@@ -31,16 +31,17 @@ Baka::Application.configure do
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => "baka.macrobug.uchi" }
+  config.action_mailer.raise_delivery_errors=true
   config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :domain               => "baka.macrobug.uchi",
-  :user_name            => "baka.notice",
+  :user_name            => "oomushi@gmail.com",
   :password             => Digest::SHA512.base64digest("BakaSuperSecret:#{ENV['salt']}"),
   :authentication       => "plain",
   :enable_starttls_auto => true
   }
-  
+
   # reCaptcha
   config.middleware.use Rack::Recaptcha, :public_key => '6LcE0c4SAAAAAEDHQdBcsGpDcSR8H-0iJIfzsMCX', :private_key => '6LcE0c4SAAAAABFVVq9zw0-3fo5Dm0h7lSUMouWv'
 end
