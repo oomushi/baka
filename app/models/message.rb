@@ -107,7 +107,10 @@ class Message < ActiveRecord::Base
   end
   def alert_followers
     msgs=MessageMailer.new_message_alert(self)
-    msgs.deliver unless msgs.sender.nil?
+    begin
+      msgs.deliver unless msgs.sender.nil?
+     rescue
+     end
   end
 end
 
