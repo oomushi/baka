@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_filter :require_login, :only => :destroy
   def create
     user = User.authenticate(params[:username], params[:password])
     if user
@@ -11,6 +10,6 @@ class SessionsController < ApplicationController
   end
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to root_url, @current_user.guest? ? '' : :notice => "Logged out!"
   end
 end
