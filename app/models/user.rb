@@ -17,10 +17,14 @@ class User < ActiveRecord::Base
   validates_format_of :website, :with => URI::regexp(%w(http https)), :allow_black=>true, :allow_nil=>true
   
   def updatable_by? user
-    user.id==id
+    user.id==id or
+      user.admin?
   end
   def destroyable_by? user
-    user.id==id
+    updatable_by?(user) and
+      messages.count.zero? and
+      likes.count.zero? and
+      answers.count.zero?
   end
   
   def self.current
