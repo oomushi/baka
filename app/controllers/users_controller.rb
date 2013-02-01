@@ -84,10 +84,17 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     enforce_destroy_permission(@user)
+    same=@user.eql? @current_user
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html {
+        if same
+          redirect_to logout_url
+        else
+          redirect_to users_url
+        end
+      }
       format.json { head :no_content }
     end
   end
