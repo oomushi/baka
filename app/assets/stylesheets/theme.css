@@ -44,7 +44,7 @@ a.checked{
   opacity:1.0;
 }
 a.web{
-  background: #fffff0 url('/assets/theme/web.png') left center no-repeat;
+  background: url('/assets/theme/web.png') left center no-repeat;
 }
 a.signup{
   background: #000 url('/assets/theme/sign.png') left center no-repeat;
@@ -57,6 +57,9 @@ a.group{
 }
 a.bbcode{
   background: #000 url('/assets/theme/smile.png') left center no-repeat;
+}
+a.email{
+  background: url('/assets/theme/email.png') left center no-repeat;
 }
 a.users{
   background: #000 url('/assets/theme/users.png') left center no-repeat;

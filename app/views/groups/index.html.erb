@@ -5,7 +5,7 @@
     <th>Name</th>
     <th>Level</th>
     <th>Users number</th>
-    <th></th>
+    <th><%= link_to "&thinsp;".html_safe, new_group_path,title: "New Group",class: "button add" %></th>
   </tr>
 
 <% @groups.each do |group| %>
@@ -19,11 +19,9 @@
         <%= group.users.count %>
       <% end %>
     </td>
-    <td><%= link_to 'Edit', edit_group_path(group) %></td>
+    <td><%= link_to "&thinsp;".html_safe, edit_group_path(group),title: "Edit",class: "button edit" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Group', new_group_path %>

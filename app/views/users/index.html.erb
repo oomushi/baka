@@ -9,19 +9,18 @@
     <th>Messages</th>
     <th>Website</th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= link_to user.username,user %></td>
-    <td><%= mail_to user.email %></td>
+    <td><%= mail_to user.email,"&thinsp;".html_safe, {:title=> user.email,:class=>"button email"} unless user.email.nil? %></td>
     <td><%= user.location %></td>
     <td><%= l user.created_at,:format=>:long %></td>
     <td><%= user.messages.count %></td>
-    <td><%= link_to 'website', user.website, {:target=>"_blank"} unless user.website.nil? %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) if !@current_user.guest? and @current_user.eql? user%></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete if !@current_user.guest? and @current_user.eql? user%></td>
+    <td><%= link_to "&thinsp;".html_safe, user.website, {:target=>"_blank",:title=> 'website',:class=>"button web"} unless user.website.nil? %></td>    
+    <td><%= link_to "&thinsp;".html_safe, edit_user_path(user),title: "Edit",class: "button edit" if !@current_user.guest? and @current_user.eql? user%>
+      <%= link_to "&thinsp;".html_safe, user, confirm: 'Are you sure?', method: :delete,title: "Destroy", class: "button del" if !@current_user.guest? and @current_user.eql? user%></td>
   </tr>
 <% end %>
 </table>

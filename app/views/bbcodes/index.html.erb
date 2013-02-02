@@ -6,8 +6,7 @@
     <th>Label</th>
     <th>Result</th>
     <th>Properties</th>
-    <th></th>
-    <th></th>
+    <th><%= link_to "&thinsp;".html_safe, new_bbcode_path,title: "New Bbcode",class: "button add" %></th>
   </tr>
 
 <% @bbcodes.each do |bbcode| %>
@@ -20,12 +19,10 @@
 =begin
 <td><%= test.bit</td>
 =end%>
-    <td><%= link_to 'Edit', edit_bbcode_path(bbcode) %></td>
-    <td><%= link_to 'Destroy', bbcode, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to "&thinsp;".html_safe, edit_bbcode_path(bbcode),title: "Edit",class: "button edit" %>
+      <%= link_to "&thinsp;".html_safe, bbcode, confirm: 'Are you sure?', method: :delete,title: "Destroy", class: "button del" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Bbcode', new_bbcode_path %>
