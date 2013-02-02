@@ -31,4 +31,14 @@ $(document).ready ->
   $("aside.full_path_dropdown").mouseleave ->
     $("aside.full_path_dropdown").hide('slow')
     true
+  $("tr.link").click( ->
+    location.href=$(this).data("url")
+    true
+  ).hover( ->
+    $(this).children().addClass "hover"
+    true
+  , ->
+    $(this).children().removeClass "hover"
+    true
+  )
   true

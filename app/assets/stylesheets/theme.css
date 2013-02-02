@@ -9,7 +9,7 @@ section.main article{
   background: #fffff0 url('/assets/theme/baka.png') repeat-y scroll left bottom;
   border: 1px solid #000;
 }
-td.clickable:hover, a:hover{
+td.clickable:hover, a:hover, td.hover{
   color: #ff7f50;
 }
 tr.pinned{

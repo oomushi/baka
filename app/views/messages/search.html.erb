@@ -1,13 +1,15 @@
 <table id="messages">
   <tr>
+    <th><%= sort_link @q, :user, "User" %></th>
     <th><%= sort_link @q, :title, "Title" %></th>
     <th><%= sort_link @q, :text, "Text" %></th>
     <th><%= sort_link @q, :created_at, "Date" %></th>
   </tr>
 <% @messages.each do |message| %>
-  <tr>
-    <td><%= link_to(message.title, message) %></td>
-    <td><%= link_to(bb(message.text), message) %></td>
+  <tr class="link" data-url="<%= message_path(message) %>">
+    <td><%= message.user.username %></td>
+    <td><%= message.title %></td>
+    <td><%= bb(message.text) %></td>
     <td><%= message.created_at.strftime("%B %e, %Y") %></td>
   </tr>
 <% end %>
