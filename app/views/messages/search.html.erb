@@ -6,7 +6,7 @@
     <th><%= sort_link @q, :created_at, "Date" %></th>
   </tr>
 <% @messages.each do |message| %>
-  <tr class="link" data-url="<%= message_path(message) %>">
+  <tr class="link" data-url="<%= message_path(message) if @current_user.can_view? message %>">
     <td><%= message.user.username %></td>
     <td><%= message.title %></td>
     <td><%= bb(message.text) %></td>

@@ -19,8 +19,8 @@
     <td><%= l user.created_at,:format=>:long %></td>
     <td><%= user.messages.count %></td>
     <td><%= link_to "&thinsp;".html_safe, user.website, {:target=>"_blank",:title=> 'website',:class=>"button web"} unless user.website.nil? %></td>    
-    <td><%= link_to "&thinsp;".html_safe, edit_user_path(user),title: "Edit",class: "button edit" if !@current_user.guest? and @current_user.eql? user%>
-      <%= link_to "&thinsp;".html_safe, user, confirm: 'Are you sure?', method: :delete,title: "Destroy", class: "button del" if !@current_user.guest? and @current_user.eql? user%></td>
+    <td><%= link_to "&thinsp;".html_safe, edit_user_path(user),title: "Edit",class: "button edit" if @current_user.can_update? user %>
+      <%= link_to "&thinsp;".html_safe, user, confirm: 'Are you sure?', method: :delete,title: "Destroy", class: "button del" if @current_user.can_destroy? user %></td>
   </tr>
 <% end %>
 </table>
