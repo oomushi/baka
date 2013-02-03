@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
     enforce_vote_permission(@answer)
     respond_to do |format|
       if @answer.vote(@current_user)
-        format.html { redirect_to :back, notice: 'Answer was successfully updated.' }
+        format.html { redirect_to :back, notice: t(:ok_answers) }
         format.json { head :no_content }
       else
         format.html { redirect_to :back, status: :unprocessable_entity }

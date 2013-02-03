@@ -11,7 +11,7 @@ $(document).ready ->
       $.get "/users/complete", params, (data) ->
         if data.length > 0
           $("#user_username").css('background-color','#fdd')
-          alert "Someone already has that username. Try another?"
+          alert "Someone already has that username. Try another?" # <%= I18n.t(:username_taken)%>
         else
           $("#user_username").css('background-color','#dfd')
 

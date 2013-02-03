@@ -19,7 +19,7 @@ class AvatarsController < ApplicationController
 
     respond_to do |format|
       if @avatar.update_attributes(params[:avatar])
-        format.html { redirect_to @avatar.user,:action=>'edit', notice: 'Avatar was successfully updated.' }
+        format.html { redirect_to @avatar.user,:action=>'edit', notice: t(:ok_avatar) }
         format.json { head :ok }
       else
         format.html { redirect_to @avatar.user,:action=>'edit' }

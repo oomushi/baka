@@ -9,7 +9,7 @@ class MessageMailer < ActionMailer::Base
       users<<m.user.email unless user.eql? m.user
     end
     users.uniq.each do |email|
-      mail :to=>email, :subject=>'New replay'
+      mail :to=>email, :subject=> t(:new_replay)
     end
   end
 end

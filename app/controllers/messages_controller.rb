@@ -47,10 +47,10 @@ class MessagesController < ApplicationController
     unless @message.section or not @message.childs? 
       respond_to do |format|
         format.html {
-          flash[:error]= "message cannot be edited"
+          flash[:error]= t(:ko_message_edit)
           redirect_to @message, :flash=>flash.to_hash }
         format.json {
-          @message.errors.add :base,"message cannot be edited" 
+          @message.errors.add :base, t(:ko_message_edit)
           render json: @message.errors, status: :unprocessable_entity }
       end
     end
@@ -63,7 +63,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to @message, notice: t(:ok_message_new) }
         format.json { render json: @message, status: :created, location: @message }
       else
         format.html { render action: "new" }
@@ -80,7 +80,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.update_attributes(params[:message])
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+        format.html { redirect_to @message, notice: t(:ok_message_edit) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     @like = Like.new(params[:like])
     enforce_create_permission(@like)
     if @like.save
-      redirect_to @like.message, notice: 'Like was successfully created.'
+      redirect_to @like.message, notice: t(:ok_like_new)
     else
       redirect_to @like.message
     end
@@ -20,7 +20,7 @@ class LikesController < ApplicationController
     enforce_update_permission(@like)
 
     if @like.update_attributes(params[:like])
-      redirect_to @like.message, notice: 'Like was successfully updated.'
+      redirect_to @like.message, notice: t(:ok_like_edit)
     else
       redirect_to @like.message
     end

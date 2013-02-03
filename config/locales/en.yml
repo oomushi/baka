@@ -2,4 +2,27 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  unauthorizated: 'Unauthorizated access'
+  object_not_found: 'Object not found'
+  require_login: "You must be logged in to access this section"
+  username_taken: "Someone already has that username. Try another?"
+  ok_answers: 'Answer was successfully updated'
+  ok_avatar: 'Avatar was successfully updated'
+  ok_bbcode: 'Bbcode was successfully created'
+  ok_group_new: 'Group was successfully created'
+  ok_group_edit: 'Group was successfully updated'
+  ok_like_new: 'Like was successfully created'
+  ok_like_edit: 'Like was successfully updated'
+  ok_message_new: 'Message was successfully created'
+  ok_message_edit: 'Message was successfully updated'
+  ko_message_edit: "message cannot be edited"
+  login: "Logged in!"
+  logout: "Logged out!"
+  ko_login: "Invalid username or password"
+  ok_user_confirm: 'email confirmed'
+  ko_user_confirm: "code not valid"
+  ok_user_edit:  'User was successfully updated'
+  ok_user_new: 'User was successfully created'
+  ko_captcha: "captcha doesn't match"
+  new_replay: 'New replay'
+  confirm_email: "Confirm your email account"

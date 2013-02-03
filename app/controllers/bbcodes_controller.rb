@@ -37,7 +37,7 @@ class BbcodesController < ApplicationController
     
     respond_to do |format|
       if @bbcode.save
-        format.html { redirect_to @bbcode, notice: 'Bbcode was successfully created.' }
+        format.html { redirect_to @bbcode, notice: t(:ok_bbcode) }
         format.json { render json: @bbcode, status: :created, location: @bbcode }
       else
         format.html { render action: "new" }

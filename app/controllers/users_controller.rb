@@ -50,10 +50,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if !recaptcha_valid?
-        format.html { render action: "new", :alert=> "captcha doesn't match" }
+        format.html { render action: "new", :alert=> t(:ko_captcha) }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       elsif @user.save 
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: t(:ok_user_new) }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: t(:ok_user_edit) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -113,9 +113,9 @@ class UsersController < ApplicationController
     code=request.GET[:code]
     @user=User.find(params[:id])
     if @user.confirm code
-      redirect_to @user,:notice=>'email confirmed'
+      redirect_to @user,:notice=> t(:ok_user_confirm)
     else
-      redirect_to root_url, :alert => "code not valid"
+      redirect_to root_url, :alert => t(:ko_user_confirm)
     end
   end
 end
