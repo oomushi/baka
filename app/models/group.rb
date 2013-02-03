@@ -8,16 +8,16 @@ class Group < ActiveRecord::Base
     user.admin?
   end
   def viewable_by? user
-    Bbcode.indexable_by? user
+    Group.indexable_by? user
   end
   def creatable_by? user
-    Bbcode.indexable_by? user
+    Group.indexable_by? user
   end
   def updatable_by? user
-    Bbcode.indexable_by? user
+    Group.indexable_by? user
   end
   def destroyable_by? user
-    Bbcode.indexable_by? user
+    Group.indexable_by? user
   end
 
   def ancestors
