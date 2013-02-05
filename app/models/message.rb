@@ -90,7 +90,7 @@ class Message < ActiveRecord::Base
   protected
   def destroyable?
     if childs?
-      errors.add :base,"cannot delete message with replayes"
+      errors.add :base, t(:ko_message_undeletable)
       false
     end
   end

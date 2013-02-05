@@ -2,8 +2,8 @@ class Like < ActiveRecord::Base
   include Canable::Ables
   belongs_to :user
   belongs_to :message
-  validates_numericality_of :value, :only_integer => true, :message => "like value can only be whole number."
-  validates_inclusion_of :value, :in => -1..1, :message => "can only be between -1 and 1." 
+  validates_numericality_of :value, :only_integer => true, :message => t(:ko_like_type)
+  validates_inclusion_of :value, :in => -1..1, :message => t(:ko_like_value) 
   validate :unique?, :on=>:create
 
   def creatable_by? user
@@ -18,7 +18,7 @@ class Like < ActiveRecord::Base
 
   protected
   def unique?
-    errors.add(:user_id, "like already posted") unless Like.where("user_id=? and message_id=?",self.user_id,self.message_id).count==0
+    errors.add(:user_id, t(:duplicate_like)) unless Like.where("user_id=? and message_id=?",self.user_id,self.message_id).count==0
   end
   private
   def owner? user
