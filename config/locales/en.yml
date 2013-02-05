@@ -2,36 +2,36 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  unauthorizated: 'Unauthorizated access'
+  confirm_email: "Confirm your email account"
+  duplicate_answer: "this user already gives his option"
+  duplicate_like:  "like already posted"
+  image_height: "height to high"
+  image_type: "invalid image type"
+  image_width: "width to high"
+  ko_captcha: "captcha doesn't match"
+  ko_group_not_empty: "cannot delete group with users"
+  ko_like_type: "like value can only be whole number"
+  ko_like_value:  "can only be between -1 and 1"
+  ko_login: "Invalid username or password"
+  ko_message_edit: "message cannot be edited"
+  ko_message_undeletable: "cannot delete message with replayes"
+  ko_user_confirm: "code not valid"
+  login: "Logged in!"
+  logout: "Logged out!"
+  new_replay: 'New replay'
   object_not_found: 'Object not found'
-  require_login: "You must be logged in to access this section"
-  username_taken: "Someone already has that username. Try another?"
   ok_answers: 'Answer was successfully updated'
   ok_avatar: 'Avatar was successfully updated'
   ok_bbcode: 'Bbcode was successfully created'
-  ok_group_new: 'Group was successfully created'
   ok_group_edit: 'Group was successfully updated'
-  ok_like_new: 'Like was successfully created'
+  ok_group_new: 'Group was successfully created'
   ok_like_edit: 'Like was successfully updated'
-  ok_message_new: 'Message was successfully created'
+  ok_like_new: 'Like was successfully created'
   ok_message_edit: 'Message was successfully updated'
-  ko_message_edit: "message cannot be edited"
-  login: "Logged in!"
-  logout: "Logged out!"
-  ko_login: "Invalid username or password"
+  ok_message_new: 'Message was successfully created'
   ok_user_confirm: 'email confirmed'
-  ko_user_confirm: "code not valid"
   ok_user_edit:  'User was successfully updated'
   ok_user_new: 'User was successfully created'
-  ko_captcha: "captcha doesn't match"
-  new_replay: 'New replay'
-  confirm_email: "Confirm your email account"
-  duplicate_answer: "this user already gives his option"
-  image_type: "invalid image type"
-  image_width: "width to high"
-  image_height: "height to high"
-  ko_group_not_empty: "cannot delete group with users"
-  duplicate_like:  "like already posted"
-  ko_like_type: "like value can only be whole number"
-  ko_like_value:  "can only be between -1 and 1"
-  ko_message_undeletable: "cannot delete message with replayes"
+  require_login: "You must be logged in to access this section"
+  username_taken: "Someone already has that username. Try another?"
+  unauthorizated: 'Unauthorizated access'
