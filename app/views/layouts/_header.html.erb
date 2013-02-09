@@ -1,21 +1,21 @@
 <header class="main">
   <a href="/"><img src="/assets/logo.png" alt="<%= t(:baka) %>"/></a>
   <%= search_form_for @q, url: search_messages_path, method: :post do |f| %>
-    <%= f.label :title_or_text_cont, 'seaXXXrch' %>
+    <%= f.label :title_or_text_cont, t(:search) %>
     <%= f.text_field :title_or_text_cont %>
     <%= f.hidden_field :section_false, {:value=>'t'} %>
     <%= f.submit %>
   <% end unless @q.nil? %>
   <nav>
   <% unless @current_user.guest? %>
-    <%= link_to 'groups', groups_path,:class=>"button group",:title=>"groups" if @current_user.can_index? Group %>
-    <%= link_to 'bbcodes', bbcodes_path,:class=>"button bbcode",:title=>"bbcodes" if @current_user.can_index? Bbcode %>
+    <%= link_to t(:groups), groups_path,:class=>"button group",:title=>t(:groups) if @current_user.can_index? Group %>
+    <%= link_to t(:bbcodes), bbcodes_path,:class=>"button bbcode",:title=>t(:bbcodes) if @current_user.can_index? Bbcode %>
     <div class="drop-menu">
       <span class="plus">+</span>
-      <%= link_to @current_user.username,@current_user,:class=>"button user",:title=>"user" %>
+      <%= link_to @current_user.username,@current_user,:class=>"button user",:title=>t(:users).downcase %>
       <ul class="sub-menu">
         <li><%= link_to t(:logout), logout_path,:class=>"button logout",:title=>t(:logout) %></li>
-        <li><%= link_to 'users', users_path,:class=>"button users",:title=>"list" %></li>
+        <li><%= link_to t(:users).downcase, users_path,:class=>"button users",:title=>t(:users).downcase %></li>
       </ul>
     </div>
   <% else %>

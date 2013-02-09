@@ -1,5 +1,7 @@
 <footer class="main">
-  <a href="https://www.github.com/oomushi/baka" class="brand baka">Baka</a> 
-  &egrave; un prodotto 
-  <a href="https://www.github.com/oomushi" class="brand macrobug">Oomushi</a>
+  <%
+  l1 = link_to t( :baka ), "https://www.github.com/oomushi/baka", :class=>["brand","baka"]
+  l2 = link_to t(:macrobug), "https://www.github.com/oomushi", :class=>["brand","macrobug"]
+  %>
+  <%= t( :footer_html, :baka => l1, :oomushi => l2) %>
 </footer>
