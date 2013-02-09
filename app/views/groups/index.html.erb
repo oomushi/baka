@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Level</th>
-    <th>Users number</th>
-    <th><%= link_to "&thinsp;".html_safe, new_group_path,title: "New Group",class: "button add" %></th>
+    <th><%= t(:name) %></th>
+    <th><%= t(:level) %></th>
+    <th><%= t(:users_number) %></th>
+    <th><%= link_to "&thinsp;".html_safe, new_group_path,title: t(:new),class: "button add" %></th>
   </tr>
 
 <% @groups.each do |group| %>
@@ -14,12 +14,12 @@
     <td><%= link_to group.level, group %></td>
     <td>
       <% unless group.childs? %>
-        <%= link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete %>
+        <%= link_to t(:destroy), group, confirm: t(:destroy_confirm), method: :delete %>
       <% else %>
         <%= group.users.count %>
       <% end %>
     </td>
-    <td><%= link_to "&thinsp;".html_safe, edit_group_path(group),title: "Edit",class: "button edit" %></td>
+    <td><%= link_to "&thinsp;".html_safe, edit_group_path(group),title: t(:edit),class: "button edit" %></td>
   </tr>
 <% end %>
 </table>

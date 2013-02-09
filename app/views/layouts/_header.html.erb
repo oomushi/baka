@@ -1,7 +1,7 @@
 <header class="main">
-  <a href="/"><img src="/assets/logo.png" alt="バカ"/></a>
+  <a href="/"><img src="/assets/logo.png" alt="<%= t(:baka) %>"/></a>
   <%= search_form_for @q, url: search_messages_path, method: :post do |f| %>
-    <%= f.label :title_or_text_cont, 'search' %>
+    <%= f.label :title_or_text_cont, 'seaXXXrch' %>
     <%= f.text_field :title_or_text_cont %>
     <%= f.hidden_field :section_false, {:value=>'t'} %>
     <%= f.submit %>
@@ -14,13 +14,13 @@
       <span class="plus">+</span>
       <%= link_to @current_user.username,@current_user,:class=>"button user",:title=>"user" %>
       <ul class="sub-menu">
-        <li><%= link_to 'logout', logout_path,:class=>"button logout",:title=>"logout" %></li>
+        <li><%= link_to t(:logout), logout_path,:class=>"button logout",:title=>t(:logout) %></li>
         <li><%= link_to 'users', users_path,:class=>"button users",:title=>"list" %></li>
       </ul>
     </div>
   <% else %>
-      <%= link_to "signup", signup_path,:class=>"button signup" %>
-      <%= link_to_function "login", "login()",:class=>"button login" %>
+      <%= link_to t(:signup), signup_path,:class=>"button signup" %>
+      <%= link_to_function t(:login), "login()",:class=>"button login" %>
   <% end %>
   </nav>
 </header>

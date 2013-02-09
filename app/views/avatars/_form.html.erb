@@ -1,7 +1,7 @@
 <%= form_for(user.avatar,:html=>{:multipart=>true}) do |f| %>
   <% if user.avatar.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.avatar.errors.count, "error") %> prohibited this avatar from being saved:</h2>
+      <h2><%= t(:header_error_avatar) %>:</h2>
 
       <ul>
       <% user.avatar.errors.full_messages.each do |msg| %>

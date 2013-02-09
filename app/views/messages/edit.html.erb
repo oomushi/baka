@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @message if @current_user.can_view? @message %> |
-<%= link_to 'Back', messages_path %>
+<%= link_to t(:show), @message if @current_user.can_view? @message %> |
+<%= link_to t(:back), messages_path %>

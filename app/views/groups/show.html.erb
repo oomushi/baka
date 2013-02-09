@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b><%= t(:name) %>:</b>
   <%= @group.name %>
 </p>
 
 <p>
-  <b>Level:</b>
+  <b><%= t(:level) %>:</b>
   <%= @group.level %>
 </p>
 
 <p>
-  <b>Users:</b>
+  <b><%= t(:users) %>:</b>
   <% @group.users.take(5).each do |u| %>
     <%= u.username %><br/>
   <% end %>
   <%= '...' if @group.users.count>5 %>
 </p>
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to t(:edit), edit_group_path(@group) %> |
+<%= link_to t(:back), groups_path %>

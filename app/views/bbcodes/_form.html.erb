@@ -1,7 +1,7 @@
 <%= form_for(@bbcode) do |f| %>
   <% if @bbcode.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@bbcode.errors.count, "error") %> prohibited this bbcode from being saved:</h2>
+      <h2><%= t(:header_error_bbcode) %>:</h2>
 
       <ul>
       <% @bbcode.errors.full_messages.each do |msg| %>

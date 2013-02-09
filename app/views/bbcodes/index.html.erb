@@ -2,25 +2,25 @@
 
 <table>
   <tr>
-    <th>Tag</th>
-    <th>Label</th>
-    <th>Result</th>
-    <th>Properties</th>
-    <th><%= link_to "&thinsp;".html_safe, new_bbcode_path,title: "New Bbcode",class: "button add" %></th>
+    <th><% =t(:tag) %></th>
+    <th><% =t(:label) %></th>
+    <th><% =t(:result) %></th>
+    <th><% =t(:properties) %></th>
+    <th><%= link_to "&thinsp;".html_safe, new_bbcode_path,title: t(:new),class: "button add" %></th>
   </tr>
 
 <% @bbcodes.each do |bbcode| %>
   <tr>
     <td><%= bbcode.output %></td>
     <td><button><%= bbcode.label.html_safe %></button></td>
-    <td><%= bbcode.text('Lorem','ipsum dolor sit amet').html_safe %></td>
+    <td><%= bbcode.text(t(:bbcode_example_out),t(:bbcode_example_in)).html_safe %></td>
     <td><%= bbcode.properties %></td>
 <%
 =begin
 <td><%= test.bit</td>
 =end%>
-    <td><%= link_to "&thinsp;".html_safe, edit_bbcode_path(bbcode),title: "Edit",class: "button edit" %>
-      <%= link_to "&thinsp;".html_safe, bbcode, confirm: 'Are you sure?', method: :delete,title: "Destroy", class: "button del" %></td>
+    <td><%= link_to "&thinsp;".html_safe, edit_bbcode_path(bbcode),title: t(:edit),class: "button edit" %>
+      <%= link_to "&thinsp;".html_safe, bbcode, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button del" %></td>
   </tr>
 <% end %>
 </table>
