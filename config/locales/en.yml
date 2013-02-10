@@ -4,44 +4,55 @@
 en:
   back: 'Back'
   baka: 'BAKA'
-  bbcodes: "bbcodes"
+  bbcodes: 'bbcodes'
   bbcode_example_in: 'ipsum dolor sit amet'
   bbcode_example_out: 'Lorem'
+  birthday: 'Birthday'
   click_me: 'click to extend'
-  confirm_email: "Confirm your email account"
-  confirm_email_long: "To confirm your email account click following link"
-  date: "Date"
-  date_format: "%B %e, %Y"
-  destroy: "Destroy"
+  confirm_email: 'Confirm your email account'
+  confirm_email_long: 'To confirm your email account click following link'
+  date: 'Date'
+  date_format: '%B %e, %Y'
+  destroy: 'Destroy'
   destroy_confirm: 'Are you sure?'
-  duplicate_answer: "this user already gives his option"
-  duplicate_like:  "like already posted"
-  edit: "Edit"
-  footer_html: "%{baka} by %{oomushi}"
-  groups: "groups"
-  image_height: "height to high"
-  image_type: "invalid image type"
-  image_width: "width to high"
-  header_edit_bbcode: "Editing bbcode"
-  header_edit_message: "Editing message"
-  header_error_avatar: "avatar can not be saved"
-  header_error_bbcode: "bbcode can not be saved"
-  header_error_group: "group can not be saved"
-  header_error_message: "message can not be saved"
-  ko_captcha: "captcha doesn't match"
-  ko_group_not_empty: "cannot delete group with users"
-  ko_like_type: "like value can only be whole number"
-  ko_like_value:  "can only be between -1 and 1"
-  ko_login: "Invalid username or password"
-  ko_message_edit: "message cannot be edited"
-  ko_message_undeletable: "cannot delete message with replayes"
-  ko_user_confirm: "code not valid"
+  duplicate_answer: 'this user already gives his option'
+  duplicate_like:  'like already posted'
+  edit: 'Edit'
+  email: 'Email'
+  footer_html: '%{baka} by %{oomushi}'
+  groups: 'groups'
+  image_height: 'height to high'
+  image_type: 'invalid image type'
+  image_width: 'width to high'
+  header_edit_bbcode: 'Editing bbcode'
+  header_edit_message: 'Editing message'
+  header_edit_user: 'Editing user'
+  header_error_avatar: 'avatar can not be saved'
+  header_error_bbcode: 'bbcode can not be saved'
+  header_error_group: 'group can not be saved'
+  header_error_message: 'message can not be saved'
+  header_error_user: 'user can not be saved'
+  header_error_signup: 'user can not be created'
+  karma: 'Karma'
+  ko_captcha: 'captcha doesn't match'
+  ko_group_not_empty: 'cannot delete group with users'
+  ko_like_type: 'like value can only be whole number'
+  ko_like_value:  'can only be between -1 and 1'
+  ko_login: 'Invalid username or password'
+  ko_message_edit: 'message cannot be edited'
+  ko_message_undeletable: 'cannot delete message with replayes'
+  ko_user_confirm: 'code not valid'
   label: 'Label'
   last_message: 'Last message'
   level: 'Level'
+  listing_bbcode: 'Listing bbcodes'
+  listing_group: 'Listing groups'
+  listing_user: 'Listing users'
+  location: 'Location'
   login: 'login'
   logout: 'logout'
   macrobug: 'Oomushi'
+  messages_number: 'Messages n.'
   name: 'Name'
   new: 'New'
   new_replay: 'New replay'
@@ -54,27 +65,30 @@ en:
   ok_group_new: 'Group was successfully created'
   ok_like_edit: 'Like was successfully updated'
   ok_like_new: 'Like was successfully created'
-  ok_login: "Logged in!"
-  ok_logout: "Logged out!"
+  ok_login: 'Logged in!'
+  ok_logout: 'Logged out!'
   ok_message_edit: 'Message was successfully updated'
   ok_message_new: 'Message was successfully created'
   ok_user_confirm: 'email confirmed'
   ok_user_edit:  'User was successfully updated'
   ok_user_new: 'User was successfully created'
   properties: 'Properties'
-  remove: "remove"
-  require_login: "You must be logged in to access this section"
+  remove: 'remove'
+  require_login: 'You must be logged in to access this section'
   result: 'Result'
-  search: "search"
+  search: 'search'
   show: 'Show'
-  signup: 'signup'
+  sign: 'Sign'
+  signup: 'Signup'
   tag: 'Tag'
   text: 'Text'
-  thanx: "Thank you"
+  thanx: 'Thank you'
   title: 'Title'
-  total: "Total"
-  unfollow: "To unfollow"
-  users: "Users"
-  users_number: "Users number"
-  username_taken: "Someone already has that username. Try another?"
+  total: 'Total'
+  unfollow: 'To unfollow'
+  username: 'Username'
+  users: 'Users'
+  users_number: 'Users number'
+  username_taken: 'Someone already has that username. Try another?'
   unauthorizated: 'Unauthorizated access'
+  website: 'Website'

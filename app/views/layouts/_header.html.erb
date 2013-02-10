@@ -19,7 +19,7 @@
       </ul>
     </div>
   <% else %>
-      <%= link_to t(:signup), signup_path,:class=>"button signup" %>
+      <%= link_to t(:signup).downcase, signup_path,:class=>"button signup" %>
       <%= link_to_function t(:login), "login()",:class=>"button login" %>
   <% end %>
   </nav>

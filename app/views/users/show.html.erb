@@ -5,24 +5,24 @@
 </p>
 
 <p>
-  <b>Location:</b>
+  <b><%= t(:location) %>:</b>
   <%= @user.location %>
 </p>
 <p>
-  <b>Birthday:</b>
+  <b><%= t(:birthday) %>:</b>
   <%= @user.birthday %>
 </p>
 <p>
-  <b>Email:</b>
+  <b><%= t(:email) %>:</b>
   <%= @user.email %>
 </p>
 <p>
-  <b>Website:</b>
+  <b><%= t(:website) %>:</b>
   <%= link_to @user.website,@user.website,{:target=>"_blank"} unless @user.website.nil? %>
 </p>
 
 <p>
-  <b>Sign:</b>
+  <b><%= t(:sign) %>:</b>
   <%= bb @user.sign %>
 </p>
 

@@ -1,12 +1,12 @@
 <h5><%= link_to user.username, user %></h5>
 <img src="<%= user.avatar %>" alt="<%= user.username  %>"/>
-<span>Location: <%= user.location %></span>
-<span>Created at: <%= l user.created_at, :format=>:long %></span>
-<span>Birthday: <%= user.birthday %></span>
-<span>Message n.: <%= user.messages.count %></span>
-<span>Karma: <%= user.total_likes %></span>
+<span><%= t(:location) %>: <%= user.location %></span>
+<span><%= t(:date)%>: <%= l user.created_at, :format=>:long %></span>
+<span><%= t(:birthday) %>: <%= user.birthday %></span>
+<span><%= t(:messages_number) %>: <%= user.messages.count %></span>
+<span><%= t(:karma)%>: <%= user.total_likes %></span>
 <!-- <nav> -->
   <ul>
-	  <% if user.website %> <li><a href="<%= user.website %>" class="button web" target="_blank" title="website">&thinsp;</a></li> <% end %>
+	  <% if user.website %> <li><a href="<%= user.website %>" class="button web" target="_blank" title="<%= t(:website).downcase %>">&thinsp;</a></li> <% end %>
   </ul>
   <!-- </nav> -->

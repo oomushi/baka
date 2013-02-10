@@ -1,4 +1,4 @@
-  <h1>Editing user</h1>
+  <h1><%= t(:header_edit_user) %></h1>
   <%= render 'form' %>
   <%= render :partial=>'avatars/form',:locals=>{:user=>@user} %>
   <%= link_to t(:show), @user if @current_user.can_view? @user %> |
