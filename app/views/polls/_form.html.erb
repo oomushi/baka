@@ -2,10 +2,10 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
     <% if f.object.id.nil? %>
-     <%= link_to_remove_unique_fields 'remove',f %>
+     <%= link_to_remove_unique_fields t(:destroy),f %>
     <% else %>
       <%= f.check_box :_destroy %>
-      <%= f.label :_destroy, 'remove' %>
+      <%= f.label :_destroy, t(:destroy) %>
     <% end %>
     <p><%= link_to_add_fields 'add answer',f,:answers %></p>
     <%= f.fields_for :answers do |builder| %>

@@ -7,7 +7,11 @@ en:
   bbcodes: "bbcodes"
   bbcode_example_in: 'ipsum dolor sit amet'
   bbcode_example_out: 'Lorem'
+  click_me: 'click to extend'
   confirm_email: "Confirm your email account"
+  confirm_email_long: "To confirm your email account click following link"
+  date: "Date"
+  date_format: "%B %e, %Y"
   destroy: "Destroy"
   destroy_confirm: 'Are you sure?'
   duplicate_answer: "this user already gives his option"
@@ -19,9 +23,11 @@ en:
   image_type: "invalid image type"
   image_width: "width to high"
   header_edit_bbcode: "Editing bbcode"
+  header_edit_message: "Editing message"
   header_error_avatar: "avatar can not be saved"
   header_error_bbcode: "bbcode can not be saved"
   header_error_group: "group can not be saved"
+  header_error_message: "message can not be saved"
   ko_captcha: "captcha doesn't match"
   ko_group_not_empty: "cannot delete group with users"
   ko_like_type: "like value can only be whole number"
@@ -31,6 +37,7 @@ en:
   ko_message_undeletable: "cannot delete message with replayes"
   ko_user_confirm: "code not valid"
   label: 'Label'
+  last_message: 'Last message'
   level: 'Level'
   login: 'login'
   logout: 'logout'
@@ -38,6 +45,7 @@ en:
   name: 'Name'
   new: 'New'
   new_replay: 'New replay'
+  new_message: 'Someone replied at one message followed by you'
   object_not_found: 'Object not found'
   ok_answers: 'Answer was successfully updated'
   ok_avatar: 'Avatar was successfully updated'
@@ -61,6 +69,11 @@ en:
   show: 'Show'
   signup: 'signup'
   tag: 'Tag'
+  text: 'Text'
+  thanx: "Thank you"
+  title: 'Title'
+  total: "Total"
+  unfollow: "To unfollow"
   users: "Users"
   users_number: "Users number"
   username_taken: "Someone already has that username. Try another?"

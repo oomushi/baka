@@ -6,7 +6,7 @@
   <%= link_to root.title,root if @current_user.can_view? root %>
   <% if !path.size.zero? %>
   &gt;
-    <%= link_to '...','#', :class=>'full_path_dropdown',:title=>'click to extend' %>
+    <%= link_to '...','#', :class=>'full_path_dropdown',:title=>t(:click_me) %>
   &gt;
     <%= link_to last.title,last if current_user.can_view? last %>
   <% elsif !last.nil? %>
