@@ -34,7 +34,7 @@ en:
   header_error_user: 'user can not be saved'
   header_error_signup: 'user can not be created'
   karma: 'Karma'
-  ko_captcha: 'captcha doesn't match'
+  ko_captcha: 'captcha does not match'
   ko_group_not_empty: 'cannot delete group with users'
   ko_like_type: 'like value can only be whole number'
   ko_like_value:  'can only be between -1 and 1'
