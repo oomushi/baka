@@ -321,9 +321,6 @@ it:
         moderator: 'Moderatori'
       poll:
         title: 'Titolo'
-      session:
-        password: 'Parola segreta'
-        username: 'Nome utente'
       user:
         birthday: 'Compleanno'
         email: 'Posta elettronica'
@@ -335,7 +332,7 @@ it:
         website: 'Pagina internet'
     submit:
       avatar:
-        create: 'Aggiorna avatar'
+        create: 'Crea avatar'
         update: 'Aggiorna avatar'
       bbcode:
         create: 'Crea bbcode'

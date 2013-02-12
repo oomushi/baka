@@ -1,0 +1,350 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+le:
+  date:
+    abbr_day_names:
+    - "S|_||\\|"
+    - "|\\/|0|\\|"
+    - "7|_|3"
+    - "\\/\\/3d"
+    - "7#|_|"
+    - "|=r1"
+    - "S47"
+    abbr_month_names:
+    - 
+    - "J4|\\|"
+    - "|=3b"
+    - "|\\/|4r"
+    - "4pr"
+    - "|\\/|4'/"
+    - "J|_||\\|"
+    - "J|_||_"
+    - "4|_|6"
+    - "S3p"
+    - "0c7"
+    - "|\\|0\\/"
+    - "D3c"
+    day_names:
+    - "S|_||\\|d4'/"
+    - "|\\/|0|\\|d4'/"
+    - "7|_|3sd4'/"
+    - "\\/\\/3d|\\|3sd4'/"
+    - "7#|_|rsd4'/"
+    - "|=r1d4'/"
+    - "S47|_|rd4'/"
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%B %d, %Y'
+      short: ! '%b %d'
+    month_names:
+    - 
+    - "J4|\\||_|4r'/"
+    - "|=3br|_|4r'/"
+    - "|\\/|4rc#"
+    - "4pr1|_"
+    - "|\\/|4'/"
+    - "J|_||\\|3"
+    - "J|_||_'/"
+    - "4|_|6|_|s7"
+    - "S3p73|\\/|b3r"
+    - "0c70b3r"
+    - "|\\|0\\/3|\\/|b3r"
+    - "D3c3|\\/|b3r"
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "4b0|_|7 1 #0|_|r"
+        other: "4b0|_|7 %{count} #0|_|r2"
+      about_x_months:
+        one: "4b0|_|7 1 |\\/|0|\\|7#"
+        other: "4b0|_|7 %{count} |\\/|0|\\|7#2"
+      about_x_years:
+        one: "4b0|_|7 1 '/34r"
+        other: "4b0|_|7 %{count} '/34r2"
+      almost_x_years:
+        one: "4|_|\\/|0s7 1 '/34r"
+        other: "4|_|\\/|0s7 %{count} '/34r2"
+      half_a_minute: "#4|_|= @ |\\/|1|\\||_|73"
+      less_than_x_minutes:
+        one: "|_3s2 7#4|\\| @ |\\/|1|\\||_|73"
+        other: "|_3s2 7#4|\\| %{count} |\\/|1|\\||_|732"
+      less_than_x_seconds:
+        one: "|_3s2 7#4|\\| 1 s3c0|\\|d"
+        other: "|_3s2 7#4|\\| %{count} s3c0|\\|d2"
+      over_x_years:
+        one: "0\\/3r 1 '/34r"
+        other: "0\\/3r %{count} '/34r2"
+      x_days:
+        one: "1 d4'/"
+        other: ! "%{count} d4'/2"
+      x_minutes:
+        one: 1 |\/|1|\||_|73
+        other: ! '%{count} |\/|1|\||_|732'
+      x_months:
+        one: 1 |\/|0|\|7#
+        other: ! '%{count} |\/|0|\|7#2'
+      x_seconds:
+        one: 1 s3c0|\|d
+        other: ! '%{count} s3c0|\|d2'
+    prompts:
+      day: "D4'/"
+      hour: "#0|_|r"
+      minute: "|\\/|1|\\||_|73"
+      month: "|\\/|0|\\|7#"
+      second: S3c0|\|d2
+      year: "'/34r"
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: "|\\/||_|s7 b 4cc3p73d"
+      blank: c4|\|'7 b b|_4|\||<
+      confirmation: d03s|\|'7 |\/|47c# c0|\||=1r|\/|4710|\|
+      empty: c4|\|'7 b 3|\/|p7'/
+      equal_to:  "|\\/||_|s7 b 3q|_|4|_ 2 %{count}"
+      even: "|\\/||_|s7 b 3\\/3|\\|"
+      exclusion: b r3s3r\/3d
+      greater_than: "|\\/||_|s7 b 6r3473r 7#4|\\| %{count}"
+      greater_than_or_equal_to: "|\\/||_|s7 b 6r3473r 7#4|\\| 0r 3q|_|4|_ 2 %{count}"
+      inclusion: b |\|07 1|\|c|_|_|d3d 1|\| 73# |_1s7
+      invalid: b 1|\|\/4|_1d
+      less_than: "|\\/||_|s7 b |_3s2 7#4|\\| %{count}"
+      less_than_or_equal_to: "|\\/||_|s7 b |_3s2 7#4|\\| 0r 3q|_|4|_ 2 %{count}"
+      not_a_number: b |\|07 @ |\||_||\/|b3r
+      not_an_integer: "|\\/||_|s7 b |\\| 1|\\|7363r"
+      odd: "|\\/||_|s7 b 0dd"
+      record_invalid: ! '\/4|_1d4710|\| |=41|_3d: %{errors}'
+      taken: "#42 4|_r34d'/ b33|\\| 74|<3|\\|"
+      too_long:
+        one: "b 700 |_0|\\|6 (|\\/|4x1|\\/||_||\\/| b 1 c#4r4c73r)"
+        other: "b 700 |_0|\\|6 (|\\/|4x1|\\/||_||\\/| b %{count} c#4r4c73r2)"
+      too_short:
+        one: "b 700 s#0r7 (|\\/|1|\\|1|\\/||_||\\/| b 1 c#4r4c73r)"
+        other: "b 700 s#0r7 (|\\/|1|\\|1|\\/||_||\\/| b %{count} c#4r4c73r2)"
+      wrong_length:
+        one: "b 73# \\/\\/r0|\\|6 |_3|\\|67# (s#0|_||_d b 1 c#4r4c73r)"
+        other: "b 73# \\/\\/r0|\\|6 |_3|\\|67# (s#0|_||_d b %{count} c#4r4c73r2)"
+    template:
+      body: ! "7#3r3 \\/\\/|_|2 pr0b|_3|\\/|2 \\/\\/17# 73# |=0|_|_0\\/\\/1|\\|' |=13|_d2:"
+      header:
+        one: "1 3rr0r pr0#1b173d d12 %{model} |=r0|\\/| b31|\\|' s4\\/3d"
+        other: ! "%{count} 3rr0r2 pr0#1b173d d12 %{model} |=r0|\\/| b31|\\|' s4\\/3d"
+  helpers:
+    select:
+      prompt: P|_34s3 s3|_3c7
+    submit:
+      create: Cr3473 %{model}
+      submit: S4\/3 %{model}
+      update: "|_|pd473 %{model}"
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u%n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: $
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: B1|_|_10|\|
+          million: "|\\/|1|_|_10|\\|"
+          quadrillion: Q|_|4dr1|_|_10|\|
+          thousand: "7#0|_|s4|\\|d"
+          trillion: 7r1|_|_10|\|
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: "B'/73"
+            other: "B'/732"
+          gb: "6B"
+          kb: "|<B"
+          mb: "|\\/|B"
+          tb: "7B"
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', |\| '
+      two_words_connector: ! ' |\| '
+      words_connector: ! ', '
+  time:
+    am: "4|\/|"
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+    pm: p|\/|
+  add_answer: '4dd 4|\|s\/\/3r'
+  add_poll: '4dd p0|_|_'
+  back: 'B4c|<'
+  baka: 'B4|<4'
+  bbcodes: 'bbc0d32'
+  bbcode_example_in: '1ps|_||\/| d0|_0r s17 4|\/|37'
+  bbcode_example_out: '|_0r3|\/|'
+  birthday: "B1r7#d4'/"
+  click_me: 'c|_1c|< 2 X73|\|d'
+  confirm_email: "C0|\||=1r|\/| '/0 3|\/|41|_ 4cc0|_||\|7"
+  confirm_email_long: "2 c0|\||=1r|\/| '/0 3|\/|41|_ 4cc0|_||\|7 c|_1c|< |=0|_|_0\/\/1|\|' |_1|\||<"
+  date: 'D473'
+  destroy: "D3s7r0'/"
+  destroy_confirm: '12 j00 s|_|r3?'
+  duplicate_answer: "d12 |_|s3r 4|_r34d'/ 61\/32 #12 0p710|\|"
+  duplicate_like:  '\/\/|_|b 4|_r34d'/ p0s73d'
+  edit: '3d17'
+  email: '3|\/|41|_'
+  footer_html: "%{baka} b'/ %{oomushi}"
+  groups: '6r0|_|p2'
+  image_height: '#316#7 2 #16#'
+  image_type: "1|\|\/4|_1d 1|\/|463 7'/p3"
+  image_width: '\/\/1d7# 2 #16#'
+  header_edit_bbcode: "3d171|\|' bbc0d3"
+  header_edit_message: "3d171|\|' |\/|3ss463"
+  header_edit_user: "3d171|\|' |_|s3r"
+  header_error_avatar: '4\/474r c4|\| |\|07 b s4\/3d'
+  header_error_bbcode: 'bbc0d3 c4|\| |\|07 b s4\/3d'
+  header_error_group: '6r0|_|p c4|\| |\|07 b s4\/3d'
+  header_error_message: '|\/|3ss463 c4|\| |\|07 b s4\/3d'
+  header_error_user: '|_|s3r c4|\| |\|07 b s4\/3d'
+  header_error_signup: '|_|s3r c4|\| |\|07 b cr3473d'
+  karma: '|<4r|\/|4'
+  ko_captcha: 'c4p7c#4 d032 |\|07 |\/|47c#'
+  ko_group_not_empty: 'c4|\||\|07 d3|_373 6r0|_|p \/\/17# |_|s3r2'
+  ko_like_type: "\/\/|_|b \/4|_|_|3 c4|\| 0|\||_'/ b \/\/#0|_3 |\||_||\/|b3r"
+  ko_like_value:  'c4|\| 0|\||_'/ b b37\/\/33|\| -1 |\| 1'
+  ko_login: '1|\|\/4|_1d |_|s3r|\|4|\/|3 0r p4ss\/\/0rd'
+  ko_message_edit: '|\/|3ss463 c4|\||\|07 b 3d173d'
+  ko_message_undeletable: "c4|\||\|07 d3|_373 |\/|3ss463 \/\/17# r3p|_4'/32"
+  ko_user_confirm: 'c0d3 |\|07 \/4|_1d'
+  label: '|_4b3|_'
+  last_message: '|_4s7 |\/|3ss463'
+  level: '|_3\/3|_'
+  listing_bbcode: "|_1s71|\|' bbc0d32"
+  listing_group: "|_1s71|\|' 6r0|_|p2"
+  listing_user: "|_1s71|\|' |_|s3r2"
+  location: '|_0c4710|\|'
+  login: '|_061|\|'
+  logout: '|_060|_|7'
+  macrobug: '|\/|4cr0b|_|6'
+  messages_number: '|\/|3ss4632 |\|.'
+  name: '|\|4|\/|3'
+  new: '|\|3\/\/'
+  new_replay: "|\|3\/\/ r3p|_4'/"
+  new_message: "S0|\/|30|\|3 r3p|_13d 47 0|\|3 |\/|3ss463 |=0|_|_0\/\/3d b'/ j00"
+  object_not_found: '0bj3c7 |\|07 |=0|_||\|d'
+  ok_answers: "4|\|s\/\/3r \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_avatar: "4\/474r \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_bbcode: "Bbc0d3 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  ok_group_edit: "6r0|_|p \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_group_new: "6r0|_|p \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  ok_like_edit: "\/\/|_|b \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_like_new: "\/\/|_|b \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  ok_login: '|_0663d 1|\|!'
+  ok_logout: '|_0663d 0|_|7!'
+  ok_message_edit: "|\/|3ss463 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_message_new: "|\/|3ss463 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  ok_user_confirm: '3|\/|41|_ c0|\||=1r|\/|3d'
+  ok_user_edit:  '|_|s3r \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d'
+  ok_user_new: "|_|s3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  poll: 'P0|_|_'
+  properties: 'Pr0p3r7132'
+  require_login: 'j00 |\\/||_|s7 b |_0663d 1|\| 2 4cc3s2 d12 s3c710|\|'
+  result: 'R3s|_||_7'
+  search: 's34rc#'
+  show: 'S#0\/\/'
+  sign: 'S16|\|'
+  signup: 'S16|\||_|p'
+  tag: '746'
+  text: '73x7'
+  thanx: "7'/"
+  title: '717|_3'
+  total: '7074|_'
+  unfollow: '2 |_||\||=0|_|_0\/\/'
+  username: '|_|s3r|\|4|\/|3'
+  users: '|_|s3r2'
+  users_number: '|_|s3r2 |\||_||\/|b3r'
+  username_taken: "S0|\/|30|\|3 4|_r34d'/ #42 d47 |_|s3r|\|4|\/|3. 7r'/ 4|\|07#3r?"
+  unauthorizated: '|_||\|4|_|7#0r12473d 4cc3s2'
+  website: '\/\/3bs173'
+    helpers:
+    label:
+      answer:
+        text: '73x7'
+      avatar:
+        uploaded_data: '|_0c4|_ |=1|_3'
+        url: '|_|R|_'
+      bbcode:
+        inner: '1|\||\|3r'
+        output: 'BBC0d3'
+        label: 'B|_|770|\|'
+        layout: "|_4'/0|_|7"
+        properties: 'Pr0p3r7132'
+        tag: '|\|4|\/|3'
+        value: 'P4r4|\/|373r'
+      group:
+        level: '|_3\/3|_'
+        name: '|\|4|\/|3'
+        users: '|_|s3r2'
+      message:
+        title: '717|_3'
+        section: 'S3c710|\|'
+        pinned: 'P1|\||\|3d'
+        follow: '|=0|_|_0\/\/'
+        text: '73x7'
+        poll: 'P0|_|_'
+        reader: 'R34d3r2'
+        writer: '\/\/r173r2'
+        moderator: '|\/|0d3r470r2'
+      poll:
+        title: '717|_3'
+      user:
+        birthday: "B1r7#d4'/"
+        email: '3|\/|41|_'
+        location: '|_0c4710|\|'
+        password: 'P4ss\/\/0rd'
+        password_confirmation: 'C0|\||=1r|\/| p4ss\/\/0rd'
+        sign: 'S16|\|'
+        username: '|_|s3r|\|4|\/|3'
+        website: '\/\/3bs173'
+    submit:
+      avatar:
+        create: 'Cr3473 4\/474r'
+        update: '|_|pd473 4\/474r'
+      bbcode:
+        create: 'Cr3473 bbc0d3'
+        update: '|_|pd473 bbc0d3'
+      group:
+        create: 'Cr3473 6r0|_|p'
+        update: '|_|pd473 6r0|_|p'
+      message:
+        create: 'Cr3473 |\/|3ss463'
+        update: '|_|pd473 |\/|3ss463'
+      user:
+        create: 'S16|\||_|p'
+        update: '|_|pd473 |_|s3r'
+  ransack:
+    search: "s34rc#"
