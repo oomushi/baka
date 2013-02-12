@@ -2,9 +2,9 @@
     <%= f.label :text %><br />
     <%= f.text_field :text %>
     <% if f.object.id.nil? %>
-      <%= link_to_remove_fields t(:remove),f %>
+      <%= link_to_remove_fields t(:destroy),f %>
     <% else %>
       <%= f.check_box :_destroy %>
-      <%= f.label :_destroy, t(:remove) %>
+      <%= f.label :_destroy, t(:destroy) %>
     <% end %>
   </div>
