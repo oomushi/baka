@@ -56,8 +56,8 @@
     <%= f.text_area :text %>
   </div>
   <fieldset>
-    <legend>Poll</legend>
-    <p><%= link_to_add_unique_fields 'add poll',f,:poll,@message.poll.nil? ? '': 'link_disabled' %></p>
+    <legend><%= t(:poll) %></legend>
+    <p><%= link_to_add_unique_fields t(:add_poll),f,:poll,@message.poll.nil? ? '': 'link_disabled' %></p>
   <% unless @message.poll.nil? %>
   <%= f.fields_for :poll do |builder| %>
     <%= render :partial => 'polls/form',:locals => { :f => builder } %>
