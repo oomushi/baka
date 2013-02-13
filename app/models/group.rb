@@ -41,7 +41,7 @@ class Group < ActiveRecord::Base
   protected
   def destroyable?
     if childs?
-      errors.add :base,t(:ko_group_not_empty)
+      errors.add :base,I18n.t(:ko_group_not_empty)
       false
     end
   end

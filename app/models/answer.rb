@@ -19,7 +19,7 @@ class Answer < ActiveRecord::Base
     poll.answers.each do |a|
       next if a.eql? self
       unless (a.users & users).empty?
-        errors.add :users, t(:duplicate_answer) 
+        errors.add :users, I18n.t(:duplicate_answer) 
         return false
       end
     end unless poll.nil?

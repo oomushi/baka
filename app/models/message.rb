@@ -90,7 +90,7 @@ class Message < ActiveRecord::Base
   protected
   def destroyable?
     if childs?
-      errors.add :base, t(:ko_message_undeletable)
+      errors.add :base, I18n.t(:ko_message_undeletable)
       false
     end
   end
