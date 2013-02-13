@@ -1,5 +1,5 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# # Sample localization file for English. Add more files in this directory for other locales.
+# # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 le:
   date:
@@ -193,7 +193,7 @@ le:
       two_words_connector: ! ' |\| '
       words_connector: ! ', '
   time:
-    am: "4|\/|"
+    am: "4|\\/|"
     formats:
       default: ! '%a, %d %b %Y %H:%M:%S %z'
       long: ! '%B %d, %Y %H:%M'
@@ -208,8 +208,8 @@ le:
   bbcode_example_out: '|_0r3|\/|'
   birthday: "B1r7#d4'/"
   click_me: 'c|_1c|< 2 X73|\|d'
-  confirm_email: "C0|\||=1r|\/| '/0 3|\/|41|_ 4cc0|_||\|7"
-  confirm_email_long: "2 c0|\||=1r|\/| '/0 3|\/|41|_ 4cc0|_||\|7 c|_1c|< |=0|_|_0\/\/1|\|' |_1|\||<"
+  confirm_email: "C0|\\||=1r|\\/| '/0 3|\\/|41|_ 4cc0|_||\\|7"
+  confirm_email_long: "2 c0|\\||=1r|\\/| '/0 3|\\/|41|_ 4cc0|_||\\|7 c|_1c|< |=0|_|_0\\/\\/1|\\|' |_1|\\||<"
   date: 'D473'
   destroy: "D3s7r0'/"
   destroy_confirm: '12 j00 s|_|r3?'
@@ -220,11 +220,11 @@ le:
   footer_html: "%{baka} b'/ %{oomushi}"
   groups: '6r0|_|p2'
   image_height: '#316#7 2 #16#'
-  image_type: "1|\|\/4|_1d 1|\/|463 7'/p3"
+  image_type: "1|\\|\\/4|_1d 1|\\/|463 7'/p3"
   image_width: '\/\/1d7# 2 #16#'
-  header_edit_bbcode: "3d171|\|' bbc0d3"
-  header_edit_message: "3d171|\|' |\/|3ss463"
-  header_edit_user: "3d171|\|' |_|s3r"
+  header_edit_bbcode: "3d171|\\|' bbc0d3"
+  header_edit_message: "3d171|\\|' |\\/|3ss463"
+  header_edit_user: "3d171|\\|' |_|s3r"
   header_error_avatar: '4\/474r c4|\| |\|07 b s4\/3d'
   header_error_bbcode: 'bbc0d3 c4|\| |\|07 b s4\/3d'
   header_error_group: '6r0|_|p c4|\| |\|07 b s4\/3d'
@@ -234,18 +234,18 @@ le:
   karma: '|<4r|\/|4'
   ko_captcha: 'c4p7c#4 d032 |\|07 |\/|47c#'
   ko_group_not_empty: 'c4|\||\|07 d3|_373 6r0|_|p \/\/17# |_|s3r2'
-  ko_like_type: "\/\/|_|b \/4|_|_|3 c4|\| 0|\||_'/ b \/\/#0|_3 |\||_||\/|b3r"
-  ko_like_value:  "c4|\\| 0|\\||_'/ b b37\\/\\/33|\\| -1 |\| 1"
+  ko_like_type: "\\/\\/|_|b \\/4|_|_|3 c4|\\| 0|\\||_'/ b \\/\\/#0|_3 |\\||_||\\/|b3r"
+  ko_like_value:  "c4|\\| 0|\\||_'/ b b37\\/\\/33|\\| -1 |\\| 1"
   ko_login: '1|\|\/4|_1d |_|s3r|\|4|\/|3 0r p4ss\/\/0rd'
   ko_message_edit: '|\/|3ss463 c4|\||\|07 b 3d173d'
-  ko_message_undeletable: "c4|\||\|07 d3|_373 |\/|3ss463 \/\/17# r3p|_4'/32"
+  ko_message_undeletable: "c4|\\||\\|07 d3|_373 |\\/|3ss463 \\/\\/17# r3p|_4'/32"
   ko_user_confirm: 'c0d3 |\|07 \/4|_1d'
   label: '|_4b3|_'
   last_message: '|_4s7 |\/|3ss463'
   level: '|_3\/3|_'
-  listing_bbcode: "|_1s71|\|' bbc0d32"
-  listing_group: "|_1s71|\|' 6r0|_|p2"
-  listing_user: "|_1s71|\|' |_|s3r2"
+  listing_bbcode: "|_1s71|\\|' bbc0d32"
+  listing_group: "|_1s71|\\|' 6r0|_|p2"
+  listing_user: "|_1s71|\\|' |_|s3r2"
   location: '|_0c4710|\|'
   login: '|_061|\|'
   logout: '|_060|_|7'
@@ -253,26 +253,26 @@ le:
   messages_number: '|\/|3ss4632 |\|.'
   name: '|\|4|\/|3'
   new: '|\|3\/\/'
-  new_replay: "|\|3\/\/ r3p|_4'/"
-  new_message: "S0|\/|30|\|3 r3p|_13d 47 0|\|3 |\/|3ss463 |=0|_|_0\/\/3d b'/ j00"
+  new_replay: "|\\|3\\/\\/ r3p|_4'/"
+  new_message: "S0|\\/|30|\\|3 r3p|_13d 47 0|\\|3 |\\/|3ss463 |=0|_|_0\\/\\/3d b'/ j00"
   object_not_found: '0bj3c7 |\|07 |=0|_||\|d'
   ok_answers: "4|\\|s\\/\\/3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
-  ok_avatar: "4\/474r \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
-  ok_bbcode: "Bbc0d3 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
-  ok_group_edit: "6r0|_|p \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
-  ok_group_new: "6r0|_|p \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
-  ok_like_edit: "\/\/|_|b \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
-  ok_like_new: "\/\/|_|b \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  ok_avatar: "4\\/474r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_bbcode: "Bbc0d3 \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  ok_group_edit: "6r0|_|p \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_group_new: "6r0|_|p \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  ok_like_edit: "\\/\\/|_|b \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_like_new: "\\/\\/|_|b \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   ok_login: '|_0663d 1|\|!'
   ok_logout: '|_0663d 0|_|7!'
-  ok_message_edit: "|\/|3ss463 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
-  ok_message_new: "|\/|3ss463 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  ok_message_edit: "|\\/|3ss463 \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_message_new: "|\\/|3ss463 \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   ok_user_confirm: '3|\/|41|_ c0|\||=1r|\/|3d'
   ok_user_edit:  "|_|s3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_user_new: "|_|s3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   poll: 'P0|_|_'
   properties: 'Pr0p3r7132'
-  require_login: 'j00 |\\/||_|s7 b |_0663d 1|\| 2 4cc3s2 d12 s3c710|\|'
+  require_login: 'j00 |\/||_|s7 b |_0663d 1|\| 2 4cc3s2 d12 s3c710|\|'
   result: 'R3s|_||_7'
   search: 's34rc#'
   show: 'S#0\/\/'
@@ -287,7 +287,7 @@ le:
   username: '|_|s3r|\|4|\/|3'
   users: '|_|s3r2'
   users_number: '|_|s3r2 |\||_||\/|b3r'
-  username_taken: "S0|\/|30|\|3 4|_r34d'/ #42 d47 |_|s3r|\|4|\/|3. 7r'/ 4|\|07#3r?"
+  username_taken: "S0|\\/|30|\\|3 4|_r34d'/ #42 d47 |_|s3r|\\|4|\\/|3. 7r'/ 4|\\|07#3r?"
   unauthorizated: '|_||\|4|_|7#0r12473d 4cc3s2'
   website: "\\/\\/3bs173"
   helpers:
