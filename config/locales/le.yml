@@ -213,8 +213,8 @@ le:
   date: 'D473'
   destroy: "D3s7r0'/"
   destroy_confirm: '12 j00 s|_|r3?'
-  duplicate_answer: "d12 |_|s3r 4|_r34d'/ 61\/32 #12 0p710|\|"
-  duplicate_like:  '\/\/|_|b 4|_r34d'/ p0s73d'
+  duplicate_answer: "d12 |_|s3r 4|_r34d'/ 61\\/32 #12 0p710|\\|"
+  duplicate_like: "\\/\\/|_|b 4|_r34d'/ p0s73d"
   edit: '3d17'
   email: '3|\/|41|_'
   footer_html: "%{baka} b'/ %{oomushi}"
@@ -235,7 +235,7 @@ le:
   ko_captcha: 'c4p7c#4 d032 |\|07 |\/|47c#'
   ko_group_not_empty: 'c4|\||\|07 d3|_373 6r0|_|p \/\/17# |_|s3r2'
   ko_like_type: "\/\/|_|b \/4|_|_|3 c4|\| 0|\||_'/ b \/\/#0|_3 |\||_||\/|b3r"
-  ko_like_value:  'c4|\| 0|\||_'/ b b37\/\/33|\| -1 |\| 1'
+  ko_like_value:  "c4|\\| 0|\\||_'/ b b37\\/\\/33|\\| -1 |\| 1"
   ko_login: '1|\|\/4|_1d |_|s3r|\|4|\/|3 0r p4ss\/\/0rd'
   ko_message_edit: '|\/|3ss463 c4|\||\|07 b 3d173d'
   ko_message_undeletable: "c4|\||\|07 d3|_373 |\/|3ss463 \/\/17# r3p|_4'/32"
@@ -256,7 +256,7 @@ le:
   new_replay: "|\|3\/\/ r3p|_4'/"
   new_message: "S0|\/|30|\|3 r3p|_13d 47 0|\|3 |\/|3ss463 |=0|_|_0\/\/3d b'/ j00"
   object_not_found: '0bj3c7 |\|07 |=0|_||\|d'
-  ok_answers: "4|\|s\/\/3r \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_answers: "4|\\|s\\/\\/3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_avatar: "4\/474r \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_bbcode: "Bbc0d3 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   ok_group_edit: "6r0|_|p \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
@@ -268,7 +268,7 @@ le:
   ok_message_edit: "|\/|3ss463 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_message_new: "|\/|3ss463 \/\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   ok_user_confirm: '3|\/|41|_ c0|\||=1r|\/|3d'
-  ok_user_edit:  '|_|s3r \/\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d'
+  ok_user_edit:  "|_|s3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_user_new: "|_|s3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   poll: 'P0|_|_'
   properties: 'Pr0p3r7132'
@@ -289,8 +289,8 @@ le:
   users_number: '|_|s3r2 |\||_||\/|b3r'
   username_taken: "S0|\/|30|\|3 4|_r34d'/ #42 d47 |_|s3r|\|4|\/|3. 7r'/ 4|\|07#3r?"
   unauthorizated: '|_||\|4|_|7#0r12473d 4cc3s2'
-  website: '\/\/3bs173'
-    helpers:
+  website: "\\/\\/3bs173"
+  helpers:
     label:
       answer:
         text: '73x7'
