@@ -1,12 +1,12 @@
 body{
-  background: #c0deed url('/assets/default-theme/escer.png') no-repeat fixed left bottom;
+  background: #c0deed url('/assets/theme-default/escer.png') no-repeat fixed left bottom;
 }
 section.main{
   background: rgba(255, 255, 248, 0.6);
   box-shadow: 0px 0px 15px #000;
 }
 section.main article{
-  background: #fffff0 url('/assets/default-theme/baka.png') repeat-y scroll left bottom;
+  background: #fffff0 url('/assets/theme-default/baka.png') repeat-y scroll left bottom;
   border: 1px solid #000;
 }
 td.clickable:hover, a:hover, td.hover{
@@ -44,58 +44,58 @@ a.checked{
   opacity:1.0;
 }
 a.web{
-  background: url('/assets/default-theme/web.png') left center no-repeat;
+  background: url('/assets/theme-default/web.png') left center no-repeat;
 }
 a.signup{
-  background: #000 url('/assets/default-theme/sign.png') left center no-repeat;
+  background: #000 url('/assets/theme-default/sign.png') left center no-repeat;
 }
 a.user{
-  background: #000 url('/assets/default-theme/user.png') left center no-repeat;
+  background: #000 url('/assets/theme-default/user.png') left center no-repeat;
 }
 a.group{
-  background: #000 url('/assets/default-theme/group.png') left center no-repeat;
+  background: #000 url('/assets/theme-default/group.png') left center no-repeat;
 }
 a.bbcode{
-  background: #000 url('/assets/default-theme/smile.png') left center no-repeat;
+  background: #000 url('/assets/theme-default/smile.png') left center no-repeat;
 }
 a.email{
-  background: url('/assets/default-theme/email.png') left center no-repeat;
+  background: url('/assets/theme-default/email.png') left center no-repeat;
 }
 a.users{
-  background: #000 url('/assets/default-theme/users.png') left center no-repeat;
+  background: #000 url('/assets/theme-default/users.png') left center no-repeat;
 }
 td.leaf{
-  background: url('/assets/default-theme/leaf.png') left center no-repeat;
+  background: url('/assets/theme-default/leaf.png') left center no-repeat;
 }
 td.tree{
-  background: url('/assets/default-theme/tree.png') left center no-repeat;
+  background: url('/assets/theme-default/tree.png') left center no-repeat;
 }
 a.login{
-  background: #000 url('/assets/default-theme/login.png') left center no-repeat;
+  background: #000 url('/assets/theme-default/login.png') left center no-repeat;
 }
 a.logout{
-  background: #000 url('/assets/default-theme/logout.png') left center no-repeat;
+  background: #000 url('/assets/theme-default/logout.png') left center no-repeat;
 }
 a.page{
-  background: url('/assets/default-theme/page.png') left center no-repeat;
+  background: url('/assets/theme-default/page.png') left center no-repeat;
 }
 a.add{
-  background: url('/assets/default-theme/new.png') left center no-repeat;
+  background: url('/assets/theme-default/new.png') left center no-repeat;
 }
 a.del{
-  background: url('/assets/default-theme/del.png') left center no-repeat;
+  background: url('/assets/theme-default/del.png') left center no-repeat;
 }
 a.edit{
-  background: url('/assets/default-theme/edt.png') left center no-repeat;
+  background: url('/assets/theme-default/edt.png') left center no-repeat;
 }
 a.top{
-  background: url('/assets/default-theme/top.png') left center no-repeat;
+  background: url('/assets/theme-default/top.png') left center no-repeat;
 }
 a.up{
-  background: url('/assets/default-theme/up.png') left center no-repeat;
+  background: url('/assets/theme-default/up.png') left center no-repeat;
 }
 a.down{
-  background: url('/assets/default-theme/down.png') left center no-repeat;
+  background: url('/assets/theme-default/down.png') left center no-repeat;
 }
 article header{
   background: #000;
@@ -115,18 +115,18 @@ article nav{
 }
 @font-face {
     font-family: 'Twit';
-    src: url('/assets/twit.eot');
-    src: url('/assets/twit.woff') format('woff'),
-         url('/assets/twit.ttf') format('truetype');
+    src: url('/assets/theme-default/twit.eot');
+    src: url('/assets/theme-default/twit.woff') format('woff'),
+         url('/assets/theme-default/twit.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'Cretino';
-    src: url('/assets/cretino.eot');
-    src: url('/assets/cretino.woff') format('woff'),
-         url('/assets/cretino.ttf') format('truetype');
+    src: url('/assets/theme-default/cretino.eot');
+    src: url('/assets/theme-default/cretino.woff') format('woff'),
+         url('/assets/theme-default/cretino.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -148,7 +148,7 @@ span.spoiler{
   border-color: #000;
 }
 fieldset.quote{
-  background:url("/assets/default-theme/baka.png") 0% 100% repeat-y #C0DEED;
+  background:url("/assets/theme-default/baka.png") 0% 100% repeat-y #C0DEED;
   border-color: #b0ceff;
   
 }
