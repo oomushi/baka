@@ -3,6 +3,7 @@
 <head>
   <title>Baka</title>
   <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag I18n.locale.eql?(:le) ? 'theme-l33t/theme' : 'theme-default/theme' %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link rel="icon" href="/favicon.ico" />
