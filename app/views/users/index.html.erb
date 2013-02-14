@@ -14,7 +14,7 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= link_to user.username,user %></td>
-    <td><%= mail_to user.email,"&thinsp;".html_safe, {:title=> user.email,:class=>"button email"} unless user.email.nil? %></td>
+    <td><%= mail_to user.email,"&thinsp;".html_safe, { :encode=>:javascript, :title=> user.email,:class=>"button email"} unless user.email.nil? %></td>
     <td><%= user.location %></td>
     <td><%= l user.created_at,:format=>:long %></td>
     <td><%= user.messages.count %></td>
