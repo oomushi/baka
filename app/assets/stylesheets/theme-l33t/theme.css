@@ -12,40 +12,47 @@ body{
   font-family: lgdr;
   color: green;
 }
-p, ol, ul, td { 
+p, ol, ul, td, input { 
   font-family: lgdr;
 }
-section.main{
+a{
+  color: green;
+}
+section.main,aside.like{
   background: rgba(0, 0, 0, 0.6);
   border: 1px #0f0 dashed;
+}
+aside.login,article header,aside.like,section.main article { 
+  border-radius: 0px;
 }
 section.main article{
   background: rgba(0, 0, 0, 0.6);
   border: 1px dotted #0F0;
 }
 td.clickable:hover, a:hover, td.hover{
-  color: #ff7f50;
+  color: #7fff7f;
 }
 tr.pinned{
   font-weight: bolder;
-  text-shadow:  0px 0px 15px #FFF,0px 0px 5px #FF0;
+  text-shadow:  0px 0px 15px #FFF,0px 0px 5px #7fff7f;
 }
 header.main{
   background: black;
-  color: white;
+  color: green;
 }
 header a.button{
   text-decoration:none;
-  color: white;
+  color: green;
 }
 footer.main{
-  color: rgba(0,0,0,0.85);
+  color: rgba(0,255,0,0.85);
 }
 footer.main a{
   color: inherit;
 }
 aside.login{
-  background:#e2062c;
+  background:#000;
+  border: 1px dashed #0F0; 
 }
 a.button{
   color: black;
@@ -58,65 +65,65 @@ a.checked{
   opacity:1.0;
 }
 a.web{
-  background: url('/assets/default-theme/web.png') left center no-repeat;
+  background: url('/assets/theme-l33t/web.png') left center no-repeat;
 }
 a.signup{
-  background: #000 url('/assets/default-theme/sign.png') left center no-repeat;
+  background: #000 url('/assets/theme-l33t/sign.png') left center no-repeat;
 }
 a.user{
-  background: #000 url('/assets/default-theme/user.png') left center no-repeat;
+  background: #000 url('/assets/theme-l33t/user.png') left center no-repeat;
 }
 a.group{
-  background: #000 url('/assets/default-theme/group.png') left center no-repeat;
+  background: #000 url('/assets/theme-l33t/group.png') left center no-repeat;
 }
 a.bbcode{
-  background: #000 url('/assets/default-theme/smile.png') left center no-repeat;
+  background: #000 url('/assets/theme-l33t/smile.png') left center no-repeat;
 }
 a.email{
-  background: url('/assets/default-theme/email.png') left center no-repeat;
+  background: url('/assets/theme-l33t/email.png') left center no-repeat;
 }
 a.users{
-  background: #000 url('/assets/default-theme/users.png') left center no-repeat;
+  background: #000 url('/assets/theme-l33t/users.png') left center no-repeat;
 }
 td.leaf{
-  background: url('/assets/default-theme/leaf.png') left center no-repeat;
+  background: url('/assets/theme-l33t/leaf.png') left center no-repeat;
 }
 td.tree{
-  background: url('/assets/default-theme/tree.png') left center no-repeat;
+  background: url('/assets/theme-l33t/tree.png') left center no-repeat;
 }
 a.login{
-  background: #000 url('/assets/default-theme/login.png') left center no-repeat;
+  background: #000 url('/assets/theme-l33t/login.png') left center no-repeat;
 }
 a.logout{
-  background: #000 url('/assets/default-theme/logout.png') left center no-repeat;
+  background: #000 url('/assets/theme-l33t/logout.png') left center no-repeat;
 }
 a.page{
-  background: url('/assets/default-theme/page.png') left center no-repeat;
+  background: url('/assets/theme-l33t/page.png') left center no-repeat;
 }
 a.add{
-  background: url('/assets/default-theme/new.png') left center no-repeat;
+  background: url('/assets/theme-l33t/new.png') left center no-repeat;
 }
 a.del{
-  background: url('/assets/default-theme/del.png') left center no-repeat;
+  background: url('/assets/theme-l33t/del.png') left center no-repeat;
 }
 a.edit{
-  background: url('/assets/default-theme/edt.png') left center no-repeat;
+  background: url('/assets/theme-l33t/edt.png') left center no-repeat;
 }
 a.top{
-  background: url('/assets/default-theme/top.png') left center no-repeat;
+  background: url('/assets/theme-l33t/top.png') left center no-repeat;
 }
 a.up{
-  background: url('/assets/default-theme/up.png') left center no-repeat;
+  background: url('/assets/theme-l33t/up.png') left center no-repeat;
 }
 a.down{
-  background: url('/assets/default-theme/down.png') left center no-repeat;
+  background: url('/assets/theme-l33t/down.png') left center no-repeat;
 }
 article header{
   background: #000;
   color: #fff;
 }
 article > header > a{
-  color: gold;
+  color: #0f0;
 }
 article nav{
   box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
@@ -131,12 +138,6 @@ footer.main .brand{
   font-size:125%;
   font-style:normal;
 }
-.baka{
-  font-family: Twit;
-}
-.macrobug{
-  font-family: Cretino;
-}
 aside.messages{
   background: #FF8C00;
 }
@@ -144,13 +145,9 @@ span.spoiler{
   border-color: #000;
 }
 fieldset.quote{
-  background:url("/assets/default-theme/baka.png") 0% 100% repeat-y #C0DEED;
-  border-color: #b0ceff;
-  
-}
-aside.like{
-  background-color: #e2062c;
-  box-shadow: 10px 10px 20px #000000;
+  background:#000;
+  border-color: #7fff7f;
+  border-style: dotted;
 }
 a.link_disabled{
   opacity:0.5;
