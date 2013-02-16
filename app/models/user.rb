@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :messages,:dependent=>:destroy
   has_many :likes,:dependent=>:destroy
   has_one :avatar,:dependent=>:delete
+  has_many :contacts,:dependent=>:destroy
   has_and_belongs_to_many :answers
   has_and_belongs_to_many :groups
   attr_protected :password_hash, :password_salt, :confirm_code

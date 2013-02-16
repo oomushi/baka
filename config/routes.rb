@@ -1,4 +1,7 @@
 Baka::Application.routes.draw do
+  resources :contacts
+
+
   resources :bbcodes
 
   resources :groups
