@@ -168,7 +168,7 @@ cite{
   float:left;
   position:relative;
   top:-1em;
-  text-style:italic;
+  font-style: italic;
 }
 div.field > table{
   display: inline-block;
