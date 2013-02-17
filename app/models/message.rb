@@ -4,6 +4,7 @@ class Message < ActiveRecord::Base
   belongs_to :message
   has_many :messages
   has_many :likes,:dependent=>:destroy
+  has_many :attachments, :dependent=>:destroy
   has_one :poll,:dependent=>:destroy
   belongs_to :reader, :class_name=>"Group", :foreign_key=>"reader_id"
   belongs_to :writer, :class_name=>"Group", :foreign_key=>"writer_id"
