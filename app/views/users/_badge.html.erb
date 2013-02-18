@@ -5,12 +5,12 @@
 <span><%= t(:birthday) %>: <%= user.birthday %></span>
 <span><%= t(:messages_number) %>: <%= user.messages.count %></span>
 <span><%= t(:karma)%>: <%= user.total_likes %></span>
-a<% unless user.contacts.count.zero? %>
+<% unless user.contacts.count.zero? %>
 <nav>
   <ul>
   <% user.contacts.each do |contact| %>
-  <li><%= contact %></li>
+  <%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %>
   <% end %>
   </ul>
 </nav>
-<% end %>o
+<% end %>
