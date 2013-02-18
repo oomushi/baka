@@ -1,4 +1,5 @@
 class Contact < ActiveRecord::Base
+  attr_accessible :value, :type, :user_id
   belongs_to :user
   validates_presence_of :type,:value
   
