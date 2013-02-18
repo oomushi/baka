@@ -5,9 +5,12 @@
 <span><%= t(:birthday) %>: <%= user.birthday %></span>
 <span><%= t(:messages_number) %>: <%= user.messages.count %></span>
 <span><%= t(:karma)%>: <%= user.total_likes %></span>
-<!-- <nav> -->
+a<% unless user.contacts.count.zero? %>
+<nav>
   <ul>
-	  <% if user.website %> <li><a href="<%= user.website %>" class="button web" target="_blank" title="<%= t(:website).downcase %>">&thinsp;</a></li> <% end %>
-	  <% unless user.email.nil? %><li><%= mail_to user.email,"&thinsp;".html_safe, { :encode=>:javascript, :title=> user.email,:class=>"button email"}  %></li><% end %>
+  <% user.contacts.each do |contact| %>
+  <li><%= contact %></li>
+  <% end %>
   </ul>
-  <!-- </nav> -->
+</nav>
+<% end %>o
