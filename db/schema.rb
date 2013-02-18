@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104091455) do
+ActiveRecord::Schema.define(:version => 20130217100825) do
 
   create_table "answers", :force => true do |t|
     t.string   "text",       :null => false
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(:version => 20130104091455) do
   end
 
   add_index "answers_users", ["user_id", "answer_id"], :name => "index_poll_options_users_on_user_id_and_poll_option_id", :unique => true
+
+  create_table "attachments", :force => true do |t|
+    t.string   "name"
+    t.string   "content_type"
+    t.binary   "file"
+    t.integer  "message_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "avatars", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -45,6 +54,14 @@ ActiveRecord::Schema.define(:version => 20130104091455) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "output"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.string   "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "groups", :force => true do |t|
