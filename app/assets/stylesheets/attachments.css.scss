@@ -1,0 +1,60 @@
+// Place all the styles related to the bbcodes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  overflow: hidden;
+  width: 960px;
+  margin: 20px auto;
+}
+
+.contr {
+  background-color: #212121;
+  color: #FFFFFF;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+}
+
+.upload_form_cont {
+  background: -moz-linear-gradient(white, #f2f2f2);
+  background: -ms-linear-gradient(white, #f2f2f2);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f2f2f2));
+  background: -webkit-linear-gradient(white, #f2f2f2);
+  background: -o-linear-gradient(white, #f2f2f2);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2')";
+  background: linear-gradient(white, #f2f2f2);
+  color: #000;
+  overflow: hidden;
+}
+
+.info {
+  background-color: #EEEEEE;
+  border: 1px solid #DDDDDD;
+  float: left;
+  font-weight: bold;
+  height: 530px;
+  margin: 20px;
+  position: relative;
+  width: 560px;
+  > {
+    div {
+      font-size: 14px;
+      font-weight: bold;
+      padding: 10px 15px 5px;
+    }
+    h2 {
+      padding: 0 15px;
+    }
+    canvas {
+      margin-left: 15px;
+      margin-bottom: 10px;
+    }
+  }
+  #url {
+    width: 400px;
+  }
+}
