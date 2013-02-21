@@ -278,6 +278,7 @@ it:
   show: 'Visualizza'
   sign: 'Firma'
   signup: 'Registrati'
+  signup_date: 'Data registrazione'
   tag: 'Tag'
   text: 'Testo'
   thanx: 'Grazie'
