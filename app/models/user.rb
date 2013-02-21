@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
   after_create :confirm_email,:create_avatar,:add_group
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_presence_of :username,:email
+  validates_presence_of :username
   validates_uniqueness_of :username
-  validates_format_of :website, :with => URI::regexp(%w(http https)), :allow_black=>true, :allow_nil=>true
+  accepts_nested_attributes_for :contacts, :allow_destroy => true
   
   def updatable_by? user
     user.id==id or
