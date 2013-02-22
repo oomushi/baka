@@ -17,6 +17,11 @@
   $(l).toggleClass "link_disabled"
   remove_fields link
 $(document).ready ->
+  $("input:disabled").each ->
+    $("label[for=\"" + $(this).attr("id") + "\"]").click ->
+      $("#" + $(this).attr("for")).removeAttr "disabled"
+      true
+    true
   $("nav > .full_path_dropdown").click ->
     coor = $("nav > .full_path_dropdown").offset()
     h = $("nav > .full_path_dropdown").height() + coor.top - 10

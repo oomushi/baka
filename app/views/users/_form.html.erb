@@ -35,12 +35,18 @@
     <%= f.label :sign %><br />
     <%= f.text_area :sign %>
   </div>
+  <div style="clear: both;"></div>
+  <%= f.fields_for :avatar do |builder| %>
+    <%= render :partial => 'avatars/form',:locals => { :f => builder } %>
+  <% end %>
+<%
+=begin
+  @user.contacts.build 
+  @user.contacts.each do |contact| 
+    puts render :partial=>'contacts/form',:locals=>{:contact=>contact} 
+  end
+=end%>
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
-<%= render :partial=>'avatars/form',:locals=>{:user=>@user} %>
-<% @user.contacts.build %>
-<% @user.contacts.each do |contact| %>
-  <%= render :partial=>'contacts/form',:locals=>{:contact=>contact} %>
 <% end %>

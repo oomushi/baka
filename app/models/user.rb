@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_uniqueness_of :username
   accepts_nested_attributes_for :contacts, :allow_destroy => true
+  accepts_nested_attributes_for :avatar, :allow_destroy => false
   
   def updatable_by? user
     user.id==id or
