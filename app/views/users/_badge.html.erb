@@ -6,11 +6,12 @@
 <span><%= t(:messages_number) %>: <%= user.messages.count %></span>
 <span><%= t(:karma)%>: <%= user.total_likes %></span>
 <% unless user.contacts.count.zero? %>
-<nav>
-  <ul>
-  <% user.contacts.each do |contact| %>
-  <%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %>
+<table>
+  <% user.contacts.each_with_index do |contact,index| %>
+  <% if index%3==0 %><% unless index.zero? %></tr><% end %><tr><% end %>
+  <td><%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %></td>
   <% end %>
-  </ul>
-</nav>
+  <% unless (user.contacts.count%3).zero? %><td colspan="<%= 3-(user.contacts.count%3) %>"></td><% end %>
+    </tr>
+</table>
 <% end %>
