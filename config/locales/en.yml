@@ -208,6 +208,7 @@ en:
   bbcode_example_out: 'Lorem'
   birthday: 'Birthday'
   click_me: 'click to extend'
+  click2enable: 'click on label to enable'
   confirm_email: 'Confirm your email account'
   confirm_email_long: 'To confirm your email account click following link'
   destroy: 'Destroy'

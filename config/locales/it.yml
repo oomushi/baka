@@ -208,6 +208,7 @@ it:
   bbcode_example_out: 'Lorem'
   birthday: 'Compleanno'
   click_me: 'clicca per espandere'
+  click2enable: 'clicca sulla etichetta per abilitare'
   confirm_email: 'Conferma il tuo account email'
   confirm_email_long: 'Per confermare il tuo account email clicca sul collegamento sottostante'
   destroy: 'Cancella'
