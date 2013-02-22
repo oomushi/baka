@@ -1,26 +1,11 @@
-<%= form_for(user.avatar,:html=>{:multipart=>true}) do |f| %>
-  <% if user.avatar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t(:header_error_avatar) %>:</h2>
-
-      <ul>
-      <% user.avatar.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.hidden_field :user_id,:value=>user.id %>
-  <div class="field2">
+<div class="field2">
+  <%= f.label :avatar %><br />
+  <div class="field">
     <%= f.label :url %><br />
-    <%= f.text_field :url,:value=>'' %>
+    <%= f.text_field :url, :value=>'',:disabled=>true,:class=>'change_avatar',:title=>t(:click2enable) %>
   </div>
-  <div class="field2">
+  <div class="field">
     <%= f.label :uploaded_data %><br />
-    <%= f.file_field :uploaded_data %>
+    <%= f.file_field :uploaded_data, :disabled=>true,:class=>'change_avatar',:title=>t(:click2enable) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
