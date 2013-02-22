@@ -3,22 +3,20 @@
 <table>
   <tr>
     <th><%= t(:username) %></th>
-    <th><%= t(:email) %></th>
     <th><%= t(:location) %></th>
-    <th><%= t(:date) %></th>
+    <th><%= t(:signup_date) %></th>
     <th><%= t(:messages_number) %></th>
-    <th><%= t(:website) %></th>
+    <th><%= t(:contacts) %></th>
     <th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= link_to user.username,user %></td>
-    <td><%= mail_to user.email,"&thinsp;".html_safe, { :encode=>:javascript, :title=> user.email,:class=>"button email"} unless user.email.nil? %></td>
     <td><%= user.location %></td>
     <td><%= l user.created_at,:format=>:long %></td>
     <td><%= user.messages.count %></td>
-    <td><%= link_to "&thinsp;".html_safe, user.website, {:target=>"_blank",:title=> t(:website).downcase,:class=>"button web"} unless user.website.nil? %></td>    
+    <td><% user.contacts.each do |contact| %><%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %><% end %></td>    
     <td><%= link_to "&thinsp;".html_safe, edit_user_path(user),title: t(:edit),class: "button edit" if @current_user.can_update? user %>
       <%= link_to "&thinsp;".html_safe, user, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button del" if @current_user.can_destroy? user %></td>
   </tr>

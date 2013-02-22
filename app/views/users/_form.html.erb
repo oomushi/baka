@@ -16,10 +16,6 @@
     <%= @user.username %>
   </div>
   <div class="field2">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-  <div class="field2">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </div>
@@ -36,14 +32,15 @@
     <%= f.date_select :birthday %>
   </div>
   <div class="field2">
-    <%= f.label :website %><br />
-    <%= f.url_field :website %>
-  </div>
-  <div class="field2">
     <%= f.label :sign %><br />
     <%= f.text_area :sign %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+<%= render :partial=>'avatars/form',:locals=>{:user=>@user} %>
+<% @user.contacts.build %>
+<% @user.contacts.each do |contact| %>
+  <%= render :partial=>'contacts/form',:locals=>{:contact=>contact} %>
 <% end %>

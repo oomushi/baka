@@ -2,5 +2,5 @@
  <% when 'email' %>
    <%= mail_to contact.value,"&thinsp;".html_safe, { :encode=>:javascript, :title=> contact.value,:class=>"button email"} %>
  <% when 'website' %> 
-   <%= link_to "&thinsp;".html_safe,contact.value, {class: 'web button', target: '_blank', title: t(:website).downcase} %>
+   <%= link_to "&thinsp;".html_safe,contact.value, {class: 'web button', target: '_blank', title: contact.value} %>
 <% end %>

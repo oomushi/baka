@@ -1,29 +1,9 @@
-<%= form_for(@contact) do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-      <ul>
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+<%= form_for(contact) do |f| %>
+  <div class="field2">
+    <%= f.label :protocol %><br />
+    <%= f.select(:protocol, options_for_select(Contact::ENUM)) %>
   </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.number_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :class %><br />
-    <%= f.text_field :class %>
-  </div>
-  <div class="field">
+  <div class="field2">
     <%= f.label :value %><br />
     <%= f.text_field :value %>
   </div>

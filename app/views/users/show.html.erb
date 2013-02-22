@@ -13,12 +13,10 @@
   <%= @user.birthday %>
 </p>
 <p>
-  <b><%= t(:email) %>:</b>
-  <%= @user.email %>
-</p>
-<p>
-  <b><%= t(:website) %>:</b>
-  <%= link_to @user.website,@user.website,{:target=>"_blank"} unless @user.website.nil? %>
+  <b><%= t(:contacts) %>:</b>
+  <% @user.contacts.each do |contact| %>
+  <%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %>
+  <% end %>
 </p>
 
 <p>
