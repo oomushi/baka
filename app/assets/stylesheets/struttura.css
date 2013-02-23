@@ -237,6 +237,24 @@ nav.nav{
   margin-left: 5%;
   float: left;
 }
+.field3{
+  margin-bottom: 10px;
+  display: inline-block;
+  white-space:nowrap;
+}
+div.field3:nth-of-type(3n){
+  float:right;
+    width:100px;
+}
+div.field3:nth-of-type(3n+1){
+  float:left;
+  width:100px;
+}
+div.field3:nth-of-type(3n+2){
+  display: inline-block;
+    margin:0 auto;
+    width:100px;
+}
 .actions{clear: both;}
 
 #recaptcha_widget_div{display:inline-block;}

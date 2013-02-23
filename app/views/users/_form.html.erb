@@ -36,17 +36,19 @@
     <%= f.label :birthday %><br />
     <%= f.date_select :birthday %>
   </div>
-  <div class="field">
+  <div class="field2">
     <%= f.label :sign %><br />
     <%= f.text_area :sign %>
   </div>
-<%
-=begin
-  @user.contacts.build 
-  @user.contacts.each do |contact| 
-    puts render :partial=>'contacts/form',:locals=>{:contact=>contact} 
-  end
-=end%>
+  <div class="field2">
+    <fieldset>
+      <legend><%= t(:contacts) %></legend>
+      <p><%= link_to_add_fields t(:add_contacts),f,:contacts %></p>
+      <%= f.fields_for :contacts do |builder| %>
+        <%= render :partial => 'contacts/form', :locals => { :f => builder } %>
+      <% end %>
+    </fieldset>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
