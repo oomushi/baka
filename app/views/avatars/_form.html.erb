@@ -1,5 +1,5 @@
-<div class="field2">
-  <%= f.label :avatar %><br />
+<fieldset>
+  <legend><%= t(:avatar) %></legend>
   <div class="field">
     <%= f.label :url %><br />
     <%= f.text_field :url, :value=>'',:disabled=>true,:class=>'change_avatar',:title=>t(:click2enable) %>
@@ -8,4 +8,4 @@
     <%= f.label :uploaded_data %><br />
     <%= f.file_field :uploaded_data, :disabled=>true,:class=>'change_avatar',:title=>t(:click2enable) %>
   </div>
-</div>
+</fieldset>

@@ -10,18 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <!--<div class="field2">
-    <%= f.label :username %><br />
-    <%= @user.username %>
-  </div>-->
   <div class="field2">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <fieldset>
+      <legend><%= t(:reset_password) %></legend>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </fieldset>
   </div>
   <div class="field2">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.fields_for :avatar do |builder| %>
+      <%= render :partial => 'avatars/form',:locals => { :f => builder } %>
+    <% end %>
   </div>
   <div class="field2">
     <%= f.label :location %><br />
@@ -31,13 +36,10 @@
     <%= f.label :birthday %><br />
     <%= f.date_select :birthday %>
   </div>
-  <div class="field2">
+  <div class="field">
     <%= f.label :sign %><br />
     <%= f.text_area :sign %>
   </div>
-  <%= f.fields_for :avatar do |builder| %>
-    <%= render :partial => 'avatars/form',:locals => { :f => builder } %>
-  <% end %>
 <%
 =begin
   @user.contacts.build 
