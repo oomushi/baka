@@ -1,33 +1,10 @@
-<%= form_for(@attachment) do |f| %>
-  <% if @attachment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
-
-      <ul>
-      <% @attachment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+    <% if f.object.nil? || f.object.id.nil? %>
+      <%= link_to_remove_fields t(:destroy),f %>
+    <% else %>
+      <%= f.check_box :_destroy %>
+      <%= f.label :_destroy, t(:destroy) %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :content_type %><br />
-    <%= f.text_field :content_type %>
-  </div>
-  <div class="field">
-    <%= f.label :file %><br />
-    <%= f.text_field :file %>
-  </div>
-  <div class="field">
-    <%= f.label :message_id %><br />
-    <%= f.number_field :message_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
