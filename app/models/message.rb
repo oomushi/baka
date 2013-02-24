@@ -10,6 +10,7 @@ class Message < ActiveRecord::Base
   belongs_to :writer, :class_name=>"Group", :foreign_key=>"writer_id"
   belongs_to :moderator, :class_name=>"Group", :foreign_key=>"moderator_id"
   accepts_nested_attributes_for :poll, :allow_destroy => true
+  accepts_nested_attributes_for :attachments, :allow_destroy => true
   before_create :set_nv_and_dv
   before_destroy :destroyable?
   after_create :alert_followers
