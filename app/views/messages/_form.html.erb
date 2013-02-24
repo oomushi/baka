@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="field2">
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -55,15 +55,31 @@
     <%= f.label :text %><br />
     <%= f.text_area :text %>
   </div>
-  <fieldset>
-    <legend><%= t(:poll) %></legend>
-    <p><%= link_to_add_unique_fields t(:add_poll),f,:poll,@message.poll.nil? ? '': 'link_disabled' %></p>
-  <% unless @message.poll.nil? %>
-  <%= f.fields_for :poll do |builder| %>
-    <%= render :partial => 'polls/form',:locals => { :f => builder } %>
-  <% end %>
-  <% end %>
-  </fieldset>
+</div>
+<div class="field2">
+  <div class="field">
+    <fieldset>
+      <legend><%= t(:attachments) %></legend>
+    <!-- TODO area per il drop di file -->
+    <% unless @message.attachments.nil? %>
+      <%= f.fields_for :attachments do |builder| %>
+        <%= render :partial => 'attachments/form',:locals => { :f => builder } %>
+      <% end %>
+    <% end %>
+    </fieldset>
+  </div>
+  <div class="field">
+    <fieldset>
+      <legend><%= t(:poll) %></legend>
+      <p><%= link_to_add_unique_fields t(:add_poll),f,:poll,@message.poll.nil? ? '': 'link_disabled' %></p>
+    <% unless @message.poll.nil? %>
+      <%= f.fields_for :poll do |builder| %>
+        <%= render :partial => 'polls/form',:locals => { :f => builder } %>
+      <% end %>
+    <% end %>
+    </fieldset>
+  </div>
+</div>
   <%= f.hidden_field :message_id %>
   <%= f.hidden_field :user_id,:value=>@current_user.id %>
   <div class="actions">
