@@ -1,8 +1,8 @@
 <h5><%= link_to user.username, user %></h5>
 <img src="<%= user.avatar %>" alt="<%= user.username  %>"/>
-<span><%= t(:location) %>: <%= user.location %></span>
-<span><%= t(:date)%>: <%= l user.created_at, :format=>:long %></span>
-<span><%= t(:birthday) %>: <%= user.birthday %></span>
+<% unless user.location.nil? %><span><%= t(:location) %>: <%= user.location %></span><% end %>
+<span><%= t(:signup_date)%>: <%= l user.created_at, :format=>:short %></span>
+<% unless user.birthday.nil? %><span><%= t(:birthday) %>: <%= user.birthday %></span><% end %>
 <span><%= t(:messages_number) %>: <%= user.messages.count %></span>
 <span><%= t(:karma)%>: <%= user.total_likes %></span>
 <% unless user.contacts.count.zero? %>
