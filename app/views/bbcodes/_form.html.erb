@@ -20,25 +20,20 @@
     <%= f.text_field :label %>
   </div>
   <div class="field">
-    <%= f.label :layout %><br />
-    <%= f.text_field :layout %>
-  </div>
-  <div class="field">
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
-  </div>
-  <div class="field">
-    <%= f.label :inner %><br />
-    <%= f.text_field :inner %>
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
   </div>
   <div class="field">
     <%= f.label :output %><br />
     <%= f.text_field :output %>
   </div>
   <div class="field">
-    <%= f.label :properties %><br />
-    <%#= f.check_box :bit %>
-    <%= f.number_field :properties %>
+    <%= f.label :singular %><br />
+    <%= f.check_box :singular %>
+  </div>
+  <div class="field">
+    <%= f.label :match %><br />
+    <%= f.text_field :match %>
   </div>
   <div class="actions">
     <%= f.submit %>
