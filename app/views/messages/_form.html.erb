@@ -49,7 +49,7 @@
     <%= f.hidden_field :writer_id %>
   <% end %>
   <% Bbcode.all.each do |b| %>
-  <%= link_to b.label.html_safe,'javascript:void(0)',data: {:tag=>b.output} %>
+    <%= link_to b.label.html_safe,'javascript:void(0)',data: {:tag=>b.output},:class=>"sign" %>
   <% end %>
   <div class="field">
     <%= f.label :text %><br />
