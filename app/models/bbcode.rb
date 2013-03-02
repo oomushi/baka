@@ -17,7 +17,7 @@ class Bbcode < ActiveRecord::Base
     Bbcode.indexable_by? user
   end
   
-  def text _value,_inner
+  def old_text _value,_inner
     tmp=''
     tmp+=self.value.gsub '?',_value unless self.value.eql? '' || self.value.nil?
     tmp+=self.inner.gsub '?',_inner unless self.inner.eql? '' || self.inner.nil?
