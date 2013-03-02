@@ -21,10 +21,10 @@
 
 <p>
   <b><%= t(:sign) %>:</b>
-  <%= bb @user.sign %>
+  <div class="sign"><%= bb @user.sign %></div>
 </p>
 
 
-<% if !@current_user.guest? and @current_user.eql? @user%><%= link_to t(:edit), edit_user_path(@user) %> | <% end %>
+<% if @current_user.can_update? @user %><%= link_to t(:edit), edit_user_path(@user) %> | <% end %>
 <%= link_to t(:back), users_path %>
 </article>
