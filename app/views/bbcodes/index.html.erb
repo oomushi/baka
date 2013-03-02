@@ -3,26 +3,17 @@
 <table>
   <tr>
     <th><%= t(:tag) %></th>
-    <th><%= t(:label) %></th>
     <th><%= t(:result) %></th>
-    <th><%= t(:properties) %></th>
     <th><%= link_to "&thinsp;".html_safe, new_bbcode_path,title: t(:new),class: "button add" %></th>
   </tr>
 
 <% @bbcodes.each do |bbcode| %>
   <tr>
     <td><%= bbcode.output %></td>
-    <td><%= bbcode.label.html_safe %></td>
-    <td><%= bbcode.text(t(:bbcode_example_out),t(:bbcode_example_in)).html_safe %></td>
-    <td><%= bbcode.properties %></td>
-<%
-=begin
-<td><%= test.bit</td>
-=end%>
+    <td><%= bb bbcode.example(t(:bbcode_example_out),t(:bbcode_example_in)) %></td>
     <td><%= link_to "&thinsp;".html_safe, edit_bbcode_path(bbcode),title: t(:edit),class: "button edit" %>
       <%= link_to "&thinsp;".html_safe, bbcode, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button del" %></td>
   </tr>
 <% end %>
 </table>
-
 <br />
