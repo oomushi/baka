@@ -13,7 +13,8 @@ module MessagesHelper
     end
     link_to_function(name, "unique_add(this, \"#{association}\", \"#{escape_javascript(fields)}\")",:class => klass)
   end
-  def link_to_add_fields(name, f, association)
+  
+  def new_subobject_div(name, f, association, options={})
     new_object = f.object.class.reflect_on_association(association).klass.new
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
       render(association.to_s.pluralize + "/form", :f => builder)
