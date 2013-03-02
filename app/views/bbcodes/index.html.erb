@@ -9,8 +9,8 @@
 
 <% @bbcodes.each do |bbcode| %>
   <tr>
-    <td><%= bbcode.output %></td>
-    <td><%= bb bbcode.example(t(:bbcode_example_out),t(:bbcode_example_in)) %></td>
+    <td class="sign"><%= bbcode.output %></td>
+    <td class="sign"><%= bb bbcode.example(t(:bbcode_example_out),t(:bbcode_example_in)) %></td>
     <td><%= link_to "&thinsp;".html_safe, edit_bbcode_path(bbcode),title: t(:edit),class: "button edit" %>
       <%= link_to "&thinsp;".html_safe, bbcode, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button del" %></td>
   </tr>

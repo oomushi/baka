@@ -22,6 +22,7 @@ $(document).ready ->
       $("#" + $(this).attr("for")).removeAttr "disabled"
       true
     true
+  $(".sign").emoticonize()
   $("nav > .full_path_dropdown").click ->
     coor = $("nav > .full_path_dropdown").offset()
     h = $("nav > .full_path_dropdown").height() + coor.top - 10
