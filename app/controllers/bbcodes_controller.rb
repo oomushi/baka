@@ -37,7 +37,7 @@ class BbcodesController < ApplicationController
     
     respond_to do |format|
       if @bbcode.save
-        format.html { redirect_to @bbcode, notice: t(:ok_bbcode) }
+        format.html { redirect_to bbcodes_url, notice: t(:ok_bbcode) }
         format.json { render json: @bbcode, status: :created, location: @bbcode }
       else
         format.html { render action: "new" }
@@ -51,7 +51,7 @@ class BbcodesController < ApplicationController
   def update
     @bbcode = Bbcode.find(params[:id])
     enforce_update_permission(@bbcode)
-    
+    bbcodes_url
     respond_to do |format|
       if @bbcode.update_attributes(params[:bbcode])
         format.html { redirect_to bbcodes_url }
