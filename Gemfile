@@ -20,7 +20,7 @@ group :assets do
 end
 
 group :development do
-  gem 'seed_dump'
+  gem 'seed_dump'                                   # https://github.com/zenprogrammer/seed_dump
 end
 
 gem 'jquery-rails'
