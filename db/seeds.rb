@@ -46,18 +46,25 @@ root.reader=b
 root.writer=a
 root.moderator=a
 root.save
-# encoding: utf-8
 
+# encoding: utf-8
 Bbcode.create([
-  { :tag => "spoiler", :label => "spoiler", :layout => "<span class=\"spoiler\">?</span>", :value => "", :inner => "?", :properties => 39, :created_at => "2012-09-16 11:29:00", :updated_at => "2012-09-16 11:29:00" },
-  { :tag => "B", :label => "<img src=\"/assets/B.png\" alt=\":B\"/>", :layout => "<img src=\"/assets/B.png\" alt=\":B\"/>", :value => "", :inner => "", :properties => 52, :created_at => "2012-09-16 11:51:00", :updated_at => "2012-09-16 11:55:58" },
-  { :tag => "P", :label => "<img src=\"/assets/P.png\" alt=\":P\"/>", :layout => "<img src=\"/assets/P.png\" alt=\":P\"/>", :value => "", :inner => "", :properties => 52, :created_at => "2012-09-17 16:34:24", :updated_at => "2012-09-17 16:34:53" },
-  { :tag => "C", :label => "<img src=\"/assets/C.png\" alt=\":C\"/>", :layout => "<img src=\"/assets/C.png\" alt=\":C\"/>", :value => "", :inner => "", :properties => 52, :created_at => "2012-09-17 16:36:42", :updated_at => "2012-09-17 16:36:42" },
-  { :tag => "D", :label => "<img src=\"/assets/D.png\" alt=\":D\"/>", :layout => "<img src=\"/assets/D.png\" alt=\":D\"/>", :value => "", :inner => "", :properties => 52, :created_at => "2012-09-17 16:37:09", :updated_at => "2012-09-17 16:37:09" },
-  { :tag => "I", :label => "<img src=\"/assets/I.png\" alt=\":I\"/>", :layout => "<img src=\"/assets/I.png\" alt=\":I\"/>", :value => "", :inner => "", :properties => 52, :created_at => "2012-09-17 16:37:34", :updated_at => "2012-09-17 16:37:34" },
-  { :tag => "O", :label => "<img src=\"/assets/O.png\" alt=\":O\"/>", :layout => "<img src=\"/assets/O.png\" alt=\":O\"/>", :value => "", :inner => "", :properties => 52, :created_at => "2012-09-17 16:37:59", :updated_at => "2012-09-17 16:37:59" },
-  { :tag => "X", :label => "<img src=\"/assets/X.png\" alt=\":X\"/>", :layout => "<img src=\"/assets/X.png\" alt=\":X\"/>", :value => "", :inner => "", :properties => 52, :created_at => "2012-09-17 16:38:19", :updated_at => "2012-09-17 16:38:19" },
-  { :tag => "quote", :label => "quote", :layout => "<fieldset class=\"quote\">?</fieldset>", :value => "<legend>?</legend>", :inner => "<blockquote>?</blockquote>", :properties => 39, :created_at => "2012-09-17 16:39:49", :updated_at => "2012-09-17 16:39:49" }
+  { :label => "spoiler", :created_at => "2012-09-16 11:29:00", :updated_at => "2013-03-02 11:58:15", :output => "[spoiler]?[/spoiler]", :tag => "spoiler", :text => "<span class=\"spoiler\">\#{content}</span>", :singular => false, :match => ".+" },
+  { :label => "B)", :created_at => "2012-09-16 11:51:00", :updated_at => "2013-03-02 11:58:15", :output => "B)", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ":(", :created_at => "2012-09-17 16:36:42", :updated_at => "2013-03-02 11:58:15", :output => ":(", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ":/", :created_at => "2012-09-17 16:37:34", :updated_at => "2013-03-02 11:58:15", :output => ":/", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ":)", :created_at => "2013-03-02 16:13:56", :updated_at => "2013-03-02 16:13:56", :output => ":)", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ":^)", :created_at => "2013-03-02 16:15:14", :updated_at => "2013-03-02 16:15:14", :output => ":^)", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ";)", :created_at => "2013-03-02 16:15:45", :updated_at => "2013-03-02 16:15:45", :output => ";)", :tag => "", :text => "", :singular => false, :match => ".+" },
+  { :label => ":'(", :created_at => "2013-03-02 16:16:54", :updated_at => "2013-03-02 16:16:54", :output => ":'(", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => "O_o", :created_at => "2013-03-02 16:18:32", :updated_at => "2013-03-02 16:18:32", :output => "O_o", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => "T_T", :created_at => "2013-03-02 16:19:00", :updated_at => "2013-03-02 16:19:00", :output => "T_T", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => "<3", :created_at => "2013-03-03 13:55:31", :updated_at => "2013-03-03 13:55:31", :output => "<3", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ":X", :created_at => "2012-09-17 16:38:19", :updated_at => "2013-03-02 11:58:15", :output => ":X", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ":O", :created_at => "2012-09-17 16:37:59", :updated_at => "2013-03-02 11:58:15", :output => ":O", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ":D", :created_at => "2012-09-17 16:37:09", :updated_at => "2013-03-02 11:58:15", :output => ":D", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => ":P", :created_at => "2012-09-17 16:34:24", :updated_at => "2013-03-02 11:58:15", :output => ":P", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => "quote", :created_at => "2012-09-17 16:39:49", :updated_at => "2013-03-02 11:58:15", :output => "[quote='?']?[/quote]", :tag => "quote", :text => "<fieldset class=\"quote\"><legend>\#{meta}</legend><blockquote>\#{content}</blockquote></fieldset>", :singular => false, :match => ".+" }
 ], :without_protection => true )
 
 
