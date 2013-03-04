@@ -1,8 +1,8 @@
 class AddFieldsToBbcodes < ActiveRecord::Migration
   def up
-    add_column :bbcodes, :tag, :string, :null=>false
-    add_column :bbcodes, :text, :string, :null=>false
-    add_column :bbcodes, :singular, :boolean, :null=>false
+    add_column :bbcodes, :tag, :string, :null=>false, :default=>''
+    add_column :bbcodes, :text, :string, :null=>false, :default=>''
+    add_column :bbcodes, :singular, :boolean, :null=>false,:default=>true
     add_column :bbcodes, :match, :string, :null=>false, :default=>'.+'
     Bbcode.all.each do |b|
       if b.output =~ /^\[(:.)/

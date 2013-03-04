@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218192415) do
+ActiveRecord::Schema.define(:version => 20130302120023) do
 
   create_table "answers", :force => true do |t|
     t.string   "text",       :null => false
@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(:version => 20130218192415) do
 
   create_table "bbcodes", :force => true do |t|
     t.string   "label"
-    t.string   "layout"
-    t.string   "value"
-    t.string   "inner"
-    t.integer  "properties"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "output"
+    t.string   "tag",        :default => "",   :null => false
+    t.string   "text",       :default => "",   :null => false
+    t.boolean  "singular",   :default => true, :null => false
+    t.string   "match",      :default => ".+", :null => false
   end
 
   create_table "contacts", :force => true do |t|
