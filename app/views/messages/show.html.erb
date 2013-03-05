@@ -17,7 +17,7 @@
   <% unless message.poll.nil? %>
     <%= render :partial=>'polls/show', :locals=>{:poll => message.poll, :current_user=>@current_user} %>
   <% end %>
-  <section>
+  <section class="emoticons">
     <%= bb message.text %>
     <p class="sign">
       <%= bb message.user.sign unless message.user.sign.nil? %>
