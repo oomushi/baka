@@ -264,7 +264,7 @@ header>form{
 
 aside.full_path_dropdown{
   display: none;
-  border-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
   box-shadow: -2px 2px 2px #000000;
   margin: 0px;
   opacity: 0.8;

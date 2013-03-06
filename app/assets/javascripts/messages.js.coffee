@@ -24,19 +24,34 @@ $(document).ready ->
     true
   $(".emoticons").emoticonize()
   $(".unanimemo").emoticonize animate: false
-  $("nav > .full_path_dropdown").click ->
+  $.each $('section.main article'), ->
+    $(this).mousemove((e) ->
+      e = e or window.event
+      x = e.pageY
+      if $(this).height() + $(this).position().top - 20 < x
+        $(this).find("nav.leaf").show "slide",
+          direction: "down"
+      else
+        $(this).find("nav.leaf").hide "slide",
+          direction: "down"
+      true
+    ).mouseleave (e) ->
+      $(this).find("nav.leaf").hide "slide",
+        direction: "down"
+      true
+  $("nav > .full_path_dropdown").hover ->
     coor = $("nav > .full_path_dropdown").offset()
-    h = $("nav > .full_path_dropdown").height() + coor.top - 10
+    h = $("nav > .full_path_dropdown").height() + coor.top - 5
     w = coor.left + (($("nav > .full_path_dropdown").width() - $("aside.full_path_dropdown").width()) / 2)
     $("aside.full_path_dropdown").animate
       top: h
       left: w
     , 0
-    $("aside.full_path_dropdown").show('slow')
+    $("aside.full_path_dropdown").show('slide', { direction: "up" })
     $("aside.full_path_dropdown").focus()
     true
   $("aside.full_path_dropdown").mouseleave ->
-    $("aside.full_path_dropdown").hide('slow')
+    $("aside.full_path_dropdown").hide('slide', { direction: "up" })
     true
   $("tr.link").click( ->
     location.href=$(this).data("url")
