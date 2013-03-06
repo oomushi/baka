@@ -21,14 +21,16 @@ c=Group.create({
   :name=>"public",
   :level=>64
 })
-admin = User.create(:username=>'admin', :email=>'admin@baka.com', :birthday=>Date.new(1982,12,29), :password=>'sunset')
+admin = User.create(:username=>'admin', :birthday=>Date.new(1982,12,29), :password=>'sunset')
 admin.confirm_code=nil
 admin.groups<<a
+admin.contacts<<Contact.create(:value=>'admin@baka.com', :protocol=>'email')
 admin.save
 avatar=admin.avatar
 avatar.url='/assets/admin.png'
 avatar.save
-guest=User.create(:username=>"guest",:email=>"guest@baka.com",:password=>"sunset",:guest=>true)
+guest=User.create(:username=>"guest",:password=>"sunset",:guest=>true)
+admin.contacts<<Contact.create(:value=>'guest.com', :protocol=>'email')
 guest.groups<<c
 root = Message.create({
   :text => "Hidden text",
@@ -42,7 +44,7 @@ root = Message.create({
   :snv=>1,
   :sdv=>1
 })
-root.reader=b
+root.reader=c
 root.writer=a
 root.moderator=a
 root.save
