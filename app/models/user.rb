@@ -87,7 +87,8 @@ class User < ActiveRecord::Base
     end
   end
   def email
-    contacts.where('protocol = ?','email').first.value
+    email=contacts.where('protocol = ?','email').first
+    email.nil? ? '' : email.value
   end
   protected
   def confirm_email
