@@ -27,8 +27,13 @@ $(document).ready ->
   $.each $('section.main article'), ->
     $(this).mousemove((e) ->
       e = e or window.event
-      x = e.pageY
-      if $(this).height() + $(this).position().top - 20 < x
+      if $(this).height() + $(this).position().top - 20 < e.pageY
+        h = $(this).position().top + $(this).height()
+        $(this).find("nav.leaf").animate
+          top: h
+          left: $(this).position().left,
+          width: $(this).width()
+          , 0
         $(this).find("nav.leaf").show "slide",
           direction: "down"
       else
@@ -39,10 +44,11 @@ $(document).ready ->
       $(this).find("nav.leaf").hide "slide",
         direction: "down"
       true
+    true
   $("nav > .full_path_dropdown").hover ->
-    coor = $("nav > .full_path_dropdown").offset()
-    h = $("nav > .full_path_dropdown").height() + coor.top - 5
-    w = coor.left + (($("nav > .full_path_dropdown").width() - $("aside.full_path_dropdown").width()) / 2)
+    coor = $(this).offset()
+    h = $(this).height() + coor.top - 5
+    w = coor.left + (($(this).width() - $(this).width()) / 2)
     $("aside.full_path_dropdown").animate
       top: h
       left: w
@@ -51,7 +57,7 @@ $(document).ready ->
     $("aside.full_path_dropdown").focus()
     true
   $("aside.full_path_dropdown").mouseleave ->
-    $("aside.full_path_dropdown").hide('slide', { direction: "up" })
+    $(this).hide('slide', { direction: "up" })
     true
   $("tr.link").click( ->
     location.href=$(this).data("url")

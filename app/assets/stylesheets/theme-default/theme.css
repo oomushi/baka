@@ -178,10 +178,5 @@ aside.full_path_dropdown{
 }
 nav.leaf{
   background-image: none;
-  background-color: rgba(0,0,0,0.5);
-  width: 95%;
-  border-radius: 1em 1em 0 0;
-  bottom: -1em;
-  top: auto;
-  display: none;
+  background-color: rgba(0,0,0,0.8);
 }

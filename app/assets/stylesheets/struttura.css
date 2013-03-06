@@ -278,4 +278,9 @@ nav.menu{
   float:right;
   padding-right: 2%;
 }
-
+nav.leaf{
+  width: 95%;
+  border-radius: 1em;
+  display: none;
+  position: absolute;
+}
