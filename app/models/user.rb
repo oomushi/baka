@@ -86,6 +86,9 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+  def email
+    contacts.where('protocol = ?','email').first.value
+  end
   protected
   def confirm_email
     salt=BCrypt::Engine.generate_salt
