@@ -180,3 +180,10 @@ nav.leaf{
   background-image: none;
   background-color: rgba(0,0,0,0.8);
 }
+.poll{
+  background-color: rgba(255,93,50,0.61);
+  box-shadow: 5px 5px 10px #000000;
+}
+.poll tfoot{
+  border-top: 1px dashed #BB8653;
+}

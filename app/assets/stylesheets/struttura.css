@@ -284,3 +284,7 @@ nav.leaf{
   display: none;
   position: absolute;
 }
+.poll{
+  margin-bottom: 0.5em;
+}
+
