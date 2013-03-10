@@ -194,7 +194,7 @@ aside.like{
   right:-1em;
 }
 nav.nav{
-  top: -5px;
+  top: -1.5em;
   clear:none;
 }
 .drop-menu {  
@@ -287,4 +287,10 @@ nav.leaf{
 .poll{
   margin-bottom: 0.5em;
 }
-
+article nav{
+  height: 1.5em;
+  position: relative;
+  left:3px;
+  top:3px;
+  z-index: 2;
+}

@@ -31,7 +31,7 @@ footer.main a{
   color: inherit;
 }
 aside.login{
-  background:#FF9B7B;
+  background:#E2062C;
 }
 a.button{
   color: black;
@@ -97,21 +97,15 @@ a.up{
 a.down{
   background: url('/assets/theme-default/down.png') left center no-repeat;
 }
+a.replay{
+  background: url('/assets/theme-default/replay.png') left center no-repeat;
+}
 article header{
   background: #000;
   color: #fff;
 }
 article > header > a{
   color: gold;
-}
-article nav{
-  box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-  background-image: -o-linear-gradient( top right, #e2062c,#000);
-  height: 1.5em;
-  position: relative;
-  left:3px;
-  top:3px;
-  z-index: 2;
 }
 @font-face {
     font-family: 'Twit';
@@ -142,7 +136,7 @@ footer.main .brand{
   font-family: Cretino;
 }
 aside.messages{
-  background: #FF8C00;
+  background: #FF9B7B;
 }
 span.spoiler{
   border-color: #000;
@@ -153,7 +147,7 @@ fieldset.quote{
   
 }
 aside.like{
-  background-color: #FF9B7B;
+  background-color: #E2062C;
   box-shadow: 10px 10px 20px #000000;
 }
 a.link_disabled{
@@ -174,7 +168,7 @@ a.link_disabled{
   border-bottom: 1px dotted #bababa;  
 }
 aside.full_path_dropdown{
-  background: #FF9B7B;
+  background: #E2062C;
 }
 nav.leaf{
   background-image: none;
@@ -186,4 +180,10 @@ nav.leaf{
 }
 .poll tfoot{
   border-top: 1px dashed #BB8653;
+}
+.sign{
+  font-style: italic;
+  float:none;
+  width: inherit;
+  padding: 0px;
 }
