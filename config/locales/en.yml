@@ -272,6 +272,7 @@ en:
   ok_user_new: 'User was successfully created'
   poll: 'Poll'
   properties: 'Properties'
+  replay: 'Replay'
   require_login: 'You must be logged in to access this section'
   result: 'Result'
   search: 'search'

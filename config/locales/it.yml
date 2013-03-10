@@ -273,6 +273,7 @@ it:
   password: 'Parola segreta'
   poll: 'Sondaggio'
   properties: 'Proprietà'
+  replay: 'Rispondi'
   require_login: 'Devi collegarti per avere accesso a questa sezione'
   result: 'Risultato'
   search: 'cerca'
