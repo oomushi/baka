@@ -31,7 +31,7 @@ footer.main a{
   color: inherit;
 }
 aside.login{
-  background:#e2062c;
+  background:#FF9B7B;
 }
 a.button{
   color: black;
@@ -153,7 +153,7 @@ fieldset.quote{
   
 }
 aside.like{
-  background-color: #e2062c;
+  background-color: #FF9B7B;
   box-shadow: 10px 10px 20px #000000;
 }
 a.link_disabled{
@@ -174,14 +174,14 @@ a.link_disabled{
   border-bottom: 1px dotted #bababa;  
 }
 aside.full_path_dropdown{
-  background: #E2062C;
+  background: #FF9B7B;
 }
 nav.leaf{
   background-image: none;
   background-color: rgba(0,0,0,0.8);
 }
 .poll{
-  background-color: rgba(255,93,50,0.61);
+  background-color: rgba(255,255,50,0.61);
   box-shadow: 5px 5px 10px #000000;
 }
 .poll tfoot{
