@@ -86,6 +86,7 @@ section.main article{
   clear:both;
   padding-left: 1em;
   padding-bottom: 1em;
+  position: relative;
 }
 article section{
   padding: 0px 1em 0px 1em;
@@ -279,16 +280,21 @@ nav.menu{
   padding-right: 2%;
 }
 nav.leaf{
-  width: 95%;
+  width: 84%;
   border-radius: 1em;
   display: none;
   position: absolute;
+  top: auto;
+  left: auto;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 1em 1em 0px 0px;
 }
 .poll{
   margin-bottom: 0.5em;
 }
 article nav{
-  height: 1.5em;
+  /*height: 1.5em;*/
   position: relative;
   left:3px;
   top:3px;

@@ -28,12 +28,6 @@ $(document).ready ->
     $(this).mousemove((e) ->
       e = e or window.event
       if $(this).height() + $(this).position().top - 20 < e.pageY
-        h = $(this).position().top + $(this).height()
-        $(this).find("nav.leaf").animate
-          top: h
-          left: $(this).position().left,
-          width: $(this).width()
-          , 0
         $(this).find("nav.leaf").show "slide",
           direction: "down"
       else
