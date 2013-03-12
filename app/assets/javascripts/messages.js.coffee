@@ -28,14 +28,14 @@ $(document).ready ->
     $(this).mousemove((e) ->
       e = e or window.event
       if $(this).height() + $(this).position().top - 20 < e.pageY
-        $(this).find("nav.leaf").show "slide",
+        $(this).find("nav").show "slide",
           direction: "down"
       else
-        $(this).find("nav.leaf").hide "slide",
+        $(this).find("nav").hide "slide",
           direction: "down"
       true
     ).mouseleave (e) ->
-      $(this).find("nav.leaf").hide "slide",
+      $(this).find("nav").hide "slide",
         direction: "down"
       true
     true

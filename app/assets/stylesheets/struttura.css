@@ -105,13 +105,14 @@ article header{
 article > header > a{
   margin-right: 0.5em;
 }
-article nav{
+article nav, article menu{
   float:right;
   display:block;
   padding-right: 16px;
   clear:both;
+  margin: 0px;
 }
-article nav a{
+article nav a, article menu a{
   position: relative;
   padding:0px;
   padding-left: 16px;
@@ -194,10 +195,6 @@ aside.like{
   top:-2em;
   right:-1em;
 }
-nav.nav{
-  top: -1.5em;
-  clear:none;
-}
 .drop-menu {  
   display: inline-block;
 }
@@ -279,7 +276,15 @@ nav.menu{
   float:right;
   padding-right: 2%;
 }
-nav.leaf{
+article menu{
+  position: relative;
+  left:3px;
+  top:3px;
+  z-index: 2;
+  top: -1.5em;
+  clear:none;
+}
+article nav{
   width: 84%;
   border-radius: 1em;
   display: none;
@@ -292,11 +297,4 @@ nav.leaf{
 }
 .poll{
   margin-bottom: 0.5em;
-}
-article nav{
-  /*height: 1.5em;*/
-  position: relative;
-  left:3px;
-  top:3px;
-  z-index: 2;
 }
