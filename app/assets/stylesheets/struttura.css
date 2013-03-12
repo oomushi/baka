@@ -260,7 +260,7 @@ header>form{
   margin-left:25%;
 }
 
-aside.full_path_dropdown{
+nav aside{
   display: none;
   border-radius: 0px 0px 10px 10px;
   box-shadow: -2px 2px 2px #000000;

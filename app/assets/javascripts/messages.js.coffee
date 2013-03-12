@@ -41,16 +41,16 @@ $(document).ready ->
     true
   $("nav > .full_path_dropdown").hover ->
     coor = $(this).offset()
-    h = $(this).height() + coor.top - 5
-    w = coor.left + (($(this).width() - $(this).width()) / 2)
-    $("aside.full_path_dropdown").animate
+    h = $(this).height() + coor.top - 10
+    w = coor.left + (($(this).width() - $("nav > aside").width()) / 2)
+    $("nav > aside").animate
       top: h
       left: w
     , 0
-    $("aside.full_path_dropdown").show('slide', { direction: "up" })
-    $("aside.full_path_dropdown").focus()
+    $("nav > aside").show('slide', { direction: "up" })
+    $("nav > aside").focus()
     true
-  $("aside.full_path_dropdown").mouseleave ->
+  $("nav > aside").mouseleave ->
     $(this).hide('slide', { direction: "up" })
     true
   $("tr.link").click( ->

@@ -167,7 +167,7 @@ a.link_disabled{
 .sub-menu li:hover {  
   border-bottom: 1px dotted #bababa;  
 }
-aside.full_path_dropdown{
+nav aside{
   background: #E2062C;
 }
 article nav{
