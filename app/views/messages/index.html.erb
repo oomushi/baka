@@ -1,9 +1,9 @@
 <% last=@path.last %>
-<nav class="menu">
+<menu>
   <%= link_to "&thinsp;".html_safe, @root, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button del" if not @root.childs? and @current_user.can_destroy? @root %>
   <%= link_to "&thinsp;".html_safe, edit_message_path(@root),title: t(:edit),class: "button edit" if @current_user.can_update? @root %>
   <%= link_to "&thinsp;".html_safe, new_message_path({:id=>last.id}),title: t(:new),class: "button add" if @current_user.can_create? @root %>
-</nav>
+</menu>
 <%= render :partial=>'nav', :locals=>{:path=>@path,:current_user=>@current_user} %>
 <table>
   <tr>

@@ -105,12 +105,14 @@ article header{
 article > header > a{
   margin-right: 0.5em;
 }
+menu{
+  margin: 0px;
+}
 article nav, article menu{
   float:right;
   display:block;
   padding-right: 16px;
   clear:both;
-  margin: 0px;
 }
 article nav a, article menu a{
   position: relative;
@@ -272,7 +274,7 @@ nav aside{
   z-index: 3;
   text-align: center;
 }
-nav.menu{
+section.main > menu{
   float:right;
   padding-right: 2%;
 }
