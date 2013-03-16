@@ -1,11 +1,11 @@
 body{
   background: #c0deed url('/assets/theme-default/escer.png') no-repeat fixed left bottom;
 }
-section.main{
+body > section{
   background: rgba(255, 255, 248, 0.6);
   box-shadow: 0px 0px 15px #000;
 }
-section.main article{
+body > section article{
   background: #fffff0 url('/assets/theme-default/baka.png') repeat-y scroll left bottom;
   border: 1px solid #000;
 }
@@ -16,7 +16,7 @@ tr.pinned{
   font-weight: bolder;
   text-shadow:  0px 0px 15px #FFF,0px 0px 5px #FF0;
 }
-header.main{
+body > header{
   background: black;
   color: white;
 }
@@ -24,10 +24,10 @@ header a.button{
   text-decoration:none;
   color: white;
 }
-footer.main{
+body > footer{
   color: rgba(0,0,0,0.85);
 }
-footer.main a{
+body > footer a{
   color: inherit;
 }
 aside.login{
@@ -125,7 +125,7 @@ article > header > a{
     font-style: normal;
 
 }
-footer.main .brand{
+body > footer .brand{
   font-size:125%;
   font-style:normal;
 }

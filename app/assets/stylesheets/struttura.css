@@ -11,7 +11,7 @@ body{
   border:0px;
   margin-bottom: 2em;
 }
-header.main{
+body > header{
   text-align:left;
   position: fixed;
   top: 0px;
@@ -24,7 +24,7 @@ header.main{
   box-shadow:0px 0px 15px #000;
   z-index:15;
 }
-section.main{
+body > section{
   text-align:center;
   padding:20px 0px 0px 0px;
   margin: 0px 8% 0px 8%;
@@ -43,7 +43,7 @@ header a.button{
   margin:1px 2px 0px 2px;
   vertical-align: top;
 }
-footer.main{
+body > footer{
   text-align:left;
   display:inline-block;
   font-style:italic;
@@ -75,7 +75,7 @@ a.button{
 a.button2{
   padding:0px 2px 1px 32px;
 }
-section.main article{
+body > section article{
   max-width: 98%;
   width: 98%;
   display: inline-block;
@@ -128,7 +128,7 @@ article nav a:hover{
   opacity: 1.0;
   color: #fff;
 }
-section.main table{
+body > section table{
   border-collapse: collapse;
   border-spacing:0px;
   width: 98%;
@@ -274,7 +274,7 @@ nav aside{
   z-index: 3;
   text-align: center;
 }
-section.main > menu{
+body > section > menu{
   float:right;
   padding-right: 2%;
 }
@@ -299,4 +299,7 @@ article nav{
 }
 .poll{
   margin-bottom: 0.5em;
+}
+.form_example{
+  display: none;
 }
