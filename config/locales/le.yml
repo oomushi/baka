@@ -200,6 +200,7 @@ le:
       short: ! '%d %b %H:%M'
     pm: p|\/|
   add_answer: '4dd 4|\|s\/\/3r'
+  add_contacts: '4dd c0|\|74c7'
   add_poll: '4dd p0|_|_'
   back: 'B4c|<'
   baka: 'B4|<4'

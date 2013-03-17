@@ -200,6 +200,7 @@ en:
       short: ! '%d %b %H:%M'
     pm: pm
   add_answer: 'Add answer'
+  add_contacts: 'Add contact'
   add_poll: 'Add poll'
   back: 'Back'
   baka: 'BAKA'

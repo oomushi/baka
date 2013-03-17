@@ -200,6 +200,7 @@ it:
       short: ! '%d %b %H:%M'
     pm: pm
   add_answer: 'Aggiungi opzione'
+  add_contacts: 'Aggiungi contatto'
   add_poll: 'Aggiungi sondaggio'
   back: 'Indietro'
   baka: 'BAKA'
