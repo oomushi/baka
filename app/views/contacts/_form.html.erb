@@ -1,16 +1,16 @@
 <div class="field3">
   <%= f.label :protocol %><br />
-  <%= f.select(:protocol, Contact::ENUM) %>
+  <%= f.select(:protocol, Contact::ENUM, {} ,{:disabled=> (defined? disabled and disabled)}) %>
 </div>
 <div class="field3">
   <%= f.label :value %><br />
-  <%= f.text_field :value %>
+  <%= f.text_field :value, {:disabled=>(defined? disabled and disabled)} %>
 </div>
 <div class="field3">
   <% if f.object.id.nil? %>
     <%= link_to_remove_fields t(:destroy),f %>
   <% else %>
-    <%= f.check_box :_destroy %>
+    <%= f.check_box :_destroy, {:disabled=>(defined? disabled and disabled)} %>
     <%= f.label :_destroy, t(:destroy) %>
   <% end %>
 </div>

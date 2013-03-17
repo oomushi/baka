@@ -6,19 +6,13 @@ module MessagesHelper
   def link_to_remove_unique_fields(name, f)
     f.hidden_field(:_destroy) + link_to_function(name, "unique_remove(this);remove_fields(this)")
   end
-  def link_to_add_unique_fields(name,f,association,klass) 
-    new_object = f.object.class.reflect_on_association(association).klass.new
-    fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
-      render(association.to_s.pluralize + "/form", :f => builder)
-    end
-    link_to_function(name, "unique_add(this, \"#{association}\", \"#{escape_javascript(fields)}\")",:class => klass)
-  end
-  
+
   def new_subobject_div(name, f, association, options={})
     new_object = f.object.class.reflect_on_association(association).klass.new
-    fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
-      render(association.to_s.pluralize + "/form", :f => builder)
+    id="new_#{association}"
+    fields = f.fields_for(association, new_object, :child_index => id) do |builder|
+      render( :partial => association.to_s.pluralize + "/form", :locals=>{:f => builder, :disabled=>true})
     end
-    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
+    content_tag(:p,link_to(name,'#',:data=>{:rif=>id, :unique=>options[:unique]})) << content_tag( :span, fields, :class=>"form_example", :id=>id)
   end
 end

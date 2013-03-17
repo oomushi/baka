@@ -4,19 +4,20 @@
 @remove_fields = (link) ->
   $(link).prev("input[type=hidden]").val "1"
   $(link).closest(".field").hide()
-@add_fields = (link, association, content) ->
-  new_id = new Date().getTime()
-  regexp = new RegExp("new_" + association, "g")
-  $(link).parent().parent().append content.replace(regexp, new_id)
-@unique_add = (link,association,content) ->
-  unless $(link).hasClass "link_disabled"
-    $(link).toggleClass "link_disabled"
-    add_fields link,association,content
 @unique_remove = (link) ->
   l=$(link).parent().parent().find("a.link_disabled")[0]
   $(l).toggleClass "link_disabled"
   remove_fields link
 $(document).ready ->
+  $("a[data-rif]").click ->
+    h = $("#" + $(this).data("rif")).html()
+    new_id = new Date().getTime()
+    regexp = new RegExp($(this).data("rif"), "g")
+    h.replace(regexp, new_id)
+    $(h).find("*").filter(":disabled").removeAttr "disabled"
+    $(this).parents("fieldset").append h
+    $(this).toggleClass "link_disabled" if $(this).data("unique") is "true" and $(this).hasClass "link_disabled"
+    true
   $("input:disabled").each ->
     $("label[for=\"" + $(this).attr("id") + "\"]").click ->
       $("#" + $(this).attr("for")).removeAttr "disabled"

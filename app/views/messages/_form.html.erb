@@ -72,7 +72,7 @@
   <div class="field">
     <fieldset>
       <legend><%= t(:poll) %></legend>
-      <p><%= link_to_add_unique_fields t(:add_poll),f,:poll,@message.poll.nil? ? '': 'link_disabled' %></p>
+      <p><%= new_subobject_div t(:add_poll),f,:poll,{ :unique=> @message.poll.nil? } %></p>
     <% unless @message.poll.nil? %>
       <%= f.fields_for :poll do |builder| %>
         <%= render :partial => 'polls/form',:locals => { :f => builder } %>
