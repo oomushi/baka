@@ -10,11 +10,12 @@
   remove_fields link
 $(document).ready ->
   $("a[data-rif]").click ->
-    h = $("#" + $(this).data("rif")).html()
+    h = $("#" + $(this).data("rif")).children()
     new_id = new Date().getTime()
     regexp = new RegExp($(this).data("rif"), "g")
+# per ogni id che matcha con regexp nei discendenti di h replace dell'attributo id
     h.replace(regexp, new_id)
-    $(h).find("*").filter(":disabled").removeAttr "disabled"
+    h.filter(":disabled").removeAttr "disabled"
     $(this).parents("fieldset").append h
     $(this).toggleClass "link_disabled" if $(this).data("unique") is "true" and $(this).hasClass "link_disabled"
     true
