@@ -7,7 +7,7 @@
       <%= f.check_box :_destroy %>
       <%= f.label :_destroy, t(:destroy) %>
     <% end %>
-    <p><%= link_to_add_fields t(:add_answer),f,:answers %></p>
+    <p><%= new_subobject_div t(:add_answer),f,:answers %></p>
     <%= f.fields_for :answers do |builder| %>
       <%= render :partial => 'answers/form', :locals => { :f => builder } %>
     <% end %>

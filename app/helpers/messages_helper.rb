@@ -1,10 +1,10 @@
 module MessagesHelper
   def link_to_remove_fields(name, f)
-    f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
+    f.hidden_field(:_destroy,{:disabled=>true}) + link_to_function(name, "remove_fields(this)")
   end
   
   def link_to_remove_unique_fields(name, f)
-    f.hidden_field(:_destroy) + link_to_function(name, "unique_remove(this);remove_fields(this)")
+    f.hidden_field(:_destroy,{:disabled=>true}) + link_to_function(name, "unique_remove(this);remove_fields(this)")
   end
 
   def new_subobject_div(name, f, association, options={})

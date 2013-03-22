@@ -13,9 +13,10 @@ $(document).ready ->
     h = $("#" + $(this).data("rif")).children()
     new_id = new Date().getTime()
     regexp = new RegExp($(this).data("rif"), "g")
-# per ogni id che matcha con regexp nei discendenti di h replace dell'attributo id
-    h.replace(regexp, new_id)
-    h.filter(":disabled").removeAttr "disabled"
+    $.each h.find("*"), ->
+      $(this).filter(":disabled").removeAttr "disabled"
+      $(this).attr "id", $(this).attr("id").replace(regexp, new_id) unless $(this).attr("id") is `undefined`
+      true
     $(this).parents("fieldset").append h
     $(this).toggleClass "link_disabled" if $(this).data("unique") is "true" and $(this).hasClass "link_disabled"
     true

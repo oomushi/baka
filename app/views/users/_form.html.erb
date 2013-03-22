@@ -43,7 +43,7 @@
   <div class="field2">
     <fieldset>
       <legend><%= t(:contacts) %></legend>
-      <p><%= link_to_add_fields t(:add_contacts),f,:contacts %></p>
+      <%= new_subobject_div t(:add_contacts),f,:contacts %>
       <%= f.fields_for :contacts do |builder| %>
         <%= render :partial => 'contacts/form', :locals => { :f => builder } %>
       <% end %>
