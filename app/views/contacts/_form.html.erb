@@ -8,7 +8,7 @@
 </div>
 <div class="field3">
   <% if f.object.id.nil? %>
-    <%= link_to_remove_fields t(:destroy),f %>
+    &nbsp;&nbsp;<%= link_to_remove_fields t(:destroy),f %>
   <% else %>
     <%= f.check_box :_destroy, {:disabled=>(defined? disabled and disabled)} %>
     <%= f.label :_destroy, t(:destroy) %>
