@@ -13,6 +13,6 @@ module MessagesHelper
     fields = f.fields_for(association, new_object, :child_index => id) do |builder|
       render( :partial => association.to_s.pluralize + "/form", :locals=>{:f => builder, :disabled=>true})
     end
-    content_tag(:p,link_to(name,'#',:data=>{:rif=>id, :unique=>options[:unique]})) << content_tag( :span, fields, :class=>"form_example", :id=>id)
+    content_tag(:p,link_to(name,'javascript:void(0)',:data=>{:rif=>id, :unique=>options[:unique]})) << content_tag( :span, fields, :class=>"form_example", :id=>id)
   end
 end
