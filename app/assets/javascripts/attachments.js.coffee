@@ -1,114 +1,45 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+# Multiple file selector by Stickman -- http://www.the-stickman.com 
+# with thanks to: [for Safari fixes] Luis Torrefranca -- http://www.law.pitt.edu and Shawn Parker & John Pennypacker -- http://www.fuzzycoconut.com [for duplicate name bug] 'neal'
+MultiSelector = (list_target, max) ->
+  @list_target = list_target
+  @count = 0
+  @id = 0
+  if max
+    @max = max
+  else
+    @max = -1
+  @addElement = (element) ->
+    if element.tagName is "INPUT" and element.type is "file"
+      element.name = "file_" + @id++
+      element.multi_selector = this
+      element.onchange = ->
+        new_element = document.createElement("input")
+        new_element.type = "file"
+        @parentNode.insertBefore new_element, this
+        @multi_selector.addElement new_element
+        @multi_selector.addListRow this
+        @style.position = "absolute"
+        @style.left = "-1000px"
 
-# variables
-dropArea = document.getElementById("dropArea")
-canvas = document.querySelector("canvas")
-context = canvas.getContext("2d")
-count = document.getElementById("count")
-destinationUrl = document.getElementById("url")
-result = document.getElementById("result")
-list = []
-totalSize = 0
-totalProgress = 0
-
-# main initialization
-(->
-  
-  # init handlers
-  initHandlers = ->
-    dropArea.addEventListener "drop", handleDrop, false
-    dropArea.addEventListener "dragover", handleDragOver, false
-  
-  # draw progress
-  drawProgress = (progress) ->
-    context.clearRect 0, 0, canvas.width, canvas.height # clear context
-    context.beginPath()
-    context.strokeStyle = "#4B9500"
-    context.fillStyle = "#4B9500"
-    context.fillRect 0, 0, progress * 500, 20
-    context.closePath()
-    
-    # draw progress (as text)
-    context.font = "16px Verdana"
-    context.fillStyle = "#000"
-    context.fillText "Progress: " + Math.floor(progress * 100) + "%", 50, 15
-  
-  # drag over
-  handleDragOver = (event) ->
-    event.stopPropagation()
-    event.preventDefault()
-    dropArea.className = "hover"
-  
-  # drag drop
-  handleDrop = (event) ->
-    event.stopPropagation()
-    event.preventDefault()
-    processFiles event.dataTransfer.files
-  
-  # process bunch of files
-  processFiles = (filelist) ->
-    return  if not filelist or not filelist.length or list.length
-    totalSize = 0
-    totalProgress = 0
-    result.textContent = ""
-    i = 0
-
-    while i < filelist.length and i < 5
-      list.push filelist[i]
-      totalSize += filelist[i].size
-      i++
-    uploadNext()
-  
-  # on complete - start next file
-  handleComplete = (size) ->
-    totalProgress += size
-    drawProgress totalProgress / totalSize
-    uploadNext()
-  
-  # update progress
-  handleProgress = (event) ->
-    progress = totalProgress + event.loaded
-    drawProgress progress / totalSize
-  
-  # upload file
-  uploadFile = (file, status) ->
-    
-    # prepare XMLHttpRequest
-    xhr = new XMLHttpRequest()
-    xhr.open "POST", destinationUrl.value
-    xhr.onload = ->
-      result.innerHTML += @responseText
-      handleComplete file.size
-
-    xhr.onerror = ->
-      result.textContent = @responseText
-      handleComplete file.size
-
-    xhr.upload.onprogress = (event) ->
-      handleProgress event
-
-    xhr.upload.onloadstart = (event) ->
-
-    
-    # prepare FormData
-    formData = new FormData()
-    formData.append "myfile", file
-    xhr.send formData
-  
-  # upload next file
-  uploadNext = ->
-    if list.length
-      count.textContent = list.length - 1
-      dropArea.className = "uploading"
-      nextFile = list.shift()
-      if nextFile.size >= 262144 # 256kb
-        result.innerHTML += "<div class=\"f\">Too big file (max filesize exceeded)</div>"
-        handleComplete nextFile.size
-      else
-        uploadFile nextFile, status
+      element.disabled = true  if @max isnt -1 and @count >= @max
+      @count++
+      @current_element = element
     else
-      dropArea.className = ""
-  initHandlers()
-)()
+      alert "Error: not a file input element"
+
+  @addListRow = (element) ->
+    new_row = document.createElement("div")
+    new_row_button = document.createElement("input")
+    new_row_button.type = "button"
+    new_row_button.value = "Delete"
+    new_row.element = element
+    new_row_button.onclick = ->
+      @parentNode.element.parentNode.removeChild @parentNode.element
+      @parentNode.parentNode.removeChild @parentNode
+      @parentNode.element.multi_selector.count--
+      @parentNode.element.multi_selector.current_element.disabled = false
+      false
+
+    new_row.innerHTML = element.value
+    new_row.appendChild new_row_button
+    @list_target.appendChild new_row
