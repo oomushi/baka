@@ -1,7 +1,7 @@
 module BbcodesHelper
   def bb text
     if ! text.nil? and text!=''
-      bb=MyBBCoder.new Sanitize.clean(text.to_s.gsub('<3','&lt;3'))
+      bb=MyBBCoder.new Sanitize.clean(text.to_s.gsub(/<([\\\/\|]?)3/,'&lt;\13'))
       bb.to_html.gsub(/\n|\r\n/, "<br />").html_safe
     end
   end
