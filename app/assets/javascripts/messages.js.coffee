@@ -10,6 +10,7 @@
   remove_fields link
 $(document).ready ->
   $("a[data-rif]").click ->
+    return if $(this).data("unique") is true and $(this).hasClass "link_disabled"
     h = $("#" + $(this).data("rif")).children()
     new_id = new Date().getTime()
     regexp = new RegExp($(this).data("rif"), "g")
@@ -18,7 +19,7 @@ $(document).ready ->
       $(this).attr "id", $(this).attr("id").replace(regexp, new_id) unless $(this).attr("id") is `undefined`
       true
     $(this).parents("fieldset").append h
-    $(this).toggleClass "link_disabled" if $(this).data("unique") is "true" and $(this).hasClass "link_disabled"
+    $(this).toggleClass "link_disabled" if $(this).data("unique") is true and not $(this).hasClass "link_disabled"
     true
   $("input:disabled").each ->
     $("label[for=\"" + $(this).attr("id") + "\"]").click ->
