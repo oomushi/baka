@@ -9,18 +9,20 @@
   $(l).toggleClass "link_disabled"
   remove_fields link
 $(document).ready ->
-  $("a[data-rif]").click ->
+  f = ->
     return if $(this).data("unique") is true and $(this).hasClass "link_disabled"
-    h = $("#" + $(this).data("rif")).children()
+    h = $("#" + $(this).data("rif")).children().clone()
     new_id = new Date().getTime()
     regexp = new RegExp($(this).data("rif"), "g")
     $.each h.find("*"), ->
       $(this).filter(":disabled").removeAttr "disabled"
       $(this).attr "id", $(this).attr("id").replace(regexp, new_id) unless $(this).attr("id") is `undefined`
       true
+    h.find("a[data-rif]").click f
     $(this).parents("fieldset").append h
     $(this).toggleClass "link_disabled" if $(this).data("unique") is true and not $(this).hasClass "link_disabled"
     true
+  $("a[data-rif]").click f
   $("input:disabled").each ->
     $("label[for=\"" + $(this).attr("id") + "\"]").click ->
       $("#" + $(this).attr("for")).removeAttr "disabled"
