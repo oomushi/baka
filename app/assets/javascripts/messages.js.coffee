@@ -17,6 +17,7 @@ $(document).ready ->
     $.each h.find("*"), ->
       $(this).filter(":disabled").removeAttr "disabled"
       $(this).attr "id", $(this).attr("id").replace(regexp, new_id) unless $(this).attr("id") is `undefined`
+      $(this).attr "name", $(this).attr("name").replace(regexp, new_id) unless $(this).attr("name") is `undefined`
       true
     h.find("a[data-rif]").click f
     $(this).closest("fieldset").append h
