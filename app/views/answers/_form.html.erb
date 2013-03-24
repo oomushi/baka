@@ -1,6 +1,6 @@
   <div class="field">
     <%= f.label :text %><br />
-    <%= f.text_field :text %>
+    <%= f.text_field :text, {:disabled=>(defined? disabled and disabled)} %>
     <% if f.object.id.nil? %>
       <%= link_to_remove_fields t(:destroy),f %>
     <% else %>
