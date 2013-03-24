@@ -19,6 +19,7 @@ $(document).ready ->
       $(this).attr "id", $(this).attr("id").replace(regexp, new_id) unless $(this).attr("id") is `undefined`
       true
     h.find("a[data-rif]").click f
+    # parents è troppo generico ci vuole solo il primo antenato buono
     $(this).parents("fieldset").append h
     $(this).toggleClass "link_disabled" if $(this).data("unique") is true and not $(this).hasClass "link_disabled"
     true
