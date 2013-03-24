@@ -108,6 +108,9 @@ article > header > a{
 menu{
   margin: 0px;
 }
+article menu form{
+  display: inline;
+}
 article nav, article menu{
   float:right;
   display:block;
