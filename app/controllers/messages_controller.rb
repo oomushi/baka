@@ -98,7 +98,7 @@ class MessagesController < ApplicationController
     id=@message.message_id
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to :action=>t(:show),:id=>id }
+      format.html { redirect_to :action=>:show,:id=>id }
       format.json { head :no_content }
     end
   end
