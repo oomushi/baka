@@ -1,10 +1,10 @@
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, {:disabled=>(defined? disabled and disabled)} %>
     <% if f.object.id.nil? %>
      <%= link_to_remove_unique_fields t(:destroy),f %>
     <% else %>
-      <%= f.check_box :_destroy %>
+      <%= f.check_box :_destroy, {:disabled=>(defined? disabled and disabled)} %>
       <%= f.label :_destroy, t(:destroy) %>
     <% end %>
     <p><%= new_subobject_div t(:add_answer),f,:answers %></p>
