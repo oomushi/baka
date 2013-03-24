@@ -9,7 +9,7 @@
   <% unless @current_user.guest? %>
   <menu>
     <%= link_to "&thinsp;".html_safe, edit_message_path(message), {:title=>t(:edit), :class=>"edit"} if @current_user.can_update? message %>
-    <%= link_to "&thinsp;".html_safe, message, {:title=>t(:destroy), :class=>"del"}, confirm: t(:destroy_confirm), method: :delete if @current_user.can_destroy? message %>
+    <%= link_to "&thinsp;".html_safe, message, confirm: t(:destroy_confirm), method: :delete, :title=>t(:destroy), :class=>"del" if @current_user.can_destroy? message %>
     <%= link_to "&thinsp;".html_safe, new_message_path({:id=>message.id}),{:title=>t(:replay),:class=>"replay"} if @current_user.can_create? message %>
     <%= render :partial=>'likes/form', :locals=>{:message=>message,:current_user=>@current_user} %>
   </menu>
