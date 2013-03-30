@@ -202,6 +202,8 @@ le:
   add_answer: '4dd 4|\|s\/\/3r'
   add_contacts: '4dd c0|\|74c7'
   add_poll: '4dd p0|_|_'
+  attachments: '4774c#|\/|3|\|72'
+  avatar: '4\/474r'
   back: 'B4c|<'
   baka: 'B4|<4'
   bbcodes: 'bbc0d32'
@@ -212,6 +214,8 @@ le:
   click2enable: 'c|_1c|< 0|\| |_4b3|_ 2 3|\|4b|_3'
   confirm_email: "C0|\\||=1r|\\/| '/0 3|\\/|41|_ 4cc0|_||\\|7"
   confirm_email_long: "2 c0|\\||=1r|\\/| '/0 3|\\/|41|_ 4cc0|_||\\|7 c|_1c|< |=0|_|_0\\/\\/1|\\|' |_1|\\||<"
+  contacts: 'c0|\|74c72'
+  created_at: 'cr3473d @'
   destroy: "D3s7r0'/"
   destroy_confirm: '12 j00 s|_|r3?'
   duplicate_answer: "d12 |_|s3r 4|_r34d'/ 61\\/32 #12 0p710|\\|"
@@ -271,10 +275,13 @@ le:
   ok_user_confirm: '3|\/|41|_ c0|\||=1r|\/|3d'
   ok_user_edit:  "|_|s3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_user_new: "|_|s3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
+  password: 'p4ss\/\/0rd'
   poll: 'P0|_|_'
   properties: 'Pr0p3r7132'
+  protocol: 'pr070c0|_'
   replay: "R3p|_4'/"
   require_login: 'j00 |\/||_|s7 b |_0663d 1|\| 2 4cc3s2 d12 s3c710|\|'
+  reset_password: 'r3s37 p4ss\/\/0rd'
   result: 'R3s|_||_7'
   search: 's34rc#'
   show: 'S#0\/\/'

@@ -3,14 +3,14 @@
     <th><%= sort_link @q, :user, t(:users) %></th>
     <th><%= sort_link @q, :title, t(:title) %></th>
     <th><%= sort_link @q, :text, t(:text) %></th>
-    <th><%= sort_link @q, :created_at, t(:date) %></th>
+    <th><%= sort_link @q, :created_at, t(:created_at) %></th>
   </tr>
 <% @messages.each do |message| %>
   <tr class="link" data-url="<%= message_path(message) if @current_user.can_view? message %>">
     <td><%= message.user.username %></td>
     <td><%= message.title %></td>
     <td><%= bb(message.text) %></td>
-    <td><%= message.created_at.strftime(t(:date_format)) %></td>
+    <td><%= message.created_at.to_formatted_s(:long) %></td>
   </tr>
 <% end %>
 </table>
