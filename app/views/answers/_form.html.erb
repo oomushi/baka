@@ -2,7 +2,7 @@
     <%= f.label :text %><br />
     <%= f.text_field :text, {:disabled=>(defined? disabled and disabled)} %>
     <% if f.object.id.nil? %>
-      <%= link_to_remove_fields t(:destroy),f %>
+      <%= del_subobject_div t(:destroy),f %>
     <% else %>
       <%= f.check_box :_destroy, {:disabled=>(defined? disabled and disabled)} %>
       <%= f.label :_destroy, t(:destroy) %>

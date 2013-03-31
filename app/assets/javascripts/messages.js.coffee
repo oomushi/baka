@@ -1,13 +1,6 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-@remove_fields = (link) ->
-  $(link).prev("input[type=hidden]").val "1"
-  $(link).closest(".field").hide()
-@unique_remove = (link) ->
-  l=$(link).parent().parent().find("a.link_disabled")[0]
-  $(l).toggleClass "link_disabled"
-  remove_fields link
 $(document).ready ->
   f = ->
     return if $(this).data("unique") is true and $(this).hasClass "link_disabled"
@@ -20,7 +13,12 @@ $(document).ready ->
       $(this).attr "name", $(this).attr("name").replace(regexp, new_id) unless $(this).attr("name") is `undefined`
       true
     h.find("a[data-rif]").click f
-    $(this).closest("fieldset").append h
+    wrap = $("<div>").addClass('wrapper').append h
+    $(this).closest("fieldset").append wrap
+    $(this).closest("fieldset").find("a.remove_subobj").click ->
+      $(this).parents('.wrapper').parent().find('a.link_disabled').toggleClass "link_disabled" if $(this).data("unique")
+      $(this).parents('.wrapper').remove()
+      true
     $(this).toggleClass "link_disabled" if $(this).data("unique") is true and not $(this).hasClass "link_disabled"
     true
   $("a[data-rif]").click f
