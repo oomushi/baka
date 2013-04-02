@@ -108,6 +108,7 @@ class Message < ActiveRecord::Base
     end
   end
   def alert_followers
+    return if self.id.eql? self.message_id
     msgs=MessageMailer.new_message_alert(self)
     begin
       msgs.deliver unless msgs.sender.nil?

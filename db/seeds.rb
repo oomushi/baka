@@ -21,16 +21,17 @@ c=Group.create({
   :name=>"public",
   :level=>64
 })
-admin = User.create(:username=>'admin', :birthday=>Date.new(1982,12,29), :password=>'sunset')
-admin.confirm_code=nil
+e=Contact.new({:value=>'admin@baka.com', :protocol=>'email'})
+admin = User.new(:username=>'admin', :birthday=>Date.new(1982,12,29), :password=>'sunset', :confirm_code=>nil)
+admin.contacts<<e
 admin.groups<<a
-admin.contacts<<Contact.create(:value=>'admin@baka.com', :protocol=>'email')
 admin.save
 avatar=admin.avatar
 avatar.url='/assets/admin.png'
 avatar.save
-guest=User.create(:username=>"guest",:password=>"sunset",:guest=>true)
-guest.contacts<<Contact.create(:value=>'guest@baka.com', :protocol=>'email')
+e=Contact.create(:value=>'guest@baka.com', :protocol=>'email')
+guest=User.new(:username=>"guest",:password=>"sunset",:guest=>true)
+guest.contacts<<e
 guest.groups<<c
 guest.save
 root = Message.create({
@@ -43,11 +44,12 @@ root = Message.create({
   :nv=>0,
   :dv=>1,
   :snv=>1,
-  :sdv=>1
+  :sdv=>1,
+  :reader_id=>c.id,
+  :writer_id=>a.id,
+  :moderator_id=>a.id,
+  :follow=>false
 })
-root.reader=c
-root.writer=a
-root.moderator=a
 root.save
 
 # encoding: utf-8
