@@ -27,9 +27,9 @@ class UsersController < ApplicationController
 
   # GET /users/new
   # GET /users/new.json
-  # only admin can do this
   def new
     @user = User.new
+    @user.contacts.build({protocol: 'email'})
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -44,7 +44,6 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  # only admin can do this
   def create
     @user = User.new(params[:user])
 

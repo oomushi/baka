@@ -14,9 +14,12 @@
       <%= f.label :username %><br />
       <%= f.text_field :username %>
     </p>
-     <p>
+    <p>
       <%= f.label :email %><br />
-      <%= f.text_field :email %>
+      <%= f.fields_for :contacts do |builder| %>
+        <%= builder.text_field :value %>
+        <%= builder.hidden_field :protocol %>
+      <% end %>
     </p>
     <p>
       <%= f.label :password %><br />
