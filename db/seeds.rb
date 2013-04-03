@@ -21,17 +21,15 @@ c=Group.create({
   :name=>"public",
   :level=>64
 })
-e=Contact.new({:value=>'admin@baka.com', :protocol=>'email'})
-admin = User.new(:username=>'admin', :birthday=>Date.new(1982,12,29), :password=>'sunset', :confirm_code=>nil)
-admin.contacts<<e
+admin = User.create(:username=>'admin', :birthday=>Date.new(1982,12,29), :password=>'sunset', :confirm_code=>nil)
+Contact.create(:value=>'admin@baka.com', :protocol=>'email',:user_id=>admin.id)
 admin.groups<<a
 admin.save
 avatar=admin.avatar
 avatar.url='/assets/admin.png'
 avatar.save
-e=Contact.create(:value=>'guest@baka.com', :protocol=>'email')
 guest=User.new(:username=>"guest",:password=>"sunset",:guest=>true)
-guest.contacts<<e
+Contact.create(:value=>'guest@baka.com', :protocol=>'email',:user_id=>guest.id)
 guest.groups<<c
 guest.save
 root = Message.create({
