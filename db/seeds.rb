@@ -23,14 +23,14 @@ c=Group.create({
 })
 admin = User.create(:username=>'admin', :birthday=>Date.new(1982,12,29), :password=>'sunset', :confirm_code=>nil)
 Contact.create(:value=>'admin@baka.com', :protocol=>'email',:user_id=>admin.id)
-admin.groups<<a
+admin.groups << a
 admin.save
 avatar=admin.avatar
 avatar.url='/assets/admin.png'
 avatar.save
 guest=User.new(:username=>"guest",:password=>"sunset",:guest=>true)
 Contact.create(:value=>'guest@baka.com', :protocol=>'email',:user_id=>guest.id)
-guest.groups<<c
+guest.groups << c
 guest.save
 root = Message.create({
   :text => "Hidden text",
@@ -69,5 +69,3 @@ Bbcode.create([
   { :label => ":P", :created_at => "2012-09-17 16:34:24", :updated_at => "2013-03-02 11:58:15", :output => ":P", :tag => "", :text => "", :singular => true, :match => ".+" },
   { :label => "quote", :created_at => "2012-09-17 16:39:49", :updated_at => "2013-03-02 11:58:15", :output => "[quote='?']?[/quote]", :tag => "quote", :text => "<fieldset class=\"quote\"><legend>\#{meta}</legend><blockquote>\#{content}</blockquote></fieldset>", :singular => false, :match => ".+" }
 ], :without_protection => true )
-
-
