@@ -8,7 +8,7 @@ module LikesHelper
       t=(t.to_i/1000).to_s
       i+=1
     end
-    a=(['']<<%w(K M G T P)).flatten
+    a=(['']<<%w(K M G T P E Z Y)).flatten
     t+a[i]
   end
 end
