@@ -205,7 +205,7 @@ it:
   attachments: 'Allegati'
   avatar: 'Icona'
   back: 'Indietro'
-  baka: 'BAKA'
+  baka: 'baka'
   bbcodes: 'bbcodes'
   bbcode_example_in: 'ipsum dolor sit amet'
   bbcode_example_out: 'Lorem'
