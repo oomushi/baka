@@ -212,6 +212,7 @@ it:
   birthday: 'Compleanno'
   click_me: 'clicca per espandere'
   click2enable: 'clicca sulla etichetta per abilitare'
+  close: chiudi
   confirm_email: 'Conferma il tuo account email'
   confirm_email_long: 'Per confermare il tuo account email clicca sul collegamento sottostante'
   contacts: 'Contatti'
