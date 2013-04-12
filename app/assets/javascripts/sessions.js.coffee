@@ -13,7 +13,7 @@ $(document).ready ->
       $(this).next('ul').mouseleave ->
         $(this).stop(true, true).slideUp()
   $('aside').find('a.exit').click ->
-    $('#login').hide 'smooth' 
-@login = ->
-  $('#login').show 'smooth'
-  $('#username').focus()
+    $('#login').hide 'smooth'
+  $('body > header > nav').find('a.login').click ->
+    $('#login').show 'smooth'
+    $('#username').focus()
