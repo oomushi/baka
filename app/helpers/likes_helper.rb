@@ -1,7 +1,4 @@
 module LikesHelper
-  def link_to_submit text, params={}
-    link_to_function text, "$(this).closest('form').submit()", params
-  end
   def num_reduce n
     t,i=n.to_s,0
     while t.length > 3
