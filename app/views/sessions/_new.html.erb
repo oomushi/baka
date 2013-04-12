@@ -1,7 +1,7 @@
 <aside class="login" id="login" hidden>
   <header>
     <nav>
-    <%= link_to_function 'x',"$('#login').hide('smooth');",:class=>"button" %>
+    <%= link_to_void 'x', {:class=>"button exit", :title=>t(:close)} %>
     </nav>
   </header>
   <article>

@@ -2,8 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
-  nav=$('body > header > nav')
-  nav.children("a").each ->
+  $('body > header > nav').children("a").each ->
     if $(this).next("ul").length > 0
       $(this).mouseenter ->
         $(this).next("ul").stop(true, true).slideDown()
@@ -13,6 +12,8 @@ $(document).ready ->
         $(this).stop(true, true).show()
       $(this).next('ul').mouseleave ->
         $(this).stop(true, true).slideUp()
+  $('aside').find('a.exit').click ->
+    $('#login').hide 'smooth' 
 @login = ->
   $('#login').show 'smooth'
   $('#username').focus()
