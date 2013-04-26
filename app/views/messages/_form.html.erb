@@ -60,11 +60,10 @@
   <div class="field">
     <fieldset>
       <legend><%= t(:attachments) %></legend>
-      <div style="border: 1px black solid;height: 40px;" id="dropbox">testo a caso</div>
-    <!-- TODO area per il drop di file -->
+      <%= render :partial => 'attachments/form',:locals => { :f => f } %>
     <% unless @message.attachments.nil? %>
       <%= f.fields_for :attachments do |builder| %>
-        <%= render :partial => 'attachments/form',:locals => { :f => builder } %>
+        <%= render :partial => 'attachments/destroy',:locals => { :f => builder } %>
       <% end %>
     <% end %>
     </fieldset>
