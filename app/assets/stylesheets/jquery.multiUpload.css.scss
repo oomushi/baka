@@ -1,0 +1,21 @@
+// Place all the styles related to the bbcodes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+div.mfu_container ul.mfu_list{
+  list-style: none inside;
+  margin-left: -1em;
+  margin-right: 1em;
+  li.mfu_element{
+    padding:1px;
+    background-color: rgba(255,255,0,0.6);
+    &:hover{
+      background-color: #ff0;
+      border: 1px dashed #000;
+    }
+  }
+  img{
+    float:right;
+    margin: 3px;
+    cursor:pointer;
+  }
+}
