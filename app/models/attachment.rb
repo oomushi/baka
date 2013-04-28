@@ -6,6 +6,7 @@ class Attachment < ActiveRecord::Base
   
   def uploaded_data= image
     self.file = image.read
-    self.content_type = image.content_type.chomp 
+    self.content_type = image.content_type.chomp
+    self.name = image.original_filename.chomp
   end
 end
