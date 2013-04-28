@@ -60,10 +60,10 @@
   <div class="field">
     <fieldset>
       <legend><%= t(:attachments) %></legend>
-      <%= render :partial => 'attachments/form',:locals => { :f => f } %>
+      <%= new_attachment t(:add_attachments),f,:attachments,{ :class=> "multiUpload" } %>
     <% unless @message.attachments.nil? %>
       <%= f.fields_for :attachments do |builder| %>
-        <%= render :partial => 'attachments/destroy',:locals => { :f => builder } %>
+        <%= render :partial => 'attachments/form',:locals => { :f => builder } %>
       <% end %>
     <% end %>
     </fieldset>
