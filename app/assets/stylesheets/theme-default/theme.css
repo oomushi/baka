@@ -79,6 +79,9 @@ a.logout{
 a.page{
   background: url('/assets/theme-default/page.png') left center no-repeat;
 }
+a.attachment{
+  background: url('/assets/theme-default/attachment.png') left center no-repeat;
+}
 a.add{
   background: url('/assets/theme-default/new.png') left center no-repeat;
 }
