@@ -22,13 +22,20 @@
     <section class="sign">
       <%= bb message.user.sign unless message.user.sign.nil? %>
     </section>
+    <% if message.attachments.count > 0 %>
+    <section class="attachments">
+      <% message.attachments.each do |attachment| %>
+      <%= link_to "&thinsp;".html_safe, attachment, :title=>attachment.name, :class=>"attachment button"  if @current_user.can_view? attachment %>
+      <% end %>
+    </section>
+    <% end %>
   </section>
   <aside class="user">
     <%= render :partial=>'users/badge', :locals=>{:user=>message.user} %>
   </aside>
   <nav>
     <a href="#top" title="top" class="top">&thinsp;</a>
-    <% message.childs(@current_user).each_with_index do |son,i| %>
+    <% message.childs(@current_user).each do |son| %>
       <%= link_to "&thinsp;".html_safe, son, :title=> son.user.username+" "+son.created_at.to_formatted_s(:long),:class=>"page" if !@messages.include? son and @current_user.can_view? son %>
     <% end %>
   </nav>
