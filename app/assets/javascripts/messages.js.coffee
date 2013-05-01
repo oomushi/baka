@@ -29,7 +29,7 @@ $(document).ready ->
     true
   $(".emoticons").emoticonize()
   $(".unanimemo").emoticonize animate: false
-  $.each $('section.main article'), ->
+  $.each $('body section article'), ->
     $(this).mousemove((e) ->
       e = e or window.event
       if $(this).height() + $(this).position().top - 20 < e.pageY
