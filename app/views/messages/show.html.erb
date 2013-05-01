@@ -23,11 +23,11 @@
       <%= bb message.user.sign unless message.user.sign.nil? %>
     </section>
     <% if message.attachments.count > 0 %>
-    <section class="attachments">
+    <aside class="attachments">
       <% message.attachments.each do |attachment| %>
       <%= link_to "&thinsp;".html_safe, attachment, :title=>attachment.name, :class=>"attachment button"  if @current_user.can_view? attachment %>
       <% end %>
-    </section>
+    </aside>
     <% end %>
   </section>
   <aside class="user">
