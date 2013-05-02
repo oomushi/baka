@@ -23,16 +23,16 @@
       <%= bb message.user.sign unless message.user.sign.nil? %>
     </section>
     <% if message.attachments.count > 0 %>
-    <aside class="attachments">
-      <% message.attachments.each do |attachment| %>
-      <%= link_to "&thinsp;".html_safe, attachment, :title=>attachment.name, :class=>"attachment button"  if @current_user.can_view? attachment %>
-      <% end %>
-    </aside>
     <% end %>
   </section>
   <aside class="user">
     <%= render :partial=>'users/badge', :locals=>{:user=>message.user} %>
   </aside>
+  <aside class="attachments">
+      <% message.attachments.each do |attachment| %>
+      <%= link_to "&thinsp;".html_safe, attachment, :title=>attachment.name, :class=>"attachment button"  if @current_user.can_view? attachment %>
+      <% end %>
+    </aside>
   <nav>
     <a href="#top" title="top" class="top">&thinsp;</a>
     <% message.childs(@current_user).each do |son| %>

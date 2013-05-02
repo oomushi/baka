@@ -307,8 +307,8 @@ article nav{
   display: none;
 }
 aside.attachments{
-  position:absolute;
+  position:relative;
   clear: both;
-  bottom: 2em;
-  right: 0px;
+  bottom: 1em;
+  float: right;
 }
