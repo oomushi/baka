@@ -2,7 +2,7 @@ img{
   border:0px;
 }
 html, body{
-  height: 97%;
+  height: 95%;
 }
 body{
   text-align:center;
@@ -30,7 +30,7 @@ body > section{
   margin: 0px 8% 0px 8%;
   margin-top:2.4em;
   top:1.1em;
-  min-height: 93%;
+  min-height: 95%;
   display:block;
   width: 84%;
 }
