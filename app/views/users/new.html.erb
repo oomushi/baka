@@ -15,8 +15,8 @@
       <%= f.text_field :username %>
     </p>
     <p>
-      <%= f.label :email %><br />
       <%= f.fields_for :contacts do |builder| %>
+	<%= builder.label :value, t(:email) %><br />
         <%= builder.text_field :value %>
         <%= builder.hidden_field :protocol %>
       <% end %>
