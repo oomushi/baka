@@ -29,6 +29,6 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
     </p>
-    <%= raw recaptcha_tag(:challenge) %>
+    <%= raw recaptcha_tag(:challenge, display: {theme: 'clean'}) %>
     <p class="button"><%= f.submit %></p>
   <% end %>
