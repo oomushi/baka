@@ -36,7 +36,7 @@ Baka::Application.configure do
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :domain               => "baka.macrobug.uchi",
-  :user_name            => "oomushi@gmail.com",
+  :user_name            => "baka.macrobug@gmail.com",
   :password             => Digest::SHA512.base64digest("BakaSuperSecret:#{ENV['salt']}"),
   :authentication       => "plain",
   :enable_starttls_auto => true
