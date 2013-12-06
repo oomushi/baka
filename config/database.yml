@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: baka_development
   pool: 5
-  username: postgresql
+  username: postgres
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: baka_test
   pool: 5
-  username: postgresql
+  username: postgres
   password:
 
 production:
