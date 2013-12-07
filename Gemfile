@@ -24,7 +24,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
-gem 'jquery-rails'
+gem 'jquery-rails', "< 3.0.0"
 
 # To use ActiveModel has_secure_password
 gem "bcrypt-ruby", :require => "bcrypt"
