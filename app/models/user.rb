@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
   end
   protected
   def confirm_email
-    return if self.confirm_code.nil?
+    return if self.confirm_code.nil? or not self.email.eql? ''
     salt=BCrypt::Engine.generate_salt
     self.confirm_code=BCrypt::Engine.hash_secret("#{self.id} #{self.username} #{self.email} #{self.password_hash} #{self.password_salt} #{self.created_at.to_s} #{rand(29**29)}", salt)
     self.save
