@@ -21,7 +21,8 @@ c=Group.create({
   :name=>"public",
   :level=>64
 })
-admin = User.new(:username=>'admin', :birthday=>Date.new(1982,12,29), :password=>'sunset', :confirm_code=>nil)
+admin = User.new(:username=>'admin', :birthday=>Date.new(1982,12,29), :password=>'sunset')
+admin.confirm_code=nil
 admin.contacts<<Contact.create(:value=>'admin@baka.com', :protocol=>'email')
 admin.groups<<a
 admin.save
