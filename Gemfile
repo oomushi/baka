@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+ruby "2.0.0"
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -27,7 +27,7 @@ end
 gem 'jquery-rails', "< 3.0.0"
 
 # To use ActiveModel has_secure_password
-gem "bcrypt-ruby", :require => "bcrypt"
+gem "bcrypt"
 
 # Use unicorn as the web server
 # gem 'unicorn'
