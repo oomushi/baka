@@ -31,7 +31,7 @@ avatar.url='/assets/admin.png'
 avatar.save
 guest=User.new(:username=>"guest",:password=>"sunset",:guest=>true)
 guest.contacts<<Contact.create(:value=>'guest@baka.com', :protocol=>'email')
-guest.groups<<c
+guest.groups=[c]
 guest.save
 root = Message.create({
   :text => "Hidden text",
