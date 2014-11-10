@@ -46,6 +46,9 @@ class User < ActiveRecord::Base
     end
     value
   end
+  def posts
+    messages.where("section = ?", false)
+  end
   
   def self.find_guest
     User.where("guest = ?",true)
