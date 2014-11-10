@@ -63,7 +63,7 @@ class Message < ActiveRecord::Base
     Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=false and groups.level>=?",nv,dv,nv,dv,user.max_group.level).order("created_at")
   end
   def offsprings user
-    Message.joins(:reader).where("1.0*nv/dv between 1.0*?/? and 1.0*?/? and section=false and groups.level>=?",nv,dv,snv,sdv,user.max_group.level).order("created_at")
+    Message.joins(:reader).where("1.0*nv/dv>=1.0*?/? and 1.0*nv/dv<1.0*?/? and section=false and groups.level>=?",nv,dv,snv,sdv,user.max_group.level).order("created_at")
   end
   def paths user
     Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=true and groups.level>=?",nv,dv,nv,dv,user.max_group.level).order("created_at")
