@@ -53,7 +53,6 @@ root.save
 
 # encoding: utf-8
 Bbcode.create([
-  { :label => "spoiler", :created_at => "2012-09-16 11:29:00", :updated_at => "2013-03-02 11:58:15", :output => "[spoiler]?[/spoiler]", :tag => "spoiler", :text => "<span class=\"spoiler\">\#{content}</span>", :singular => false, :match => ".+" },
   { :label => "B)", :created_at => "2012-09-16 11:51:00", :updated_at => "2013-03-02 11:58:15", :output => "B)", :tag => "", :text => "", :singular => true, :match => ".+" },
   { :label => ":(", :created_at => "2012-09-17 16:36:42", :updated_at => "2013-03-02 11:58:15", :output => ":(", :tag => "", :text => "", :singular => true, :match => ".+" },
   { :label => ":/", :created_at => "2012-09-17 16:37:34", :updated_at => "2013-03-02 11:58:15", :output => ":/", :tag => "", :text => "", :singular => true, :match => ".+" },
@@ -68,5 +67,6 @@ Bbcode.create([
   { :label => ":O", :created_at => "2012-09-17 16:37:59", :updated_at => "2013-03-02 11:58:15", :output => ":O", :tag => "", :text => "", :singular => true, :match => ".+" },
   { :label => ":D", :created_at => "2012-09-17 16:37:09", :updated_at => "2013-03-02 11:58:15", :output => ":D", :tag => "", :text => "", :singular => true, :match => ".+" },
   { :label => ":P", :created_at => "2012-09-17 16:34:24", :updated_at => "2013-03-02 11:58:15", :output => ":P", :tag => "", :text => "", :singular => true, :match => ".+" },
+  { :label => "spoiler", :created_at => "2012-09-16 11:29:00", :updated_at => "2013-03-02 11:58:15", :output => "[spoiler]?[/spoiler]", :tag => "spoiler", :text => "<span class=\"spoiler\">\#{content}</span>", :singular => false, :match => ".+" },
   { :label => "quote", :created_at => "2012-09-17 16:39:49", :updated_at => "2013-03-02 11:58:15", :output => "[quote='?']?[/quote]", :tag => "quote", :text => "<fieldset class=\"quote\"><legend>\#{meta}</legend><blockquote>\#{content}</blockquote></fieldset>", :singular => false, :match => ".+" }
 ], :without_protection => true )
