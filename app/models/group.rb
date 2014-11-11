@@ -28,7 +28,7 @@ class Group < ActiveRecord::Base
   end
   
   def childs?
-    users.count.zero?
+    ! users.count.zero?
   end
   def admin?
     level==1
