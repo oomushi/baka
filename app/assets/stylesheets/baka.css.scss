@@ -210,10 +210,13 @@ cite {
   font-style: italic;
 }
 
-div.field > table {
-  display: inline-block;
-  width: auto;
-  border-spacing: 2px;
+div.field{
+  clear: both;
+  > table {
+    display: inline-block;
+    width: auto;
+    border-spacing: 2px;
+  }
 }
 
 form > fieldset {
@@ -369,4 +372,8 @@ aside.attachments {
   clear: both;
   bottom: 1em;
   float: right;
+}
+
+textarea{
+  width: 90%;
 }
