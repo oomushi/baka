@@ -3,7 +3,7 @@
 <% @messages.each do |message| %>
 <article>
   <header>
-    <a id="<%= message.id%>"/><%= link_to message.title, message %><%= l message.created_at, :format=>:long %>
+    <a name="<%= message.id%>">&nbsp;</a><%= link_to message.title, message %><%= l message.created_at, :format=>:long %>
   </header>
   <aside class="like" title="<%= message.total_likes %>"><%= num_reduce message.total_likes %></aside>
   <% unless @current_user.guest? %>
