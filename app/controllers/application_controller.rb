@@ -39,6 +39,11 @@ class ApplicationController < ActionController::Base
     end
     User.current=@current_user
   end
+  def avoid_login
+    unless @current_user.guest?
+      redirect_to root_url
+    end
+  end
   def require_login
     if @current_user.guest?
       flash[:error] = t(:require_login) 
