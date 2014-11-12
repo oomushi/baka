@@ -1,4 +1,6 @@
 class BbcodesController < ApplicationController
+  before_filter :require_login
+  
   # GET /bbcodes
   # GET /bbcodes.json
   def index

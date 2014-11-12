@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
-  before_filter :require_login
-  skip_before_filter :require_login, :only => [:show,:index,:search]
+  before_filter :require_login, :except => [:show,:index,:search]
 
   # GET /messages
   # GET /messages.json
