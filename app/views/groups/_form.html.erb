@@ -16,10 +16,6 @@
     <%= f.text_field :name %>
   </div>
   <div class="field2">
-    <%= f.label :level %><br />
-    <%= f.number_field :level %>
-  </div>
-  <div class="field2">
     <%= f.label :users %><br />
     <%= search_field_tag 'users' %>
   <fieldset id="habtm">
@@ -28,6 +24,10 @@
     <%= user.username %><br/>
   <% end %>
   </fieldset>
+  </div>
+  <div class="field2">
+    <%= f.label :level %><br />
+    <%= f.number_field :level %>
   </div>
   <div class="clear"></div>
   <div class="actions">
