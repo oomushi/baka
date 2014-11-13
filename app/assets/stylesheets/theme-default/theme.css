@@ -183,10 +183,11 @@ article nav{
 }
 .poll caption{
   background-color: rgba(153,50,255,0.61);
-  border-bottom: 1px dashed #BB8653;
+  border-radius: 20px 0 0 0;
+  color: #FFFF32;
 }
 .poll tfoot{
-  border-top: 1px dashed #BB8653;
+  border-top: 1px solid #BB8653;
 }
 .sign{
   font-style: italic;
