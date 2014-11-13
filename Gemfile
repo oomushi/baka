@@ -41,5 +41,5 @@ gem 'kaminari'                                      # https://github.com/amatsud
 gem 'rack-recaptcha', :require => 'rack/recaptcha'  # https://github.com/achiu/rack-recaptcha
 gem 'deferred_associations'                         # http://github.com/MartinKoerner/deferred_associations
 gem 'ransack'                                       # https://github.com/ernie/ransack
-gem 'bbcoder'                                       # https://github.com/asceth/bbcoder
+gem 'gemoji'                                        # https://github.com/github/gemoji
 gem 'sanitize'                                      # https://github.com/rgrove/sanitize
