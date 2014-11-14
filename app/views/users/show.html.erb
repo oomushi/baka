@@ -1,7 +1,7 @@
 <article>
 <p>
   <b><%= @user.username %></b><br/>
-  <img src="<%= @user.avatar %>"/>
+  <img src="<%= url_for @user.avatar %>" alt="<%= @user.username  %>"/>
 </p>
 
 <p>

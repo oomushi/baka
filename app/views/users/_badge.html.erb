@@ -1,5 +1,5 @@
 <h5><%= link_to user.username, user %></h5>
-<img src="<%= user.avatar %>" alt="<%= user.username  %>"/>
+<img src="<%= url_for user.avatar %>" alt="<%= user.username  %>"/>
 <% unless user.location.nil? %><span><%= t(:location) %>: <%= user.location %></span><% end %>
 <span><%= t(:signup_date)%>: <%= l user.created_at, :format=>:short %></span>
 <% unless user.birthday.nil? %><span><%= t(:birthday) %>: <%= user.birthday %></span><% end %>
