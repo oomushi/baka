@@ -1,14 +1,14 @@
   <h1><%= t(:signup) %></h1>
   <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t(:header_error_signup) %></h2>
+    <details open="open">
+      <summary><%= t(:header_error_signup) %></summary>
       <ul>
         <% for message in @user.errors.full_messages %>
         <li><%= message %></li>
         <% end %>
       </ul>
-    </div>
+    </details>
     <% end %>
     <div class="field2">
       <%= f.label :username %><br />
