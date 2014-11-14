@@ -54,6 +54,9 @@ GEM
     erubis (2.7.0)
     execjs (2.2.1)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     journey (1.0.4)
     jquery-rails (2.3.0)
@@ -73,6 +76,7 @@ GEM
       subexec (~> 0.2.1)
     mini_portile (0.6.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     nokogumbo (1.1.12)
@@ -157,6 +161,7 @@ DEPENDENCIES
   canable
   coffee-rails (~> 3.2.1)
   deferred_associations
+  httparty
   jquery-rails (< 3.0.0)
   json
   kaminari

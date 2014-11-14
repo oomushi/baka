@@ -36,7 +36,8 @@ gem "bcrypt"
 # gem 'capistrano'
  
 gem 'canable'                                       # https://github.com/jnunemaker/canable
-gem "mini_magick"                                   # https://github.com/probablycorey/mini_magick
+gem 'mini_magick'                                   # https://github.com/probablycorey/mini_magick
+gem 'httparty'                                      # https://github.com/jnunemaker/httparty
 gem 'kaminari'                                      # https://github.com/amatsuda/kaminari
 gem 'rack-recaptcha', :require => 'rack/recaptcha'  # https://github.com/achiu/rack-recaptcha
 gem 'deferred_associations'                         # http://github.com/MartinKoerner/deferred_associations

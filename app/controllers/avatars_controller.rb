@@ -5,7 +5,8 @@ class AvatarsController < ApplicationController
   # GET /avatars/1.json
   def show
     @avatar = Avatar.find(params[:id])
-    send_data(@avatar.file,
+    file = @avatar.url? ? HTTParty.get(@avatar.url).body : @avatar.file
+    send_data(file,
               :type  => @avatar.content_type,
               :disposition => 'inline')
   end
