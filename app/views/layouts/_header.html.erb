@@ -9,7 +9,6 @@
   <nav>
   <% unless @current_user.guest? %>
     <%= link_to t(:groups), groups_path,:class=>"button group",:title=>t(:groups) if @current_user.can_index? Group %>
-    <%= link_to t(:bbcodes), bbcodes_path,:class=>"button bbcode",:title=>t(:bbcodes) if @current_user.can_index? Bbcode %>
     <div class="drop-menu">
       <span class="plus">+</span>
       <%= link_to @current_user.username,@current_user,:class=>"button user",:title=>t(:users).downcase %>

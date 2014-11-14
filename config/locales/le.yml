@@ -206,9 +206,6 @@ le:
   avatar: '4\/474r'
   back: 'B4c|<'
   baka: 'バカ'
-  bbcodes: 'bbc0d32'
-  bbcode_example_in: '1ps|_||\/| d0|_0r s17 4|\/|37'
-  bbcode_example_out: '|_0r3|\/|'
   birthday: "B1r7#d4'/"
   click_me: 'c|_1c|< 2 X73|\|d'
   click2enable: 'c|_1c|< 0|\| |_4b3|_ 2 3|\|4b|_3'
@@ -228,11 +225,9 @@ le:
   image_height: '#316#7 2 #16#'
   image_type: "1|\\|\\/4|_1d 1|\\/|463 7'/p3"
   image_width: '\/\/1d7# 2 #16#'
-  header_edit_bbcode: "3d171|\\|' bbc0d3"
   header_edit_message: "3d171|\\|' |\\/|3ss463"
   header_edit_user: "3d171|\\|' |_|s3r"
   header_error_avatar: '4\/474r c4|\| |\|07 b s4\/3d'
-  header_error_bbcode: 'bbc0d3 c4|\| |\|07 b s4\/3d'
   header_error_group: '6r0|_|p c4|\| |\|07 b s4\/3d'
   header_error_message: '|\/|3ss463 c4|\| |\|07 b s4\/3d'
   header_error_user: '|_|s3r c4|\| |\|07 b s4\/3d'
@@ -249,7 +244,6 @@ le:
   label: '|_4b3|_'
   last_message: '|_4s7 |\/|3ss463'
   level: '|_3\/3|_'
-  listing_bbcode: "|_1s71|\\|' bbc0d32"
   listing_group: "|_1s71|\\|' 6r0|_|p2"
   listing_user: "|_1s71|\\|' |_|s3r2"
   location: '|_0c4710|\|'
@@ -264,7 +258,6 @@ le:
   object_not_found: '0bj3c7 |\|07 |=0|_||\|d'
   ok_answers: "4|\\|s\\/\\/3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_avatar: "4\\/474r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
-  ok_bbcode: "Bbc0d3 \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   ok_group_edit: "6r0|_|p \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_group_new: "6r0|_|p \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   ok_like_edit: "\\/\\/|_|b \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
@@ -308,14 +301,6 @@ le:
       avatar:
         uploaded_data: '|_0c4|_ |=1|_3'
         url: '|_|R|_'
-      bbcode:
-        inner: '1|\||\|3r'
-        output: 'BBC0d3'
-        label: 'B|_|770|\|'
-        layout: "|_4'/0|_|7"
-        properties: 'Pr0p3r7132'
-        tag: '|\|4|\/|3'
-        value: 'P4r4|\/|373r'
       group:
         level: '|_3\/3|_'
         name: '|\|4|\/|3'
@@ -345,9 +330,6 @@ le:
       avatar:
         create: 'Cr3473 4\/474r'
         update: '|_|pd473 4\/474r'
-      bbcode:
-        create: 'Cr3473 bbc0d3'
-        update: '|_|pd473 bbc0d3'
       group:
         create: 'Cr3473 6r0|_|p'
         update: '|_|pd473 6r0|_|p'

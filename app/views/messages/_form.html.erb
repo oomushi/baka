@@ -49,6 +49,7 @@
     <%= f.hidden_field :writer_id %>
   <% end %>
   <% Bbcode.all.each do |b| %>
+    <%= link_to t(:bbcodes), bbcodes_path,:class=>"button bbcode",:title=>t(:bbcodes) if @current_user.can_index? Bbcode %>
     <%= link_to b.label.html_safe,'javascript:void(0)',data: {:tag=>b.output},:class=>"unanimemo" %>
   <% end %>
 </div>
