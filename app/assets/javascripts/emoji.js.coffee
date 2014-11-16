@@ -8,4 +8,20 @@ $(document).ready ->
       $("#message_text").val text.substring(0, i) + mid + text.substring(e, text.length)
       true
     true
+  $("html").click ->
+    $('.hiddenAside').hide()
+    true
+  $(".emoji.button").click (e) ->
+    coord = $(this).offset()
+    $('#emoji').show()
+    posy = coord.top + 16
+    posx = coord.left + 16
+    $("#emoji").animate
+      top: posy
+      left: posx
+    e.stopPropagation()
+    true
+  $(".hiddenAside").click (e) ->
+    e.stopPropagation()
+    false
   true
