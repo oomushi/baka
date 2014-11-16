@@ -1,20 +1,20 @@
 <% total=poll.options_count %>
-<table class="poll emoticons">
-  <caption><%= poll.title %></caption>
+<table class="poll">
+  <caption><%= emojify poll.title %></caption>
   <tbody>
   <% poll.answers.each do |ans| %>
     <tr>
     <% if current_user.guest? %>
       <td></td>
-      <td><%= ans.text %></td>
+      <td><%= emojify ans.text %></td>
       <td></td>
     <% elsif poll.voted? current_user %>
-      <td><%= ans.text %></td>
+      <td><%= emojify ans.text %></td>
       <td><%= (100.0*ans.users.count/total).round.to_s+'%' %></td>
       <td><%= ans.users.count %></td>
     <% else %>
       <td></td>
-      <td><%= link_to ans.text, vote_answer_path(ans),:method=>:put if current_user.can_vote? ans %></td>
+      <td><%= link_to emojify(ans.text), vote_answer_path(ans),:method=>:put if current_user.can_vote? ans %></td>
       <td></td>
     <% end %>
     </tr>
