@@ -22,7 +22,7 @@ section.main,aside.like{
   background: rgba(0, 0, 0, 0.6);
   border: 1px #0f0 dashed;
 }
-aside.login,article header,aside.like,section.main article { 
+aside.login, aside.hiddenAside,article header,aside.like,section.main article { 
   border-radius: 0px;
 }
 section.main article{
@@ -50,7 +50,7 @@ footer.main{
 footer.main a{
   color: inherit;
 }
-aside.login{
+aside.login, aside.hiddenAside{
   background:#000;
   border: 1px dashed #0F0; 
 }

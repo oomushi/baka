@@ -30,7 +30,7 @@ body > footer{
 body > footer a{
   color: inherit;
 }
-aside.login{
+aside.login, aside.hiddenAside{
   background:#E2062C;
 }
 a.button{

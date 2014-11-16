@@ -58,18 +58,28 @@ body > footer {
   margin-top: 1em;
 }
 
-aside.login {
-  text-align: center;
-  float: right;
-  position: fixed;
-  margin: 0px;
-  padding: 3px;
-  box-shadow: -2px 2px 2px black;
-  opacity: .8;
-  border-radius: 10px;
-  right: 1%;
-  top: 3em;
-  z-index: 3;
+aside{
+  &.login {
+    text-align: center;
+    float: right;
+    position: fixed;
+    margin: 0px;
+    padding: 3px;
+    box-shadow: -2px 2px 2px black;
+    opacity: .8;
+    border-radius: 10px;
+    right: 1%;
+    top: 3em;
+    z-index: 3;
+  }
+  &.hiddenAside{
+    z-index: 3;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 3px;
+    box-shadow: -2px 2px 2px black;
+    opacity: .8;
+  }
 }
 
 a {
@@ -376,9 +386,10 @@ aside{
   }
   &#emoji{
     display: none;
-    position: fixed;
+    position: absolute;
     top:0px;
     left:0px;
+    max-width: 50%;
   }
 }
 
