@@ -77,7 +77,7 @@ a.group{
   background: #000 url('/assets/theme-l33t/group.png') left center no-repeat;
 }
 a.emoji{
-  background: #000 url('/assets/theme-l33t/smile.png') left center no-repeat;
+  background: url('/assets/theme-l33t/smile.png') left center no-repeat;
 }
 a.email{
   background: url('/assets/theme-l33t/email.png') left center no-repeat;

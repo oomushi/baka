@@ -367,11 +367,19 @@ article {
   display: none;
 }
 
-aside.attachments {
-  position: absolute;
-  clear: both;
-  bottom: 2em;
-  right: 1em;
+aside{
+  .attachments {
+    position: absolute;
+    clear: both;
+    bottom: 2em;
+    right: 1em;
+  }
+  &#emoji{
+    display: none;
+    position: fixed;
+    top:0px;
+    left:0px;
+  }
 }
 
 textarea{

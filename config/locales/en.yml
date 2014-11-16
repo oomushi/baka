@@ -220,6 +220,7 @@ en:
   duplicate_like:  'like already posted'
   edit: 'Edit'
   email: 'Email'
+  emoji: 'Emoji'
   footer_html: '%{baka} by %{oomushi}'
   groups: 'groups'
   image_height: 'height to high'

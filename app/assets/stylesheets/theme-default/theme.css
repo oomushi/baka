@@ -56,7 +56,7 @@ a.group{
   background: #000 url('/assets/theme-default/group.png') left center no-repeat;
 }
 a.emoji{
-  background: #000 url('/assets/theme-default/smile.png') left center no-repeat;
+  background: url('/assets/theme-default/smile.png') left center no-repeat;
 }
 a.email{
   background: url('/assets/theme-default/email.png') left center no-repeat;

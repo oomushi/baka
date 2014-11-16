@@ -220,6 +220,7 @@ it:
   duplicate_like:  'apprezzamento già segnalato'
   edit: 'Modifica'
   email: 'Email'
+  emoji: 'Faccine'
   footer_html: '%{baka} è un prodotto %{oomushi}'
   groups: 'gruppi'
   image_height: 'altezza troppo alta'
