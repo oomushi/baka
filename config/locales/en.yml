@@ -226,6 +226,7 @@ en:
   image_height: 'height to high'
   image_type: 'invalid image type'
   image_width: 'width to high'
+  header_edit_group: 'Editing group'
   header_edit_message: 'Editing message'
   header_edit_user: 'Editing user'
   header_error_avatar: 'avatar can not be saved'

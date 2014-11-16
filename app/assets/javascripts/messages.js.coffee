@@ -13,7 +13,7 @@ $(document).ready ->
     true
   f = ->
     return if $(this).data("unique") is true and $(this).hasClass "link_disabled"
-    h = $("#" + $(this).data("rif")).children().clone()
+    h = $($("#" + $(this).data("rif")).html().trim())
     new_id = new Date().getTime()
     regexp = new RegExp($(this).data("rif"), "g")
     $.each h.find("*"), ->

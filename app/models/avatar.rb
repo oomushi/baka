@@ -19,8 +19,8 @@ class Avatar < ActiveRecord::Base
     self.save
   end
 
-  def to_s
-    self.url=='' ? "/avatars/#{self.id}"  : self.url
+  def url?
+    self.url!=''
   end
    
   def uploaded_data= image
