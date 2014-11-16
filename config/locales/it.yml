@@ -229,6 +229,7 @@ it:
   image_type: 'tipo immagine non valido'
   image_width: 'larghezza troppo alta'
   header_edit_bbcode: 'Modifica il bbcode'
+  header_edit_group: 'Modifica gruppi'
   header_edit_message: 'Modifica il messaggio'
   header_edit_user: "Modifica l'utente"
   header_error_avatar: "l'avatar non può essere salvato"
