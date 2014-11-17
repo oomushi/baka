@@ -76,7 +76,7 @@
 </div>
 <div class="field">
   <%= f.label :text %><br />
-  <%= f.text_area :text, :cols => nil %>
+  <%= f.text_area :text, :cols => nil, :class => 'markItUp' %>
 </div>
   <%= f.hidden_field :message_id %>
   <%= f.hidden_field :user_id,:value=>@current_user.id %>
