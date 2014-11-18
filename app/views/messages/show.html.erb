@@ -17,10 +17,10 @@
   <% unless message.poll.nil? %>
     <%= render :partial=>'polls/show', :locals=>{:poll => message.poll, :current_user=>@current_user} %>
   <% end %>
-  <section class="emoticons">
-    <%= bb message.text %>
+  <section>
+    <%= emojify message.text %>
     <section class="sign">
-      <%= bb message.user.sign unless message.user.sign.nil? %>
+      <%= emojify message.user.sign unless message.user.sign.nil? %>
     </section>
     <% if message.attachments.count > 0 %>
     <% end %>

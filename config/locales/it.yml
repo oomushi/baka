@@ -206,9 +206,6 @@ it:
   avatar: 'Icona'
   back: 'Indietro'
   baka: 'baka'
-  bbcodes: 'bbcodes'
-  bbcode_example_in: 'ipsum dolor sit amet'
-  bbcode_example_out: 'Lorem'
   birthday: 'Compleanno'
   click_me: 'clicca per espandere'
   click2enable: 'clicca sulla etichetta per abilitare'
@@ -223,17 +220,16 @@ it:
   duplicate_like:  'apprezzamento già segnalato'
   edit: 'Modifica'
   email: 'Email'
+  emoji: 'Faccine'
   footer_html: '%{baka} è un prodotto %{oomushi}'
   groups: 'gruppi'
   image_height: 'altezza troppo alta'
   image_type: 'tipo immagine non valido'
   image_width: 'larghezza troppo alta'
-  header_edit_bbcode: 'Modifica il bbcode'
   header_edit_group: 'Modifica gruppi'
   header_edit_message: 'Modifica il messaggio'
   header_edit_user: "Modifica l'utente"
   header_error_avatar: "l'avatar non può essere salvato"
-  header_error_bbcode: 'il bbcode non può essere salvato'
   header_error_group: 'il gruppo non può essere salvato'
   header_error_message: 'il messaggio non può essere salvato'
   header_error_user: "l'utente non può essere salvato"
@@ -250,7 +246,6 @@ it:
   label: 'Etichetta'
   last_message: 'Ultimo messaggio'
   level: 'Livello'
-  listing_bbcode: 'Elenco bbcode'
   listing_group: 'Elenco gruppi'
   listing_user: 'Elenco utenti'
   location: 'Posizione'
@@ -265,7 +260,6 @@ it:
   object_not_found: 'Oggetto non trovato'
   ok_answers: 'Opzione correttamente aggiornata'
   ok_avatar: 'Avatar correttamente aggiornato'
-  ok_bbcode: 'Bbcode correttamente aggiornato'
   ok_group_edit: 'Groppo correttamente aggiornato'
   ok_group_new: 'Group creato correttamente'
   ok_like_edit: 'Apprezzamento correttamente aggiornato'
@@ -309,14 +303,6 @@ it:
       avatar:
         uploaded_data: 'File locale'
         url: 'Indirizzo internet'
-      bbcode:
-        inner: 'Interno'
-        output: 'Codice nel testo'
-        label: 'Tasto'
-        layout: 'Esterno'
-        properties: 'Proprietà'
-        tag: 'Nome'
-        value: 'Parametro'
       group:
         level: 'Livello'
         name: 'Nome'
@@ -346,9 +332,6 @@ it:
       avatar:
         create: 'Crea avatar'
         update: 'Aggiorna avatar'
-      bbcode:
-        create: 'Crea bbcode'
-        update: 'Aggiorna bbcode'
       group:
         create: 'Crea gruppo'
         update: 'Aggiorna gruppo'
