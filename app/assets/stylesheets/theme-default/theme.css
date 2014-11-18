@@ -55,8 +55,8 @@ a.user{
 a.group{
   background: #000 url('/assets/theme-default/group.png') left center no-repeat;
 }
-a.emoji{
-  background: url('/assets/theme-default/smile.png') left center no-repeat;
+.markItUp .markItUpButton16 a {
+  background-image:url(/assets/theme-default/smile.png);
 }
 a.email{
   background: url('/assets/theme-default/email.png') left center no-repeat;

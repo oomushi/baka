@@ -12,7 +12,7 @@ $(document).ready ->
   $("html").click ->
     $('.hiddenAside').hide()
     true
-  $(".emoji.button").click (e) ->
+  $(".emoji").click (e) ->
     coord = $(this).offset()
     $('#emoji').show()
     posy = coord.top + 16
