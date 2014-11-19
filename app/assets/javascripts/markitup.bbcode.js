@@ -38,6 +38,16 @@ mySettings = {
 		{name:'Clean', className:"clean", replaceWith:function(markitup) { return markitup.selection.replace(/\[(.*?)\]/g, ""); } },
 		{name:'Preview', className:"preview", call:'preview' },
 		{separator:'---------------' },
-    {name:'emoji', key:'E', className:"emoji"}
+                {name:'emoji', key:'E', className:"emoji", beforeInsert: function(e) {
+									       var coord, posx, posy;
+									       coord = $(".emoji").offset();
+									       $('#emoji').show();
+									       posy = coord.top + 16;
+									       posx = coord.left + 16;
+									       $("#emoji").animate({
+									               top: posy,
+									               left: posx
+									             });
+									       e.stopPropagation();}}
 	]
 };

@@ -12,16 +12,6 @@ $(document).ready ->
   $("html").click ->
     $('.hiddenAside').hide()
     true
-  $(".emoji").click (e) ->
-    coord = $(this).offset()
-    $('#emoji').show()
-    posy = coord.top + 16
-    posx = coord.left + 16
-    $("#emoji").animate
-      top: posy
-      left: posx
-    e.stopPropagation()
-    true
   $(".hiddenAside").click (e) ->
     e.stopPropagation()
     false
