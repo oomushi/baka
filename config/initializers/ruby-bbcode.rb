@@ -7,8 +7,8 @@ module RubyBBCode
       :example => 'super [spoiler]secret[/spoiler].'
     }
     @@tags[:quote] = {
-      :html_open => '<div class="quote">%author%<blockquote>',
-      :html_close => '</blockquote></div>',
+      :html_open => '<fieldset class="quote">%author%<blockquote>',
+      :html_close => '</blockquote></fieldset>',
       :description => 'Quote another person',
       :example => '[quote]BBCode is great[/quote]',
       :allow_tag_param => true,
