@@ -10,6 +10,7 @@
 // Feel free to add more tags
 // ----------------------------------------------------------------------------
 mySettings = {
+  nameSpace:'markitupDiv',
 	previewParserPath:	'', // path to your BBCode parser
 	markupSet: [
 	  {name:'Bold', key:'B', openWith:'[b]', closeWith:'[/b]'},
