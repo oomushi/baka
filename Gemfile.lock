@@ -119,6 +119,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    ruby-bbcode (1.0.0)
+      activesupport
     sanitize (3.0.2)
       crass (~> 0.2.0)
       nokogiri (>= 1.4.4)
@@ -170,6 +172,7 @@ DEPENDENCIES
   rack-recaptcha
   rails (= 3.2.11)
   ransack
+  ruby-bbcode
   sanitize
   sass-rails (~> 3.2.3)
   seed_dump

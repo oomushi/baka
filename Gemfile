@@ -43,4 +43,5 @@ gem 'rack-recaptcha', :require => 'rack/recaptcha'  # https://github.com/achiu/r
 gem 'deferred_associations'                         # http://github.com/MartinKoerner/deferred_associations
 gem 'ransack'                                       # https://github.com/ernie/ransack
 gem 'gemoji'                                        # https://github.com/github/gemoji
+gem 'ruby-bbcode'                                   # https://github.com/veger/ruby-bbcode
 gem 'sanitize'                                      # https://github.com/rgrove/sanitize

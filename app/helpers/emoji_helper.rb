@@ -6,7 +6,7 @@ module EmojiHelper
       else
         match
       end
-    end.html_safe if content.present?
+    end.bbcode_to_html.html_safe if content.present?
   end
   def emoji_range from, to
     ret=''
