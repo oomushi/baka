@@ -28,7 +28,6 @@ mySettings = {
 		]},
 		{separator:'---------------' },
 		{name:'Bulleted list', openWith:'[list]\n', closeWith:'\n[/list]'},
-		{name:'Numeric list', openWith:'[list=[![Starting number]!]]\n', closeWith:'\n[/list]'}, 
 		{name:'List item', openWith:'[*] '},
 		{separator:'---------------' },
 		{name:'Quotes', openWith:'[quote]', closeWith:'[/quote]', placeHolder: "quote"},
@@ -39,7 +38,7 @@ mySettings = {
 		{name:'Clean', className:"clean", replaceWith:function(markitup) { return markitup.selection.replace(/\[(.*?)\]/g, ""); } },
 		{name:'Preview', className:"preview", call:'preview' },
 		{separator:'---------------' },
-                {name:'emoji', key:'E', className:"emoji", beforeInsert: function(e) {
+    {name:'emoji', key:'E', className:"emoji", beforeInsert: function(e) {
 									       var coord, posx, posy;
 									       coord = $(".emoji").offset();
 									       $('#emoji').show();
