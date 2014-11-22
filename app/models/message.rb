@@ -98,7 +98,8 @@ class Message < ActiveRecord::Base
     end
   end
   def bbcode?
-    errors.add(:text, I18n.t(:invalid_bbcode)) unless RubyBBCode.validity_check self.text
+    check=RubyBBCode.validity_check self.text
+    errors.add(:text, check) unless check==true 
   end
   def set_nv_and_dv
     if dv.nil? or dv==0
