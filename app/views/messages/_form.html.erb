@@ -1,14 +1,13 @@
 <%= form_for(@message) do |f| %>
   <% if @message.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t(:header_error_message) %>:</h2>
-
+    <details open="open">
+      <summary><%= t(:header_error_message) %></summary>
       <ul>
-      <% @message.errors.full_messages.each do |msg| %>
+        <% @message.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
-    </div>
+    </details>
   <% end %>
 <div class="field2">
   <div class="field">
