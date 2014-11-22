@@ -14,6 +14,7 @@ class Message < ActiveRecord::Base
   before_create :set_nv_and_dv
   before_destroy :destroyable?
   after_create :alert_followers
+  validate :bbcode?
   
   def default_scope
     group=User.current.max_group
@@ -95,6 +96,9 @@ class Message < ActiveRecord::Base
       errors.add :base, I18n.t(:ko_message_undeletable)
       false
     end
+  end
+  def bbcode?
+    errors.add(:text, I18n.t(:invalid_bbcode)) unless RubyBBCode.validity_check self.text
   end
   def set_nv_and_dv
     if dv.nil? or dv==0
