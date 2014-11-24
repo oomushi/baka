@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include Rack::Recaptcha::Helpers
-  before_filter :require_login, :except => [:new, :create, :confirm, :complete, :show]
+  before_filter :require_login, :except => [:new, :create, :confirm, :complete, :show, :reset]
   before_filter :avoid_login, :only => [:new, :create]
 
   # GET /users
