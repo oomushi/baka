@@ -83,6 +83,17 @@ class User < ActiveRecord::Base
       false
     end
   end
+  
+  def reset_password
+    self.password=(0...32).map{(' '..'~').to_a[rand(95)]}.join
+    self.save
+    begin
+      UserMailer.reset_password(self).deliver
+    rescue
+      self.destroy
+    end
+  end
+  
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
