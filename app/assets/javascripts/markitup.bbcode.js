@@ -48,6 +48,6 @@ mySettings = {
 									               top: posy,
 									               left: posx
 									             });
-									       e.stopPropagation();}}
+									       }}
 	]
 };
