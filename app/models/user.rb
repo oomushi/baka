@@ -90,9 +90,11 @@ class User < ActiveRecord::Base
       self.password=(0...32).map{(' '..'~').to_a[rand(95)]}.join
       self.save
       UserMailer.reset_password(self).deliver
+      true
     rescue
       self.password=old
       self.save
+      false
     end
   end
   
