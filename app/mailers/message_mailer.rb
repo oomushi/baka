@@ -1,6 +1,5 @@
 class MessageMailer < ActionMailer::Base
-  default :from => "admin@baka.macrobug.uchi.invalid", 
-          :content_type =>  "text/html"
+  default :from => "baka@macrobug.dev.invalid"
   def new_message_alert message
     @message=message
     users=[]
