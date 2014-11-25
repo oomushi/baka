@@ -120,7 +120,7 @@ class UsersController < ApplicationController
   
   def reset
     @user = User.find_by_username(params[:username])
-    if @user.reset_password
+    if !@user.nil? && @user.reset_password
       redirect_to @user,:notice => t(:ok_reset_password)
     else
       redirect_to root_url, :alert => t(:ko_reset_password)
