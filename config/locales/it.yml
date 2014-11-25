@@ -222,6 +222,8 @@ it:
   email: 'Email'
   emoji: 'Faccine'
   footer_html: '%{baka} è un prodotto %{oomushi}'
+  forgotten_password: 'parola segreta dimenticata'
+  forgotten_password_long: 'la tua nuova parola segreta è riportata qui sotto'
   groups: 'gruppi'
   image_height: 'altezza troppo alta'
   image_type: 'tipo immagine non valido'
@@ -236,6 +238,7 @@ it:
   header_error_signup: "l'utente non può essere creato"
   karma: 'Reputazione'
   ko_captcha: 'il captcha non corrisponde'
+  ko_forgotten_password: 'parola segreta non reimpostata'
   ko_group_not_empty: 'non è possibile cancellare un gruppo con degli utenti associati'
   ko_like_type: "l'apprezzaemento può essere solo un numero"
   ko_like_value:  'il valore può essere solo tra -1 e 1'
@@ -260,6 +263,7 @@ it:
   object_not_found: 'Oggetto non trovato'
   ok_answers: 'Opzione correttamente aggiornata'
   ok_avatar: 'Avatar correttamente aggiornato'
+  ok_forgotten_password: 'Parola segreta inviata'
   ok_group_edit: 'Groppo correttamente aggiornato'
   ok_group_new: 'Group creato correttamente'
   ok_like_edit: 'Apprezzamento correttamente aggiornato'
