@@ -222,6 +222,8 @@ le:
   email: '3|\/|41|_'
   emoji: '絵文字'
   footer_html: "%{baka} b'/ %{oomushi}"
+  forgotten_password: "forg0773N P@55\/\/0r|)"
+  forgotten_password_long: "Y0|_|R N3\/\/ p/-\$5\/\/0r|) i$"
   groups: '6r0|_|p2'
   image_height: '#316#7 2 #16#'
   image_type: "1|\\|\\/4|_1d 1|\\/|463 7'/p3"
@@ -236,6 +238,7 @@ le:
   header_error_signup: '|_|s3r c4|\| |\|07 b cr3473d'
   karma: '|<4r|\/|4'
   ko_captcha: 'c4p7c#4 d032 |\|07 |\/|47c#'
+  ko_forgotten_password: 'canN07 s3nc| Y0uR p@55\/\/0rc|'
   ko_group_not_empty: 'c4|\||\|07 d3|_373 6r0|_|p \/\/17# |_|s3r2'
   ko_like_type: "\\/\\/|_|b \\/4|_|_|3 c4|\\| 0|\\||_'/ b \\/\\/#0|_3 |\\||_||\\/|b3r"
   ko_like_value:  "c4|\\| 0|\\||_'/ b b37\\/\\/33|\\| -1 |\\| 1"
@@ -260,6 +263,7 @@ le:
   object_not_found: '0bj3c7 |\|07 |=0|_||\|d'
   ok_answers: "4|\\|s\\/\\/3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_avatar: "4\\/474r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
+  ok_forgotten_password: 'P@55\/\/0rc| $3N7'
   ok_group_edit: "6r0|_|p \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
   ok_group_new: "6r0|_|p \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ cr3473d"
   ok_like_edit: "\\/\\/|_|b \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
