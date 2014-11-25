@@ -84,12 +84,12 @@ class User < ActiveRecord::Base
     end
   end
   
-  def reset_password
+  def forgotten_password
     old=self.password
     begin
       self.password=(0...32).map{(' '..'~').to_a[rand(95)]}.join
       self.save
-      UserMailer.reset_password(self).deliver
+      UserMailer.forgotten_password(self).deliver
       true
     rescue
       self.password=old

@@ -24,7 +24,7 @@ $(document).ready ->
     $('#login').show 'smooth'
     $('#username').focus()
     true
-  $('#reset_password').click ->
+  $('#forgotten_password').click ->
     $(this).parents("form").attr "action", $(this).data("url")
     $(this).parents("form").submit()
     true
