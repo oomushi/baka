@@ -3,15 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
   $(".markItUp").markItUp(mySettings)
-  $.each $("[data-tag]"), (index, value) ->
-    $(value).click ->
-      i = $("#message_text")[0].selectionStart
-      e = $("#message_text")[0].selectionEnd
-      text = $("#message_text").val()
-      mid = $(this).data("tag").replace(/^(.+)\?(.+?)$/, '$1'+text.substring(i, e)+'$2')
-      $("#message_text").val text.substring(0, i) + mid + text.substring(e, text.length)
-      true
-    true
   f = ->
     return if $(this).data("unique") is true and $(this).hasClass "link_disabled"
     h = $($("#" + $(this).data("rif")).html().trim())
