@@ -14,14 +14,14 @@
 
 <% @messages.each do |message| %>
     <tr class="link <%= message.pinned ? 'pinned' : '' %>" data-url="<%= message_path(message) %>">
-    <td class="button clickable <%= message.section ? 'tree' : 'leaf' %>"><h2><%= message.title %></h2><%= message.section ? message.text : '' %></td>
+    <td class="button clickable <%= message.section ? 'tree' : 'leaf' %>"><h2><%= emojify message.title %></h2><%= message.section ? message.text : '' %></td>
     <td>
 	<% if message.section %>
         <% if message.offsprings(@current_user).count.zero? %>
         <%= t(:no_messages)%>
        <% else  
        last=message.offsprings(@current_user).last %>
-       <%= link_to (last.title+"<br/>"+last.created_at.to_formatted_s(:long)).html_safe, last %><br/>
+       <%= link_to (emojify(last.title)+"<br/>"+last.created_at.to_formatted_s(:long)).html_safe, last %><br/>
        <%= link_to last.user.username,last.user %><br/>
         <% end %><% end %>
     </td>
