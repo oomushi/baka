@@ -32,17 +32,16 @@ $(document).ready ->
     $(this).mousemove((e) ->
       e = e or window.event
       if $(this).height() + $(this).position().top - 20 < e.pageY
-        $(this).find("nav").show "slide",
-          direction: "down"
+        $(this).find("nav:hidden").show()
       else
-        $(this).find("nav").hide "slide",
+        $(this).find("nav:visible").hide "slide",
           direction: "down"
-      true
+      return
     ).mouseleave (e) ->
       $(this).find("nav").hide "slide",
         direction: "down"
-      true
-    true
+      return
+    return
   $("nav > .full_path_dropdown").hover ->
     coor = $(this).offset()
     h = $(this).height() + coor.top - 10
