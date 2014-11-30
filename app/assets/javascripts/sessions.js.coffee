@@ -6,14 +6,26 @@ $(document).ready ->
     if $(this).next("ul").length > 0
       $(this).mouseenter ->
         $(this).next("ul").stop(true, true).slideDown()
+        true
       $(this).mouseleave ->
         $(this).next("ul").stop(true, true).slideUp()
+        true
       $(this).next('ul').mouseenter ->
         $(this).stop(true, true).show()
+        true
       $(this).next('ul').mouseleave ->
         $(this).stop(true, true).slideUp()
+        true
+    true
   $('aside').find('a.exit').click ->
     $('#login').hide 'smooth'
+    true
   $('body > header > nav').find('a.login').click ->
     $('#login').show 'smooth'
     $('#username').focus()
+    true
+  $('#forgotten_password').click ->
+    $(this).parents("form").attr "action", $(this).data("url")
+    $(this).parents("form").submit()
+    true
+  true

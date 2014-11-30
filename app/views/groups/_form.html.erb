@@ -1,14 +1,14 @@
 <%= form_for(@group) do |f| %>
   <% if @group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t(:header_error_group) %>:</h2>
-
+    <details open="open">
+      <summary><%= t(:header_error_group) %></summary>
       <ul>
-      <% @group.errors.full_messages.each do |msg| %>
+        <% @group.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
-    </div>
+    </details>
+    <div class="clear"></div>
   <% end %>
 
   <div class="field2">

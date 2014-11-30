@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include Rack::Recaptcha::Helpers
-  before_filter :require_login, :except => [:new, :create, :confirm, :complete, :show]
+  before_filter :require_login, :except => [:new, :create, :confirm, :complete, :show, :reset]
   before_filter :avoid_login, :only => [:new, :create]
 
   # GET /users
@@ -115,6 +115,15 @@ class UsersController < ApplicationController
       redirect_to @user,:notice=> t(:ok_user_confirm)
     else
       redirect_to root_url, :alert => t(:ko_user_confirm)
+    end
+  end
+  
+  def reset
+    @user = User.find_by_username(params[:username])
+    if !@user.nil? && @user.forgotten_password
+      redirect_to @user,:notice => t(:ok_forgotten_password)
+    else
+      redirect_to root_url, :alert => t(:ko_forgotten_password)
     end
   end
 end

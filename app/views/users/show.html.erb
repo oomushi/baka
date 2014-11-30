@@ -1,30 +1,30 @@
-<article>
-<p>
-  <b><%= @user.username %></b><br/>
+<p id="notice"><%= notice %></p>
+<div class="field2">
+  <b><%= @user.username %></b>
+</div>
+<div class="field2">
   <img src="<%= url_for @user.avatar %>" alt="<%= @user.username  %>"/>
-</p>
-
-<p>
+</div>
+<div class="clear"></div>
+<div class="field2">
   <b><%= t(:location) %>:</b>
   <%= @user.location %>
-</p>
-<p>
+</div>
+<div class="field2">
   <b><%= t(:birthday) %>:</b>
   <%= @user.birthday %>
-</p>
-<p>
-  <b><%= t(:contacts) %>:</b>
-  <% @user.contacts.each do |contact| %>
-  <%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %>
-  <% end %>
-</p>
-
-<p>
+</div>
+<div class="clear"></div>
+<div class="field2">
   <b><%= t(:sign) %>:</b>
   <%= emojify @user.sign %>
-</p>
-
-
+</div>
+<div class="field2">
+  <b><%= t(:contacts) %>:</b>
+  <% @user.contacts.each do |contact| %>
+    <%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %>
+  <% end %>
+</div>
+<div class="clear"></div>
 <% if @current_user.can_update? @user %><%= link_to t(:edit), edit_user_path(@user) %> | <% end %>
 <%= link_to t(:back), users_path %>
-</article>

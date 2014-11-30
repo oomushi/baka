@@ -324,7 +324,7 @@ div.field3 {
 }
 
 header > form {
-  display: inline;
+  display: inline-block;
   vertical-align: top;
   margin-left: 25%;
 }
@@ -416,4 +416,19 @@ details {
     font-size: 12px;
     list-style: square;
   }
+}
+.markItUp{
+  width: 95%;
+}
+.markitupDiv{
+  padding-left: 5%;
+}
+.markItUpEditor{
+  padding: 1em;
+}
+.clear{
+  clear: both;
+}
+.field_with_errors {
+  display: block;
 }

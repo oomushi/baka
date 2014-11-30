@@ -170,22 +170,19 @@
 	background-image:url(/assets/markitup/list-bullet.png);
 }
 .markItUp .markItUpButton8 a	{
-	background-image:url(/assets/markitup/list-numeric.png);
-}
-.markItUp .markItUpButton9 a	{
 	background-image:url(/assets/markitup/list-item.png);
 }
 
-.markItUp .markItUpButton10 a	{
+.markItUp .markItUpButton9 a	{
 	background-image:url(/assets/markitup/quotes.png);
 }
-.markItUp .markItUpButton11 a {
+.markItUp .markItUpButton10 a {
   background-image:url(/assets/markitup/quotesby.png);
 }
-.markItUp .markItUpButton12 a {
+.markItUp .markItUpButton11 a {
   background-image:url(/assets/markitup/spoiler.png);
 }
-.markItUp .markItUpButton13 a	{
+.markItUp .markItUpButton12 a	{
 	background-image:url(/assets/markitup/code.png);
 }
 	
