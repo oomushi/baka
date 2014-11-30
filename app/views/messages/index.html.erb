@@ -21,7 +21,7 @@
         Nessun messaggio
        <% else  
        last=message.offsprings(@current_user).last %>
-       <%= link_to (last.title+"<br/>"+last.created_at.to_formatted_s(:long)).html_safe, last %><br/>
+       <%= link_to emojify(last.title)+"<br/>".html_safe+last.created_at.to_formatted_s(:long), last %><br/>
        <%= link_to last.user.username,last.user %><br/>
         <% end %><% end %>
     </td>
