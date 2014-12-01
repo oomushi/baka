@@ -1,4 +1,23 @@
 <%= form_for(@user) do |f| %>
+  <div class="field">
+    <fieldset>
+      <legend><%= t(:reset_password) %></legend>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </fieldset>
+  </div>
+<% end %>
+<div class="clear"></div>
+<%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <details open="open">
       <summary><%= t(:header_error_user) %></summary>
@@ -11,34 +30,9 @@
     <div class="clear"></div>
   <% end %>
   <div class="field2">
-    <fieldset>
-      <legend><%= t(:reset_password) %></legend>
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password %>
-      </div>
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation %>
-      </div>
-    </fieldset>
-  </div>
-  <div class="field2">
     <%= f.fields_for :avatar do |builder| %>
       <%= render :partial => 'avatars/form',:locals => { :f => builder } %>
     <% end %>
-  </div>
-  <div class="field2">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field2">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
-  </div>
-  <div class="field2">
-    <%= f.label :sign %><br />
-    <%= f.text_area :sign, rows: 6 %>
   </div>
   <div class="field2">
     <fieldset>
@@ -48,6 +42,20 @@
         <%= render :partial => 'contacts/form', :locals => { :f => builder } %>
       <% end %>
     </fieldset>
+  </div>
+  <div class="clear"></div>
+  <div class="field2">
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday %>
+  </div>
+  <div class="field2">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="clear"></div>
+  <div class="field">
+    <%= f.label :sign %><br />
+    <%= f.text_area :sign, rows: 6 %>
   </div>
   <div class="actions">
     <%= f.submit %>
