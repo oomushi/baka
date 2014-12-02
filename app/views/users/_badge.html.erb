@@ -2,7 +2,7 @@
 <img src="<%= url_for user.avatar %>" alt="<%= user.username  %>"/>
 <% unless user.location.nil? %><span><%= t(:location) %>: <%= user.location %></span><% end %>
 <span><%= t(:signup_date)%>: <%= l user.created_at, :format=>:short %></span>
-<% unless user.birthday.nil? %><span><%= t(:birthday) %>: <%= user.birthday %></span><% end %>
+<% unless user.birthday.nil? %><span><%= t(:birthday) %>: <%= l user.birthday, :format=>:short%></span><% end %>
 <span><%= t(:messages_number) %>: <%= user.posts.count %></span>
 <span><%= t(:karma)%>: <%= user.total_likes %></span>
 <% unless user.contacts.count.zero? %>

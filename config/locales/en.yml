@@ -36,7 +36,7 @@ en:
     formats:
       default: ! '%Y-%m-%d'
       long: ! '%B %d, %Y'
-      short: ! '%b %d'
+      short: ! '%b %d %Y'
     month_names:
     - 
     - January
@@ -197,7 +197,7 @@ en:
     formats:
       default: ! '%a, %d %b %Y %H:%M:%S %z'
       long: ! '%B %d, %Y %H:%M'
-      short: ! '%d %b %H:%M'
+      short: ! '%d %b %Y %H:%M'
     pm: pm
   add_answer: 'Add answer'
   add_contacts: 'Add contact'
