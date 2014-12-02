@@ -14,7 +14,7 @@ module RubyBBCode
       :allow_tag_param => true,
       :allow_tag_param_between => false,
       :tag_param => /(.*)/,
-      :tag_param_tokens => [{:token => :author, :prefix => '<p><cite>', :postfix => '</cite></p>'}]
+      :tag_param_tokens => [{:token => :author, :prefix => '<legend><cite>', :postfix => '</cite></legend>'}]
     }
   end
 end
