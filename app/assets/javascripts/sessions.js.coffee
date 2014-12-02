@@ -20,12 +20,18 @@ $(document).ready ->
   $('aside').find('a.exit').click ->
     $('#login').hide 'smooth'
     true
+  $('aside').find('a.forgotten').click ->
+    $('#subforgotten').show()
+    $('#sublogin').hide()
+    true
+  $('aside').find('a.login2').click ->
+    $('#subforgotten').hide()
+    $('#sublogin').show()
+    true
   $('body > header > nav').find('a.login').click ->
+    $('#subforgotten').hide()
+    $('#sublogin').show()
     $('#login').show 'smooth'
     $('#username').focus()
-    true
-  $('#forgotten_password').click ->
-    $(this).parents("form").attr "action", $(this).data("url")
-    $(this).parents("form").submit()
     true
   true
