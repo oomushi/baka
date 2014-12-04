@@ -6,8 +6,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.where('confirm_code is null').order("username asc").page params[:page]
-
+    @users = []
+    if @current_user.admin?
+      @users = User.order('username asc').page params[:page]
+    else
+      @users = User.where('confirm_code is null').order("username asc").page params[:page]
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -17,7 +21,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    @user = User.where('confirm_code is null and id = ?',params[:id]).first
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = User.where('confirm_code is null and id = ?',params[:id]).first
     enforce_update_permission(@user)
   end
 
@@ -64,7 +68,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
+    @user = User.where('confirm_code is null and id = ?',params[:id]).first
     enforce_update_permission(@user)
 
     respond_to do |format|
@@ -81,7 +85,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = User.find(params[:id])
+    @user = nil
+    if @current_user.admin?
+      @user = User.find(params[:id])
+    else
+      @user = User.where('confirm_code is null and id = ?',params[:id]).first
+    end
     enforce_destroy_permission(@user)
     same=@user.eql? @current_user
     @user.destroy
@@ -119,7 +128,7 @@ class UsersController < ApplicationController
   end
   
   def reset
-    @user = User.where('username = ? and realname=?',params[:username],params[:realname]).first
+    @user = User.where('username = ? and realname=? and confirm_code is null',params[:username],params[:realname]).first
     if !@user.nil? && @user.forgotten_password
       redirect_to @user,:notice => t(:ok_forgotten_password)
     else
