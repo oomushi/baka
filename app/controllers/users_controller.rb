@@ -56,7 +56,7 @@ class UsersController < ApplicationController
         format.html { render action: "new", :alert=> t(:ko_captcha) }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       elsif @user.save 
-        format.html { redirect_to @user, notice: t(:ok_user_new) }
+        format.html { redirect_to root_url, notice: t(:ok_user_new) }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
