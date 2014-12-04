@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :username
+  validates_presence_of :realname
   validates_uniqueness_of :username
   accepts_nested_attributes_for :contacts, :allow_destroy => true
   accepts_nested_attributes_for :avatar, :allow_destroy => false

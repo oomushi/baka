@@ -14,7 +14,7 @@ class Message < ActiveRecord::Base
   before_create :set_nv_and_dv
   before_destroy :destroyable?
   after_create :alert_followers
-  validate :bbcode?
+  validate :bbcode?, :read_write?
   
   def default_scope
     group=User.current.max_group
@@ -101,6 +101,11 @@ class Message < ActiveRecord::Base
   def bbcode?
     check=RubyBBCode.validity_check self.text
     errors.add(:text, check) unless check==true 
+  end
+  def read_write?
+    error.add :writer_id, I18n.t(:ko_writer) if self.writer.level>self.message.writer.level
+    error.add :writer_id, I18n.t(:ko_read_write) if self.writer.level>self.reader.level
+    error.add :reader_id, I18n.t(:ko_reader) if self.reader.level>self.message.reader.level
   end
   def set_nv_and_dv
     if dv.nil? or dv==0
