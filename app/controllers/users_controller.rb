@@ -119,7 +119,7 @@ class UsersController < ApplicationController
   end
   
   def reset
-    @user = User.find_by_username(params[:username])
+    @user = User.where('username = ? and realname=?',params[:username],params[:realname]).first
     if !@user.nil? && @user.forgotten_password
       redirect_to @user,:notice => t(:ok_forgotten_password)
     else
