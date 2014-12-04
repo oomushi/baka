@@ -279,6 +279,7 @@ le:
   poll: 'P0|_|_'
   properties: 'Pr0p3r7132'
   protocol: 'pr070c0|_'
+  realname: 'r34|_ |\|4|\/|3'
   replay: "R3p|_4'/"
   require_login: 'j00 |\/||_|s7 b |_0663d 1|\| 2 4cc3s2 d12 s3c710|\|'
   reset_password: 'r3s37 p4ss\/\/0rd'
@@ -329,6 +330,7 @@ le:
         location: '|_0c4710|\|'
         password: 'P4ss\/\/0rd'
         password_confirmation: 'C0|\||=1r|\/| p4ss\/\/0rd'
+        realname: 'r34|_ |\|4|\/|3'
         sign: 'S16|\|'
         username: '|_|s3r|\|4|\/|3'
         website: '\/\/3bs173'
