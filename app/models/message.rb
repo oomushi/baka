@@ -103,9 +103,9 @@ class Message < ActiveRecord::Base
     errors.add(:text, check) unless check==true 
   end
   def read_write?
-    error.add :writer_id, I18n.t(:ko_writer) if self.writer.level>self.message.writer.level
-    error.add :writer_id, I18n.t(:ko_read_write) if self.writer.level>self.reader.level
-    error.add :reader_id, I18n.t(:ko_reader) if self.reader.level>self.message.reader.level
+    errors.add :writer_id, I18n.t(:ko_writer) if self.writer.level>self.message.writer.level
+    errors.add :writer_id, I18n.t(:ko_read_write) if self.writer.level>self.reader.level
+    errors.add :reader_id, I18n.t(:ko_reader) if self.reader.level>self.message.reader.level
   end
   def set_nv_and_dv
     if dv.nil? or dv==0
