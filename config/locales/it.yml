@@ -256,7 +256,7 @@ it:
   listing_user: 'Elenco utenti'
   location: 'Posizione'
   login: 'identificati'
-  logout: 'esci dal sistema'
+  logout: 'scollegati'
   macrobug: 'Oomushi'
   messages_number: 'N. messaggi'
   name: 'Nome'
