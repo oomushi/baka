@@ -244,7 +244,10 @@ le:
   ko_like_value:  "c4|\\| 0|\\||_'/ b b37\\/\\/33|\\| -1 |\\| 1"
   ko_login: '1|\|\/4|_1d |_|s3r|\|4|\/|3 0r p4ss\/\/0rd'
   ko_message_edit: '|\/|3ss463 c4|\||\|07 b 3d173d'
+  ko_message_reader: '1nv4l1d r34d3r l3v3l'
+  ko_message_readwrite: '1nv4l1d r34d3r/wr173r l3v3l'
   ko_message_undeletable: "c4|\\||\\|07 d3|_373 |\\/|3ss463 \\/\\/17# r3p|_4'/32"
+  ko_message_writer: '1nv4l1d wr173r l3v3l' 
   ko_user_confirm: 'c0d3 |\|07 \/4|_1d'
   label: '|_4b3|_'
   last_message: '|_4s7 |\/|3ss463'
