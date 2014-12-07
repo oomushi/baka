@@ -1,7 +1,6 @@
 # http://oomushi.github.io/jquery.multiUpload.js
-###
+###*
 Multiple file upload element (jQuery version)
-
 with thanks to:
 Stickman -- http://the-stickman.com
 Luis Torrefranca -- http://www.law.pitt.edu
@@ -47,10 +46,10 @@ chosen, this means that there will always be one empty file input
 element when the form is submitted. By default this is submitted with
 the form (exactly as it would be with a 'normal' file input element, in
 most browsers) but setting this option to 'true' will cause the element
-to be disabled  (and therefore ignored) when the form is submitted.
+to be disabled (and therefore ignored) when the form is submitted.
 
 Other notes
-Because it's not possible to  set the value of a file input element
+Because it's not possible to set the value of a file input element
 dynamically (for good security reasons), this script works by hiding the
 file input element when a file is selected, then immediately replacing
 it with a new, empty one. This happens so quickly that it looks as if
@@ -76,10 +75,10 @@ need for multiple file input elements in a form.
       list_class: "mfu_list" # Elements container class (default: mfu_list)
       element_class: "mfu_element" # Element class (default: mfu_element)
       remove_label: "remove" # Action remove label (default: remove)
-      remove_img: "/mfu_remove.png" # Action remove image (default: mfu_remove.png)
       remove_class: "mfu_remove" # Action remove class (default: mfu_remove)
       max_overflow: -> # Max number of elements overflow event
         alert "You may not upload more than " + options.max + " files"
+        return
       remove_confirm: (element) -> # Remove element confirm
         confirm "Are you sure you want to remove the item\r\n" + element.parent().children(".mfu_name").text() + "\r\nfrom the upload queue?"
       remove: (el, src) -> # Remove element event
@@ -90,6 +89,10 @@ need for multiple file input elements in a form.
         el.attr("id") + "_" + (el.closest().children("." + options.list_class).length + 1)
     $.extend options, customOptions
     @each (index) ->
+      # Original input file
+      # New struct container
+      # New inputs file list
+      # Base name for input elements
       init = (element, change) ->
         if change
           element.change ->
@@ -100,18 +103,15 @@ need for multiple file input elements in a form.
               name = name.substring(name.lastIndexOf("//") + 1)  if name.indexOf("//") >= 0
             $name = $("<span>").addClass("mfu_name").text(name)
             $line = $("<" + options.element_tag + ">").addClass(options.element_class)
-            $rm = undefined
-            if options.remove_img
-              $rm = $("<img>").attr("src", options.remove_img).attr("alt", options.remove_label)
-            else
-              $rm = $("<span>").text(options.remove_label)
-            $rm.attr("title", options.remove_label).addClass(options.remove_class).click ->
+            $rm = $("<span>").text("\u2009").attr("title", options.remove_label).addClass(options.remove_class).click(->
               $line = $(this).closest(options.element_tag)
               $element = $line.find(":input[type=\"file\"]").first()
               options.remove $(this), $element
               if options.remove_confirm($element)
                 $element.closest(".mfu_container").children(":input[type=\"file\"]").removeAttr "disabled"
                 $line.remove()
+              return
+            )
             $line.append $name
             $line.append $(this)
             $line.append $rm
@@ -128,6 +128,8 @@ need for multiple file input elements in a form.
             $(this).attr "name", options.name_gen($(this))
             $(this).attr "id", options.id_gen($(this))
             options.add $line, $(this)
+            return
+        return
       return  unless $(this).attr("type") is "file" and $(this).prop("tagName") is "INPUT"
       $original = $(this)
       $container = $("<" + options.container_tag + ">").addClass(options.container_class)
@@ -140,4 +142,7 @@ need for multiple file input elements in a form.
       if options.remove_empty_element # Causes the 'extra' (empty) element not to be submitted
         $original.closest("form").submit ->
           $(this).find(":input").last().attr "disabled", "disabled"
+          return
+      return
+  return
 ) jQuery
