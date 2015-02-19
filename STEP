@@ -2,4 +2,6 @@
 - resource :home, only: [:show]
 - modificare controlli in users
 - rails g migration AddIndexToUsers guest :nill=>true e unique
+- rimuovere Users#reset
+- rimuovere js per il reset
 

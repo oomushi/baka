@@ -18,8 +18,8 @@
       </ul>
     </div>
   <% else %>
-      <%= link_to t(:signup).downcase, signup_path,:class=>"button signup" %>
-      <%= link_to_void t(:login), :class=>"button login" %>
+    <%= link_to t(:signup).downcase, signup_path,:class=>"button signup" %>
+    <%= link_to t(:login), "/auth/google_oauth2", :class=>"button login" %>
   <% end %>
   </nav>
 </header>
