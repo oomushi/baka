@@ -34,7 +34,9 @@ gem "bcrypt"
 
 # Deploy with Capistrano
 # gem 'capistrano'
- 
+
+gem "omniauth-google-oauth2", "~> 0.2.1"
+
 gem 'canable'                                       # https://github.com/jnunemaker/canable
 gem 'mini_magick'                                   # https://github.com/probablycorey/mini_magick
 gem 'httparty'                                      # https://github.com/jnunemaker/httparty
