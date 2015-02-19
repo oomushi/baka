@@ -1,3 +1,4 @@
+http://richonrails.com/articles/google-authentication-in-ruby-on-rails
 - config/routes.rb
 - resource :home, only: [:show]
 - modificare controlli in users
