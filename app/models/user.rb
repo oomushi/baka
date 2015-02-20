@@ -7,14 +7,8 @@ class User < ActiveRecord::Base
   has_many :contacts,:dependent=>:destroy
   has_and_belongs_to_many :answers
   has_and_belongs_to_many :groups
-  attr_protected :password_hash, :password_salt, :confirm_code
-  attr_accessor :password
-  before_save :encrypt_password
   after_create :confirm_email,:generate_avatar,:add_group
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
   validates_presence_of :username
-  validates_presence_of :realname
   validates_uniqueness_of :username
   accepts_nested_attributes_for :contacts, :allow_destroy => true
   accepts_nested_attributes_for :avatar, :allow_destroy => false
@@ -76,41 +70,11 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-  
-  def confirm code
-    if code.eql? self.confirm_code
-      self.confirm_code=nil
-      self.save
-      true
-    else
-      false
-    end
-  end
-  
-  def forgotten_password
-    hash,salt=self.password_hash,self.password_salt
-    begin
-      self.password=(0...32).map{(' '..'~').to_a[rand(95)]}.join
-      self.save
-      UserMailer.forgotten_password(self).deliver
-      true
-    rescue
-      self.password_hash,self.password_salt=hash,salt
-      self.save
-      false
-    end
-  end
-  
-  def encrypt_password
-    if password.present?
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-    end
-  end
   def email
     email=contacts.where('protocol = ?','email').first
     email.nil? ? '' : email.value
   end
+  
   protected
   def confirm_email
     return if self.confirm_code.nil? or not self.email.eql? ''

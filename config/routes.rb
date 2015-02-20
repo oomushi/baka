@@ -30,10 +30,6 @@ Baka::Application.routes.draw do
   resources :users do
     collection do 
       get 'complete'
-      post 'reset'
-    end
-    member do
-      get 'confirm'
     end
   end
   resources :sessions

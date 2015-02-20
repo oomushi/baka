@@ -116,23 +116,4 @@ class UsersController < ApplicationController
     end
     render :json => users.to_json(:methods=>:value)
   end
-
-  def confirm
-    code=request.GET[:code]
-    @user=User.find(params[:id])
-    if @user.confirm code
-      redirect_to @user,:notice=> t(:ok_user_confirm)
-    else
-      redirect_to root_url, :alert => t(:ko_user_confirm)
-    end
-  end
-  
-  def reset
-    @user = User.where('username = ? and realname=? and confirm_code is null',params[:username],params[:realname]).first
-    if !@user.nil? && @user.forgotten_password
-      redirect_to @user,:notice => t(:ok_forgotten_password)
-    else
-      redirect_to root_url, :alert => t(:ko_forgotten_password)
-    end
-  end
 end
