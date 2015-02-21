@@ -49,8 +49,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
-
+    @user = User.new(params[:user]).import(params)
     respond_to do |format|
       if !recaptcha_valid?
         format.html { render action: "new", :alert=> t(:ko_captcha) }

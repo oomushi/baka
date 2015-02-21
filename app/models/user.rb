@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
   after_create {|u| u.create_avatar}
   after_create {|u| u.groups<<Group.find(3)}
-  #before_create :import_contact 
   validates_presence_of :username
   validates_uniqueness_of :username
   accepts_nested_attributes_for :contacts, :allow_destroy => true
@@ -52,34 +51,21 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate auth
-    where(auth.slice(:provider, :uid)).first
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      
+      user.save!
+    end
+  end
+  def import auth
+    provider = auth.provider
+    uid = auth.uid
+    create_cotact(:value=>auth.info.email, :protocol=>'email')
+    oauth_token = auth.credentials.token
+    oauth_expires_at = Time.at(auth.credentials.expires_at)
+    self
   end
   def email
     email=contacts.where('protocol = ?','email').first
     email.nil? ? '' : email.value
   end
-
-=begin 
-  protected
-  def import_contact auth   
-    _or_initialize.tap do |user|
-      logger.debug auth.info
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
-    end
-  end
-  def email= value
-    email=contacts.where('protocol = ?','email').first
-    if email.nil?
-      contacts<<Contact.create(:value=>value, :protocol=>'email')
-    else 
-      email.value=value
-      email.save!
-    end
-  end
-=end
 end
