@@ -275,7 +275,6 @@ it:
   ok_logout: 'Sei uscito dal sistema'
   ok_message_edit: 'Messggio correttamente aggiornato'
   ok_message_new: 'Messaggio creato correttamente'
-  ok_user_confirm: 'email confermata'
   ok_user_edit:  'Utente corrattamente aggiornato'
   ok_user_new: 'Utente creato corrattamente'
   password: 'Parola segreta'

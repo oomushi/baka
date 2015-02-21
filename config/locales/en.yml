@@ -275,7 +275,6 @@ en:
   ok_logout: 'Logged out!'
   ok_message_edit: 'Message was successfully updated'
   ok_message_new: 'Message was successfully created'
-  ok_user_confirm: 'email confirmed'
   ok_user_edit:  'User was successfully updated'
   ok_user_new: 'User was successfully created'
   poll: 'Poll'
