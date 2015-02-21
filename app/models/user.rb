@@ -41,11 +41,11 @@ class User < ActiveRecord::Base
     messages.where("section = ?", false)
   end
   
-  def self.find_guest
-    User.where("guest = ?",true)
+  def self.guest
+    where("uid is ?",nil)
   end
   def guest?
-    guest==true
+    !uid.nil?
   end
   def admin?
     groups.any?{ |g| g.admin? }

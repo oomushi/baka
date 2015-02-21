@@ -40,13 +40,6 @@ class Message < ActiveRecord::Base
       user.groups.include? self.moderator)
   end
   
-  def likes.sum(&:value)
-    value=0
-    likes.each do |l|
-      value+=l.value
-    end
-    value
-  end
   def like_it? user
     likes.any?{ |l| l.user==user }
   end
