@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
   after_create {|u| u.create_avatar}
   after_create {|u| u.groups<<Group.find(3)}
-  before_create :import_contact 
+  #before_create :import_contact 
   validates_presence_of :username
   validates_uniqueness_of :username
   accepts_nested_attributes_for :contacts, :allow_destroy => true
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     where("uid is ?",nil)
   end
   def guest?
-    !uid.nil?
+    uid.nil?
   end
   def admin?
     groups.any?{ |g| g.admin? }
@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
     email=contacts.where('protocol = ?','email').first
     email.nil? ? '' : email.value
   end
-  
+
 =begin 
   protected
   def import_contact auth   
@@ -80,6 +80,6 @@ class User < ActiveRecord::Base
       email.value=value
       email.save!
     end
-  end 
+  end
 =end
 end
