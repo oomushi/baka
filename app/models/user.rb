@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   has_many :contacts,:dependent=>:destroy
   has_and_belongs_to_many :answers
   has_and_belongs_to_many :groups
-  after_create :generate_avatar,:add_group
+  after_create {|u| u.create_avatar}
+  after_create {|u| u.groups<<Group.find(3)}
   before_create :import_contact 
   validates_presence_of :username
   validates_uniqueness_of :username
@@ -35,13 +36,7 @@ class User < ActiveRecord::Base
   def value
     username
   end 
-  def total_likes
-    value=0
-    self.likes.each do |l|
-      value+=l.value
-    end
-    value
-  end
+
   def posts
     messages.where("section = ?", false)
   end
@@ -55,13 +50,8 @@ class User < ActiveRecord::Base
   def admin?
     groups.any?{ |g| g.admin? }
   end
-  
-  def max_group
-    g=groups.sort{|a,b| a.level<=>b.level}
-    g.first
-  end
-  
-  def self.authenticate(auth)
+
+  def self.authenticate auth
     where(auth.slice(:provider, :uid)).first
   end
   def email
@@ -69,9 +59,9 @@ class User < ActiveRecord::Base
     email.nil? ? '' : email.value
   end
   
+=begin 
   protected
-  def import_contact
-=begin    
+  def import_contact auth   
     _or_initialize.tap do |user|
       logger.debug auth.info
       user.provider = auth.provider
@@ -81,15 +71,7 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
-=end
   end
-  def generate_avatar
-    self.create_avatar()
-  end
-  def add_group
-    self.groups<<Group.find(3)
-  end
-=begin
   def email= value
     email=contacts.where('protocol = ?','email').first
     if email.nil?
