@@ -21,7 +21,7 @@ c=Group.create({
   :name=>"public",
   :level=>64
 })
-admin = User.new(:username=>'admin', :birthday=>Date.new(1982,12,29))
+admin = User.new(:username=>'admin', :birthday=>Date.new(1982,12,29), :provider=>"google_oauth2", :uid=>"111107334059257239288")
 admin.confirm_code=nil
 admin.contacts<<Contact.create(:value=>'admin@baka.com', :protocol=>'email')
 admin.groups<<a
