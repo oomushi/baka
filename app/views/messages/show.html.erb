@@ -5,7 +5,7 @@
   <header>
     <a name="<%= message.id%>">&nbsp;</a><%= link_to emojify(message.title), message %><%= l message.created_at, :format=>:long %>
   </header>
-  <aside class="like" title="<%= message.total_likes %>"><%= num_reduce message.total_likes %></aside>
+  <aside class="like" title="<%= message.likes.sum(&:value) %>"><%= num_reduce message.likes.sum(&:value) %></aside>
   <% unless @current_user.guest? %>
   <menu>
     <%= link_to "&thinsp;".html_safe, edit_message_path(message), {:title=>t(:edit), :class=>"edit button"} if @current_user.can_update? message %>
