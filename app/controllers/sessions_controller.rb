@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
     user = User.authenticate env["omniauth.auth"]
     if user
       session[:user_id] = user.id
-      redirect_to :back, :notice => t(:ok_login)
+      redirect_to root_url, :notice => t(:ok_login)
     else
-      redirect_to :back, :alert=> t(:ko_login)
+      redirect_to root_url, :alert=> t(:ko_login)
     end
   end
   def destroy
