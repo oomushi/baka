@@ -1,25 +1,22 @@
 Baka::Application.routes.draw do
-  resources :attachments
+
+  resources :attachments, only: [:show]
 
   resources :contacts
 
   resources :groups
 
-  resources :answers do
+  resources :answers,only: [:vote, :destroy] do
     member do
       put 'vote'
-    end
+    end 
   end
 
   resources :polls
 
-  resources :avatars
+  resources :avatars, only: [:show, :update, :destroy]
 
-  resources :likes
-
-  match "login" => "sessions#new",    :as => "login"
-  match "logout"=> "sessions#destroy",:as =>"logout"
-  match "signup"=> "users#new",       :as =>"signup"
+  resources :likes, only: [:create, :update,:destroy]
   
   resources :messages do
     collection do
@@ -32,7 +29,13 @@ Baka::Application.routes.draw do
       get 'complete'
     end
   end
-  resources :sessions
+  
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  match "logout"=> "sessions#destroy",:as =>"logout"
+  match "signup"=> "users#new",       :as =>"signup"
+  resources :sessions, only: [:create, :destroy]
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
