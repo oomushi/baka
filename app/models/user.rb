@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   has_many :contacts,:dependent=>:destroy
   has_and_belongs_to_many :answers
   has_and_belongs_to_many :groups
-  after_create :confirm_email,:generate_avatar,:add_group
+  after_create :generate_avatar,:add_group
+  before_create :import_contact 
   validates_presence_of :username
   validates_uniqueness_of :username
   accepts_nested_attributes_for :contacts, :allow_destroy => true
@@ -61,14 +62,7 @@ class User < ActiveRecord::Base
   end
   
   def self.authenticate(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
-    end
+    where(auth.slice(:provider, :uid)).first
   end
   def email
     email=contacts.where('protocol = ?','email').first
@@ -76,16 +70,18 @@ class User < ActiveRecord::Base
   end
   
   protected
-  def confirm_email
-    return if self.confirm_code.nil? or not self.email.eql? ''
-    salt=BCrypt::Engine.generate_salt
-    self.confirm_code=BCrypt::Engine.hash_secret("#{self.id} #{self.username} #{self.email} #{self.password_hash} #{self.password_salt} #{self.created_at.to_s} #{rand(29**29)}", salt)
-    self.save
-    begin
-      UserMailer.email_confirmation(self).deliver
-    rescue
-      self.destroy
+  def import_contact
+=begin    
+    _or_initialize.tap do |user|
+      logger.debug auth.info
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
     end
+=end
   end
   def generate_avatar
     self.create_avatar()
@@ -93,4 +89,17 @@ class User < ActiveRecord::Base
   def add_group
     self.groups<<Group.find(3)
   end
+=begin
+  def email= value
+    email=contacts.where('protocol = ?','email').first
+    if email.nil?
+      contacts<<Contact.create(:value=>value, :protocol=>'email')
+    else 
+      email.value=value
+      email.save!
+    end
+  end 
+=end
+=end 
+=end
 end
