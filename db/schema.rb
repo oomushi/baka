@@ -104,19 +104,19 @@ ActiveRecord::Schema.define(:version => 20150219124642) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username",                            :null => false
+    t.string   "username",         :null => false
     t.string   "sign"
     t.date     "birthday"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "location"
-    t.boolean  "guest",            :default => false
     t.string   "provider"
     t.string   "uid"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
   end
 
+  add_index "users", ["uid"], :name => "index_users_on_uid", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end
