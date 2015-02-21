@@ -1,8 +1,4 @@
 http://richonrails.com/articles/google-authentication-in-ruby-on-rails
-- config/routes.rb
-- resource :home, only: [:show]
 - modificare controlli in users
 - rails g migration AddIndexToUsers guest :nill=>true e unique
-- rimuovere Users#reset
-- rimuovere js per il reset
-
+- togliere conferma email?
