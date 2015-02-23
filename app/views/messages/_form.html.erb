@@ -18,14 +18,32 @@
   <div class="field">
     <table>
       <tr>
+        <% if @current_user.max_group.level < 2 %>
         <th><%= f.label :section %></th>
+        <% end %>
+        <% if @current_user.max_group.level < 3 %>
         <th><%= f.label :pinned %></th>
+        <% end %>
+        <% if @current_user.max_group.level <= 4 %>
         <th><%= f.label :follow %></th>
+        <% end %>
       </tr>
       <tr>
+        <% if @current_user.max_group.level < 2 %>
         <td><%= f.check_box :section %></td>
+        <% else %>
+        <%= f.hidden_field :section %>
+        <% end %>
+        <% if @current_user.max_group.level < 3 %>
         <td><%= f.check_box :pinned %></td>
+        <% else %>
+        <%= f.hidden_field :pinned %>
+        <% end %>
+        <% if @current_user.max_group.level <= 4 %>
         <td><%= f.check_box :follow %></td>
+        <% else %>
+        <%= f.hidden_field :follow %>
+        <% end %>
       </tr>
     </table>
   </div>
@@ -34,19 +52,19 @@
     <table>
       <tr>
         <th><%= f.label :reader %></th>
-	<th><%= f.label :writer %></th>
+        <th><%= f.label :writer %></th>
         <% if @current_user.max_group.level < 2 %>
         <th><%= f.label :moderator %></th>
         <% end %>
       </tr>
       <tr>
         <td><%= f.select(:reader_id, @current_user.groups.to_a.push(Group.find(4)).map{|g| [g.name,g.id] if g.level <= @message.reader.level }.compact) %></td>
-        <td><%= f.select(:writer_id, @current_user.groups.to_a.push(Group.find(4)).map{|g| [g.name,g.id] if g.level <= @message.writer.level }.compact) %></td>
+        <td><%= f.select(:writer_id, @current_user.groups.to_a.push(Group.find(4)).map{|g| [g.name,g.id] if @message.message.section || g.level <= @message.writer.level }.compact) %></td>
         <% if @current_user.max_group.level < 2 %>
-	<td><%= f.select(:moderator_id, Group.where('level<3').map{|g| [g.name,g.id]}) %></td>
+        <td><%= f.select(:moderator_id, Group.where('level<3').map{|g| [g.name,g.id]}) %></td>
         <% else %>
         <%= f.hidden_field :moderator_id %>
-	<% end %>
+        <% end %>
       </tr>
     </table>
   </div>
