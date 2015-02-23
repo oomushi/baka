@@ -1,17 +1,12 @@
 class UsersController < ApplicationController
   include Rack::Recaptcha::Helpers
-  before_filter :require_login, :except => [:new, :create, :confirm, :complete, :show, :reset]
+  before_filter :require_login, :except => [:new, :create, :complete, :show]
   before_filter :avoid_login, :only => [:new, :create]
 
   # GET /users
   # GET /users.json
   def index
-    @users = []
-    if @current_user.admin?
-      @users = User.order('username asc').page params[:page]
-    else
-      @users = User.where('confirm_code is null').order("username asc").page params[:page]
-    end
+    @users = User.order('username asc').page params[:page]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -21,7 +16,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.where('confirm_code is null and id = ?',params[:id]).first
+    @user = User.find params[:id]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,7 +37,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.where('confirm_code is null and id = ?',params[:id]).first
+    @user = User.find params[:id]
     enforce_update_permission(@user)
   end
 
@@ -67,7 +62,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.where('confirm_code is null and id = ?',params[:id]).first
+    @user = User.find params[:id]
     enforce_update_permission(@user)
 
     respond_to do |format|
@@ -84,12 +79,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = nil
-    if @current_user.admin?
-      @user = User.find(params[:id])
-    else
-      @user = User.where('confirm_code is null and id = ?',params[:id]).first
-    end
+    @user = User.find(params[:id])
     enforce_destroy_permission(@user)
     same=@user.eql? @current_user
     @user.destroy
