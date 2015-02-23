@@ -16,7 +16,7 @@
       <%= f.text_field :username,:tabindex=>2 %>
     </div>
     <div class="field">
-      <%= raw recaptcha_tag(:challenge, display: {theme: 'clean'}) %>
+      <%= recaptcha_tags %>
     </div>
     <div class="clear"></div>
     <div class="actions">
