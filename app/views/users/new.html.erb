@@ -36,7 +36,7 @@
       <%= f.password_field :password_confirmation,:tabindex=>4 %>
     </div>
     <div class="field">
-      <%= raw recaptcha_tag(:challenge, display: {theme: 'clean'}) %>
+      <%= recaptcha_tags %>
     </div>
     <div class="clear"></div>
     <div class="actions">

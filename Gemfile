@@ -26,9 +26,6 @@ group :development do
 end
 gem 'jquery-rails', "< 3.0.0"
 
-# To use ActiveModel has_secure_password
-gem "bcrypt"
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -39,8 +36,8 @@ gem 'canable'                                       # https://github.com/jnunema
 gem 'mini_magick'                                   # https://github.com/probablycorey/mini_magick
 gem 'httparty'                                      # https://github.com/jnunemaker/httparty
 gem 'kaminari'                                      # https://github.com/amatsuda/kaminari
-gem 'rack-recaptcha', :require => 'rack/recaptcha'  # https://github.com/achiu/rack-recaptcha
-gem 'deferred_associations'                         # http://github.com/MartinKoerner/deferred_associations
+gem "recaptcha",  github: "ambethia/recaptcha"      # https://github.com/ambethia/recaptcha
+gem 'deferred_associations'                         # https://github.com/MartinKoerner/deferred_associations
 gem 'ransack'                                       # https://github.com/ernie/ransack
 gem 'gemoji'                                        # https://github.com/github/gemoji
 gem 'ruby-bbcode'                                   # https://github.com/veger/ruby-bbcode

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include Rack::Recaptcha::Helpers
   before_filter :require_login, :except => [:new, :create, :confirm, :complete, :show, :reset]
   before_filter :avoid_login, :only => [:new, :create]
 
@@ -52,7 +51,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if !recaptcha_valid?
+      if !verify_recaptcha(:model => @user)
         format.html { render action: "new", :alert=> t(:ko_captcha) }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       elsif @user.save 
