@@ -28,7 +28,7 @@ admin.save
 avatar=admin.avatar
 avatar.url='/assets/admin.png'
 avatar.save
-guest=User.new(:username=>"guest",:guest=>true)
+guest=User.new(:username=>"guest")
 guest.contacts<<Contact.create(:value=>'guest@baka.com', :protocol=>'email')
 guest.groups=[c]
 guest.save
