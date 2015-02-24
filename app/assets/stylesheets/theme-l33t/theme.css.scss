@@ -1,0 +1,253 @@
+//colors
+$color_japanese_laurel_approx: green;
+$black_60: rgba(0, 0, 0, 0.6);
+$green: #0f0;
+$color_screamin_green_approx: #7fff7f;
+$white: #fff;
+$black: black;
+$green_85: rgba(0,255,0,0.85);
+$black_55: rgba(0,0,0,0.55);
+$color_pizazz_approx: #ff8c00;
+$color_jaguar_approx: #00000f;
+$black_50: rgba(0,0,0, 0.5);
+$color_pink_swan_approx: #bababa;
+$color_crimson_approx: #e2062c;
+
+//fonts
+$font_0: lgdr;
+
+//urls
+$url_0: url("/assets/theme-l33t/lgdr.eot");
+$url_1: url("/assets/theme-l33t/lgdr.woff");
+$url_2: url("/assets/theme-l33t/lgdr.ttf");
+$url_3: url("/assets/theme-l33t/matrix.gif");
+$url_4: url("/assets/theme-l33t/web.png");
+$url_5: url("/assets/theme-l33t/sign.png");
+$url_6: url("/assets/theme-l33t/user.png");
+$url_7: url("/assets/theme-l33t/group.png");
+$url_8: url("/assets/theme-l33t/smile.png");
+$url_9: url("/assets/theme-l33t/email.png");
+$url_10: url("/assets/theme-l33t/users.png");
+$url_11: url("/assets/theme-l33t/leaf.png");
+$url_12: url("/assets/theme-l33t/tree.png");
+$url_13: url("/assets/theme-l33t/login.png");
+$url_14: url("/assets/theme-l33t/logout.png");
+$url_15: url("/assets/theme-l33t/page.png");
+$url_16: url("/assets/theme-l33t/new.png");
+$url_17: url("/assets/theme-l33t/del.png");
+$url_18: url("/assets/theme-l33t/edt.png");
+$url_19: url("/assets/theme-l33t/top.png");
+$url_20: url("/assets/theme-l33t/up.png");
+$url_21: url("/assets/theme-l33t/down.png");
+$url_22: url("/assets/theme-l33t/del.png");
+
+@font-face {
+  font-family: $font_0;
+  src: $url_0;
+  src: $url_1 format('woff'), $url_2 format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+p {
+  font-family: $font_0;
+}
+ol {
+  font-family: $font_0;
+}
+ul {
+  font-family: $font_0;
+}
+td {
+  font-family: $font_0;
+  &.hover {
+    color: $color_screamin_green_approx;
+  }
+  &.leaf {
+    background: $url_11 left center no-repeat;
+  }
+  &.tree {
+    background: $url_12 left center no-repeat;
+  }
+  &.clickable:hover {
+    color: $color_screamin_green_approx;
+  }
+}
+input {
+  font-family: $font_0;
+}
+a {
+  color: $color_japanese_laurel_approx;
+  &:hover {
+    color: $color_screamin_green_approx;
+  }
+  &.button {
+    color: $black;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+  &.checked {
+    opacity: 1.0;
+  }
+  &.web {
+    background: $url_4 left center no-repeat;
+  }
+  &.signup {
+    background: $black $url_5 left center no-repeat;
+  }
+  &.user {
+    background: $black $url_6 left center no-repeat;
+  }
+  &.group {
+    background: $black $url_7 left center no-repeat;
+  }
+  &.emoji {
+    background: $url_8 left center no-repeat;
+  }
+  &.email {
+    background: $url_9 left center no-repeat;
+  }
+  &.users {
+    background: $black $url_10 left center no-repeat;
+  }
+  &.login {
+    background: $black $url_13 left center no-repeat;
+  }
+  &.logout {
+    background: $black $url_14 left center no-repeat;
+  }
+  &.page {
+    background: $url_15 left center no-repeat;
+  }
+  &.add {
+    background: $url_16 left center no-repeat;
+  }
+  &.del {
+    background: $url_17 left center no-repeat;
+  }
+  &.edit {
+    background: $url_18 left center no-repeat;
+  }
+  &.top {
+    background: $url_19 left center no-repeat;
+  }
+  &.up {
+    background: $url_20 left center no-repeat;
+  }
+  &.down {
+    background: $url_21 left center no-repeat;
+  }
+  &.link_disabled {
+    opacity: 0.5;
+    font-style: italic;
+  }
+}
+aside {
+  &.like {
+    background: $black_60;
+    border: 1px $green dashed;
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 0;
+  }
+  &.login {
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 0;
+    background: $black;
+    border: 1px dashed #0F0;
+  }
+  &.hiddenAside {
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 0;
+    background: $black;
+    border: 1px dashed #0F0;
+  }
+  &.messages {
+    background: #FF8C00;
+  }
+  &.full_path_dropdown {
+    background: #E2062C;
+  }
+}
+article {
+  header {
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 0;
+    background: $black;
+    color: $white;
+  }
+  nav {
+    //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 4px $black_55;
+    height: 1.5em;
+    position: relative;
+    left: 3px;
+    top: 3px;
+    z-index: 2;
+  }
+  > header > a {
+    color: $green;
+  }
+}
+header {
+  &.main {
+    background: $black;
+    color: $color_japanese_laurel_approx;
+  }
+  a.button {
+    text-decoration: none;
+    color: $color_japanese_laurel_approx;
+  }
+}
+.sub-menu {
+  background: $color_jaguar_approx;
+  opacity: 0.7;
+  border: 1px solid $black;
+  //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: -2px 2px 2px $black_50;
+  //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+  border-radius: 0 0 10px 10px;
+  li {
+    border-bottom: 1px dotted $black;
+    &:hover {
+      border-bottom: 1px dotted $color_pink_swan_approx;
+    }
+  }
+}
+section.main {
+  background: $black_60;
+  border: 1px $green dashed;
+  article {
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 0;
+    background: $black_60;
+    border: 1px dotted #0F0;
+  }
+}
+tr.pinned {
+  font-weight: bolder;
+  //Instead of the line below you could use @includetext-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: 0 0 15px #FFF,0px 0 5px $color_screamin_green_approx;
+}
+footer.main {
+  color: $green_85;
+  a {
+    color: inherit;
+  }
+  .brand {
+    font-size: 125%;
+    font-style: normal;
+  }
+}
+span.spoiler {
+  border-color: $black;
+}
+fieldset.quote {
+  background: $black;
+  border-color: $color_screamin_green_approx;
+  border-style: dotted;
+}
+div.mfu_container ul.mfu_list span.mfu_remove {
+  background: $url_17 left center no-repeat;
+}
+
