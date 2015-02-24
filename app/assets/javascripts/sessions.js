@@ -21,7 +21,7 @@ window.gpAsyncInit = function() {
         response["recaptcha_challenge_field"]=$("#recaptcha_response_field").val();
         response["authenticity_token"]=$('input[name="authenticity_token"]').val();
         response["utf8"]=$('input[name="utf8"]').val();
-        jQuery.ajax({type: 'POST', url: "/users", dataType: 'json', data: response,
+        jQuery.ajax({type: 'POST', url: "/auth/google_oauth2/callback", dataType: 'json', data: response,
           success: function(json) {
             location.href="/";
           }

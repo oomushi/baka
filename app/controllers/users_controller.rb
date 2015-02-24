@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user]).import(params)
+    @user = User.new(params[:user]).import env["omniauth.auth"]
     respond_to do |format|
       if !verify_recaptcha(:model => @user)
         format.html { render action: "new", :alert=> t(:ko_captcha) }

@@ -1,11 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_filter :current_user, :only => :destroy
   def create
-    user=nil
-    begin
-      user = User.authenticate env["omniauth.auth"]
-    rescue
-    end
+    user = User.authenticate env["omniauth.auth"]
     if user
       session[:user_id] = user.id
       redirect_to root_url, :notice => t(:ok_login)
