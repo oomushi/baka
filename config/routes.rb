@@ -30,7 +30,8 @@ Baka::Application.routes.draw do
     end
   end
   
-  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/:provider/callback', to: 'sessions#create', constraints: lambda { |request| request.query_parameters['username'].blank? }
+  get 'auth/:provider/callback', to: 'users#create', constraints: lambda { |request| request.query_parameters['username'].present? }
   get 'auth/failure', to: redirect('/')
   match "logout"=> "sessions#destroy",:as =>"logout"
   match "signup"=> "users#new",       :as =>"signup"
