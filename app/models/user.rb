@@ -56,9 +56,10 @@ class User < ActiveRecord::Base
   def import auth
     provider = auth.provider
     uid = auth.uid
-    create_cotact(:value=>auth.info.email, :protocol=>'email')
+    contacts.create(:value=>auth.info.email, :protocol=>'email')
     oauth_token = auth.credentials.token
     oauth_expires_at = Time.at(auth.credentials.expires_at)
+    save!
     self
   end
   def email
