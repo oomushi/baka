@@ -48,11 +48,12 @@ class UsersController < ApplicationController
       if !verify_recaptcha(:model => @user)
         format.html { render action: "new", :alert=> t(:ko_captcha) }
         format.json { render json: @user.errors, status: :unprocessable_entity }
-      elsif @user.save
-	@user.import env["omniauth.auth"]  
+      elsif @user.save && @user.import(env["omniauth.auth"])
+	session[:user_id] = @user.id
         format.html { redirect_to root_url, notice: t(:ok_user_new) }
-        format.json { render json: @user, status: :created, location: @user }
+        format.json { render json: @user, status: :created }
       else
+	@user.delete unless @user.nil?
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
