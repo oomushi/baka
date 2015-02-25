@@ -1,0 +1,282 @@
+//colors
+$color_botticelli_approx: #c0deed;
+$color_black_white_60_approx: rgba(255, 255, 248, 0.6);
+$black: #000;
+$ivory: #fffff0;
+$coral: #ff7f50;
+$white: #fff;
+$yellow: #ff0;
+$black_85: rgba(0,0,0,0.85);
+$color_crimson_approx: #e2062c;
+$gold: gold;
+$color_vivid_tangerine_approx: #ff9b7b;
+$color_sail_approx: #b0ceff;
+$color_jaguar_approx: #00000f;
+$black_50: rgba(0,0,0, 0.5);
+$color_pink_swan_approx: #bababa;
+$black_80: rgba(0,0,0,0.8);
+$color_golden_fizz_61_approx: rgba(255,255,50,0.61);
+$color_driftwood_approx: #bb8653;
+$color_electric_violet_61_approx: rgba(153,50,255,0.61);
+$color_golden_fizz_approx: #ffff32;
+
+//fonts
+$font_0: Twit;
+$font_1: Cretino;
+
+//urls
+$url_0: url("/assets/theme-default/escer.png");
+$url_1: url("/assets/theme-default/baka.png");
+$url_2: url("/assets/theme-default/web.png");
+$url_3: url("/assets/theme-default/sign.png");
+$url_4: url("/assets/theme-default/user.png");
+$url_5: url("/assets/theme-default/group.png");
+$url_6: url("/assets/theme-default/smile.png");
+$url_7: url("/assets/theme-default/email.png");
+$url_8: url("/assets/theme-default/users.png");
+$url_9: url("/assets/theme-default/leaf.png");
+$url_10: url("/assets/theme-default/tree.png");
+$url_11: url("/assets/theme-default/login.png");
+$url_12: url("/assets/theme-default/logout.png");
+$url_13: url("/assets/theme-default/page.png");
+$url_14: url("/assets/theme-default/attachment.png");
+$url_15: url("/assets/theme-default/new.png");
+$url_16: url("/assets/theme-default/del.png");
+$url_17: url("/assets/theme-default/edt.png");
+$url_18: url("/assets/theme-default/top.png");
+$url_19: url("/assets/theme-default/up.png");
+$url_20: url("/assets/theme-default/down.png");
+$url_21: url("/assets/theme-default/replay.png");
+$url_22: url("/assets/theme-default/twit.eot");
+$url_23: url("/assets/theme-default/twit.woff");
+$url_24: url("/assets/theme-default/twit.ttf");
+$url_25: url("/assets/theme-default/cretino.eot");
+$url_26: url("/assets/theme-default/cretino.woff");
+$url_27: url("/assets/theme-default/cretino.ttf");
+$url_28: url("/assets/theme-default/mfu_remove.png");
+
+body {
+  background: $color_botticelli_approx $url_0 no-repeat fixed left bottom;
+  > {
+    section {
+      background: $color_black_white_60_approx;
+      //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+      box-shadow: 0 0 15px $black;
+      article {
+        background: $ivory $url_1 repeat-y scroll left bottom;
+        border: 1px solid $black;
+      }
+    }
+    header {
+      background: $black;
+      color: $white;
+    }
+    footer {
+      color: $black_85;
+      a {
+        color: inherit;
+      }
+    }
+  }
+}
+td {
+  &.hover {
+    color: $coral;
+  }
+  &.leaf {
+    background: $url_9 left center no-repeat;
+  }
+  &.tree {
+    background: $url_10 left center no-repeat;
+  }
+  &.clickable:hover {
+    color: $coral;
+  }
+}
+a {
+  &:hover {
+    color: $coral;
+  }
+  &.button {
+    color: $black;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+  &.checked {
+    opacity: 1.0;
+  }
+  &.web {
+    background: $url_2 left center no-repeat;
+  }
+  &.signup {
+    background: $black $url_3 left center no-repeat;
+  }
+  &.user {
+    background: $black $url_4 left center no-repeat;
+  }
+  &.group {
+    background: $black $url_5 left center no-repeat;
+  }
+  &.email {
+    background: $url_7 left center no-repeat;
+  }
+  &.users {
+    background: $black $url_8 left center no-repeat;
+  }
+  &.login {
+    background: $black $url_11 left center no-repeat;
+  }
+  &.logout {
+    background: $black $url_12 left center no-repeat;
+  }
+  &.page {
+    background: $url_13 left center no-repeat;
+  }
+  &.attachment {
+    background: $url_14 left center no-repeat;
+  }
+  &.add {
+    background: $url_15 left center no-repeat;
+  }
+  &.del {
+    background: $url_16 left center no-repeat;
+  }
+  &.edit {
+    background: $url_17 left center no-repeat;
+  }
+  &.top {
+    background: $url_18 left center no-repeat;
+  }
+  &.up {
+    background: $url_19 left center no-repeat;
+  }
+  &.down {
+    background: $url_20 left center no-repeat;
+  }
+  &.replay {
+    background: $url_21 left center no-repeat;
+  }
+  &.link_disabled {
+    opacity: 0.5;
+    font-style: italic;
+  }
+}
+aside {
+  &.login {
+    background: #E2062C;
+  }
+  &.hiddenAside {
+    background: #E2062C;
+  }
+  &.messages {
+    background: #FF9B7B;
+  }
+  &.like {
+    background-color: #E2062C;
+    //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 10px 10px 20px $black;
+  }
+}
+article {
+  header {
+    background: $black;
+    color: $white;
+  }
+  nav {
+    background-image: none;
+    background-color: $black_80;
+  }
+  > header > a {
+    color: $gold;
+  }
+}
+@font-face {
+  font-family: $font_0;
+  src: $url_22;
+  src: $url_23 format('woff'), $url_24 format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: $font_1;
+  src: $url_25;
+  src: $url_26 format('woff'), $url_27 format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.baka {
+  font-family: $font_0;
+}
+.macrobug {
+  font-family: $font_1;
+}
+.sub-menu {
+  background: $color_jaguar_approx;
+  opacity: 0.7;
+  border: 1px solid $black;
+  //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: -2px 2px 2px $black_50;
+  //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+  border-radius: 0 0 10px 10px;
+  li {
+    border-bottom: 1px dotted $black;
+    &:hover {
+      border-bottom: 1px dotted $color_pink_swan_approx;
+    }
+  }
+}
+.poll {
+  background-color: $color_golden_fizz_61_approx;
+  border: 1px solid $color_driftwood_approx;
+  border-top: 0;
+  caption {
+    background-color: $color_electric_violet_61_approx;
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 20px 0 0 0;
+    color: #FFFF32;
+    border: 1px solid $color_driftwood_approx;
+    border-bottom: 0;
+    //Instead of the line below you could use @includetext-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    text-shadow: 2px 2px 3px $black;
+  }
+  tfoot {
+    border-top: 1px solid #BB8653;
+  }
+}
+.sign {
+  font-style: italic;
+  float: none;
+  width: inherit;
+  padding: 0;
+}
+.markItUpEditor {
+  background: $white;
+}
+tr.pinned {
+  font-weight: bolder;
+  //Instead of the line below you could use @includetext-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: 0 0 15px #FFF,0px 0 5px #FF0;
+}
+header a.button {
+  text-decoration: none;
+  color: $white;
+}
+.markItUp .markItUpButton15 a {
+  background-image: $url_6;
+}
+span.spoiler {
+  border-color: $black;
+}
+fieldset.quote {
+  background: $url_1 0 100% repeat-y #C0DEED;
+  border-color: $color_sail_approx;
+}
+nav aside {
+  background: #E2062C;
+}
+div.mfu_container ul.mfu_list span.mfu_remove {
+  background: $url_28 left center no-repeat;
+}
+
