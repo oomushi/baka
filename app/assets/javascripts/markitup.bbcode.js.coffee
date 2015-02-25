@@ -9,7 +9,7 @@
 # ----------------------------------------------------------------------------
 # Feel free to add more tags
 # ----------------------------------------------------------------------------
-mySettings =
+@mySettings =
   nameSpace: 'markitupDiv'
   previewParserPath: ''
   markupSet: [
