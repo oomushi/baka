@@ -16,8 +16,7 @@ window.gpAsyncInit = ->
     }, (response) ->
       if response and !response.error
         response['user[username]'] = $('#user_username').val()
-        response['recaptcha_response_field'] = $('#recaptcha_response_field').val()
-        response['recaptcha_challenge_field'] = $('#recaptcha_response_field').val()
+        response['g-recaptcha-response'] = $('#g-recaptcha-response').val()
         response['authenticity_token'] = $('input[name="authenticity_token"]').val()
         response['utf8'] = $('input[name="utf8"]').val()
         jQuery.ajax
