@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :answers
   has_and_belongs_to_many :groups
   after_create {|u| u.create_avatar}
-  after_create {|u| u.groups<<Group.find(3)}
+  after_create {|u| u.groups << Group.find(3)}
   validates_presence_of :username
   validates_uniqueness_of :username
   accepts_nested_attributes_for :contacts, :allow_destroy => true
@@ -54,13 +54,12 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first
   end
   def import auth
-    provider = auth.provider
-    uid = auth.uid
-    contacts.create(:value=>auth.info.email, :protocol=>'email')
-    oauth_token = auth.credentials.token
-    oauth_expires_at = Time.at(auth.credentials.expires_at)
-    save!
-    self
+    self.provider = auth.provider
+    self.uid = auth.uid
+    self.contacts.create(:value=>auth.info.email, :protocol=>'email')
+    self.oauth_token = auth.credentials.token
+    self.oauth_expires_at = Time.at(auth.credentials.expires_at)
+    save
   end
   def email
     email=contacts.where('protocol = ?','email').first
