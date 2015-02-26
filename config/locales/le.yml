@@ -261,7 +261,7 @@ le:
   messages_number: '|\/|3ss4632 |\|.'
   name: '|\|4|\/|3'
   new: '|\|3\/\/'
-  new_replay: "|\\|3\\/\\/ r3p|_4'/"
+  new_reply: "|\\|3\\/\\/ r3p|_4'/"
   new_message: "S0|\\/|30|\\|3 r3p|_13d 47 0|\\|3 |\\/|3ss463 |=0|_|_0\\/\\/3d b'/ j00"
   object_not_found: '0bj3c7 |\|07 |=0|_||\|d'
   ok_answers: "4|\\|s\\/\\/3r \\/\\/|_|2 s|_|cc3ss|=|_||_|_'/ |_|pd473d"
@@ -283,7 +283,7 @@ le:
   properties: 'Pr0p3r7132'
   protocol: 'pr070c0|_'
   realname: 'r34|_ |\|4|\/|3'
-  replay: "R3p|_4'/"
+  reply: "R3p|_4'/"
   require_login: 'j00 |\/||_|s7 b |_0663d 1|\| 2 4cc3s2 d12 s3c710|\|'
   reset_password: 'r3s37 p4ss\/\/0rd'
   result: 'R3s|_||_7'

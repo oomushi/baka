@@ -67,7 +67,7 @@ class Message < ActiveRecord::Base
     !messages.count.zero?
   end
   
-  def replay
+  def reply
     title,text='',''
     unless section
       title+=self.title

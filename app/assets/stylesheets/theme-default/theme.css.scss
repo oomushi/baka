@@ -42,11 +42,11 @@ $url_13: url("/assets/theme-default/page.png");
 $url_14: url("/assets/theme-default/attachment.png");
 $url_15: url("/assets/theme-default/new.png");
 $url_16: url("/assets/theme-default/del.png");
-$url_17: url("/assets/theme-default/edt.png");
+$url_17: url("/assets/theme-default/edit.png");
 $url_18: url("/assets/theme-default/top.png");
 $url_19: url("/assets/theme-default/up.png");
 $url_20: url("/assets/theme-default/down.png");
-$url_21: url("/assets/theme-default/replay.png");
+$url_21: url("/assets/theme-default/reply.png");
 $url_22: url("/assets/theme-default/twit.eot");
 $url_23: url("/assets/theme-default/twit.woff");
 $url_24: url("/assets/theme-default/twit.ttf");
@@ -155,7 +155,7 @@ a {
   &.down {
     background: $url_20 left center no-repeat;
   }
-  &.replay {
+  &.reply {
     background: $url_21 left center no-repeat;
   }
   &.link_disabled {
