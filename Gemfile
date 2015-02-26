@@ -32,7 +32,10 @@ gem 'jquery-rails', "< 3.0.0"
 # Deploy with Capistrano
 # gem 'capistrano'
 
-gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'omniauth-google-oauth2'                        # https://github.com/zquestz/omniauth-google-oauth2
+gem 'omniauth-facebook'                             # https://github.com/mkdynamic/omniauth-facebook
+gem 'omniauth-twitter'                              # https://github.com/arunagw/omniauth-twitter
+gem 'omniauth-yahoo'                                # https://github.com/timbreitkreutz/omniauth-yahoo
 
 gem 'canable'                                       # https://github.com/jnunemaker/canable
 gem 'mini_magick'                                   # https://github.com/probablycorey/mini_magick
