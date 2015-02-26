@@ -1,0 +1,11 @@
+<aside class="login" id="login" hidden>
+  <header>
+    <nav>
+      <%= link_to_void 'x', {:class=>"button exit", :title=>t(:close)} %>
+    </nav>
+  </header>
+  <%= link_to t(:login), "/auth/google_oauth2", :class=>"button google" %>
+  <%= link_to t(:login), "/auth/facebook", :class=>"button facebook" %>
+  <%= link_to t(:login), "/auth/yahoo", :class=>"button yahoo" %>
+  <%= link_to t(:login), "/auth/twitter", :class=>"button twitter" %>
+</aside>

@@ -54,6 +54,10 @@ $url_25: url("/assets/theme-default/cretino.eot");
 $url_26: url("/assets/theme-default/cretino.woff");
 $url_27: url("/assets/theme-default/cretino.ttf");
 $url_28: url("/assets/theme-default/mfu_remove.png");
+$url_29: url("/assets/theme-default/g+.png");
+$url_30: url("/assets/theme-default/fb.png");
+$url_31: url("/assets/theme-default/y!.png");
+$url_32: url("/assets/theme-default/tw.png");
 
 body {
   background: $color_botticelli_approx $url_0 no-repeat fixed left bottom;
@@ -157,6 +161,18 @@ a {
   }
   &.reply {
     background: $url_21 left center no-repeat;
+  }
+  &.google {
+    background: $black $url_29 left center no-repeat;
+  }
+  &.facebook {
+    background: $black $url_30 left center no-repeat;
+  }
+  &.yahoo {
+    background: $black $url_31 left center no-repeat;
+  }
+  &.twitter {
+    background: $black $url_32 left center no-repeat;
   }
   &.link_disabled {
     opacity: 0.5;
