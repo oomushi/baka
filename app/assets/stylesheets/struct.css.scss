@@ -56,6 +56,9 @@ body > footer {
   display: inline-block;
   font-style: italic;
   margin-top: 1em;
+  > .credits {
+    font-size: small;
+  }
 }
 
 aside{
