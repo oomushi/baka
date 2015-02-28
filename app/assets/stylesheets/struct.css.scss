@@ -52,12 +52,11 @@ header a.button {
 }
 
 body > footer {
-  text-align: left;
   display: inline-block;
   font-style: italic;
   margin-top: 1em;
   > .credits {
-    font-size: small;
+    font-size: .5em;
   }
 }
 
