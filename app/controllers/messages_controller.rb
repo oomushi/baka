@@ -31,7 +31,7 @@ class MessagesController < ApplicationController
   def new
     @root=Message.find params[:id]
     enforce_create_permission(@root)
-    @message = @root.replay
+    @message = @root.reply
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @message }

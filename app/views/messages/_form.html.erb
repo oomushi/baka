@@ -47,20 +47,20 @@
       </tr>
     </table>
   </div>
-  <% if @current_user.groups.count>1 && @current_user.max_group.level<3 %>
+  <% if @current_user.groups.count>1 && @current_user.groups.max_by(&:level).level<3 %>
   <div class="field">
     <table>
       <tr>
         <th><%= f.label :reader %></th>
         <th><%= f.label :writer %></th>
-        <% if @current_user.max_group.level < 2 %>
+        <% if @current_user.groups.max_by(&:level).level < 2 %>
         <th><%= f.label :moderator %></th>
         <% end %>
       </tr>
       <tr>
         <td><%= f.select(:reader_id, @current_user.groups.to_a.push(Group.find(4)).map{|g| [g.name,g.id] if g.level <= @message.reader.level }.compact) %></td>
         <td><%= f.select(:writer_id, @current_user.groups.to_a.push(Group.find(4)).map{|g| [g.name,g.id] if @message.message.section || g.level <= @message.writer.level }.compact) %></td>
-        <% if @current_user.max_group.level < 2 %>
+        <% if @current_user.groups.max_by(&:level).level < 2 %>
         <td><%= f.select(:moderator_id, Group.where('level<3').map{|g| [g.name,g.id]}) %></td>
         <% else %>
         <%= f.hidden_field :moderator_id %>

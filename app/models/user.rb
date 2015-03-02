@@ -7,14 +7,9 @@ class User < ActiveRecord::Base
   has_many :contacts,:dependent=>:destroy
   has_and_belongs_to_many :answers
   has_and_belongs_to_many :groups
-  attr_protected :password_hash, :password_salt, :confirm_code
-  attr_accessor :password
-  before_save :encrypt_password
-  after_create :confirm_email,:generate_avatar,:add_group
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
+  after_create {|u| u.create_avatar}
+  after_create {|u| u.groups << Group.find(3)}
   validates_presence_of :username
-  validates_presence_of :realname
   validates_uniqueness_of :username
   accepts_nested_attributes_for :contacts, :allow_destroy => true
   accepts_nested_attributes_for :avatar, :allow_destroy => false
@@ -40,91 +35,34 @@ class User < ActiveRecord::Base
   def value
     username
   end 
-  def total_likes
-    value=0
-    self.likes.each do |l|
-      value+=l.value
-    end
-    value
-  end
+
   def posts
     messages.where("section = ?", false)
   end
   
-  def self.find_guest
-    User.where("guest = ?",true)
+  def self.guest
+    where("uid is ?",nil)
   end
   def guest?
-    guest==true
+    uid.nil?
   end
   def admin?
     groups.any?{ |g| g.admin? }
   end
-  
-  def max_group
-    g=groups.sort{|a,b| a.level<=>b.level}
-    g.first
+
+  def self.authenticate auth
+    where(auth.slice(:provider, :uid)).first
   end
-  
-  def self.authenticate(username, password)
-    user = User.where("username = ? and confirm_code is null",username).first
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-      user
-    else
-      nil
-    end
-  end
-  
-  def confirm code
-    if code.eql? self.confirm_code
-      self.confirm_code=nil
-      self.save
-      true
-    else
-      false
-    end
-  end
-  
-  def forgotten_password
-    hash,salt=self.password_hash,self.password_salt
-    begin
-      self.password=(0...32).map{(' '..'~').to_a[rand(95)]}.join
-      self.save
-      UserMailer.forgotten_password(self).deliver
-      true
-    rescue
-      self.password_hash,self.password_salt=hash,salt
-      self.save
-      false
-    end
-  end
-  
-  def encrypt_password
-    if password.present?
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-    end
+  def import auth
+    self.provider = auth.provider
+    self.uid = auth.uid
+    self.contacts.create(:value=>auth.info.email, :protocol=>'email')
+    self.oauth_token = auth.credentials.token
+    self.oauth_expires_at = Time.at(auth.credentials.expires_at)
+    save
   end
   def email
     email=contacts.where('protocol = ?','email').first
     email.nil? ? '' : email.value
-  end
-  protected
-  def confirm_email
-    return if self.confirm_code.nil? or not self.email.eql? ''
-    salt=BCrypt::Engine.generate_salt
-    self.confirm_code=BCrypt::Engine.hash_secret("#{self.id} #{self.username} #{self.email} #{self.password_hash} #{self.password_salt} #{self.created_at.to_s} #{rand(29**29)}", salt)
-    self.save
-    begin
-      UserMailer.email_confirmation(self).deliver
-    rescue
-      self.destroy
-    end
-  end
-  def generate_avatar
-    self.create_avatar()
-  end
-  def add_group
-    self.groups<<Group.find(3)
   end
 end

@@ -2,36 +2,26 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
+# TODO capire che serva il seguente metodo
   $('body > header > nav').children("a").each ->
     if $(this).next("ul").length > 0
       $(this).mouseenter ->
         $(this).next("ul").stop(true, true).slideDown()
-        true
+        return
       $(this).mouseleave ->
         $(this).next("ul").stop(true, true).slideUp()
-        true
+        return
       $(this).next('ul').mouseenter ->
         $(this).stop(true, true).show()
-        true
+        return
       $(this).next('ul').mouseleave ->
         $(this).stop(true, true).slideUp()
-        true
-    true
+        return
+      return
   $('aside').find('a.exit').click ->
     $('#login').hide 'smooth'
-    true
-  $('aside').find('a.forgotten').click ->
-    $('#subforgotten').show()
-    $('#sublogin').hide()
-    true
-  $('aside').find('a.login2').click ->
-    $('#subforgotten').hide()
-    $('#sublogin').show()
-    true
+    return
   $('body > header > nav').find('a.login').click ->
-    $('#subforgotten').hide()
-    $('#sublogin').show()
     $('#login').show 'smooth'
-    $('#username').focus()
-    true
-  true
+    return
+  return

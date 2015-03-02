@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
   include Canable::Ables
   include Comparable
-  has_and_belongs_to_many :users,:conditions => "confirm_code is null"
+  has_and_belongs_to_many :users
   before_destroy :destroyable?
 
   def self.indexable_by? user

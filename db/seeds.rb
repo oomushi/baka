@@ -21,15 +21,14 @@ c=Group.create({
   :name=>"public",
   :level=>64
 })
-admin = User.new(:username=>'admin', :realname=>(0...32).map{(' '..'~').to_a[rand(95)]}.join, :birthday=>Date.new(1982,12,29), :password=>'sunset')
-admin.confirm_code=nil
+admin = User.new(:username=>'admin', :birthday=>Date.new(1982,12,29), :provider=>"google_oauth2", :uid=>"108602441543843796359")
 admin.contacts<<Contact.create(:value=>'admin@baka.com', :protocol=>'email')
 admin.groups<<a
 admin.save
 avatar=admin.avatar
 avatar.url='/assets/admin.png'
 avatar.save
-guest=User.new(:username=>"guest",:realname=>(0...32).map{(' '..'~').to_a[rand(95)]}.join,:password=>(0...32).map{(' '..'~').to_a[rand(95)]}.join,:guest=>true)
+guest=User.new(:username=>"guest")
 guest.contacts<<Contact.create(:value=>'guest@baka.com', :protocol=>'email')
 guest.groups=[c]
 guest.save

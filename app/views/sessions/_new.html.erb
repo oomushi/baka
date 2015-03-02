@@ -1,31 +1,11 @@
 <aside class="login" id="login" hidden>
   <header>
     <nav>
-    <%= link_to_void 'x', {:class=>"button exit", :title=>t(:close)} %>
+      <%= link_to_void 'x', {:class=>"button exit", :title=>t(:close)} %>
     </nav>
   </header>
-<section id="sublogin">
-  <article>
-    <%= form_tag sessions_path do %>
-    <p><%= label_tag :username, t(:username) %><br />
-    <%= text_field_tag :username, params[:username] %></p>
-    <p><%= label_tag :password, t(:password) %><br />
-    <%= password_field_tag :password %></p>
-    <p class="button"><%= submit_tag t(:login) %></p>
-    <% end %>
-    <%= link_to_void t(:forgotten_password), {:class=>"button forgotten", :title=>t(:forgotten_password)} %>
-  </article>
-</section>
-<section id="subforgotten" hidden>
-  <article>
-    <%= form_tag reset_users_path do %>
-    <p><%= label_tag :username, t(:username) %><br />
-    <%= text_field_tag :username %></p>
-    <p><%= label_tag :email, t(:realname) %><br />
-    <%= text_field_tag :realname %></p>
-    <p class="button"><%= submit_tag t(:forgotten_password) %></p>
-    <%= link_to_void t(:login),{:class=>"button login2", :title=>t(:login)} %>
-    <% end %>
-  </article>
-</section>
+  <%-# = link_to t(:login), "/auth/facebook", :class=>"button facebook" -%>
+  <%= link_to t(:login), "/auth/google_oauth2", :class=>"button google" %>
+  <%-# = link_to t(:login), "/auth/twitter", :class=>"button twitter" -%>
+  <%-# = link_to t(:login), "/auth/yahoo", :class=>"button yahoo" -%>
 </aside>
