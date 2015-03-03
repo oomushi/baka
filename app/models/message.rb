@@ -3,14 +3,14 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :message
   has_many :messages
-  has_many :likes,:dependent=>:destroy
-  has_many :attachments, :dependent=>:destroy
-  has_one :poll,:dependent=>:destroy
-  belongs_to :reader, :class_name=>"Group", :foreign_key=>"reader_id"
-  belongs_to :writer, :class_name=>"Group", :foreign_key=>"writer_id"
-  belongs_to :moderator, :class_name=>"Group", :foreign_key=>"moderator_id"
-  accepts_nested_attributes_for :poll, :allow_destroy => true
-  accepts_nested_attributes_for :attachments, :allow_destroy => true
+  has_many :likes,dependent: :destroy
+  has_many :attachments, dependent: :destroy
+  has_one :poll,dependent: :destroy
+  belongs_to :reader, class_name: "Group", foreign_key: "reader_id"
+  belongs_to :writer, class_name: "Group", foreign_key: "writer_id"
+  belongs_to :moderator, class_name: "Group", foreign_key: "moderator_id"
+  accepts_nested_attributes_for :poll, allow_destroy: true
+  accepts_nested_attributes_for :attachments, allow_destroy: true
   before_create :set_nv_and_dv
   before_destroy :destroyable?
   after_create :alert_followers
@@ -75,12 +75,12 @@ class Message < ActiveRecord::Base
       text="[quote=#{user.username}]#{self.text}[/quote]"
     end
     Message.new({
-      :title=>title,
-      :text=>text,
-      :message_id=>self.id,
-      :reader_id=>self.reader_id,
-      :writer_id=>self.writer_id,
-      :moderator_id=>self.moderator_id
+      title: title,
+      text: text,
+      message_id: self.id,
+      reader_id: self.reader_id,
+      writer_id: self.writer_id,
+      moderator_id: self.moderator_id
     })
   end
 

@@ -1,7 +1,7 @@
 class Poll < ActiveRecord::Base
   belongs_to :message
-  has_many :answers,:dependent=>:destroy
-  accepts_nested_attributes_for :answers, :allow_destroy => true
+  has_many :answers,dependent: :destroy
+  accepts_nested_attributes_for :answers, allow_destroy: true
   def options_count
     answers.inject(0){ |memo, o| memo+=o.users.count }
   end

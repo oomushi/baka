@@ -31,7 +31,7 @@
   <% end %>
   <div class="field2">
     <%= f.fields_for :avatar do |builder| %>
-      <%= render :partial => 'avatars/form',:locals => { :f => builder } %>
+      <%= render partial: 'avatars/form',locals: { f: builder } %>
     <% end %>
   </div>
   <div class="field2">
@@ -39,7 +39,7 @@
       <legend><%= t(:contacts) %></legend>
       <%= new_subobject_div t(:add_contacts),f,:contacts %>
       <%= f.fields_for :contacts do |builder| %>
-        <%= render :partial => 'contacts/form', :locals => { :f => builder } %>
+        <%= render partial: 'contacts/form', locals: { f: builder } %>
       <% end %>
     </fieldset>
   </div>

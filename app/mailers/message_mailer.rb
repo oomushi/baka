@@ -1,5 +1,5 @@
 class MessageMailer < ActionMailer::Base
-  default :from => "baka@macrobug.dev.invalid"
+  default from: "baka@macrobug.dev.invalid"
   def new_message_alert message
     @message=message
     users=[]
@@ -8,7 +8,7 @@ class MessageMailer < ActionMailer::Base
       users<<m.user.email unless user.eql? m.user
     end
     users.uniq.each do |email|
-      mail :to=>email, :subject=> t(:new_reply)
+      mail to: email, subject: t(:new_reply)
     end
   end
 end

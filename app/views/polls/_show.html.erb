@@ -14,7 +14,7 @@
       <td><%= ans.users.count %></td>
     <% else %>
       <td></td>
-      <td><%= link_to emojify(ans.text), vote_answer_path(ans),:method=>:put if current_user.can_vote? ans %></td>
+      <td><%= link_to emojify(ans.text), vote_answer_path(ans),method: :put if current_user.can_vote? ans %></td>
       <td></td>
     <% end %>
     </tr>

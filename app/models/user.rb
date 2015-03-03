@@ -1,18 +1,18 @@
 class User < ActiveRecord::Base
   include Canable::Cans
   include Canable::Ables
-  has_many :messages,:dependent=>:destroy
-  has_many :likes,:dependent=>:destroy
-  has_one :avatar,:dependent=>:delete
-  has_many :contacts,:dependent=>:destroy
+  has_many :messages,dependent: :destroy
+  has_many :likes,dependent: :destroy
+  has_one :avatar,dependent: :delete
+  has_many :contacts,dependent: :destroy
   has_and_belongs_to_many :answers
   has_and_belongs_to_many :groups
   after_create {|u| u.create_avatar}
   after_create {|u| u.groups << Group.find(3)}
   validates_presence_of :username
   validates_uniqueness_of :username
-  accepts_nested_attributes_for :contacts, :allow_destroy => true
-  accepts_nested_attributes_for :avatar, :allow_destroy => false
+  accepts_nested_attributes_for :contacts, allow_destroy: true
+  accepts_nested_attributes_for :avatar, allow_destroy: false
   
   def updatable_by? user
     user.id==id or
@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   def import auth
     self.provider = auth.provider
     self.uid = auth.uid
-    self.contacts.create(:value=>auth.info.email, :protocol=>'email')
+    self.contacts.create(value: auth.info.email, protocol: 'email')
     self.oauth_token = auth.credentials.token
     self.oauth_expires_at = Time.at(auth.credentials.expires_at)
     save

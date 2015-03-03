@@ -78,10 +78,10 @@
   <div class="field">
     <fieldset>
       <legend><%= t(:attachments) %></legend>
-      <%= new_attachment t(:add_attachments),f,:attachments,{ :class=> "multiUpload" } %>
+      <%= new_attachment t(:add_attachments),f,:attachments,{ class: "multiUpload" } %>
     <% unless @message.attachments.nil? %>
       <%= f.fields_for :attachments do |builder| %>
-        <%= render :partial => 'attachments/form',:locals => { :f => builder } %>
+        <%= render partial: 'attachments/form',locals: { f: builder } %>
       <% end %>
     <% end %>
     </fieldset>
@@ -89,10 +89,10 @@
   <div class="field">
     <fieldset>
       <legend><%= t(:poll) %></legend>
-      <%= new_subobject_div t(:add_poll),f,:poll,{ :unique=> @message.poll.nil? } %>
+      <%= new_subobject_div t(:add_poll),f,:poll,{ unique: @message.poll.nil? } %>
     <% unless @message.poll.nil? %>
       <%= f.fields_for :poll do |builder| %>
-        <%= render :partial => 'polls/form',:locals => { :f => builder } %>
+        <%= render partial: 'polls/form',locals: { f: builder } %>
       <% end %>
     <% end %>
     </fieldset>
@@ -100,12 +100,12 @@
 </div>
 <div class="field">
   <%= f.label :text %><br />
-  <%= f.text_area :text, :cols => nil, :class => 'markItUp' %>
+  <%= f.text_area :text, cols: nil, class: 'markItUp' %>
 </div>
   <%= f.hidden_field :message_id %>
-  <%= f.hidden_field :user_id,:value=>@current_user.id %>
+  <%= f.hidden_field :user_id,value: @current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-<%= render :partial => 'emoji' %>
+<%= render partial: 'emoji' %>

@@ -1,6 +1,6 @@
 <% case contact.protocol %>
  <% when 'email' %>
-   <%= mail_to contact.value,"&thinsp;".html_safe, { :encode=>:javascript, :title=> contact.value,:class=>"button email"} %>
+   <%= mail_to contact.value,image_tag("theme-default/email.svg", alt: "email"), { encode: :javascript, title: contact.value,class: "button"} %>
  <% when 'website' %> 
-   <%= link_to "&thinsp;".html_safe,contact.value, {class: 'web button', target: '_blank', title: contact.value} %>
+   <%= link_to image_tag("theme-default/web.svg", alt: "web"),contact.value, {class: 'button', target: '_blank', title: contact.value} %>
 <% end %>

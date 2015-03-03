@@ -2,8 +2,8 @@
 <html>
 <head>
   <title><%= t(:baka) %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= stylesheet_link_tag I18n.locale.eql?(:le) ? 'theme-l33t/theme' : 'theme-default/theme' %>
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag 'theme-default/theme' %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link rel="icon" href="/favicon.ico" />
@@ -11,13 +11,13 @@
 
 </head>
 <body>
-  <%= render 'layouts/header',:locals=>{:curent_user=>@current_user}%>
+  <%= render 'layouts/header',locals: {curent_user: @current_user}%>
   <% flash.each do |name, msg| %>
-    <%= content_tag :aside, msg, :id => "flash_#{name}",:class=>"messages" %>
+    <%= content_tag :aside, msg, id: "flash_#{name}",class: "messages" %>
   <% end %>
 <section>
 <%= yield %>
 </section>
-  <%= render 'layouts/footer',:locals=>{:curent_user=>@current_user}%>
+  <%= render 'layouts/footer',locals: {curent_user: @current_user}%>
 </body>
 </html>

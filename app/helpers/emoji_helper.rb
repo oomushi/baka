@@ -12,7 +12,7 @@ module EmojiHelper
   def emoji_range from, to
     ret=''
     (from..to).each do |c|
-      ret<<link_to(emojify(":"+Emoji.find_by_unicode(c).name+":"),'javascript:void(0)',data: {:tag=>":"+Emoji.find_by_unicode(c).name+":"}) unless Emoji.find_by_unicode(c).nil?
+      ret<<link_to(emojify(":"+Emoji.find_by_unicode(c).name+":"),'javascript:void(0)',data: {tag: ":"+Emoji.find_by_unicode(c).name+":"}) unless Emoji.find_by_unicode(c).nil?
     end
     ret.html_safe
   end

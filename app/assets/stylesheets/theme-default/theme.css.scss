@@ -27,26 +27,7 @@ $font_1: Cretino;
 //urls
 $url_0: url("/assets/theme-default/escer.png");
 $url_1: url("/assets/theme-default/baka.png");
-$url_2: url("/assets/theme-default/web.png");
-$url_3: url("/assets/theme-default/sign.png");
-$url_4: url("/assets/theme-default/user.png");
-$url_5: url("/assets/theme-default/group.png");
 $url_6: url("/assets/theme-default/smile.png");
-$url_7: url("/assets/theme-default/email.png");
-$url_8: url("/assets/theme-default/users.png");
-$url_9: url("/assets/theme-default/leaf.png");
-$url_10: url("/assets/theme-default/tree.png");
-$url_11: url("/assets/theme-default/login.png");
-$url_12: url("/assets/theme-default/logout.png");
-$url_13: url("/assets/theme-default/page.png");
-$url_14: url("/assets/theme-default/attachment.png");
-$url_15: url("/assets/theme-default/new.png");
-$url_16: url("/assets/theme-default/del.png");
-$url_17: url("/assets/theme-default/edit.png");
-$url_18: url("/assets/theme-default/top.png");
-$url_19: url("/assets/theme-default/up.png");
-$url_20: url("/assets/theme-default/down.png");
-$url_21: url("/assets/theme-default/reply.png");
 $url_22: url("/assets/theme-default/twit.eot");
 $url_23: url("/assets/theme-default/twit.woff");
 $url_24: url("/assets/theme-default/twit.ttf");
@@ -54,10 +35,6 @@ $url_25: url("/assets/theme-default/cretino.eot");
 $url_26: url("/assets/theme-default/cretino.woff");
 $url_27: url("/assets/theme-default/cretino.ttf");
 $url_28: url("/assets/theme-default/mfu_remove.png");
-$url_29: url("/assets/theme-default/g+.png");
-$url_30: url("/assets/theme-default/fb.png");
-$url_31: url("/assets/theme-default/y!.png");
-$url_32: url("/assets/theme-default/tw.png");
 
 body {
   background: $color_botticelli_approx $url_0 no-repeat fixed left bottom;
@@ -87,12 +64,6 @@ td {
   &.hover {
     color: $coral;
   }
-  &.leaf {
-    background: $url_9 left center no-repeat;
-  }
-  &.tree {
-    background: $url_10 left center no-repeat;
-  }
   &.clickable:hover {
     color: $coral;
   }
@@ -107,72 +78,13 @@ a {
     &:hover {
       opacity: 1.0;
     }
+    > svg{
+      fill: $black;
+      stroke: $black;
+    }
   }
   &.checked {
     opacity: 1.0;
-  }
-  &.web {
-    background: $url_2 left center no-repeat;
-  }
-  &.signup {
-    background: $black $url_3 left center no-repeat;
-  }
-  &.user {
-    background: $black $url_4 left center no-repeat;
-  }
-  &.group {
-    background: $black $url_5 left center no-repeat;
-  }
-  &.email {
-    background: $url_7 left center no-repeat;
-  }
-  &.users {
-    background: $black $url_8 left center no-repeat;
-  }
-  &.login {
-    background: $black $url_11 left center no-repeat;
-  }
-  &.logout {
-    background: $black $url_12 left center no-repeat;
-  }
-  &.page {
-    background: $url_13 left center no-repeat;
-  }
-  &.attachment {
-    background: $url_14 left center no-repeat;
-  }
-  &.add {
-    background: $url_15 left center no-repeat;
-  }
-  &.del {
-    background: $url_16 left center no-repeat;
-  }
-  &.edit {
-    background: $url_17 left center no-repeat;
-  }
-  &.top {
-    background: $url_18 left center no-repeat;
-  }
-  &.up {
-    background: $url_19 left center no-repeat;
-  }
-  &.down {
-    background: $url_20 left center no-repeat;
-  }
-  &.reply {
-    background: $url_21 left center no-repeat;
-  }
-  &.google {
-    background: $black $url_29 left center no-repeat;
-  }
-  &.facebook {
-    background: $black $url_30 left center no-repeat;
-  }
-  &.yahoo {
-    background: $black $url_31 left center no-repeat;
-  }
-  &.twitter {
-    background: $black $url_32 left center no-repeat;
   }
   &.link_disabled {
     opacity: 0.5;
@@ -278,6 +190,10 @@ tr.pinned {
 header a.button {
   text-decoration: none;
   color: $white;
+  > svg{
+    fill: $white;
+    stroke: $white;
+  }
 }
 .markItUp .markItUpButton15 a {
   background-image: $url_6;

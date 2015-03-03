@@ -1,11 +1,11 @@
 class MessagesController < ApplicationController
-  before_filter :require_login, :except => [:show,:index,:search]
+  before_filter :require_login, except: [:show,:index,:search]
 
   # GET /messages
   # GET /messages.json
   def index
     root=Message.find 1
-    redirect_to root,:flash=>flash.to_hash
+    redirect_to root,flash: flash.to_hash
   end
 
   # GET /messages/1
@@ -47,7 +47,7 @@ class MessagesController < ApplicationController
       respond_to do |format|
         format.html {
           flash[:error]= t(:ko_message_edit)
-          redirect_to @message, :flash=>flash.to_hash }
+          redirect_to @message, flash: flash.to_hash }
         format.json {
           @message.errors.add :base, t(:ko_message_edit)
           render json: @message.errors, status: :unprocessable_entity }
@@ -97,7 +97,7 @@ class MessagesController < ApplicationController
     id=@message.message_id
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to :action=>:show,:id=>id }
+      format.html { redirect_to action: :show,id: id }
       format.json { head :no_content }
     end
   end
@@ -107,7 +107,7 @@ class MessagesController < ApplicationController
   def search
     @q = Message.search(params[:q])
     @messages=[]
-    @q.result(:distinct => true).each do |m|
+    @q.result(distinct: true).each do |m|
       next if @messages.any?{ |d| d.ancestors(@current_user).include? m }
       ancestors=m.ancestors(@current_user)
       ancestors.each do |del|

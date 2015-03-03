@@ -1,21 +1,21 @@
 <% like = message.like_it?(current_user) ? message.like_by(current_user) : Like.new %>
 <%= form_for like do |f| %>
-  <%= f.hidden_field :message_id,:value=> message.id %>
-  <%= f.hidden_field :user_id,:value=> current_user.id %>
-  <%= f.hidden_field :value,:value=> 1 %>
+  <%= f.hidden_field :message_id,value: message.id %>
+  <%= f.hidden_field :user_id,value: current_user.id %>
+  <%= f.hidden_field :value,value: 1 %>
   <% if like.value>0 %>
-    <a class="button up checked">&thinsp;</a>
+    <%= link_to_void image_tag("theme-default/up.svg", alt: "up"),{class: "button checked", title: '+1'} %>
   <% else %>
-    <%= link_to_void "&thinsp;".html_safe,{:class => "button up likes", :title=>'+1'} %>
+    <%= link_to_void image_tag("theme-default/up.svg", alt: "up"),{class: "button likes", title: '+1'} %>
   <% end %>
 <% end %>
 <%= form_for like do |f| %>
-  <%= f.hidden_field :message_id,:value=> message.id %>
-  <%= f.hidden_field :user_id,:value=> current_user.id %>
-  <%= f.hidden_field :value,:value=> -1 %>
+  <%= f.hidden_field :message_id,value: message.id %>
+  <%= f.hidden_field :user_id,value: current_user.id %>
+  <%= f.hidden_field :value,value: -1 %>
   <% if like.value<0 %>
-    <a class="button down checked">&thinsp;</a>
+    <%= link_to_void image_tag("theme-default/down.svg", alt: "down"),{class: "button checked", title: '-1'} %>
   <% else %>
-      <%= link_to_void "&thinsp;".html_safe,{:class => "button down likes", :title=>'-1'} %>
+    <%= link_to_void image_tag("theme-default/down.svg", alt: "down"),{class: "button likes", title: '-1'} %>
   <% end %>
 <% end %>
