@@ -11,15 +11,15 @@
     <%= link_to t(:groups), groups_path,class: "button group",title: t(:groups) if @current_user.can_index? Group %>
     <div class="drop-menu">
       <span class="plus">+</span>
-      <%= link_to @current_user.username,@current_user,class: "button user",title: t(:users).downcase %>
+      <%= link_to @current_user.username,@current_user,class: "button",title: t(:users).downcase %>
       <ul class="sub-menu">
-        <li><%= link_to t(:logout), logout_path,class: "button logout",title: t(:logout) %></li>
-        <li><%= link_to t(:users).downcase, users_path,class: "button users",title: t(:users).downcase %></li>
+        <li><%= link_to t(:logout), logout_path,class: "button",title: t(:logout) %></li>
+        <li><%= link_to t(:users).downcase, users_path,class: "button",title: t(:users).downcase %></li>
       </ul>
     </div>
   <% else %>
-    <%= link_to t(:signup).downcase, signup_path,class: "button signup" %>
-    <%= link_to_void t(:login), class: "button login" %>
+    <%= link_to t(:signup).downcase, signup_path,class: "button" %>
+    <%= link_to_void t(:login), class: "button" %>
   <% end %>
   </nav>
 </header>
