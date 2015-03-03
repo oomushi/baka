@@ -8,18 +8,18 @@
   <% end unless @q.nil? %>
   <nav>
   <% unless @current_user.guest? %>
-    <%= link_to t(:groups), groups_path,class: "button group",title: t(:groups) if @current_user.can_index? Group %>
+    <%= link_to image_tag("theme-default/group.svg", alt: t(:groups))+t(:groups), groups_path,class: "button",title: t(:groups) if @current_user.can_index? Group %>
     <div class="drop-menu">
       <span class="plus">+</span>
-      <%= link_to @current_user.username,@current_user,class: "button",title: t(:users).downcase %>
+      <%= link_to image_tag("theme-default/user.svg", alt: t(:users).downcase)+@current_user.username,@current_user,class: "button",title: t(:users).downcase %>
       <ul class="sub-menu">
-        <li><%= link_to t(:logout), logout_path,class: "button",title: t(:logout) %></li>
-        <li><%= link_to t(:users).downcase, users_path,class: "button",title: t(:users).downcase %></li>
+        <li><%= link_to image_tag("theme-default/logout.svg", alt: t(:logout))+t(:logout), logout_path,class: "button",title: t(:logout) %></li>
+        <li><%= link_to image_tag("theme-default/users.svg", alt: t(:users).downcase)+t(:users).downcase, users_path,class: "button",title: t(:users).downcase %></li>
       </ul>
     </div>
   <% else %>
-    <%= link_to t(:signup).downcase, signup_path,class: "button" %>
-    <%= link_to_void t(:login), class: "button" %>
+    <%= link_to image_tag("theme-default/sign.svg", alt: t(:signup))+t(:signup).downcase, signup_path,class: "button" %>
+    <%= link_to_void image_tag("theme-default/login.svg", alt: t(:login))+t(:login), class: "button login" %>
   <% end %>
   </nav>
 </header>

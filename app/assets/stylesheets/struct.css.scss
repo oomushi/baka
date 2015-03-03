@@ -41,12 +41,12 @@ body {
 }
 
 td.button {
-  padding: 1px 0px 1px 48px;
+  padding: 1px 0px;
   margin: 1px 2px 0px 2px;
 }
 
 header a.button {
-  padding: 1px 0px 1px 16px;
+  padding: 1px 0px;
   margin: 1px 2px 0px 2px;
   vertical-align: top;
 }
@@ -95,10 +95,10 @@ header nav {
 
 a {
   &.button {
-    padding: 0px 2px 1px 16px;
+    padding: 0px 2px 1px;
   }
   &.button2 {
-    padding: 0px 2px 1px 32px;
+    padding: 0px 2px 1px;
   }
 }
 
