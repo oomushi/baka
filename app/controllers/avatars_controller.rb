@@ -1,5 +1,5 @@
 class AvatarsController < ApplicationController
-  before_filter :require_login, :except => :show
+  before_filter :require_login, except: :show
   
   # GET /avatars/1
   # GET /avatars/1.json
@@ -17,8 +17,8 @@ class AvatarsController < ApplicationController
       content=@avatar.content_type
     end
     send_data(file,
-              :type  => content,
-              :disposition => 'inline')
+              type: content,
+              disposition: 'inline')
   end
 
   # PUT /avatars/1
@@ -29,10 +29,10 @@ class AvatarsController < ApplicationController
 
     respond_to do |format|
       if @avatar.update_attributes(params[:avatar])
-        format.html { redirect_to @avatar.user,:action=>'edit', notice: t(:ok_avatar) }
+        format.html { redirect_to @avatar.user,action: 'edit', notice: t(:ok_avatar) }
         format.json { head :ok }
       else
-        format.html { redirect_to @avatar.user,:action=>'edit' }
+        format.html { redirect_to @avatar.user,action: 'edit' }
         format.json { render json: @avatar.errors, status: :unprocessable_entity }
       end
     end

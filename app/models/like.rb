@@ -2,9 +2,9 @@ class Like < ActiveRecord::Base
   include Canable::Ables
   belongs_to :user
   belongs_to :message
-  validates_numericality_of :value, :only_integer => true, :message => I18n.t(:ko_like_type)
-  validates_inclusion_of :value, :in => -1..1, :message => I18n.t(:ko_like_value) 
-  validate :unique?, :on=>:create
+  validates_numericality_of :value, only_integer: true, message: I18n.t(:ko_like_type)
+  validates_inclusion_of :value, in: -1..1, message: I18n.t(:ko_like_value) 
+  validate :unique?, on: :create
 
   def creatable_by? user
     !user.guest?

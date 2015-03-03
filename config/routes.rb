@@ -33,8 +33,8 @@ Baka::Application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   post 'auth/:provider/callback', to: 'users#create'
   get 'auth/failure', to: redirect('/')
-  match "logout"=> "sessions#destroy",:as =>"logout"
-  match "signup"=> "users#new",       :as =>"signup"
+  match "logout"=> "sessions#destroy",as: "logout"
+  match "signup"=> "users#new",       as: "signup"
   resources :sessions, only: [:create, :destroy]
   
   # The priority is based upon order of creation:
@@ -45,8 +45,8 @@ Baka::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  #   match 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # This route can be invoked with purchase_url(id: product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -73,7 +73,7 @@ Baka::Application.routes.draw do
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get 'recent', :on => :collection
+  #       get 'recent', on: :collection
   #     end
   #   end
 
@@ -86,7 +86,7 @@ Baka::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-root :to => 'messages#index'
+root to: 'messages#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -14,11 +14,11 @@
   <tr>
     <td><%= link_to user.username,user %></td>
     <td><%= user.location %></td>
-    <td><%= l user.created_at,:format=>:long %></td>
+    <td><%= l user.created_at,format: :long %></td>
     <td><%= user.posts.count %></td>
-    <td><% user.contacts.each do |contact| %><%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %><% end %></td>    
-    <td><%= link_to image_tag("theme-default/edit.svg", :alt => "edit"), edit_user_path(user),title: t(:edit),class: "button" if @current_user.can_update? user %>
-      <%= link_to image_tag("theme-default/del.svg", :alt => "del"), user, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button" if @current_user.can_destroy? user %></td>
+    <td><% user.contacts.each do |contact| %><%= render partial: 'contacts/show', locals: {contact: contact, current_user: @current_user} %><% end %></td>    
+    <td><%= link_to image_tag("theme-default/edit.svg", alt: "edit"), edit_user_path(user),title: t(:edit),class: "button" if @current_user.can_update? user %>
+      <%= link_to image_tag("theme-default/del.svg", alt: "del"), user, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button" if @current_user.can_destroy? user %></td>
   </tr>
 <% end %>
 </table>

@@ -1,10 +1,10 @@
 <% last=@path.last %>
 <menu>
-  <%= link_to image_tag("theme-default/del.svg", :alt => "del"), @root, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button" if not @root.childs? and @current_user.can_destroy? @root %>
-  <%= link_to image_tag("theme-default/edit.svg", :alt => "edit"), edit_message_path(@root),title: t(:edit),class: "button" if @current_user.can_update? @root %>
-  <%= link_to image_tag("theme-default/add.svg", :alt => "add"), new_message_path({:id=>last.id}),title: t(:new),class: "button" if @current_user.can_create? @root %>
+  <%= link_to image_tag("theme-default/del.svg", alt: "del"), @root, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button" if not @root.childs? and @current_user.can_destroy? @root %>
+  <%= link_to image_tag("theme-default/edit.svg", alt: "edit"), edit_message_path(@root),title: t(:edit),class: "button" if @current_user.can_update? @root %>
+  <%= link_to image_tag("theme-default/add.svg", alt: "add"), new_message_path({id: last.id}),title: t(:new),class: "button" if @current_user.can_create? @root %>
 </menu>
-<%= render :partial=>'nav', :locals=>{:path=>@path,:current_user=>@current_user} %>
+<%= render partial: 'nav', locals: {path: @path,current_user: @current_user} %>
 <table>
   <tr>
     <th></th>
@@ -15,7 +15,7 @@
 
 <% @messages.each do |message| %>
     <tr class="link <%= message.pinned ? 'pinned' : '' %>" data-url="<%= message_path(message) %>">
-    <td><%= image_tag("theme-default/#{message.section ? 'tree' : 'leaf'}.svg", :alt => message.section ? 'tree' : 'leaf') %></td>
+    <td><%= image_tag("theme-default/#{message.section ? 'tree' : 'leaf'}.svg", alt: message.section ? 'tree' : 'leaf') %></td>
     <td class="button clickable"><h2><%= emojify message.title %></h2><%= message.section ? message.text : '' %></td>
     <td>
 	<% if message.section %>
@@ -27,8 +27,8 @@
        <%= link_to last.user.username,last.user %><br/>
         <% end %><% end %>
     </td>
-    <td><%= link_to image_tag("theme-default/edit.svg", :alt => "edit"), edit_message_path(message),title: t(:edit),class: "button" if message.section and not message.childs? and @current_user.can_update? message %>
-      <%= link_to image_tag("theme-default/del.svg", :alt => "del"), message, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button" if message.section and not message.childs? and @current_user.can_destroy? message %></td>
+    <td><%= link_to image_tag("theme-default/edit.svg", alt: "edit"), edit_message_path(message),title: t(:edit),class: "button" if message.section and not message.childs? and @current_user.can_update? message %>
+      <%= link_to image_tag("theme-default/del.svg", alt: "del"), message, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button" if message.section and not message.childs? and @current_user.can_destroy? message %></td>
   </tr>
 <% end %>
 </table>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :require_login, :except => [:new, :create, :complete, :show]
-  before_filter :avoid_login, :only => [:new, :create]
+  before_filter :require_login, except: [:new, :create, :complete, :show]
+  before_filter :avoid_login, only: [:new, :create]
 
   # GET /users
   # GET /users.json
@@ -45,8 +45,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     respond_to do |format|
-      if !verify_recaptcha(:model => @user)
-        format.html { render action: "new", :alert=> t(:ko_captcha) }
+      if !verify_recaptcha(model: @user)
+        format.html { render action: "new", alert: t(:ko_captcha) }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       elsif @user.save && @user.import(env["omniauth.auth"])
 	session[:user_id] = @user.id
@@ -104,6 +104,6 @@ class UsersController < ApplicationController
     else
       users=User.where("username = ?",string)
     end
-    render :json => users.to_json(:methods=>:value)
+    render json: users.to_json(methods: :value)
   end
 end

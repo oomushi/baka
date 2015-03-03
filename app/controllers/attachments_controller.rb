@@ -5,8 +5,8 @@ class AttachmentsController < ApplicationController
   def show
     @attachment = Attachment.find(params[:id])
     send_data(@attachment.file,
-              :filename => @attachment.name,
-              :type  => @attachment.content_type,
-              :disposition => 'inline')
+              filename: @attachment.name,
+              type: @attachment.content_type,
+              disposition: 'inline')
   end
 end

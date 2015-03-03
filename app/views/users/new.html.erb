@@ -13,16 +13,16 @@
     <% end %>
     <div class="field">
       <%= f.label :username %><br />
-      <%= f.text_field :username,:tabindex=>2 %>
+      <%= f.text_field :username,tabindex: 2 %>
     </div>
     <div class="field">
       <%= recaptcha_tags %>
     </div>
     <div class="clear"></div>
     <div class="actions">
-      <%= f.button :class=>"facebook-login button facebook", :disabled=>"disabled" %>
-      <%= f.button :class=>"googleplus-login button google", :disabled=>"disabled" %>
-      <%= f.button :class=>"twitter-login button twitter", :disabled=>"disabled" %>
-      <%= f.button :class=>"yahoo-login button yahoo", :disabled=>"disabled" %>
+      <%= f.button class: "facebook-login button facebook", disabled: "disabled" %>
+      <%= f.button class: "googleplus-login button google", disabled: "disabled" %>
+      <%= f.button class: "twitter-login button twitter", disabled: "disabled" %>
+      <%= f.button class: "yahoo-login button yahoo", disabled: "disabled" %>
     </div>
   <% end %>

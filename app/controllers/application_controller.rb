@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :current_user
   before_filter :set_locale
-  rescue_from Canable::Transgression, :with => :render_403
-  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+  rescue_from Canable::Transgression, with: :render_403
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
   protected
   def render_403(e)
     respond_to do |format|
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
         flash[:error] = t(:unauthorizated) 
         redirect_to root_url
       }
-      format.json { render json: '', :status => 403 }
+      format.json { render json: '', status: 403 }
     end
   end
   def render_404(e)
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
         flash[:error] = t(:object_not_found)
         redirect_to root_url
       }
-      format.json { render json: '', :status => 404 }
+      format.json { render json: '', status: 404 }
     end
   end
   private

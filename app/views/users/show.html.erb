@@ -21,7 +21,7 @@
 <div class="field2">
   <b><%= t(:contacts) %>:</b>
   <% @user.contacts.each do |contact| %>
-    <%= render :partial=>'contacts/show', :locals=>{:contact => contact, :current_user=>@current_user} %>
+    <%= render partial: 'contacts/show', locals: {contact: contact, current_user: @current_user} %>
   <% end %>
 </div>
 <div class="clear"></div>

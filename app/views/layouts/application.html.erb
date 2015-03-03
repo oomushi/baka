@@ -11,13 +11,13 @@
 
 </head>
 <body>
-  <%= render 'layouts/header',:locals=>{:curent_user=>@current_user}%>
+  <%= render 'layouts/header',locals: {curent_user: @current_user}%>
   <% flash.each do |name, msg| %>
-    <%= content_tag :aside, msg, :id => "flash_#{name}",:class=>"messages" %>
+    <%= content_tag :aside, msg, id: "flash_#{name}",class: "messages" %>
   <% end %>
 <section>
 <%= yield %>
 </section>
-  <%= render 'layouts/footer',:locals=>{:curent_user=>@current_user}%>
+  <%= render 'layouts/footer',locals: {curent_user: @current_user}%>
 </body>
 </html>

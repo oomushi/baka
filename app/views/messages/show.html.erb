@@ -1,21 +1,21 @@
-<%= render :partial=>'nav', :locals=>{:path=>@path,:current_user=>@current_user} %>
+<%= render partial: 'nav', locals: {path: @path,current_user: @current_user} %>
 <div style="clear:both;"></div>
 <% @messages.each do |message| %>
 <article>
   <header>
-    <a name="<%= message.id%>">&nbsp;</a><%= link_to emojify(message.title), message %><%= l message.created_at, :format=>:long %>
+    <a name="<%= message.id%>">&nbsp;</a><%= link_to emojify(message.title), message %><%= l message.created_at, format: :long %>
   </header>
   <aside class="like" title="<%= message.likes.sum(&:value) %>"><%= num_reduce message.likes.sum(&:value) %></aside>
   <% unless @current_user.guest? %>
   <menu>
-    <%= link_to image_tag("theme-default/edit.svg", :alt => "edit"), edit_message_path(message), {:title=>t(:edit), :class=>"button"} if @current_user.can_update? message %>
-    <%= link_to image_tag("theme-default/del.svg", :alt => "del"), message, confirm: t(:destroy_confirm), method: :delete, :title=>t(:destroy), :class=>"button" if @current_user.can_destroy? message %>
-    <%= link_to image_tag("theme-default/reply.svg", :alt => "reply"), new_message_path({:id=>message.id}),{:title=>t(:reply),:class=>"button"} if @current_user.can_create? message %>
-    <%= render(:partial=>'likes/form', :locals=>{:message=>message,:current_user=>@current_user})  unless message.user.eql? @current_user%>
+    <%= link_to image_tag("theme-default/edit.svg", alt: "edit"), edit_message_path(message), {title: t(:edit), class: "button"} if @current_user.can_update? message %>
+    <%= link_to image_tag("theme-default/del.svg", alt: "del"), message, confirm: t(:destroy_confirm), method: :delete, title: t(:destroy), class: "button" if @current_user.can_destroy? message %>
+    <%= link_to image_tag("theme-default/reply.svg", alt: "reply"), new_message_path({id: message.id}),{title: t(:reply),class: "button"} if @current_user.can_create? message %>
+    <%= render(partial: 'likes/form', locals: {message: message,current_user: @current_user})  unless message.user.eql? @current_user%>
   </menu>
   <% end %>
   <% unless message.poll.nil? %>
-    <%= render :partial=>'polls/show', :locals=>{:poll => message.poll, :current_user=>@current_user} %>
+    <%= render partial: 'polls/show', locals: {poll: message.poll, current_user: @current_user} %>
   <% end %>
   <section>
     <%= emojify message.text %>
@@ -26,17 +26,17 @@
     <% end %>
   </section>
   <aside class="user">
-    <%= render :partial=>'users/badge', :locals=>{:user=>message.user} %>
+    <%= render partial: 'users/badge', locals: {user: message.user} %>
   </aside>
   <aside class="attachments">
       <% message.attachments.each do |attachment| %>
-      <%= link_to image_tag("theme-default/attachment.svg", :alt => "attachment"), attachment, :title=>attachment.name, :class=>"button"  if @current_user.can_view? attachment %>
+      <%= link_to image_tag("theme-default/attachment.svg", alt: "attachment"), attachment, title: attachment.name, class: "button"  if @current_user.can_view? attachment %>
       <% end %>
     </aside>
   <nav>
-    <%= link_to image_tag("theme-default/top.svg", :alt => "top"), '#top'%>
+    <%= link_to image_tag("theme-default/top.svg", alt: "top"), '#top'%>
     <% message.childs(@current_user).each do |son| %>
-      <%= link_to image_tag("theme-default/page.svg", :alt => "page"), son, :title=> son.user.username+" "+son.created_at.to_formatted_s(:long) if !@messages.include? son and @current_user.can_view? son %>
+      <%= link_to image_tag("theme-default/page.svg", alt: "page"), son, title: son.user.username+" "+son.created_at.to_formatted_s(:long) if !@messages.include? son and @current_user.can_view? son %>
     <% end %>
   </nav>
 </article>
