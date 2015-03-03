@@ -43,12 +43,20 @@ body {
 td.button {
   padding: 1px 0px;
   margin: 1px 2px 0px 2px;
+  > svg{
+    width: 64px;
+    height: 64px;
+  }
 }
 
 header a.button {
   padding: 1px 0px;
   margin: 1px 2px 0px 2px;
   vertical-align: top;
+  > svg{
+    width: 16px;
+    height: 16px;
+  }
 }
 
 body > footer {
@@ -96,9 +104,17 @@ header nav {
 a {
   &.button {
     padding: 0px 2px 1px;
+    > svg{
+      width: 16px;
+      height: 16px;
+    }
   }
   &.button2 {
     padding: 0px 2px 1px;
+    > svg{
+      width: 32px;
+      height: 32px;
+    }
   }
 }
 
