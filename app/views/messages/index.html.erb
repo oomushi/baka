@@ -15,8 +15,8 @@
 
 <% @messages.each do |message| %>
     <tr class="link <%= message.pinned ? 'pinned' : '' %>" data-url="<%= message_path(message) %>">
-    <td><%= image_tag("theme-default/#{message.section ? 'tree' : 'leaf'}.svg", alt: message.section ? 'tree' : 'leaf') %></td>
-    <td class="button clickable"><h2><%= emojify message.title %></h2><%= message.section ? message.text : '' %></td>
+    <td class="button"><%= image_tag("theme-default/#{message.section ? 'tree' : 'leaf'}.svg", alt: message.section ? 'tree' : 'leaf') %></td>
+    <td class="clickable"><h2><%= emojify message.title %></h2><%= message.section ? message.text : '' %></td>
     <td>
 	<% if message.section %>
         <% if message.offsprings(@current_user).count.zero? %>
