@@ -78,6 +78,10 @@ a {
     &:hover {
       opacity: 1.0;
     }
+    > svg{
+      fill: $black;
+      stroke: $black;
+    }
   }
   &.checked {
     opacity: 1.0;
@@ -186,6 +190,11 @@ tr.pinned {
 header a.button {
   text-decoration: none;
   color: $white;
+  > svg{
+    fill: $white;
+    stroke: $white;
+  }
+}
 }
 .markItUp .markItUpButton15 a {
   background-image: $url_6;
