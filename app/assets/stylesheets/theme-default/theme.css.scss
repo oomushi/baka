@@ -187,7 +187,6 @@ tr.pinned {
   //Instead of the line below you could use @includetext-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
   text-shadow: 0 0 15px #FFF,0px 0 5px #FF0;
   svg{
-    fill: $coral;
     stroke: $yellow;
     -webkit-filter: drop-shadow( 0px 0 5px #FF0 );
             filter: drop-shadow( 0px 0 5px #FF0 );
