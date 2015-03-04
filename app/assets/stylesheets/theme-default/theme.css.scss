@@ -189,6 +189,8 @@ tr.pinned {
   svg{
     fill: $coral;
     stroke: $yellow;
+    -webkit-filter: drop-shadow( 0px 0 5px #FF0 );
+            filter: drop-shadow( 0px 0 5px #FF0 );
   }
 }
 header a.button {
