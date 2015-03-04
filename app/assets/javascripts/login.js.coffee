@@ -81,13 +81,13 @@ $(document).ready ->
     dataType: 'script'
     cache: true
 @googleInit = ->
-  $('.googleplus-login').removeAttr('disabled').click (e) ->
+  $('#googleplus-login').removeAttr('disabled').click (e) ->
     e.preventDefault()
     gapi.auth.authorize {
       immediate: true
       response_type: 'code'
       cookie_policy: 'single_host_origin'
-      client_id: '1094586320801-nvg6i4lnlikepj2tl5unqomc1qtm6m5i.apps.googleusercontent.com'
+      client_id: '927139304986-e0jefhtuhejh57e6j0v2ct50l4dod52h.apps.googleusercontent.com'
       scope: 'email profile'
     }, (response) ->
       if response and !response.error
