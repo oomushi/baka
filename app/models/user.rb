@@ -40,6 +40,9 @@ class User < ActiveRecord::Base
     messages.where("section = ?", false)
   end
   
+  def self.real
+    where("uid is not ?",nil)
+  end
   def self.guest
     where("uid is ?",nil)
   end
