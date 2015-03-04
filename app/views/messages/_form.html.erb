@@ -18,28 +18,28 @@
   <div class="field">
     <table>
       <tr>
-        <% if @current_user.max_group.level < 2 %>
+        <% if @current_user.groups.max_by(&:level).level < 2 %>
         <th><%= f.label :section %></th>
         <% end %>
-        <% if @current_user.max_group.level < 3 %>
+        <% if @current_user.groups.max_by(&:level).level < 3 %>
         <th><%= f.label :pinned %></th>
         <% end %>
-        <% if @current_user.max_group.level <= 4 %>
+        <% if @current_user.groups.max_by(&:level).level <= 4 %>
         <th><%= f.label :follow %></th>
         <% end %>
       </tr>
       <tr>
-        <% if @current_user.max_group.level < 2 %>
+        <% if @current_user.groups.max_by(&:level).level < 2 %>
         <td><%= f.check_box :section %></td>
         <% else %>
         <%= f.hidden_field :section %>
         <% end %>
-        <% if @current_user.max_group.level < 3 %>
+        <% if @current_user.groups.max_by(&:level).level < 3 %>
         <td><%= f.check_box :pinned %></td>
         <% else %>
         <%= f.hidden_field :pinned %>
         <% end %>
-        <% if @current_user.max_group.level <= 4 %>
+        <% if @current_user.groups.max_by(&:level).level <= 4 %>
         <td><%= f.check_box :follow %></td>
         <% else %>
         <%= f.hidden_field :follow %>
