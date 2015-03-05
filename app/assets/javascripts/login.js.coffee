@@ -84,7 +84,7 @@ $(document).ready ->
   $('#googleplus-login').removeAttr('disabled').click (e) ->
     e.preventDefault()
     gapi.auth.authorize {
-      immediate: true
+      immediate: false
       response_type: 'code'
       cookie_policy: 'single_host_origin'
       client_id: '927139304986-e0jefhtuhejh57e6j0v2ct50l4dod52h.apps.googleusercontent.com'
@@ -95,6 +95,8 @@ $(document).ready ->
         response['g-recaptcha-response'] = $('#g-recaptcha-response').val()
         response['authenticity_token'] = $('input[name="authenticity_token"]').val()
         response['utf8'] = $('input[name="utf8"]').val()
+        delete response.status
+        delete response['g-oauth-window']
         jQuery.ajax
           type: 'POST'
           url: '/auth/google_oauth2/callback'
