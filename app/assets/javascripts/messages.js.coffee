@@ -43,18 +43,8 @@ $(document).ready ->
       return
     return
   $("nav > .full_path_dropdown").hover ->
-    coor = $(this).offset()
-    h = $(this).height() + coor.top - 10
-    w = coor.left + (($(this).width() - $("nav > aside").width()) / 2)
-    $("nav > aside").animate
-      top: h
-      left: w
-    , 0
-    $("nav > aside").show('slide', { direction: "up" })
-    $("nav > aside").focus()
-    true
-  $("nav > aside").mouseleave ->
-    $(this).hide('slide', { direction: "up" })
+    $("#tripledot,#tdextended").toggle "slide",
+      direction: "down"
     true
   $("tr.link").click( ->
     location.href=$(this).data("url")

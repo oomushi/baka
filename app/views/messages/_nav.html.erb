@@ -6,20 +6,16 @@
   <%= link_to root.title,root if @current_user.can_view? root %>
   <% if !path.size.zero? %>
   &gt;
-    <%= link_to '...','#', class: 'full_path_dropdown',title: t(:click_me) %>
-  &gt;
+  <span id="tripledot">
+    <%= link_to '...','#', title: t(:click_me) %> &gt;
+  </span>
+  <span id="tdextended" style="display: none">
+    <%path.each do |message| %>
+      <%= link_to message.title,message if current_user.can_view? message %> &gt;
+    <% end %>
+  </span>
     <%= link_to last.title,last if current_user.can_view? last %>
   <% elsif !last.nil? %>
-  &gt;
-    <%= link_to last.title,last if current_user.can_view? last %>
-  <% end %>
-  <% if !path.count.zero? %>
-  <aside>
-    <ol start="2">
-    <%path.each do |message| %>
-      <li><%= link_to message.title,message if current_user.can_view? message %></li>
-    <% end %>
-    </ol>
-  </aside>
+   &gt; <%= link_to last.title,last if current_user.can_view? last %>
   <% end %>
 </nav>
