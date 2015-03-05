@@ -280,7 +280,6 @@ en:
   poll: 'Poll'
   properties: 'Properties'
   protocol: 'Protocol'
-  realname: 'Real name'
   reply: 'Replay'
   require_login: 'You must be logged in to access this section'
   reset_password: 'Reset password'
@@ -306,5 +305,3 @@ en:
     label:
       post:
         username: 'Customized title'
-      user:
-        realname: 'Real name'
