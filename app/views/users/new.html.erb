@@ -20,9 +20,9 @@
     </div>
     <div class="clear"></div>
     <div class="actions">
-      <%= f.button class: "button",id: 'facebook-login', disabled: "disabled" %>
-      <%= f.button class: "button",id: 'googleplus-login', disabled: "disabled" %>
-      <%= f.button class: "button",id: 'twitter-login', disabled: "disabled" %>
-      <%= f.button class: "button", id: 'yahoo-login', disabled: "disabled" %>
+      <%= link_to image_tag("theme-default/fb.svg", alt: "facebook"),'#', class: "button",id: 'facebook-login', disabled: "disabled" %>
+      <%= link_to image_tag("theme-default/g+.svg", alt: "google+"),'#', class: "button",id: 'googleplus-login', disabled: "disabled" %>
+      <%= link_to image_tag("theme-default/tw.svg", alt: "twitter"),'#', class: "button",id: 'twitter-login', disabled: "disabled" %>
+      <%= link_to image_tag("theme-default/y!.svg", alt: "yahoo!"),'#', class: "button",id: 'yahoo-login', disabled: "disabled" %>
     </div>
   <% end %>

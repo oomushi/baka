@@ -83,6 +83,10 @@ a {
       stroke: $black;
     }
   }
+  &.button[disabled="disabled"] > svg {
+    fill: $black_80;
+    stroke: $black_80;
+  }
   &.checked {
     opacity: 1.0;
   }
