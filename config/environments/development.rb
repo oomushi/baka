@@ -30,12 +30,12 @@ Baka::Application.configure do
   config.assets.debug = true
   
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "baka.macrobug.uchi" }
+  config.action_mailer.default_url_options = { :host => "baka.macrobug.dev" }
   config.action_mailer.raise_delivery_errors=true
   config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => "baka.macrobug.uchi",
+  :domain               => "baka.macrobug.dev",
   :user_name            => "baka.macrobug@gmail.com",
   :password             => Digest::SHA512.base64digest("BakaSuperSecret:#{ENV['salt']}"),
   :authentication       => "plain",

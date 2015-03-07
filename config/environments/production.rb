@@ -48,11 +48,11 @@ Baka::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors=true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "baka.heroku.com" }
+  config.action_mailer.default_url_options = { :host => "baka.herokuapp.com" }
   config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => "baka.heroku.com",
+  :domain               => "baka.herokuapp.com",
   :user_name            => "baka.macrobug@gmail.com",
   :password             => Digest::SHA512.base64digest("BakaSuperSecret:#{ENV['salt']}"),
   :authentication       => "plain",
