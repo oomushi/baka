@@ -30,8 +30,10 @@ $(document).ready ->
       version: 'v2.2'
     $('#facebook-login').removeAttr('disabled').click (e) ->
       e.preventDefault()
-      FB.login (response) ->
-        return signon response, response.status=='connected' ,'facebok'
+      FB.login ((response) ->
+        signon response.authResponse, response.status == 'connected', 'facebook'
+        return
+      ), scope: 'email,user_birthday'
       return
     return
   # GOOGLE (https://github.com/zquestz/omniauth-google-oauth2)    
