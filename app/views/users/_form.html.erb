@@ -1,23 +1,4 @@
 <%= form_for(@user) do |f| %>
-  <div class="field">
-    <fieldset>
-      <legend><%= t(:reset_password) %></legend>
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password %>
-      </div>
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation %>
-      </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-    </fieldset>
-  </div>
-<% end %>
-<div class="clear"></div>
-<%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <details open="open">
       <summary><%= t(:header_error_user) %></summary>
@@ -46,7 +27,7 @@
   <div class="clear"></div>
   <div class="field2">
     <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
+    <%= f.date_select :birthday, start_year: Date.today.year-150, end_year: Date.today.year %>
   </div>
   <div class="field2">
     <%= f.label :location %><br />
