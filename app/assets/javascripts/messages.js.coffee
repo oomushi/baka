@@ -1,6 +1,28 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$.fn.animateAuto = (prop, speed, callback) ->
+  elem = undefined
+  height = undefined
+  width = undefined
+  @each (i, el) ->
+    el = $(el)
+    elem = el.clone().css(
+      'height': 'auto'
+      'width': 'auto').appendTo('body')
+    height = elem.css('height')
+    width = parseInt(elem.css('width')) + 1 + 'px'
+    elem.remove()
+    if prop == 'height'
+      el.animate { 'height': height }, speed, callback
+    else if prop == 'width'
+      el.animate { 'width': width }, speed, callback
+    else if prop == 'both'
+      el.animate {
+        'width': width
+        'height': height
+      }, speed, callback
+    return
 $(document).ready ->
   $(".markItUp").markItUp(mySettings)
   f = ->
@@ -42,10 +64,14 @@ $(document).ready ->
         direction: "down"
       return
     return
-  $("nav > .full_path_dropdown").hover ->
-    $("#tripledot,#tdextended").toggle "slide",
-      direction: "down"
-    true
+   $('#tripledot').hover ->
+    $('#tripledot').animate width: '0px'
+    $('#tdextended').animateAuto 'width'
+    return
+  $('#tdextended').mouseleave ->
+    $('#tdextended').animate width: '0px'
+    $('#tripledot').animateAuto 'width'
+    return
   $("tr.link").click( ->
     location.href=$(this).data("url")
     true
