@@ -50,6 +50,14 @@ $(document).ready ->
         return signon response, response and !response.error ,'google_oauth2'
       return
     return
+  # PERSONA
+  $.getScript 'https://login.persona.org/include.js', ->
+    navigator.id.get (assertion) ->
+      if assertion
+        $('input[name=assertion]').val assertion
+        $('#browser_id_form').submit()
+      else
+        window.location = '#{failure_path}'
+      return
+    return
   return
-# YAHOO
-# TWITTER
