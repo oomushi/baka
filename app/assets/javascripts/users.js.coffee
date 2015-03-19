@@ -72,7 +72,7 @@ $(document).ready ->
     $('#persona-login').removeAttr('disabled').click (e) ->
       e.preventDefault()
       navigator.id.get (response) ->
-        return signin response, response and !response.error ,'browser_id'
+        return signin {assertion: response}, response != false ,'browser_id'
       return
     return
 # SIGNIN SECTION END
