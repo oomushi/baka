@@ -68,4 +68,10 @@ Baka::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  # omniauth params
+  config.omniauth_facebook_id = '449175338566765'
+  config.omniauth_facebook_pw = 'fc5cf452a26d931528b4394ef3c7e953'
+  config.omniauth_google_id = '927139304986-e0jefhtuhejh57e6j0v2ct50l4dod52h.apps.googleusercontent.com'
+  config.omniauth_google_pw = '9bKrV4dXvgWmLhUGNCArEpo5'
 end

@@ -41,4 +41,10 @@ Baka::Application.configure do
   :authentication       => "plain",
   :enable_starttls_auto => true
   }
+  
+  # omniauth params
+  config.omniauth_facebook_id = '456421621175470'
+  config.omniauth_facebook_pw = '1e0b2c916c5a648dd9e815034c018d8f'
+  config.omniauth_google_id = '927139304986-e0jefhtuhejh57e6j0v2ct50l4dod52h.apps.googleusercontent.com'
+  config.omniauth_google_pw = '9bKrV4dXvgWmLhUGNCArEpo5'
 end
