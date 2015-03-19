@@ -52,12 +52,10 @@ $(document).ready ->
     return
   # PERSONA
   $.getScript 'https://login.persona.org/include.js', ->
-    navigator.id.get (assertion) ->
-      if assertion
-        $('input[name=assertion]').val assertion
-        $('#browser_id_form').submit()
-      else
-        window.location = '#{failure_path}'
+    $('#persona-login').removeAttr('disabled').click (e) ->
+      e.preventDefault()
+      navigator.id.get (response) ->
+        return signon response, response and !response.error ,'browser_id'
       return
     return
   return
