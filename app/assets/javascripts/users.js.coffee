@@ -17,8 +17,11 @@ signin = (response, connected,provider) ->
       success: (json) ->
         location.href = '/'
         return
+      error: (jqXHR,textStatus,errorThrown) ->
+        $('details').show().fadeOut(2000).find('li').html errorThrown
+        return
   else
-    # google authentication failed
+    $('details').show().fadeOut 2000
   return
 $(document).ready ->
 # AUTOCOMPLETE SECTION START

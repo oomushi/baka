@@ -425,6 +425,9 @@ details {
   text-align: left;
   background-color: #f0f0f0;
   border: 2px solid red;
+  &.hidden{
+    display: none;
+  }
   summary {
     display: block;
     font-weight: bold;

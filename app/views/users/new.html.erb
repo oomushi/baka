@@ -1,16 +1,12 @@
   <h1><%= t(:signup) %></h1>
   <%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-    <details open="open">
+    <details open="open" <%='class="hidden"' if @user.errors.any? %>>
       <summary><%= t(:header_error_signup) %></summary>
       <ul>
-        <% for message in @user.errors.full_messages %>
-        <li><%= message %></li>
-        <% end %>
+        <li><%= t(:signup_connection_error) %></li>
       </ul>
     </details>
     <div class="clear"></div>
-    <% end %>
     <div class="field">
       <%= f.label :username %><br />
       <%= f.text_field :username,tabindex: 2 %>
