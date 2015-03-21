@@ -119,6 +119,10 @@ article {
   nav {
     background-image: none;
     background-color: $black_80;
+    a svg{
+      fill: $white;
+      stroke: $white;
+    }
   }
   > header > a {
     color: $gold;

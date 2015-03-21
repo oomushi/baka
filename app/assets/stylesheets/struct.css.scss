@@ -168,12 +168,15 @@ article {
   nav a, menu a {
     position: relative;
     padding: 0px;
-    padding-left: 16px;
     margin: 1px 2px 0px 2px;
     right: 0px;
     float: right;
     color: #fff;
     opacity: 0.5;
+    > svg{
+      height: 16px;
+      width: 16px;
+    }
   }
   nav a:hover {
     opacity: 1.0;
