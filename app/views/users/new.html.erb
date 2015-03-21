@@ -1,6 +1,6 @@
   <h1><%= t(:signup) %></h1>
   <%= form_for @user do |f| %>
-    <details open="open" <%='class="hidden"' if @user.errors.any? %>>
+    <details open="open" <%='class=hidden' if @user.errors.messages.empty? %>>
       <summary><%= t(:header_error_signup) %></summary>
       <ul>
         <li><%= t(:signup_connection_error) %></li>
