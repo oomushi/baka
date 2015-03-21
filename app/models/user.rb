@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
     self.uid = auth.uid
     self.contacts.create(value: auth.info.email, protocol: 'email')
     self.oauth_token = auth.credentials.token
-    self.oauth_expires_at = Time.at(auth.credentials.expires_at)
+    self.oauth_expires_at = auth.provider=='browser_id' ? Time.at(auth.extra.raw_info.expires) : Time.at(auth.credentials.expires_at)
     save
   end
   def email
