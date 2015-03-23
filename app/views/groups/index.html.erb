@@ -5,7 +5,7 @@
     <th><%= t(:name) %></th>
     <th><%= t(:level) %></th>
     <th><%= t(:users_number) %></th>
-    <th><%= link_to image_tag("theme-default/add.svg", alt: "add"), new_group_path,title: t(:new),class: "button" %></th>
+    <th><%= link_to image_tag("theme-default/new.svg", alt: "add"), new_group_path,title: t(:new),class: "button" %></th>
   </tr>
 
 <% @groups.each do |group| %>
