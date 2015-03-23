@@ -200,7 +200,7 @@ tr.pinned {
             filter: drop-shadow( 0px 0 5px #FF0 );
   }
 }
-header a.button {
+article a.button, header a.button {
   text-decoration: none;
   color: $white;
   > svg{
