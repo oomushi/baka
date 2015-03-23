@@ -2,7 +2,7 @@
 <menu type="toolbar">
   <%= link_to image_tag("theme-default/del.svg", alt: "del"), @root, confirm: t(:destroy_confirm), method: :delete,title: t(:destroy), class: "button" if not @root.childs? and @current_user.can_destroy? @root %>
   <%= link_to image_tag("theme-default/edit.svg", alt: "edit"), edit_message_path(@root),title: t(:edit),class: "button" if @current_user.can_update? @root %>
-  <%= link_to image_tag("theme-default/add.svg", alt: "add"), new_message_path({id: last.id}),title: t(:new),class: "button" if @current_user.can_create? @root %>
+  <%= link_to image_tag("theme-default/new.svg", alt: "add"), new_message_path({id: last.id}),title: t(:new),class: "button" if @current_user.can_create? @root %>
 </menu>
 <%= render partial: 'nav', locals: {path: @path,current_user: @current_user} %>
 <table>
