@@ -4,7 +4,7 @@
       <%= link_to_void 'x', {class: "button exit", title: t(:close)} %>
     </nav>
   </header>
-  <%= link_to image_tag("theme-default/fb.svg", alt: t(:login)), "/auth/facebook", class: "button" %>
-  <%= link_to image_tag("theme-default/g+.svg", alt: t(:login)), "/auth/google_oauth2", class: "button" %>
-  <%= link_to image_tag("theme-default/bi.svg", alt: t(:login)), "/auth/browser_id", class: "button" %>
+  <%= link_to image_tag("theme-default/fb.svg", alt: t(:login))+"Facebook", "/auth/facebook", class: "button facebook" %>
+  <%= link_to image_tag("theme-default/g+.svg", alt: t(:login))+"Google Plus", "/auth/google_oauth2", class: "button google" %>
+  <%= link_to image_tag("theme-default/bi.svg", alt: t(:login))+"Mozilla Persona", "/auth/browser_id", class: "button persona" %>
 </aside>

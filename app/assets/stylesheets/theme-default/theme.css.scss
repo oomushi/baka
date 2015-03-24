@@ -98,6 +98,20 @@ a {
 aside {
   &.login {
     background: #E2062C;
+    a{
+      svg{
+        border-color: white;
+      }
+      &.persona{
+        background-color: #d86f39;
+      }
+      &.facebook{
+        background-color: #3a5795;
+      }
+      &.google{
+        background-color: #ff4a36;
+      }
+    }
   }
   &.hiddenAside {
     background: #E2062C;
