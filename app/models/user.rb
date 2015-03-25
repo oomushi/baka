@@ -55,9 +55,11 @@ class User < ActiveRecord::Base
 
   def self.authenticate auth
     user=where(auth.slice(:provider, :uid)).first
-    user.oauth_token = auth.credentials.token
-    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-    user.save
+    unless user.nil?
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save
+    end
     user
   end
   def import auth
