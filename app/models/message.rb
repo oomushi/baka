@@ -17,17 +17,17 @@ class Message < ActiveRecord::Base
   validate :bbcode?, :read_write?
   
   def default_scope
-    group=User.current.groups.max_by(&:level)
+    group=User.current.groups.min_by(&:level)
     joins(:reader).where("groups.level>? or groups.id=?",group.level ,group.id)
   end
   
   def viewable_by? user
-    reader<user.groups.max_by(&:level) or reader.eql? user.groups.max_by(&:level)
+    reader<user.groups.min_by(&:level) or reader.eql? user.groups.min_by(&:level)
   end
   def creatable_by? user
     self.user.eql? user or
-      writer <= user.groups.max_by(&:level) or
-      ancestors(user).any?{ |m| m.writer <= user.groups.max_by(&:level)}
+      writer <= user.groups.min_by(&:level) or
+      ancestors(user).any?{ |m| m.writer <= user.groups.min_by(&:level)}
   end
   def updatable_by? user
     ( self.user.eql? user and
@@ -51,16 +51,16 @@ class Message < ActiveRecord::Base
     user.id==user_id
   end
   def childs user
-    messages.joins(:reader).where('messages.id<>? and groups.level>=?',id,user.groups.max_by(&:level).level).order("created_at")
+    messages.joins(:reader).where('messages.id<>? and groups.level>=?',id,user.groups.min_by(&:level).level).order("created_at")
   end
   def ancestors user
-    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=false and groups.level>=?",nv,dv,nv,dv,user.groups.max_by(&:level).level).order("created_at")
+    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=false and groups.level>=?",nv,dv,nv,dv,user.groups.min_by(&:level).level).order("created_at")
   end
   def offsprings user
-    Message.joins(:reader).where("1.0*nv/dv>=1.0*?/? and 1.0*nv/dv<1.0*?/? and section=false and groups.level>=?",nv,dv,snv,sdv,user.groups.max_by(&:level).level).order("created_at")
+    Message.joins(:reader).where("1.0*nv/dv>=1.0*?/? and 1.0*nv/dv<1.0*?/? and section=false and groups.level>=?",nv,dv,snv,sdv,user.groups.min_by(&:level).level).order("created_at")
   end
   def paths user
-    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=true and groups.level>=?",nv,dv,nv,dv,user.groups.max_by(&:level).level).order("created_at")
+    Message.joins(:reader).where("1.0*nv/dv<=1.0*?/? and 1.0*snv/sdv>1.0*?/? and section=true and groups.level>=?",nv,dv,nv,dv,user.groups.min_by(&:level).level).order("created_at")
   end
   
   def childs?
