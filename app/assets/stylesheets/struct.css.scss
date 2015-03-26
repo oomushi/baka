@@ -189,14 +189,15 @@ article {
     opacity: 1.0;
     color: #fff;
   }
-  nav > span{
-    overflow-x: hidden;
-    display: inline-block;
-    max-height: 1em;
-  }
 }
- #tdextended{
-   width: 0px;
+#tdextended, #tripledot{
+  overflow-x: hidden;
+  display: inline-block;
+  max-height: 1em;
+}
+#tdextended{
+  width: 0px;
+  height: 0px;
 }
 body > section table {
   border-collapse: collapse;

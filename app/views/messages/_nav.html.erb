@@ -8,7 +8,7 @@
   <span id="tripledot">
     <%= link_to '...','#', title: t(:click_me) %>
   </span>
-  <span id="tdextended" style="display: none">
+  <span id="tdextended">
     <%path.each do |message| %>
       <%= link_to message.title,message if current_user.can_view? message %>
     <% end %>

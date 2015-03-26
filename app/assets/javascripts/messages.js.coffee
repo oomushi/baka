@@ -64,13 +64,17 @@ $(document).ready ->
         direction: "down"
       return
     return
-   $('#tripledot').hover ->
-    $('#tripledot').animate width: '0px'
-    $('#tdextended').animateAuto 'width'
+   $('#tripledot').mouseenter ->
+    $('#tripledot').animate
+      width: '0px'
+      height: '0px'
+    $('#tdextended').animateAuto 'both'
     return
   $('#tdextended').mouseleave ->
-    $('#tdextended').animate width: '0px'
-    $('#tripledot').animateAuto 'width'
+    $('#tdextended').animate
+      width: '0px'
+      height: '0px'
+    $('#tripledot').animateAuto 'both'
     return
   $("tr.link").click( ->
     location.href=$(this).data("url")
