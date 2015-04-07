@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     where("uid is not ?",nil)
   end
   def self.guest
-    where("uid is ?",nil)
+    where("uid is ?",nil).first
   end
   def guest?
     uid.nil?

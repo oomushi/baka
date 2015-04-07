@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user ||= User.where('id = ? and oauth_expires_at >= ?',session[:user_id],Time.now).first
     else
-      @current_user ||= User.guest.first
+      @current_user ||= User.guest
     end
     User.current=@current_user
   end
