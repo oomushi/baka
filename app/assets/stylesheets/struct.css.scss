@@ -190,19 +190,20 @@ article {
     color: #fff;
   }
 }
-%extend_1 {
-  font-size: 13px;
-  transform: rotate(90deg);
-  transform-origin: 50% 50%;
-}
-.collapsed a {
-  display: inline-block;
-  font-size: 0;
-  &:first-letter {
-    @extend %extend_1;
+.collapsed{
+  a{
+    display: inline-block;
+    font-size: 0px;
+    width: 13px;
+    z-index: 50;
+    &:hover{
+      font-size: 13px;
+      transform: rotate(90deg);
+      transform-origin: 50% 50% 0;
+    }
   }
-  &:hover {
-    @extend %extend_1;
+  a::first-letter{
+    font-size: 13px;
   }
 }
 body > section table {
