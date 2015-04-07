@@ -190,14 +190,20 @@ article {
     color: #fff;
   }
 }
-#tdextended, #tripledot{
-  overflow-x: hidden;
-  display: inline-block;
-  max-height: 1em;
+%extend_1 {
+  font-size: 13px;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
 }
-#tdextended{
-  width: 0px;
-  height: 0px;
+.collapsed a {
+  display: inline-block;
+  font-size: 0;
+  &:first-letter {
+    @extend %extend_1;
+  }
+  &:hover {
+    @extend %extend_1;
+  }
 }
 body > section table {
   border-collapse: collapse;

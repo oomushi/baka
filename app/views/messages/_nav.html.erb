@@ -5,14 +5,9 @@
 %>
   <%= link_to root.title,root if @current_user.can_view? root %>
   <% if !path.size.zero? %>
-  <span id="tripledot">
-    <%= link_to '...','#', title: t(:click_me) %>
-  </span>
-  <span id="tdextended">
     <%path.each do |message| %>
-      <%= link_to message.title,message if current_user.can_view? message %>
+      <span class="collapsed"><%= link_to message.title,message if current_user.can_view? message %></span>
     <% end %>
-  </span>
     <%= link_to last.title,last if current_user.can_view? last %>
   <% elsif !last.nil? %>
    <%= link_to last.title,last if current_user.can_view? last %>
