@@ -30,6 +30,7 @@ avatar.url='/assets/admin.png'
 avatar.save
 guest=User.new(:username=>"guest")
 guest.contacts<<Contact.create(:value=>'guest@baka.com', :protocol=>'email')
+guest.save
 guest.groups=[c]
 guest.save
 root = Message.create({
