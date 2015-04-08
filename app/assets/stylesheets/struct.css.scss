@@ -195,7 +195,9 @@ article {
     display: inline-block;
     font-size: 0px;
     width: 13px;
-    z-index: 50;
+    white-space: nowrap;
+    z-index: 3;
+    position: relative;
     &:hover{
       font-size: 13px;
       transform: rotate(90deg);
@@ -391,6 +393,7 @@ body > section > menu {
 }
 
 article {
+  z-index:1;
   menu {
     position: relative;
     left: 3px;
