@@ -195,15 +195,22 @@ article {
     display: inline-block;
     font-size: 0px;
     width: 13px;
-    z-index: 50;
+    white-space: nowrap;
+    z-index: 3;
+    position: relative;
     &:hover{
       font-size: 13px;
       transform: rotate(90deg);
       transform-origin: 50% 50% 0;
+      -ms-transform: rotate(90deg);
+      -ms-transform-origin: 50% 50% 0;
+      -webkit-transform: rotate(90deg);
+      -webkit-transform-origin: 50% 50% 0;
+      
     }
-  }
-  a::first-letter{
-    font-size: 13px;
+    &::first-letter{
+      font-size: 13px;
+    }
   }
 }
 body > section table {
@@ -391,6 +398,7 @@ body > section > menu {
 }
 
 article {
+  z-index:1;
   menu {
     position: relative;
     left: 3px;
