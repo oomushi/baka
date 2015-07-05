@@ -4,6 +4,7 @@ class Avatar < ActiveRecord::Base
   validates_uniqueness_of :user_id
   belongs_to :user
   validate :right_size?
+  before_save :trim_url
   
   def updatable_by? user
     same_user? user
@@ -44,5 +45,8 @@ class Avatar < ActiveRecord::Base
   private
   def same_user? user
     self.user.id==user.id
+  end
+  def trim_url
+    self.url='' unless file.nil?
   end
 end
