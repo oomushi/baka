@@ -70,14 +70,6 @@ $(document).ready ->
         return signin response, response and !response.error ,'google_oauth2'
       return
     return
-  # PERSONA
-  $.getScript 'https://login.persona.org/include.js', ->
-    $('#persona-login').removeAttr('disabled').click (e) ->
-      e.preventDefault()
-      navigator.id.get (response) ->
-        return signin {assertion: response}, response != false ,'browser_id'
-      return
-    return
 # SIGNIN SECTION END
   return
 # ---
