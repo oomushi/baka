@@ -25,16 +25,16 @@ $font_0: Twit;
 $font_1: Cretino;
 
 //urls
-$url_0: url("/assets/theme-default/background.png");
-$url_1: url("/assets/theme-default/baka.png");
-$url_6: url("/assets/theme-default/smile.png");
-$url_22: url("/assets/theme-default/twit.eot");
-$url_23: url("/assets/theme-default/twit.woff");
-$url_24: url("/assets/theme-default/twit.ttf");
-$url_25: url("/assets/theme-default/cretino.eot");
-$url_26: url("/assets/theme-default/cretino.woff");
-$url_27: url("/assets/theme-default/cretino.ttf");
-$url_28: url("/assets/theme-default/mfu_remove.svg");
+$url_0: url("/assets/background.png");
+$url_1: url("/assets/baka.png");
+$url_6: url("/assets/smile.png");
+$url_22: url("/assets/twit.eot");
+$url_23: url("/assets/twit.woff");
+$url_24: url("/assets/twit.ttf");
+$url_25: url("/assets/cretino.eot");
+$url_26: url("/assets/cretino.woff");
+$url_27: url("/assets/cretino.ttf");
+$url_28: url("/assets/mfu_remove.svg");
 
 body {
   background: $color_botticelli_approx $url_0 no-repeat fixed left bottom;

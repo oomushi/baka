@@ -5,7 +5,7 @@
     <th><%= t(:name) %></th>
     <th><%= t(:level) %></th>
     <th><%= t(:users_number) %></th>
-    <th><%= link_to image_tag("theme-default/new.svg", alt: "add"), new_group_path,title: t(:new),class: "button" %></th>
+    <th><%= link_to image_tag("new.svg", alt: "add"), new_group_path,title: t(:new),class: "button" %></th>
   </tr>
 
 <% @groups.each do |group| %>
@@ -19,7 +19,7 @@
         <%= group.users.count %>
       <% end %>
     </td>
-    <td><%= link_to image_tag("theme-default/edit.svg", alt: "edit"), edit_group_path(group),title: t(:edit),class: "button" %></td>
+    <td><%= link_to image_tag("edit.svg", alt: "edit"), edit_group_path(group),title: t(:edit),class: "button" %></td>
   </tr>
 <% end %>
 </table>
