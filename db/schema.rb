@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -9,114 +8,139 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150424090203) do
+ActiveRecord::Schema.define(version: 2019_07_14_092120) do
 
-  create_table "answers", :force => true do |t|
-    t.string   "text",       :null => false
-    t.integer  "poll_id",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "choice_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["choice_id"], name: "index_answers_on_choice_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
-  create_table "answers_users", :id => false, :force => true do |t|
-    t.integer "user_id",   :null => false
-    t.integer "answer_id", :null => false
+  create_table "attachments", force: :cascade do |t|
+    t.string "name"
+    t.string "content_type"
+    t.binary "file"
+    t.bigint "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_attachments_on_message_id"
   end
 
-  add_index "answers_users", ["user_id", "answer_id"], :name => "index_poll_options_users_on_user_id_and_poll_option_id", :unique => true
-
-  create_table "attachments", :force => true do |t|
-    t.string   "name"
-    t.string   "content_type"
-    t.binary   "file"
-    t.integer  "message_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+  create_table "avatars", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "url"
+    t.binary "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_avatars_on_user_id"
   end
 
-  create_table "avatars", :force => true do |t|
-    t.integer  "user_id",                                           :null => false
-    t.string   "url"
-    t.binary   "file",         :default => "\\xc289504e470d0a1a0a", :null => false
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
-    t.string   "content_type", :default => "image/png"
+  create_table "choices", force: :cascade do |t|
+    t.string "text"
+    t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_id"], name: "index_choices_on_poll_id"
   end
 
-  create_table "contacts", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "protocol"
-    t.string   "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "contacts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "protocol"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "level",      :default => 1
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id", :null => false
-    t.integer "user_id",  :null => false
+  create_table "likes", force: :cascade do |t|
+    t.bigint "message_id"
+    t.bigint "user_id"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_likes_on_message_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  add_index "groups_users", ["group_id", "user_id"], :name => "index_groups_users_on_group_id_and_user_id", :unique => true
-
-  create_table "likes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "message_id"
-    t.integer  "value",      :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "group_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_memberships_on_group_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
-  add_index "likes", ["user_id", "message_id"], :name => "index_likes_on_user_id_and_message_id", :unique => true
-
-  create_table "messages", :force => true do |t|
-    t.text     "text",                                         :null => false
-    t.boolean  "section",                   :default => false
-    t.boolean  "pinned",                    :default => false
-    t.string   "title",                                        :null => false
-    t.integer  "message_id",                                   :null => false
-    t.integer  "user_id",                                      :null => false
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-    t.integer  "nv",           :limit => 8, :default => 0
-    t.integer  "dv",           :limit => 8, :default => 0
-    t.integer  "snv",          :limit => 8, :default => 0
-    t.integer  "sdv",          :limit => 8, :default => 0
-    t.boolean  "follow",                    :default => true
-    t.integer  "writer_id",                 :default => 1,     :null => false
-    t.integer  "reader_id",                 :default => 1,     :null => false
-    t.integer  "moderator_id",              :default => 2,     :null => false
+  create_table "messages", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.boolean "section"
+    t.boolean "pinned"
+    t.bigint "message_id"
+    t.bigint "user_id"
+    t.integer "nv"
+    t.integer "dv"
+    t.integer "snv"
+    t.integer "sdv"
+    t.boolean "follow"
+    t.bigint "writer_id"
+    t.bigint "reader_id"
+    t.bigint "moderator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_messages_on_message_id"
+    t.index ["moderator_id"], name: "index_messages_on_moderator_id"
+    t.index ["reader_id"], name: "index_messages_on_reader_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+    t.index ["writer_id"], name: "index_messages_on_writer_id"
   end
 
-  create_table "polls", :force => true do |t|
-    t.string   "title",      :null => false
-    t.integer  "message_id", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "polls", force: :cascade do |t|
+    t.string "title"
+    t.bigint "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_polls_on_message_id"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "username",         :null => false
-    t.string   "sign"
-    t.date     "birthday"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.string   "location"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "sign"
+    t.date "birthday"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "users", ["uid"], :name => "index_users_on_uid", :unique => true
-  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
-
+  add_foreign_key "answers", "choices"
+  add_foreign_key "answers", "users"
+  add_foreign_key "attachments", "messages"
+  add_foreign_key "avatars", "users"
+  add_foreign_key "choices", "polls"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "likes", "messages"
+  add_foreign_key "likes", "users"
+  add_foreign_key "memberships", "groups"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "messages", "groups", column: "moderator_id"
+  add_foreign_key "messages", "groups", column: "reader_id"
+  add_foreign_key "messages", "groups", column: "writer_id"
+  add_foreign_key "messages", "messages"
+  add_foreign_key "messages", "users"
+  add_foreign_key "polls", "messages"
 end

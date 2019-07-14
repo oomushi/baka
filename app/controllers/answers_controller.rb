@@ -1,32 +1,51 @@
 class AnswersController < ApplicationController
-  before_filter :require_login
+  before_action :set_answer, only: [:show, :update, :destroy]
 
-  # PUT /answers/1
-  # PUT /answers/1.json
-  def vote
-    @answer = Answer.find(params[:id])
-    enforce_vote_permission(@answer)
-    respond_to do |format|
-      if @answer.vote(@current_user)
-        format.html { redirect_to :back, notice: t(:ok_answers) }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to :back, status: :unprocessable_entity }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
-      end
+  # GET /answers
+  def index
+    @answers = Answer.all
+
+    render json: @answers
+  end
+
+  # GET /answers/1
+  def show
+    render json: @answer
+  end
+
+  # POST /answers
+  def create
+    @answer = Answer.new(answer_params)
+
+    if @answer.save
+      render json: @answer, status: :created, location: @answer
+    else
+      render json: @answer.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /answers/1
+  def update
+    if @answer.update(answer_params)
+      render json: @answer
+    else
+      render json: @answer.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /answers/1
-  # DELETE /answers/1.json
   def destroy
-    @answer = Answer.find(params[:id])
-    enforce_destroy_permission(@answer)
     @answer.destroy
-
-    respond_to do |format|
-      format.html { redirect_to answers_url }
-      format.json { head :no_content }
-    end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_answer
+      @answer = Answer.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def answer_params
+      params.require(:answer).permit(:choice_id, :user_id)
+    end
 end

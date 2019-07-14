@@ -1,93 +1,51 @@
 class GroupsController < ApplicationController
-  before_filter :require_login
-  
+  before_action :set_group, only: [:show, :update, :destroy]
+
   # GET /groups
-  # GET /groups.json
   def index
-    @groups = Group.order('level asc')
-    enforce_index_permission(Group)
-    
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @groups }
-    end
+    @groups = Group.all
+
+    render json: @groups
   end
 
   # GET /groups/1
-  # GET /groups/1.json
   def show
-    @group = Group.find(params[:id])
-    enforce_view_permission(@group)
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @group }
-    end
-  end
-
-  # GET /groups/new
-  # GET /groups/new.json
-  def new
-    @group = Group.new
-    enforce_create_permission(@group)
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @group }
-    end
-  end
-
-  # GET /groups/1/edit
-  def edit
-    @group = Group.find(params[:id])
-    enforce_update_permission(@group)
+    render json: @group
   end
 
   # POST /groups
-  # POST /groups.json
   def create
-    @group = Group.new(params[:group])
-    enforce_create_permission(@group)
-    
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to @group, notice: t(:ok_group_new) }
-        format.json { render json: @group, status: :created, location: @group }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    @group = Group.new(group_params)
+
+    if @group.save
+      render json: @group, status: :created, location: @group
+    else
+      render json: @group.errors, status: :unprocessable_entity
     end
   end
 
-  # PUT /groups/1
-  # PUT /groups/1.json
+  # PATCH/PUT /groups/1
   def update
-    params[:group][:user_ids] ||= []
-    @group = Group.find(params[:id])
-    enforce_update_permission(@group)
-    
-    respond_to do |format|
-      if @group.update_attributes(params[:group])
-        format.html { redirect_to @group, notice: t(:ok_group_edit) }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    if @group.update(group_params)
+      render json: @group
+    else
+      render json: @group.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /groups/1
-  # DELETE /groups/1.json
   def destroy
-    @group = Group.find(params[:id])
-    enforce_destroy_permission(@group)
     @group.destroy
-
-    respond_to do |format|
-      format.html { redirect_to groups_url }
-      format.json { head :no_content }
-    end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_group
+      @group = Group.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def group_params
+      params.require(:group).permit(:name, :level)
+    end
 end

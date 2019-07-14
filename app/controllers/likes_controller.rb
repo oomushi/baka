@@ -1,39 +1,51 @@
 class LikesController < ApplicationController
-  before_filter :require_login
-  
+  before_action :set_like, only: [:show, :update, :destroy]
+
+  # GET /likes
+  def index
+    @likes = Like.all
+
+    render json: @likes
+  end
+
+  # GET /likes/1
+  def show
+    render json: @like
+  end
+
   # POST /likes
-  # POST /likes.json
   def create
-    @like = Like.new(params[:like])
-    enforce_create_permission(@like)
+    @like = Like.new(like_params)
+
     if @like.save
-      redirect_to @like.message, notice: t(:ok_like_new)
+      render json: @like, status: :created, location: @like
     else
-      redirect_to @like.message
+      render json: @like.errors, status: :unprocessable_entity
     end
   end
 
-  # PUT /likes/1
-  # PUT /likes/1.json
+  # PATCH/PUT /likes/1
   def update
-    @like = Like.find(params[:id])
-    enforce_update_permission(@like)
-
-    if @like.update_attributes(params[:like])
-      redirect_to @like.message, notice: t(:ok_like_edit)
+    if @like.update(like_params)
+      render json: @like
     else
-      redirect_to @like.message
+      render json: @like.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /likes/1
-  # DELETE /likes/1.json
   def destroy
-    @like = Like.find(params[:id])
-    enforce_destroy_permission(@like)
-    
-    message=@like.message
     @like.destroy
-    redirect_to @like.message
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_like
+      @like = Like.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def like_params
+      params.require(:like).permit(:message_id, :user_id, :value)
+    end
 end

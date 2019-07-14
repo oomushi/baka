@@ -1,307 +1,33 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  date:
-    abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
-    abbr_month_names:
-    - 
-    - Jan
-    - Feb
-    - Mar
-    - Apr
-    - May
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Oct
-    - Nov
-    - Dec
-    day_names:
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
-    formats:
-      default: ! '%Y-%m-%d'
-      long: ! '%B %d, %Y'
-      short: ! '%b %d %Y'
-    month_names:
-    - 
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
-    order:
-    - :year
-    - :month
-    - :day
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: about 1 hour
-        other: about %{count} hours
-      about_x_months:
-        one: about 1 month
-        other: about %{count} months
-      about_x_years:
-        one: about 1 year
-        other: about %{count} years
-      almost_x_years:
-        one: almost 1 year
-        other: almost %{count} years
-      half_a_minute: half a minute
-      less_than_x_minutes:
-        one: less than a minute
-        other: less than %{count} minutes
-      less_than_x_seconds:
-        one: less than 1 second
-        other: less than %{count} seconds
-      over_x_years:
-        one: over 1 year
-        other: over %{count} years
-      x_days:
-        one: 1 day
-        other: ! '%{count} days'
-      x_minutes:
-        one: 1 minute
-        other: ! '%{count} minutes'
-      x_months:
-        one: 1 month
-        other: ! '%{count} months'
-      x_seconds:
-        one: 1 second
-        other: ! '%{count} seconds'
-    prompts:
-      day: Day
-      hour: Hour
-      minute: Minute
-      month: Month
-      second: Seconds
-      year: Year
-  errors: &errors
-    format: ! '%{attribute} %{message}'
-    messages:
-      accepted: must be accepted
-      blank: can't be blank
-      confirmation: doesn't match confirmation
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      odd: must be odd
-      record_invalid: ! 'Validation failed: %{errors}'
-      taken: has already been taken
-      too_long:
-        one: is too long (maximum is 1 character)
-        other: is too long (maximum is %{count} characters)
-      too_short:
-        one: is too short (minimum is 1 character)
-        other: is too short (minimum is %{count} characters)
-      wrong_length:
-        one: is the wrong length (should be 1 character)
-        other: is the wrong length (should be %{count} characters)
-    template:
-      body: ! 'There were problems with the following fields:'
-      header:
-        one: 1 error prohibited this %{model} from being saved
-        other: ! '%{count} errors prohibited this %{model} from being saved'
-  helpers:
-    select:
-      prompt: Please select
-    submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
-  number:
-    currency:
-      format:
-        delimiter: ! ','
-        format: ! '%u%n'
-        precision: 2
-        separator: .
-        significant: false
-        strip_insignificant_zeros: false
-        unit: $
-    format:
-      delimiter: ! ','
-      precision: 3
-      separator: .
-      significant: false
-      strip_insignificant_zeros: false
-    human:
-      decimal_units:
-        format: ! '%n %u'
-        units:
-          billion: Billion
-          million: Million
-          quadrillion: Quadrillion
-          thousand: Thousand
-          trillion: Trillion
-          unit: ''
-      format:
-        delimiter: ''
-        precision: 3
-        significant: true
-        strip_insignificant_zeros: true
-      storage_units:
-        format: ! '%n %u'
-        units:
-          byte:
-            one: Byte
-            other: Bytes
-          gb: GB
-          kb: KB
-          mb: MB
-          tb: TB
-    percentage:
-      format:
-        delimiter: ''
-    precision:
-      format:
-        delimiter: ''
-  support:
-    array:
-      last_word_connector: ! ', and '
-      two_words_connector: ! ' and '
-      words_connector: ! ', '
-  time:
-    am: am
-    formats:
-      default: ! '%a, %d %b %Y %H:%M:%S %z'
-      long: ! '%B %d, %Y %H:%M'
-      short: ! '%d %b %Y %H:%M'
-    pm: pm
-  add_answer: 'Add answer'
-  add_contacts: 'Add contact'
-  add_poll: 'Add poll'
-  attachments: 'Attachments'
-  avatar: 'Avatar'
-  back: 'Back'
-  baka: 'baka'
-  birthday: 'Birthday'
-  click_me: 'click to extend'
-  click2enable: 'click on label to enable'
-  close: close
-  confirm_email: 'Confirm your email account'
-  confirm_email_long: 'To confirm your email account click following link'
-  contacts: 'Contacts'
-  created_at: 'Created at'
-  destroy: 'Destroy'
-  destroy_confirm: 'Are you sure?'
-  duplicate_answer: 'this user already gives his option'
-  duplicate_like:  'like already posted'
-  edit: 'Edit'
-  email: 'Email'
-  emoji: 'Emoji'
-  footer_html: '%{baka} by %{oomushi}'
-  forgotten_password: 'forgotten password'
-  forgotten_password_long: 'your new password is'
-  groups: 'groups'
-  image_height: 'height to high'
-  image_type: 'invalid image type'
-  image_width: 'width to high'
-  header_edit_group: 'Editing group'
-  header_edit_message: 'Editing message'
-  header_edit_user: 'Editing user'
-  header_error_avatar: 'avatar can not be saved'
-  header_error_group: 'group can not be saved'
-  header_error_message: 'message can not be saved'
-  header_error_user: 'user can not be saved'
-  header_error_signup: 'user can not be created'
-  karma: 'Karma'
-  ko_captcha: 'captcha does not match'
-  ko_forgotten_password: 'cannot send your password'
-  ko_group_not_empty: 'cannot delete group with users'
-  ko_like_type: 'like value can only be whole number'
-  ko_like_value:  'can only be between -1 and 1'
-  ko_login: 'Invalid username or password'
-  ko_message_edit: 'message cannot be edited'
-  ko_message_reader: 'invalid reader level'
-  ko_message_readwrite: 'invalid reader/writer level'
-  ko_message_undeletable: 'cannot delete message with replyes'
-  ko_message_writer: 'invalid writer level'
-  ko_user_confirm: 'code not valid'
-  label: 'Label'
-  last_message: 'Last message'
-  level: 'Level'
-  listing_group: 'Listing groups'
-  listing_user: 'Listing users'
-  location: 'Location'
-  login: 'login'
-  logout: 'logout'
-  macrobug: 'Oomushi'
-  messages_number: 'Messages n.'
-  name: 'Name'
-  new: 'New'
-  new_reply: 'New reply'
-  new_message: 'Someone replied at one message followed by you'
-  object_not_found: 'Object not found'
-  ok_answers: 'Answer was successfully updated'
-  ok_avatar: 'Avatar was successfully updated'
-  ok_forgotten_password: 'Password sent'
-  ok_group_edit: 'Group was successfully updated'
-  ok_group_new: 'Group was successfully created'
-  ok_like_edit: 'Like was successfully updated'
-  ok_like_new: 'Like was successfully created'
-  ok_login: 'Logged in!'
-  ok_logout: 'Logged out!'
-  ok_message_edit: 'Message was successfully updated'
-  ok_message_new: 'Message was successfully created'
-  ok_user_edit:  'User was successfully updated'
-  ok_user_new: 'User was successfully created'
-  poll: 'Poll'
-  properties: 'Properties'
-  protocol: 'Protocol'
-  reply: 'Replay'
-  require_login: 'You must be logged in to access this section'
-  reset_password: 'Reset password'
-  result: 'Result'
-  search: 'search'
-  show: 'Show'
-  sign: 'Sign'
-  signup: 'Signup'
-  signup_date: 'Signup date'
-  tag: 'Tag'
-  text: 'Text'
-  thanx: 'Thank you'
-  title: 'Title'
-  total: 'Total'
-  unfollow: 'To unfollow'
-  username: 'Username'
-  users: 'Users'
-  users_number: 'Users number'
-  username_taken: 'Someone already has that username. Try another?'
-  unauthorizated: 'Unauthorizated access'
-  website: 'Website'
-  helpers:
-    label:
-      post:
-        username: 'Customized title'
+  hello: "Hello world"
