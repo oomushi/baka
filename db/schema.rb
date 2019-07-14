@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150219124642) do
+ActiveRecord::Schema.define(:version => 20150424090203) do
 
   create_table "answers", :force => true do |t|
     t.string   "text",       :null => false
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(:version => 20150219124642) do
   end
 
   create_table "avatars", :force => true do |t|
-    t.integer  "user_id",                                       :null => false
-    t.string   "url",          :default => "/assets/guest.png"
-    t.binary   "file"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.string   "content_type"
+    t.integer  "user_id",                                           :null => false
+    t.string   "url"
+    t.binary   "file",         :default => "\\xc289504e470d0a1a0a", :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+    t.string   "content_type", :default => "image/png"
   end
 
   create_table "contacts", :force => true do |t|
