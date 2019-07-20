@@ -25,6 +25,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  #match "*path", to: "application#catch_404", via: :all
+  #match "*path", to: redirect('/api-docs'), via: :all
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
