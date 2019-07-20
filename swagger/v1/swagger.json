@@ -5,6 +5,38 @@
     "version": "v1"
   },
   "paths": {
+    "/api/token": {
+      "post": {
+        "summary": "New Token",
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "body",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "token created"
+          }
+        }
+      }
+    },
     "/users": {
       "post": {
         "summary": "Creates a pet",
