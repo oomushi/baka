@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2019_07_20_073423) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.bigint "choice_id"
-    t.bigint "user_id"
+    t.bigint "choice_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["choice_id"], name: "index_answers_on_choice_id"
@@ -35,41 +35,41 @@ ActiveRecord::Schema.define(version: 2019_07_20_073423) do
   end
 
   create_table "avatars", force: :cascade do |t|
-    t.bigint "user_id"
-    t.text "url", default: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wcUBzIzZrD8tgAAAAxpVFh0Q29tbWVudAAAAAAAvK6ymQAAAAtJREFUCNdjYAACAAAFAAHiJgWbAAAAAElFTkSuQmCC"
+    t.bigint "user_id", null: false
+    t.text "url", default: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wcUBzIzZrD8tgAAAAxpVFh0Q29tbWVudAAAAAAAvK6ymQAAAAtJREFUCNdjYAACAAAFAAHiJgWbAAAAAElFTkSuQmCC", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_avatars_on_user_id"
   end
 
   create_table "choices", force: :cascade do |t|
-    t.string "text"
-    t.bigint "poll_id"
+    t.string "text", null: false
+    t.bigint "poll_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["poll_id"], name: "index_choices_on_poll_id"
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "protocol"
-    t.string "value"
+    t.bigint "user_id", null: false
+    t.string "protocol", null: false
+    t.string "value", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.integer "level"
+    t.string "name", null: false
+    t.integer "level", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|
-    t.bigint "message_id"
-    t.bigint "user_id"
-    t.integer "value"
+    t.bigint "message_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "value", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["message_id"], name: "index_likes_on_message_id"
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 2019_07_20_073423) do
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.bigint "group_id"
-    t.bigint "user_id"
+    t.bigint "group_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_memberships_on_group_id"
@@ -86,20 +86,20 @@ ActiveRecord::Schema.define(version: 2019_07_20_073423) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
-    t.boolean "section"
-    t.boolean "pinned"
-    t.bigint "message_id"
-    t.bigint "user_id"
-    t.integer "nv"
-    t.integer "dv"
-    t.integer "snv"
-    t.integer "sdv"
-    t.boolean "follow"
-    t.bigint "writer_id"
-    t.bigint "reader_id"
-    t.bigint "moderator_id"
+    t.string "title", null: false
+    t.text "text", null: false
+    t.boolean "section", default: false
+    t.boolean "pinned", default: false
+    t.bigint "message_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "nv", default: 0
+    t.bigint "dv", default: 0
+    t.bigint "snv", default: 0
+    t.bigint "sdv", default: 0
+    t.boolean "follow", default: true
+    t.bigint "writer_id", default: 1, null: false
+    t.bigint "reader_id", default: 1, null: false
+    t.bigint "moderator_id", default: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["message_id"], name: "index_messages_on_message_id"
@@ -110,16 +110,16 @@ ActiveRecord::Schema.define(version: 2019_07_20_073423) do
   end
 
   create_table "polls", force: :cascade do |t|
-    t.string "title"
-    t.bigint "message_id"
+    t.string "title", null: false
+    t.bigint "message_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["message_id"], name: "index_polls_on_message_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "sign"
+    t.string "username", null: false
+    t.text "sign"
     t.date "birthday"
     t.string "location"
     t.datetime "created_at", null: false

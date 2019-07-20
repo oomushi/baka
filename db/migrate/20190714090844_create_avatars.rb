@@ -1,9 +1,9 @@
 class CreateAvatars < ActiveRecord::Migration[5.2]
   def change
     create_table :avatars do |t|
-      t.references :user, foreign_key: true
+      t.references :user, foreign_key: true, null: false
       t.string :url
-      t.binary :file
+      t.binary :file, null: false
 
       t.timestamps
     end
