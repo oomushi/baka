@@ -3,14 +3,17 @@ class Api::MessagesController < ApplicationController
 
   # GET /messages
   def index
-    @messages = Message.all
-
-    render json: @messages
+    root=Message.first
+    redirect_to api_message_path root
   end
 
   # GET /messages/1
   def show
-    render json: @message
+    #@q = Message.search()
+    @root = Message.find(params[:id])
+    #@path=@root.paths(@current_user)
+    @messages = @root.section ? @root.childs(@current_user).order("pinned desc, section desc, created_at desc").page(params[:page]) : @root.ancestors(@current_user).page(params[:page])
+    render json: @messages
   end
 
   # POST /messages
