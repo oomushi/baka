@@ -1,4 +1,4 @@
-class MembershipsController < ApplicationController
+class Api::MembershipsController < ApplicationController
   before_action :set_membership, only: [:show, :update, :destroy]
 
   # GET /memberships

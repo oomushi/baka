@@ -1,16 +1,12 @@
-class AttachmentsController < ApplicationController
+class Api::AttachmentsController < ApplicationController
   before_action :set_attachment, only: [:show, :update, :destroy]
-
-  # GET /attachments
-  def index
-    @attachments = Attachment.all
-
-    render json: @attachments
-  end
 
   # GET /attachments/1
   def show
-    render json: @attachment
+    send_data(@attachment.file,
+              filename: @attachment.name,
+              type: @attachment.content_type,
+              disposition: 'inline')
   end
 
   # POST /attachments

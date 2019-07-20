@@ -1,4 +1,4 @@
-class PollsController < ApplicationController
+class Api::PollsController < ApplicationController
   before_action :set_poll, only: [:show, :update, :destroy]
 
   # GET /polls

@@ -1,4 +1,4 @@
-class AvatarsController < ApplicationController
+class Api::AvatarsController < ApplicationController
   before_action :set_avatar
 
   # GET /avatars/1

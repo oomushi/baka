@@ -1,4 +1,4 @@
-class ChoicesController < ApplicationController
+class Api::ChoicesController < ApplicationController
   before_action :set_choice, only: [:destroy]
   # POST /choices
   def create

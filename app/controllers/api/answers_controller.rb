@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Api::AnswersController < ApplicationController
   # POST /answers
   def create
     @answer = Answer.new(answer_params)

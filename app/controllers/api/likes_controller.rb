@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class Api::LikesController < ApplicationController
   before_action :set_like, only: [:update, :destroy]
 
   # POST /likes
