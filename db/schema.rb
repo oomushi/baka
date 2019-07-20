@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_092120) do
+ActiveRecord::Schema.define(version: 2019_07_20_073423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_092120) do
 
   create_table "avatars", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "url"
-    t.binary "file"
+    t.text "url", default: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wcUBzIzZrD8tgAAAAxpVFh0Q29tbWVudAAAAAAAvK6ymQAAAAtJREFUCNdjYAACAAAFAAHiJgWbAAAAAElFTkSuQmCC"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_avatars_on_user_id"
