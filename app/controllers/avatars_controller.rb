@@ -1,27 +1,9 @@
 class AvatarsController < ApplicationController
-  before_action :set_avatar, only: [:show, :update, :destroy]
-
-  # GET /avatars
-  def index
-    @avatars = Avatar.all
-
-    render json: @avatars
-  end
+  before_action :set_avatar
 
   # GET /avatars/1
   def show
     render json: @avatar
-  end
-
-  # POST /avatars
-  def create
-    @avatar = Avatar.new(avatar_params)
-
-    if @avatar.save
-      render json: @avatar, status: :created, location: @avatar
-    else
-      render json: @avatar.errors, status: :unprocessable_entity
-    end
   end
 
   # PATCH/PUT /avatars/1

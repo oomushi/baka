@@ -1,17 +1,5 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: [:show, :update, :destroy]
-
-  # GET /likes
-  def index
-    @likes = Like.all
-
-    render json: @likes
-  end
-
-  # GET /likes/1
-  def show
-    render json: @like
-  end
+  before_action :set_like, only: [:update, :destroy]
 
   # POST /likes
   def create

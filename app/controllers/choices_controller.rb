@@ -1,33 +1,11 @@
 class ChoicesController < ApplicationController
-  before_action :set_choice, only: [:show, :update, :destroy]
-
-  # GET /choices
-  def index
-    @choices = Choice.all
-
-    render json: @choices
-  end
-
-  # GET /choices/1
-  def show
-    render json: @choice
-  end
-
+  before_action :set_choice, only: [:destroy]
   # POST /choices
   def create
     @choice = Choice.new(choice_params)
 
     if @choice.save
       render json: @choice, status: :created, location: @choice
-    else
-      render json: @choice.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /choices/1
-  def update
-    if @choice.update(choice_params)
-      render json: @choice
     else
       render json: @choice.errors, status: :unprocessable_entity
     end
