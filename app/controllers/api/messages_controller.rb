@@ -40,6 +40,23 @@ class Api::MessagesController < ApplicationController
   def destroy
     @message.destroy
   end
+  
+  # GET /message/search.json
+  def search
+    @q = Message.search(params[:q])
+    @messages=[]
+    @q.result(distinct: true).each do |m|
+      next if @messages.any?{ |d| d.ancestors(@current_user).include? m }
+      ancestors=m.ancestors(@current_user)
+      ancestors.each do |del|
+        i = @messages.find_index(del)
+        @messages.delete_at(i) if i
+      end
+      @messages << m
+    end
+#    enforce_view_permission(@messages)
+    render json: @messages
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

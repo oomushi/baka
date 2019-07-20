@@ -24,4 +24,10 @@ class User < ApplicationRecord
   def posts
     messages.where("section = ?", false)
   end
+  def as_json(options={})
+      super(except: [:password_digest])
+    end
+  def self.guest
+    Group.find(4).users.first
+  end
 end

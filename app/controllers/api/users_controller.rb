@@ -37,6 +37,17 @@ class Api::UsersController < ApplicationController
   def destroy
     @user.destroy
   end
+  
+  # GET /users/search
+  def search
+    string=request.GET[:term]
+    if request.GET[:exac].nil?
+      @users=User.where("username like ?","%#{string}%")
+    else
+      @users=User.where("username = ?",string)
+    end
+    render json: @users
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
