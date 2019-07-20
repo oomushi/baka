@@ -6,8 +6,8 @@ Rails.application.routes.draw do
       resources :memberships, only: [:create, :destroy]
     end
     resources :messages, shallow: true do
-      resources :polls, only: [:create, :destroy] do
-        resources :choices, only: [:create, :destroy] do
+      resources :polls, only: [:create, :update, :destroy] do
+        resources :choices, only: [:create, :update, :destroy] do
           resources :answers, only: [:create]
         end
       end

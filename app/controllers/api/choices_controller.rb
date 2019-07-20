@@ -1,5 +1,5 @@
 class Api::ChoicesController < ApplicationController
-  before_action :set_choice, only: [:destroy]
+  before_action :set_choice, only: [:update, :destroy]
   # POST /choices
   def create
     @choice = Choice.new(choice_params)
@@ -11,6 +11,15 @@ class Api::ChoicesController < ApplicationController
     end
   end
 
+  # PATCH/PUT /choices/1
+  def update
+    if @choice.update(choice_params)
+      render json: @choice
+    else
+      render json: @choice.errors, status: :unprocessable_entity
+    end
+  end
+  
   # DELETE /choices/1
   def destroy
     @choice.destroy

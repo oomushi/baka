@@ -1,17 +1,5 @@
 class Api::PollsController < ApplicationController
-  before_action :set_poll, only: [:show, :update, :destroy]
-
-  # GET /polls
-  def index
-    @polls = Poll.all
-
-    render json: @polls
-  end
-
-  # GET /polls/1
-  def show
-    render json: @poll
-  end
+  before_action :set_poll, only: [:update, :destroy]
 
   # POST /polls
   def create

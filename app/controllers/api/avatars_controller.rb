@@ -1,8 +1,8 @@
 class Api::AvatarsController < ApplicationController
   before_action :set_avatar
 
-  # GET /avatars/1
-  def show
+  # GET /avatars
+  def index
     render json: @avatar
   end
 
@@ -23,7 +23,7 @@ class Api::AvatarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_avatar
-      @avatar = Avatar.find(params[:id])
+      @avatar = User.find(params[:user_id]).avatar
     end
 
     # Only allow a trusted parameter "white list" through.

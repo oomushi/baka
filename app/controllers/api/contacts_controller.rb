@@ -3,7 +3,7 @@ class Api::ContactsController < ApplicationController
 
   # GET /contacts
   def index
-    @contacts = Contact.all
+    @contacts = User.find(params[:user_id]).contacts
 
     render json: @contacts
   end
