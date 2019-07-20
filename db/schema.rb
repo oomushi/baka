@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_07_20_073423) do
     t.text "text", null: false
     t.boolean "section", default: false
     t.boolean "pinned", default: false
-    t.bigint "message_id", null: false
+    t.bigint "message_id"
     t.bigint "user_id", null: false
     t.bigint "nv", default: 0
     t.bigint "dv", default: 0

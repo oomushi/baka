@@ -5,7 +5,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.string :text, null: false
       t.boolean :section, default: false
       t.boolean :pinned, default: false
-      t.references :message, foreign_key: true, null: false
+      t.references :message, foreign_key: true, null: true
       t.references :user, foreign_key: true, null: false
       t.integer :nv, default: 0, limit: 8
       t.integer :dv, default: 0, limit: 8
