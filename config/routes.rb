@@ -1,24 +1,30 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-  resources :answers, only: [:create]
-  resources :attachments
-  resources :avatars, only: [:show, :update, :destroy]
-  resources :choices, only: [:create, :destroy]
-  resources :contacts
-  resources :groups
-  resources :likes, only: [:create, :update,:destroy]
-  resources :memberships
-  resources :messages do
-    collection do
-      post 'search'
+  namespace :api do
+    resources :groups do
+      resources :memberships, only: [:create, :destroy]
+    end
+    resources :messages do
+      resources :polls, only: [:create, :destroy] do
+        resources :choices, only: [:create, :destroy] do
+          resources :answers, only: [:create]
+        end
+      end
+      resources :likes, only: [:create, :update,:destroy]
+      resources :attachments
+      collection do
+        post 'search'
+      end
+    end
+    resources :users do
+      resources :avatars, only: [:index, :update, :destroy]
+      resources :contacts
+      collection do 
+        get 'complete'
+      end
     end
   end
-  resources :polls
-  resources :users do
-    collection do 
-      get 'complete'
-    end
-  end
+  match "*path", to: "application#catch_404", via: :all
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
