@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  belongs_to :message, optional: true
+  belongs_to :message
   belongs_to :user
   has_many :messages
   has_many :likes,dependent: :destroy

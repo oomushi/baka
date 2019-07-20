@@ -26,7 +26,7 @@ guest=User.new(username: "guest")
 Contact.create(value: 'guest@baka.com', protocol: 'email', user: guest)
 guest.groups=[c]
 guest.save
-root=Message.create({
+root=Message.new({
   text: "Hidden text",
   title: "Baka",
   section: 1,
