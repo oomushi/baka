@@ -1,6 +1,6 @@
 class Api::MessagesController < ApplicationController
   before_action :set_message, only: [:show, :update, :destroy]
-
+  skip_before_action :check_token, only: [:show, :index, :search]
   # GET /messages
   def index
     root=Message.first

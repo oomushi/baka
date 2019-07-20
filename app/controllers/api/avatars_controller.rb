@@ -1,5 +1,6 @@
 class Api::AvatarsController < ApplicationController
   before_action :set_avatar
+  skip_before_action :check_token, only: [:index]
 
   # GET /avatars
   def index
